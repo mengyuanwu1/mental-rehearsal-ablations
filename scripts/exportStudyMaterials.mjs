@@ -7,6 +7,7 @@ const previewPath = path.join(outputDir, "maya_daily_scripts.md");
 
 const slotCount = 50;
 const trialsPerSlot = 6;
+const pairStep = 3;
 const conditions = ["baseline", "mind", "body", "soul", "full"];
 const scenarios = [
   "maya_daily",
@@ -62,7 +63,7 @@ function exportAssignments() {
     const offset = assignmentId % conditionPairs.length;
 
     for (let trialIndex = 0; trialIndex < trialsPerSlot; trialIndex += 1) {
-      const pairIndex = (offset + trialIndex) % conditionPairs.length;
+      const pairIndex = (offset + pairStep * trialIndex) % conditionPairs.length;
       const scenarioIndex = (trialIndex + 2 * block) % scenarios.length;
       const [firstCondition, secondCondition] = conditionPairs[pairIndex];
       const swap = shouldSwapOrder(assignmentId, trialIndex);

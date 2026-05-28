@@ -1,62 +1,22 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { spawnSync } from "node:child_process";
 import path from "node:path";
 import ts from "typescript";
 
 const repoRoot = path.resolve(".");
 const workspaceRoot = path.resolve("..");
+const backendRoot = path.join(workspaceRoot, "backend");
 const outputDir = path.join(repoRoot, "outputs");
 const jsonPath = path.join(outputDir, "llm_study_scripts.json");
 const mdPath = path.join(outputDir, "llm_study_scripts.md");
+const bundledJsonPath = path.join(repoRoot, "src", "data", "llmStudyScripts.json");
+const requestPlanPath = path.join(outputDir, "backend_study_request_plan.json");
+const backendResultPath = path.join(outputDir, "backend_study_generation_results.json");
+const backendRunnerPath = path.join(repoRoot, "scripts", "runBackendStudyGeneration.py");
 
-const arms = ["baseline", "mind", "body", "soul", "full"];
-
-function parseEnvFile(text) {
-  const values = {};
-  for (const rawLine of text.split(/\r?\n/)) {
-    const line = rawLine.trim();
-    if (!line || line.startsWith("#") || !line.includes("=")) continue;
-    const [rawKey, ...rest] = line.split("=");
-    const key = rawKey.replace(/^export\s+/, "").trim();
-    let value = rest.join("=").trim();
-    if (
-      (value.startsWith('"') && value.endsWith('"')) ||
-      (value.startsWith("'") && value.endsWith("'"))
-    ) {
-      value = value.slice(1, -1);
-    }
-    values[key] = value;
-  }
-  return values;
-}
-
-async function readEnvValue(keys) {
-  for (const key of keys) {
-    if (process.env[key]) return process.env[key].trim();
-  }
-
-  const envPaths = [
-    path.join(repoRoot, ".env.local"),
-    path.join(repoRoot, ".env"),
-    path.join(workspaceRoot, "backend", ".env.local"),
-    path.join(workspaceRoot, "backend", ".env"),
-    path.join(workspaceRoot, "frontend", ".env.local"),
-    path.join(workspaceRoot, "frontend", ".env"),
-  ];
-
-  for (const filePath of envPaths) {
-    let parsed;
-    try {
-      parsed = parseEnvFile(await readFile(filePath, "utf8"));
-    } catch {
-      continue;
-    }
-    for (const key of keys) {
-      if (parsed[key]) return parsed[key].trim();
-    }
-  }
-
-  return "";
-}
+const studyDate = "2026-05-28";
+const conditions = ["baseline", "mind", "body", "soul", "full"];
+const backendArms = ["mind", "body", "soul", "full"];
 
 async function loadStudyInputs() {
   const sourcePath = path.join(repoRoot, "src", "data", "studyInputs.ts");
@@ -73,358 +33,367 @@ async function loadStudyInputs() {
   return mod.studyInputScenarios;
 }
 
-function extractOutputText(payload) {
-  if (typeof payload.output_text === "string" && payload.output_text.trim()) {
-    return payload.output_text.trim();
-  }
-
-  const chunks = [];
-  for (const item of payload.output ?? []) {
-    for (const part of item.content ?? []) {
-      if (part.type === "output_text" && typeof part.text === "string") {
-        chunks.push(part.text);
-      }
-    }
-  }
-  return chunks.join("\n").trim();
-}
-
 function wordCount(text) {
   return text.trim().split(/\s+/).filter(Boolean).length;
 }
 
-function mindInputForScenario(scenario) {
-  const mind = { userGoal: scenario.mind.userGoal };
-  if (scenario.scope === "daily") {
-    mind.prioritySchedule = scenario.mind.prioritySchedule;
-  } else {
-    mind.focusTask = scenario.mind.focusTask;
-    mind.focusSubtasks = scenario.mind.focusSubtasks;
-  }
-  return mind;
+function firstName(name) {
+  return String(name || "").trim().split(/\s+/)[0] || "Participant";
 }
 
-function inputsForScenario(scenario) {
-  const mind = mindInputForScenario(scenario);
+function snakeFocusCues(focusCues) {
   return {
-    baseline: scenario.baselineInput,
-    mind,
-    body: scenario.energy,
-    soul: scenario.value,
-    full: {
-      mind,
-      body: scenario.energy,
-      value: scenario.value,
+    visual: focusCues?.visual ?? [],
+    auditory: focusCues?.auditory ?? [],
+    tactile_body: focusCues?.tactileBody ?? [],
+    smell: focusCues?.smell ?? [],
+    taste: focusCues?.taste ?? [],
+    other: focusCues?.other ?? [],
+  };
+}
+
+function backendCalendarEvent(event) {
+  return {
+    event_id: event.eventId,
+    title: event.title,
+    date: studyDate,
+    start_time: event.scheduledStart,
+    end_time: event.scheduledEnd,
+    duration_minutes: event.durationMinutes,
+    description: event.description ?? event.notes ?? event.note ?? undefined,
+    source: "native",
+  };
+}
+
+function backendTaskFromPriority(scenarioId, item) {
+  return {
+    task_id: `${scenarioId}-priority-${item.rank}`,
+    title: item.title,
+    status: item.rank === 1 ? "in_progress" : "pending",
+    priority: item.priority,
+    linked_value: item.linkedValue,
+    energy_cost: item.energyCost,
+    duration_minutes: item.durationMinutes,
+  };
+}
+
+function backendFocusTask(task) {
+  return {
+    task_id: task.taskId,
+    title: task.title,
+    status: "in_progress",
+    priority: task.priority,
+    project_title: task.projectTitle,
+    linked_value: task.linkedValue,
+    energy_cost: task.energyCost,
+    duration_minutes: task.durationMinutes,
+  };
+}
+
+function backendSubtasks(scenario) {
+  const focusTaskId = scenario.mind.focusTask?.taskId;
+  return (scenario.mind.focusSubtasks ?? []).map((subtask) => ({
+    subtask_id: subtask.subtaskId,
+    parent_task_id: focusTaskId,
+    title: subtask.title,
+    status: "pending",
+    order: subtask.order,
+    duration_minutes: subtask.durationMinutes,
+  }));
+}
+
+function backendHealth(scenario) {
+  const sleep = scenario.energy.sleepSummary ?? {};
+  const curveInputs = scenario.energy.energyCurveInputs ?? {};
+  return {
+    snapshot_date: studyDate,
+    source: "fitbit",
+    energy_level: scenario.energy.currentEnergyLevel,
+    sleep_hours: sleep.durationHours,
+    sleep_quality: sleep.sleepQualityScore,
+    resting_heart_rate: sleep.restingHeartRate,
+    hrv_ms: sleep.hrvMs,
+    steps: curveInputs.steps,
+    active_minutes: curveInputs.active_minutes,
+    calories_out: curveInputs.calories_out,
+    notes: scenario.energy.bodyState,
+    raw_data: {
+      sleep_summary: sleep,
+      activity_summary: scenario.energy.activitySummary,
+      recovery_summary: scenario.energy.recoverySummary,
+      energy_curve_inputs: curveInputs,
+    },
+    hourly_energy: (scenario.energy.hourlyEnergy ?? []).map((reading) => ({
+      hour: reading.hour,
+      energy_level: reading.energyLevel,
+    })),
+  };
+}
+
+function backendUserGoal(scenario) {
+  const userGoal = scenario.mind.userGoal;
+  return {
+    userid: userGoal.userid,
+    priority: {
+      title: userGoal.priority?.title,
+      description: userGoal.priority?.description,
+      detail: userGoal.priority?.detail,
+    },
+    goal_1: {
+      answers: userGoal.goal_1?.answers ?? {},
+      completed: userGoal.goal_1?.completed,
+      source: userGoal.goal_1?.source,
     },
   };
 }
 
-const systemPrompt = `You write experimental study stimuli for a mental-preparation comparison.
-
-Write one participant-facing script only. Do not mention arms, modules, bundles, prompts, models, missing fields, or experimental conditions.
-
-Critical ablation rule:
-- Use only the input JSON provided in the user message.
-- Treat every other module as unavailable, even if you can infer plausible details from names or context.
-- Do not import details from other conditions.
-
-Length target:
-- The script must be 220-300 words.
-- Keep it close in reading load to the other scripts.
-- Use three paragraphs.
-
-Style for mind/body/soul/full:
-- Cue-guided mental rehearsal imagery, sports-psychology-inspired but adapted for daily life.
-- Open a scene and invite the reader to imagine the rest.
-- Use imagery questions evenly: what might it feel like, what might the mind be thinking, what might the body notice.
-- Avoid direct commands like "you are doing X" as much as possible.
-
-Baseline special rule:
-- Baseline is not mental rehearsal imagery.
-- Baseline should simply help the user mentally prepare from the visible schedule or preparation list, in plain planning language.
-- Baseline should not include imagery questions.`;
-
-function armRule(arm, scenario) {
-  if (arm === "baseline") {
-    return `Generate the baseline script.
-
-Use only the visible schedule/preparation list and durations.
-Do not mention priority, rank, goals, life priority, values, desired feelings, body state, energy, sleep, HRV, recovery, activity, focus cues, environment cues, or sensory imagery.
-Use plain mental-preparation and planning language, not guided imagery.`;
-  }
-
-  if (arm === "mind") {
-    const scopeRule =
-      scenario.scope === "daily"
-        ? "For daily scope, use only the top 3 priority tasks in prioritySchedule as the task imagery sequence based on rank. Use each item's title, durationMinutes, priority, linkedValue, and order as light grounding cues. Use duration to ground the length and relative weight of the rehearsal."
-        : "For task scope, use focusTask plus focusSubtasks as the task imagery sequence. Use task title, durationMinutes, priority, linkedValue, subtask order, and subtask durations as light grounding cues.";
-    return `Generate the mind-only script.
-
-Use only MIND fields: userGoal plus the schedule/task fields provided.
-${scopeRule}
-Use userGoal and life priority only for larger-goal context.
-Do not mention body state, energy, sleep, HRV, recovery, activity, focus cues, environment cues, sensory scene details, value definitions, ideal life, or desired-feeling labels.`;
-  }
-
-  if (arm === "body") {
-    return `Generate the body-only script.
-
-Use only BODY fields: currentEnergyLevel, bodyState, sleepSummary, activitySummary, recoverySummary, hourlyEnergy, energyCurveInputs, and focusCues.
-Primary goal: grounding the body before activity. Start with breath, posture, physical sensation, current energy, and concrete focus cues.
-Translate sleep, activity, and recovery signals into plain body-state language.
-Do not mention schedule, priority, rank, goals, life priority, values, ideal life, desired feelings, or task titles not present in focusCues.`;
-  }
-
-  if (arm === "soul") {
-    return `Generate the value-only script.
-
-Use only VALUE fields: topValues, personalDefinition, feelsLikeLabels, dailySignLabels, and idealLife.
-Primary goal: remind the user what matters and help them imagine moving through the day with those values.
-Do not mention tasks, schedule, priority, rank, goals, life priority, body state, energy, sleep, HRV, recovery, activity, focus cues, or environment cues.`;
-  }
-
-  const taskRule =
-    scenario.scope === "daily"
-      ? "Task visualization: use the top 3 priority tasks in rank order, proportionally weighting longer tasks more than shorter tasks."
-      : "Task visualization: use focusTask and focusSubtasks in order, proportionally weighting longer subtasks more than shorter subtasks.";
-  return `Generate the full script.
-
-Use MIND, BODY, and VALUE fields together.
-Introduction: ground the body first with breath, posture, current energy, sleep/recovery language, and focus cues.
-${taskRule}
-Ending: connect back to the larger goal, life priority, values, ideal life, and credible belief that the user can move toward them.`;
+function backendValueClarifications(scenario) {
+  return (scenario.value.topValues ?? []).map((value) => ({
+    value_id: value.name,
+    feels_like_labels: value.feelsLikeLabels ?? [],
+    daily_sign_labels: value.dailySignLabels ?? [],
+    emoji: value.emoji,
+  }));
 }
 
-const schema = {
-  type: "object",
-  properties: {
-    script: { type: "string" },
-  },
-  required: ["script"],
-  additionalProperties: false,
-};
+function backendRequestFor(scenario, arm) {
+  const isDaily = scenario.scope === "daily";
+  const tasks = isDaily
+    ? (scenario.mind.prioritySchedule ?? []).map((item) =>
+        backendTaskFromPriority(scenario.id, item),
+      )
+    : [backendFocusTask(scenario.mind.focusTask)];
 
-function buildArmPrompt({ arm, scenario, allowedInput, repairNote }) {
-  return [
-    `Generate ONLY the ${arm} script for scenario ${scenario.id}.`,
-    `Scenario scope: ${scenario.scope}.`,
-    "",
-    armRule(arm, scenario),
-    "",
-    "Return JSON matching this shape exactly:",
-    '{ "script": "string" }',
-    "",
-    "Allowed input JSON:",
-    JSON.stringify(allowedInput, null, 2),
-    repairNote ? `\n${repairNote}` : "",
-  ].join("\n");
-}
-
-async function requestScript({ apiKey, baseUrl, payload }) {
-  const endpoint = `${baseUrl.replace(/\/$/, "")}/responses`;
-  let response = await fetch(endpoint, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
+  return {
+    arm,
+    scope: scenario.scope,
+    focus_task_id: isDaily ? null : scenario.mind.focusTask?.taskId,
+    user_id: scenario.persona.id,
+    date: studyDate,
+    display_name: firstName(scenario.persona.name),
+    selected_values: (scenario.value.topValues ?? []).map((value) => value.name),
+    sub_goals: scenario.persona.onboarding.customSubGoals ?? [],
+    goal_state: {
+      stage: "execute",
+      goal_title: scenario.mind.userGoal.goal_1?.answers?.what,
+      objective: scenario.mind.userGoal.goal_1?.answers?.what,
+      horizon: scenario.persona.onboarding.timeframe,
+      success_criteria: scenario.mind.userGoal.goal_1?.answers?.keySteps?.map(
+        (step) => step.target || step.label,
+      ) ?? [],
     },
-    body: JSON.stringify(payload),
-  });
-
-  if (!response.ok) {
-    const text = await response.text();
-    if (text.includes("reasoning.effort") && text.includes("unsupported_parameter")) {
-      const retryPayload = { ...payload };
-      delete retryPayload.reasoning;
-      response = await fetch(endpoint, {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${apiKey}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(retryPayload),
-      });
-      if (response.ok) return response.json();
-    }
-    throw new Error(`OpenAI API error ${response.status}: ${text}`);
-  }
-
-  return response.json();
-}
-
-function parseScript(raw) {
-  const parsed = JSON.parse(extractOutputText(raw));
-  if (!parsed || typeof parsed.script !== "string" || !parsed.script.trim()) {
-    throw new Error("OpenAI response did not include a non-empty script.");
-  }
-  return parsed.script.trim();
-}
-
-function validationIssues(script) {
-  const count = wordCount(script);
-  const issues = [];
-  if (count < 190 || count > 380) issues.push(`word count ${count} is outside 190-380`);
-  return issues;
-}
-
-async function generateArm({ apiKey, baseUrl, model, scenario, arm, allowedInput }) {
-  let repairNote = "";
-  let lastIssues = [];
-
-  for (let attempt = 1; attempt <= 3; attempt += 1) {
-    const raw = await requestScript({
-      apiKey,
-      baseUrl,
-      payload: {
-        model,
-        input: [
-          { role: "system", content: systemPrompt },
-          { role: "user", content: buildArmPrompt({ arm, scenario, allowedInput, repairNote }) },
-        ],
-        reasoning: { effort: "low" },
-        text: {
-          format: {
-            type: "json_schema",
-            name: `${scenario.id}_${arm}_script`,
-            strict: true,
-            schema,
-          },
-        },
-        max_output_tokens: 2048,
-      },
-    });
-
-    const script = parseScript(raw);
-    const issues = validationIssues(script);
-    if (issues.length === 0) {
-      return { script, model: raw.model || model, wordCount: wordCount(script) };
-    }
-
-    lastIssues = issues;
-    repairNote = `Previous attempt failed validation: ${issues.join("; ")}. Regenerate this script only. Keep 220-300 words and obey the ablation boundaries exactly.`;
-  }
-
-  throw new Error(`Could not generate ${scenario.id}/${arm}: ${lastIssues.join("; ")}`);
+    value_profile: {
+      active_values: (scenario.value.topValues ?? []).map((value) => value.name),
+      ideal_life_themes: scenario.value.idealLife?.lifeShapeLabels ?? [],
+    },
+    tasks,
+    calendar_events: isDaily
+      ? (scenario.mind.calendarEvents ?? []).map(backendCalendarEvent)
+      : [],
+    latest_health: backendHealth(scenario),
+    onboarding_values: (scenario.value.topValues ?? []).map((value) => ({
+      label: value.name,
+      definition: value.personalDefinition,
+    })),
+    onboarding_goal_label: scenario.mind.userGoal.goal_1?.answers?.what,
+    user_goal: backendUserGoal(scenario),
+    ideal_life: {
+      statement: scenario.value.idealLife?.statement,
+      life_shape_labels: scenario.value.idealLife?.lifeShapeLabels ?? [],
+    },
+    value_clarifications: backendValueClarifications(scenario),
+    focus_cues: snakeFocusCues(scenario.energy.focusCues),
+    subtasks: isDaily ? [] : backendSubtasks(scenario),
+  };
 }
 
 function scenarioMeta(scenario) {
   return {
     id: scenario.id,
     scope: scenario.scope,
+    contextTitle: scenario.contextTitle,
     persona: {
       name: scenario.persona.name,
       demographic: scenario.persona.demo,
       onboarding: scenario.persona.onboarding,
     },
-    contextTitle: scenario.contextTitle,
   };
 }
 
-async function writeArtifacts(artifact) {
-  const markdown = [
-    "# Real LLM Study Scripts",
+function buildRequestPlan(scenarios, requestedModel) {
+  return {
+    generatedAt: new Date().toISOString(),
+    requestedModel,
+    studyDate,
+    scenarios: scenarios.map((scenario) => ({
+      id: scenario.id,
+      scope: scenario.scope,
+      meta: scenarioMeta(scenario),
+      baseline: scenario.baselineInput,
+      requests: Object.fromEntries(
+        backendArms.map((arm) => [arm, backendRequestFor(scenario, arm)]),
+      ),
+    })),
+  };
+}
+
+function runBackendGeneration() {
+  const pythonPath = path.join(backendRoot, ".venv", "bin", "python");
+  const result = spawnSync(pythonPath, [backendRunnerPath, requestPlanPath, backendResultPath], {
+    cwd: backendRoot,
+    env: {
+      ...process.env,
+      OPENAI_MODEL:
+        process.env.ABLATION_OPENAI_MODEL || process.env.OPENAI_MODEL || "gpt-5.5",
+      REUSE_EXISTING_BACKEND_RESULTS:
+        process.env.REUSE_BACKEND_RESULTS === "1" ? "1" : "",
+    },
+    encoding: "utf8",
+    stdio: ["ignore", "pipe", "pipe"],
+  });
+
+  if (result.stdout) process.stdout.write(result.stdout);
+  if (result.stderr) process.stderr.write(result.stderr);
+  if (result.status !== 0) {
+    throw new Error(`Backend generation failed with exit code ${result.status}`);
+  }
+}
+
+function buildArtifact({ scenarios, requestPlan, backendResults }) {
+  const artifact = {
+    generatedAt: new Date().toISOString(),
+    requestedModel: requestPlan.requestedModel,
+    usedMock: false,
+    generationSource: "baseline=openai.vanilla_baseline_prompt; rehearsal=backend.generate_ablation_rehearsal",
+    scenarioMeta: {},
+    inputsByScenarioArm: {},
+    generationSourceByScenarioArm: {},
+    modelsByScenarioArm: {},
+    wordCounts: {},
+    scripts: {},
+    sectionsByScenarioArm: {},
+    omissionsByScenarioArm: {},
+    confidenceByScenarioArm: {},
+  };
+
+  for (const scenario of scenarios) {
+    const scenarioId = scenario.id;
+    artifact.scenarioMeta[scenarioId] = scenarioMeta(scenario);
+    artifact.inputsByScenarioArm[scenarioId] = {};
+    artifact.generationSourceByScenarioArm[scenarioId] = {};
+    artifact.modelsByScenarioArm[scenarioId] = {};
+    artifact.wordCounts[scenarioId] = {};
+    artifact.scripts[scenarioId] = {};
+    artifact.sectionsByScenarioArm[scenarioId] = {};
+    artifact.omissionsByScenarioArm[scenarioId] = {};
+    artifact.confidenceByScenarioArm[scenarioId] = {};
+
+    const baseline = backendResults.responses[scenarioId].baseline;
+    if (!baseline) {
+      throw new Error(`Missing generated baseline response for ${scenarioId}`);
+    }
+    artifact.inputsByScenarioArm[scenarioId].baseline = baseline.input;
+    artifact.generationSourceByScenarioArm[scenarioId].baseline =
+      baseline.generation_source ?? "openai.vanilla_baseline_prompt";
+    artifact.modelsByScenarioArm[scenarioId].baseline = baseline.model;
+    artifact.wordCounts[scenarioId].baseline = wordCount(baseline.script);
+    artifact.scripts[scenarioId].baseline = baseline.script;
+    artifact.sectionsByScenarioArm[scenarioId].baseline = null;
+    artifact.omissionsByScenarioArm[scenarioId].baseline = [];
+    artifact.confidenceByScenarioArm[scenarioId].baseline = "n/a";
+
+    for (const arm of backendArms) {
+      const response = backendResults.responses[scenarioId][arm];
+      artifact.inputsByScenarioArm[scenarioId][arm] = response.input;
+      artifact.generationSourceByScenarioArm[scenarioId][arm] =
+        "backend.generate_ablation_rehearsal";
+      artifact.modelsByScenarioArm[scenarioId][arm] = response.model;
+      artifact.wordCounts[scenarioId][arm] = wordCount(response.script);
+      artifact.scripts[scenarioId][arm] = response.script;
+      artifact.sectionsByScenarioArm[scenarioId][arm] = {
+        introduction: response.introduction,
+        task_completion: response.task_completion,
+        ending: response.ending,
+      };
+      artifact.omissionsByScenarioArm[scenarioId][arm] = response.omissions ?? [];
+      artifact.confidenceByScenarioArm[scenarioId][arm] = response.confidence;
+    }
+  }
+
+  artifact.usedMock = Object.values(backendResults.responses).some((scenarioResponses) =>
+    conditions.some((arm) => scenarioResponses[arm]?.used_mock),
+  );
+
+  return artifact;
+}
+
+function markdownForArtifact(artifact) {
+  return [
+    "# Backend Mental Rehearsal Study Scripts",
     "",
     `Generated at: ${artifact.generatedAt}`,
     `Requested model: ${artifact.requestedModel}`,
-    "Used mock: false",
+    `Generation source: ${artifact.generationSource}`,
+    `Any backend mock used: ${artifact.usedMock}`,
     "",
     ...Object.keys(artifact.scripts).flatMap((scenarioId) => [
       `# ${scenarioId}`,
       "",
       `Models by arm: ${JSON.stringify(artifact.modelsByScenarioArm[scenarioId])}`,
+      `Generation sources by arm: ${JSON.stringify(artifact.generationSourceByScenarioArm[scenarioId])}`,
       `Word counts: ${JSON.stringify(artifact.wordCounts[scenarioId])}`,
       "",
-      ...arms.flatMap((arm) => [
-        `## ${arm} input`,
-        "",
-        "```json",
-        JSON.stringify(artifact.inputsByScenarioArm[scenarioId][arm], null, 2),
-        "```",
-        "",
-        `## ${arm} script (${artifact.wordCounts[scenarioId][arm]} words)`,
-        "",
-        artifact.scripts[scenarioId][arm],
-        "",
-      ]),
+      ...conditions.flatMap((arm) => {
+        const sections = artifact.sectionsByScenarioArm[scenarioId][arm];
+        return [
+          `## ${arm} input`,
+          "",
+          "```json",
+          JSON.stringify(artifact.inputsByScenarioArm[scenarioId][arm], null, 2),
+          "```",
+          "",
+          sections
+            ? [
+                `## ${arm} sections`,
+                "",
+                `### Introduction\n${sections.introduction}`,
+                "",
+                `### Task visualization\n${sections.task_completion}`,
+                "",
+                `### Ending\n${sections.ending}`,
+                "",
+              ].join("\n")
+            : "",
+          `## ${arm} script (${artifact.wordCounts[scenarioId][arm]} words)`,
+          "",
+          artifact.scripts[scenarioId][arm],
+          "",
+        ];
+      }),
     ]),
   ].join("\n");
-
-  await mkdir(outputDir, { recursive: true });
-  await writeFile(jsonPath, `${JSON.stringify(artifact, null, 2)}\n`);
-  await writeFile(mdPath, markdown);
-}
-
-async function readExistingArtifact() {
-  if (process.env.FORCE_LLM_GENERATION === "1") return null;
-  try {
-    return JSON.parse(await readFile(jsonPath, "utf8"));
-  } catch {
-    return null;
-  }
 }
 
 async function main() {
-  const apiKey = await readEnvValue(["OPENAI_API_KEY", "EXPO_PUBLIC_OPENAI_API_KEY"]);
-  if (!apiKey) {
-    throw new Error("No OPENAI_API_KEY or EXPO_PUBLIC_OPENAI_API_KEY found.");
-  }
-
-  const model = (await readEnvValue(["ABLATION_OPENAI_MODEL", "OPENAI_MODEL"])) || "gpt-5.5";
-  const baseUrl =
-    (await readEnvValue(["OPENAI_BASE_URL", "EXPO_PUBLIC_OPENAI_BASE_URL"])) ||
-    "https://api.openai.com/v1";
+  const requestedModel = process.env.ABLATION_OPENAI_MODEL || process.env.OPENAI_MODEL || "gpt-5.5";
   const scenarios = await loadStudyInputs();
+  const requestPlan = buildRequestPlan(scenarios, requestedModel);
 
-  const existingArtifact = await readExistingArtifact();
-  const artifact = existingArtifact ?? {
-    generatedAt: new Date().toISOString(),
-    requestedModel: model,
-    usedMock: false,
-    scenarioMeta: {},
-    inputsByScenarioArm: {},
-    modelsByScenarioArm: {},
-    wordCounts: {},
-    scripts: {},
-  };
-  artifact.requestedModel = model;
-  artifact.usedMock = false;
-  artifact.scenarioMeta = Object.fromEntries(
-    scenarios.map((scenario) => [scenario.id, scenarioMeta(scenario)]),
-  );
+  await mkdir(outputDir, { recursive: true });
+  await writeFile(requestPlanPath, `${JSON.stringify(requestPlan, null, 2)}\n`);
 
-  for (const scenario of scenarios) {
-    const inputs = inputsForScenario(scenario);
-    artifact.inputsByScenarioArm[scenario.id] = inputs;
-    artifact.modelsByScenarioArm[scenario.id] ??= {};
-    artifact.wordCounts[scenario.id] ??= {};
-    artifact.scripts[scenario.id] ??= {};
+  runBackendGeneration();
 
-    for (const arm of arms) {
-      if (artifact.scripts[scenario.id][arm]) {
-        console.log(
-          `${scenario.id}/${arm}: already generated, ${artifact.wordCounts[scenario.id][arm]} words`,
-        );
-        continue;
-      }
+  const backendResults = JSON.parse(await readFile(backendResultPath, "utf8"));
+  const artifact = buildArtifact({ scenarios, requestPlan, backendResults });
+  const markdown = markdownForArtifact(artifact);
 
-      const result = await generateArm({
-        apiKey,
-        baseUrl,
-        model,
-        scenario,
-        arm,
-        allowedInput: inputs[arm],
-      });
-
-      artifact.scripts[scenario.id][arm] = result.script;
-      artifact.modelsByScenarioArm[scenario.id][arm] = result.model;
-      artifact.wordCounts[scenario.id][arm] = result.wordCount;
-      console.log(`${scenario.id}/${arm}: ${result.model}, ${result.wordCount} words`);
-      await writeArtifacts(artifact);
-    }
-  }
+  await writeFile(jsonPath, `${JSON.stringify(artifact, null, 2)}\n`);
+  await writeFile(bundledJsonPath, `${JSON.stringify(artifact, null, 2)}\n`);
+  await writeFile(mdPath, markdown);
 
   console.log(`Wrote ${jsonPath}`);
+  console.log(`Wrote ${bundledJsonPath}`);
   console.log(`Wrote ${mdPath}`);
 }
 

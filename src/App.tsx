@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
-import { getScenario } from "./data/scenarios";
-import { scriptForCondition } from "./data/scripts";
-import { assignmentIdFromParams, buildAssignment } from "./lib/assignment";
+import { getScenario, scenarios } from "./data/scenarios";
+import { scriptForCondition, scriptMetadataForCondition } from "./data/scripts";
+import { assignmentIdFromParams, buildAssignment, hashString } from "./lib/assignment";
 import {
   postQuestionnaire,
   postResponse,
@@ -22,9 +22,93 @@ const initialProlificId =
 
 const returnUrl = params.get("return_url") ?? params.get("redirect_url") ?? "";
 const debugMode = params.get("debug") === "1";
-const ratingScale = [1, 2, 3, 4, 5, 6, 7];
-const minimumComparisonSeconds = 60;
+const ratingScale = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const minimumComparisonSeconds = 45;
 const questionnaireVersion = "personalization-v2";
+const attentionCheckTrialIndexes = [1, 4];
+const attentionCheckTrialIndexSet = new Set(attentionCheckTrialIndexes);
+const attentionCheckKinds = ["task", "values", "energy"] as const;
+
+type AttentionCheckKind = (typeof attentionCheckKinds)[number];
+
+type AttentionCheckOption = {
+  id: string;
+  label: string;
+};
+
+type AttentionCheck = {
+  id: string;
+  kind: AttentionCheckKind;
+  prompt: string;
+  options: AttentionCheckOption[];
+  correctAnswer: string;
+};
+
+const seededOptions = (options: AttentionCheckOption[], seed: string) =>
+  [...options].sort((first, second) => {
+    const firstHash = hashString(`${seed}:${first.id}`);
+    const secondHash = hashString(`${seed}:${second.id}`);
+    return firstHash - secondHash || first.label.localeCompare(second.label);
+  });
+
+const attentionCheckLabel = (scenario: Scenario, kind: AttentionCheckKind) => {
+  switch (kind) {
+    case "task":
+      return scenario.contextTitle;
+    case "values":
+      return scenario.values.slice(0, 3).join(", ");
+    case "energy":
+      return scenario.bodyState;
+  }
+};
+
+const attentionCheckPrompt = (kind: AttentionCheckKind) => {
+  switch (kind) {
+    case "task":
+      return "Quick check: what was the scenario mainly about?";
+    case "values":
+      return "Quick check: which values were listed for this person?";
+    case "energy":
+      return "Quick check: which energy state was described for this person?";
+  }
+};
+
+function attentionCheckForTrial(
+  assignmentId: number,
+  trialIndex: number,
+  scenario: Scenario,
+): AttentionCheck | null {
+  if (!attentionCheckTrialIndexSet.has(trialIndex)) return null;
+
+  const checkIndex = attentionCheckTrialIndexes.indexOf(trialIndex);
+  const kind = attentionCheckKinds[(assignmentId + checkIndex) % attentionCheckKinds.length];
+  const correctAnswer = attentionCheckLabel(scenario, kind);
+  const correctOption = { id: `${scenario.id}:${kind}`, label: correctAnswer };
+  const seenLabels = new Set([correctAnswer]);
+  const candidateDistractors = seededOptions(
+    scenarios.map((item) => ({
+      id: `${item.id}:${kind}`,
+      label: attentionCheckLabel(item, kind),
+    })),
+    `${assignmentId}:${trialIndex}:${kind}:attention-distractors`,
+  );
+  const distractors: AttentionCheckOption[] = [];
+
+  for (const option of candidateDistractors) {
+    if (seenLabels.has(option.label)) continue;
+    seenLabels.add(option.label);
+    distractors.push(option);
+    if (distractors.length === 3) break;
+  }
+
+  return {
+    id: `scenario-${kind}-${trialIndex + 1}`,
+    kind,
+    prompt: attentionCheckPrompt(kind),
+    options: seededOptions([correctOption, ...distractors], `${assignmentId}:${trialIndex}:${kind}:attention-options`),
+    correctAnswer,
+  };
+}
 
 type QuestionnaireChoiceId =
   | "perspectivePreference"
@@ -371,7 +455,7 @@ export default function App() {
                 answer a few questions about your own preferences for a rehearsal guide.
               </p>
               <p>
-                Each comparison has a 1-minute review timer before you can continue, so please take
+                Each comparison has a 45-second review timer before you can continue, so please take
                 time to read both scripts before making your final choice.
               </p>
             </section>
@@ -418,6 +502,7 @@ function StudyTask({ participantId }: { participantId: string }) {
   const [leftRating, setLeftRating] = useState<number | null>(null);
   const [rightRating, setRightRating] = useState<number | null>(null);
   const [reason, setReason] = useState("");
+  const [attentionCheckAnswer, setAttentionCheckAnswer] = useState("");
   const [startedAt, setStartedAt] = useState(() => new Date().toISOString());
   const [postingError, setPostingError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -430,19 +515,29 @@ function StudyTask({ participantId }: { participantId: string }) {
   const scenario = getScenario(trial.scenarioId);
   const leftScript = scriptForCondition(scenario, trial.leftCondition);
   const rightScript = scriptForCondition(scenario, trial.rightCondition);
+  const leftScriptMeta = scriptMetadataForCondition(scenario, trial.leftCondition);
+  const rightScriptMeta = scriptMetadataForCondition(scenario, trial.rightCondition);
+  const attentionCheck = attentionCheckForTrial(assignment.assignmentId, trialIndex, scenario);
   const progressPercent = Math.round(
     ((Math.min(trialIndex, assignment.trials.length - 1) + 1) / assignment.trials.length) * 100,
   );
   const currentTrialResponse = responses.find((response) => response.trialIndex === trialIndex);
   const readingComplete = readingSecondsRemaining <= 0;
-  const canContinue = Boolean(choice && leftRating !== null && rightRating !== null && readingComplete && !isSubmitting);
+  const canContinue = Boolean(
+    choice &&
+      leftRating !== null &&
+      rightRating !== null &&
+      readingComplete &&
+      (!attentionCheck || attentionCheckAnswer) &&
+      !isSubmitting,
+  );
   const canGoBack = trialIndex > 0 && !isSubmitting;
   const footerStatus = postingError
     || (isSubmitting
       ? "Saving..."
       : readingComplete
         ? "Response saves after each trial."
-        : `Please spend at least 1 minute reviewing both scripts. Continue unlocks in ${formatCountdown(
+        : `Please spend at least 45 seconds reviewing both scripts. Continue unlocks in ${formatCountdown(
           readingSecondsRemaining,
         )}.`);
 
@@ -454,12 +549,14 @@ function StudyTask({ participantId }: { participantId: string }) {
       setLeftRating(currentTrialResponse.leftRating);
       setRightRating(currentTrialResponse.rightRating);
       setReason(currentTrialResponse.reason);
+      setAttentionCheckAnswer(currentTrialResponse.attentionCheckAnswer ?? "");
       setStartedAt(currentTrialResponse.startedAt || new Date().toISOString());
     } else {
       setChoice("");
       setLeftRating(null);
       setRightRating(null);
       setReason("");
+      setAttentionCheckAnswer("");
       setStartedAt(new Date().toISOString());
     }
     setPostingError("");
@@ -512,6 +609,16 @@ function StudyTask({ participantId }: { participantId: string }) {
       leftRating,
       rightRating,
       reason,
+      ...(attentionCheck
+        ? {
+            attentionCheckId: attentionCheck.id,
+            attentionCheckKind: attentionCheck.kind,
+            attentionCheckPrompt: attentionCheck.prompt,
+            attentionCheckAnswer,
+            attentionCheckCorrectAnswer: attentionCheck.correctAnswer,
+            attentionCheckPassed: attentionCheckAnswer === attentionCheck.correctAnswer,
+          }
+        : {}),
       startedAt,
       submittedAt: now,
       elapsedMs: Date.now() - new Date(startedAt).getTime(),
@@ -537,6 +644,7 @@ function StudyTask({ participantId }: { participantId: string }) {
     setLeftRating(null);
     setRightRating(null);
     setReason("");
+    setAttentionCheckAnswer("");
     setStartedAt(new Date().toISOString());
     setTrialIndex((current) => Math.min(current + 1, assignment.trials.length));
   }
@@ -629,7 +737,11 @@ function StudyTask({ participantId }: { participantId: string }) {
         <article className={`script-panel ${choice === "left" ? "selected" : ""}`}>
           <div className="script-heading">
             <h2>Script A</h2>
-            {debugMode ? <span>{trial.leftCondition}</span> : null}
+            {debugMode ? (
+              <span title={`${leftScriptMeta.source} / ${leftScriptMeta.model}`}>
+                {trial.leftCondition}
+              </span>
+            ) : null}
           </div>
           <div className="script-copy">{leftScript}</div>
           <button className="choice-button" onClick={() => setChoice("left")}>
@@ -640,7 +752,11 @@ function StudyTask({ participantId }: { participantId: string }) {
         <article className={`script-panel ${choice === "right" ? "selected" : ""}`}>
           <div className="script-heading">
             <h2>Script B</h2>
-            {debugMode ? <span>{trial.rightCondition}</span> : null}
+            {debugMode ? (
+              <span title={`${rightScriptMeta.source} / ${rightScriptMeta.model}`}>
+                {trial.rightCondition}
+              </span>
+            ) : null}
           </div>
           <div className="script-copy">{rightScript}</div>
           <button className="choice-button" onClick={() => setChoice("right")}>
@@ -669,7 +785,7 @@ function StudyTask({ participantId }: { participantId: string }) {
               </button>
             ))}
           </div>
-          <small>1 = not helpful, 7 = very helpful</small>
+          <small>1 = not helpful, 10 = very helpful</small>
         </div>
 
         <div className="rating-field" role="group" aria-label="Rate Script B">
@@ -686,8 +802,35 @@ function StudyTask({ participantId }: { participantId: string }) {
               </button>
             ))}
           </div>
-          <small>1 = not helpful, 7 = very helpful</small>
+          <small>1 = not helpful, 10 = very helpful</small>
         </div>
+
+        {attentionCheck ? (
+          <fieldset className="attention-check">
+            <legend>{attentionCheck.prompt}</legend>
+            <div className="attention-options">
+              {attentionCheck.options.map((option) => (
+                <label
+                  className={
+                    attentionCheckAnswer === option.label
+                      ? "attention-option selected"
+                      : "attention-option"
+                  }
+                  key={option.id}
+                >
+                  <input
+                    checked={attentionCheckAnswer === option.label}
+                    name={`attention-check-${attentionCheck.id}`}
+                    onChange={() => setAttentionCheckAnswer(option.label)}
+                    type="radio"
+                    value={option.label}
+                  />
+                  <span>{option.label}</span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+        ) : null}
 
         <label className="reason-field">
           <span>Optional note</span>
@@ -924,7 +1067,7 @@ function ScenarioTaskSummary({ scenario }: { scenario: Scenario }) {
           <ol>
             {scenario.focusSubtasks.map((subtask) => (
               <li key={subtask.order}>
-                {subtask.title} <small>{subtask.durationMinutes} min</small>
+                {subtask.title} {subtask.durationMinutes ? <small>{subtask.durationMinutes} min</small> : null}
               </li>
             ))}
           </ol>
@@ -934,18 +1077,36 @@ function ScenarioTaskSummary({ scenario }: { scenario: Scenario }) {
   }
 
   return (
-    <div>
-      <span>Top priorities</span>
-      <ol>
-        {scenario.topTasks.map((task) => (
-          <li key={task.rank}>
-            {task.title}{" "}
-            <small>
-              {task.scheduledStart && task.scheduledEnd ? `${task.scheduledStart}-${task.scheduledEnd}, ` : ""}
-              {task.durationMinutes} min
-            </small>
-          </li>
-        ))}
+    <div className="day-schedule-card">
+      <span>Day schedule</span>
+      <ol className="day-schedule-list">
+        {scenario.daySchedule.map((item) => {
+          const topPriorityRank = scenario.topTasks.find(
+            (task) =>
+              task.title === item.title &&
+              task.scheduledStart === item.scheduledStart &&
+              task.scheduledEnd === item.scheduledEnd,
+          )?.rank;
+
+          return (
+            <li className={topPriorityRank ? "ranked-schedule-item" : ""} key={item.eventId}>
+              <div className="schedule-item-heading">
+                {topPriorityRank ? (
+                  <span className="schedule-rank-badge" aria-label={`Top priority ${topPriorityRank}`}>
+                    {topPriorityRank}
+                  </span>
+                ) : null}
+                <div>
+                  <strong>{item.title}</strong>
+                  <small>
+                    {item.scheduledStart}-{item.scheduledEnd}, {item.durationMinutes} min
+                  </small>
+                </div>
+              </div>
+              {item.note ? <p>{item.note}</p> : null}
+            </li>
+          );
+        })}
       </ol>
     </div>
   );

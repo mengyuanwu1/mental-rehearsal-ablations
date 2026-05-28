@@ -1,5 +1,5 @@
 import { studyInputScenarios, type StudyInputScenario } from "./studyInputs";
-import type { PriorityTask, Scenario } from "../types";
+import type { DayScheduleItem, FocusSubtask, PriorityTask, Scenario } from "../types";
 
 function flattenFocusCues(input: StudyInputScenario): string[] {
   return Object.values(input.energy.focusCues).flatMap((items) => items);
@@ -27,6 +27,25 @@ function dailyTopTasks(input: StudyInputScenario): PriorityTask[] | undefined {
   }));
 }
 
+const kindLabel = (kind: string) =>
+  kind
+    .replaceAll("_", " ")
+    .replace(/\b\w/g, (letter) => letter.toUpperCase());
+
+function daySchedule(input: StudyInputScenario): DayScheduleItem[] {
+  return (
+    input.mind.calendarEvents?.map((event) => ({
+      eventId: event.eventId,
+      title: event.title,
+      kind: event.kind,
+      scheduledStart: event.scheduledStart,
+      scheduledEnd: event.scheduledEnd,
+      durationMinutes: event.durationMinutes,
+      note: event.notes || event.note || event.description || kindLabel(event.kind),
+    })) ?? []
+  );
+}
+
 export const scenarios: Scenario[] = studyInputScenarios.map((input) => {
   const values = input.value.topValues.map((value) => value.name);
   const fallbackLinkedValue = values[0] ?? "Focus";
@@ -47,10 +66,14 @@ export const scenarios: Scenario[] = studyInputScenarios.map((input) => {
     title: subtask.title,
     durationMinutes: subtask.durationMinutes,
   }));
+  const focusSubtasksWithDurations = focusSubtasks?.filter(
+    (subtask): subtask is FocusSubtask & { durationMinutes: number } =>
+      typeof subtask.durationMinutes === "number",
+  );
 
   const topTasks =
     dailyTopTasks(input) ??
-    focusSubtasks?.map((subtask) => ({
+    focusSubtasksWithDurations?.map((subtask) => ({
       rank: subtask.order,
       title: subtask.title,
       durationMinutes: subtask.durationMinutes,
@@ -77,6 +100,7 @@ export const scenarios: Scenario[] = studyInputScenarios.map((input) => {
     values,
     desiredFeelings: desiredFeelings(input),
     topTasks,
+    daySchedule: daySchedule(input),
     focusTask,
     focusSubtasks,
     baselineItems: input.baselineInput.visibleItems,

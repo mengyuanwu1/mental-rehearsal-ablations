@@ -73,7 +73,27 @@ goal_1: {
 }
 ```
 
-For daily scope, `prioritySchedule` should be the top ranked tasks with exact time assignment:
+For daily scope, `calendarEvents` should include the full day schedule in time order.
+`prioritySchedule` should separately contain only the top 3 ranked priority tasks. The
+mind-only rehearsal generator can use the full calendar for day-shape context, but the
+task imagery sequence should come from `prioritySchedule` only. Include `note`, `notes`,
+or `description` when the backend has extra context the participant should see:
+
+```ts
+calendarEvents: Array<{
+  eventId: string;
+  title: string;
+  kind: string;
+  scheduledStart: string;
+  scheduledEnd: string;
+  durationMinutes: number;
+  note?: string;
+  notes?: string;
+  description?: string;
+}>
+```
+
+The daily top-three priority schedule uses:
 
 ```ts
 prioritySchedule: Array<{
@@ -86,5 +106,18 @@ prioritySchedule: Array<{
   durationMinutes: number;
   scheduledStart: string;
   scheduledEnd: string;
+}>
+```
+
+For task scope, use `focusTask` plus ordered `focusSubtasks` instead of the whole daily
+priority schedule. Subtask timing is optional; omit `durationMinutes` when the backend
+does not have a reliable estimate.
+
+```ts
+focusSubtasks: Array<{
+  subtaskId: string;
+  title: string;
+  order: number;
+  durationMinutes?: number;
 }>
 ```

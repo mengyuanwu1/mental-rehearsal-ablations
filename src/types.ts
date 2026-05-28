@@ -10,6 +10,16 @@ export type PriorityTask = {
   linkedValue: string;
 };
 
+export type DayScheduleItem = {
+  eventId: string;
+  title: string;
+  kind: string;
+  scheduledStart: string;
+  scheduledEnd: string;
+  durationMinutes: number;
+  note?: string;
+};
+
 export type ScenarioScope = "daily" | "task";
 
 export type FocusTask = PriorityTask & {
@@ -19,7 +29,7 @@ export type FocusTask = PriorityTask & {
 export type FocusSubtask = {
   order: number;
   title: string;
-  durationMinutes: number;
+  durationMinutes?: number;
 };
 
 export type Scenario = {
@@ -40,6 +50,7 @@ export type Scenario = {
   values: string[];
   desiredFeelings: string[];
   topTasks: PriorityTask[];
+  daySchedule: DayScheduleItem[];
   focusTask?: FocusTask;
   focusSubtasks?: FocusSubtask[];
   baselineItems: string[];
@@ -70,6 +81,12 @@ export type TrialResponse = {
   leftRating: number;
   rightRating: number;
   reason: string;
+  attentionCheckId?: string;
+  attentionCheckKind?: string;
+  attentionCheckPrompt?: string;
+  attentionCheckAnswer?: string;
+  attentionCheckCorrectAnswer?: string;
+  attentionCheckPassed?: boolean;
   startedAt: string;
   submittedAt: string;
   elapsedMs: number;

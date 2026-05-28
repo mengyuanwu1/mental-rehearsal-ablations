@@ -15,6 +15,7 @@ export const conditionPairs: Array<[ConditionId, ConditionId]> = (() => {
 
 const SLOT_COUNT = 50;
 const TRIALS_PER_SLOT = 6;
+const PAIR_STEP = 3;
 
 export function hashString(input: string): number {
   let hash = 2166136261;
@@ -36,7 +37,7 @@ export function buildAssignment(assignmentId: number): Assignment {
   const trials: TrialAssignment[] = [];
 
   for (let trialIndex = 0; trialIndex < TRIALS_PER_SLOT; trialIndex += 1) {
-    const pairIndex = (offset + trialIndex) % conditionPairs.length;
+    const pairIndex = (offset + PAIR_STEP * trialIndex) % conditionPairs.length;
     const scenarioIndex = (trialIndex + 2 * block) % scenarios.length;
     const [firstCondition, secondCondition] = conditionPairs[pairIndex];
     const swap = shouldSwapOrder(normalizedId, trialIndex);
@@ -85,6 +86,7 @@ export function verifyAssignmentBalance(): {
   scenarioCounts: number[];
   pairScenarioCounts: number[][];
   duplicateScenarioSlots: number[];
+  baselineCountsBySlot: number[];
 } {
   const pairCounts = Array(conditionPairs.length).fill(0);
   const scenarioCounts = Array(scenarios.length).fill(0);
@@ -92,12 +94,15 @@ export function verifyAssignmentBalance(): {
     Array(scenarios.length).fill(0),
   );
   const duplicateScenarioSlots: number[] = [];
+  const baselineCountsBySlot: number[] = [];
 
   for (let assignmentId = 0; assignmentId < SLOT_COUNT; assignmentId += 1) {
     const assignment = buildAssignment(assignmentId);
     const seen = new Set<string>();
+    let baselineCount = 0;
     for (const trial of assignment.trials) {
       const scenarioIndex = scenarios.findIndex((scenario) => scenario.id === trial.scenarioId);
+      if (trial.leftCondition === "baseline" || trial.rightCondition === "baseline") baselineCount += 1;
       pairCounts[trial.pairIndex] += 1;
       scenarioCounts[scenarioIndex] += 1;
       pairScenarioCounts[trial.pairIndex][scenarioIndex] += 1;
@@ -106,7 +111,8 @@ export function verifyAssignmentBalance(): {
     if (seen.size !== assignment.trials.length) {
       duplicateScenarioSlots.push(assignmentId);
     }
+    baselineCountsBySlot.push(baselineCount);
   }
 
-  return { pairCounts, scenarioCounts, pairScenarioCounts, duplicateScenarioSlots };
+  return { pairCounts, scenarioCounts, pairScenarioCounts, duplicateScenarioSlots, baselineCountsBySlot };
 }

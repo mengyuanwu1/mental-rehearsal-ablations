@@ -1,6 +1,6 @@
 # Maya Daily LLM Scripts
 
-Generated at: 2026-05-28T20:27:54.974Z
+Generated at: 2026-05-28T21:01:25.112Z
 Requested model: gpt-5.5
 Models by arm: {"baseline":"gpt-5.5-2026-04-23","mind":"gpt-5.5-2026-04-23","body":"gpt-5.5-2026-04-23","soul":"gpt-5.5-2026-04-23","full":"gpt-5.5-2026-04-23"}
 Used mock: false
@@ -11,28 +11,64 @@ Used mock: false
 {
   "visibleScheduleOnly": [
     {
-      "title": "Draft related work section",
-      "durationMinutes": 90
-    },
-    {
-      "title": "Answer TA emails",
+      "title": "Review paper plan",
+      "scheduledStart": "08:15",
+      "scheduledEnd": "08:35",
       "durationMinutes": 20
     },
     {
-      "title": "Prepare two reading group questions",
+      "title": "Draft related work section",
+      "scheduledStart": "09:00",
+      "scheduledEnd": "10:30",
+      "durationMinutes": 90
+    },
+    {
+      "title": "Lab standup",
+      "scheduledStart": "10:45",
+      "scheduledEnd": "11:15",
       "durationMinutes": 30
+    },
+    {
+      "title": "Lunch break",
+      "scheduledStart": "12:10",
+      "scheduledEnd": "12:40",
+      "durationMinutes": 30
+    },
+    {
+      "title": "Answer TA emails",
+      "scheduledStart": "13:00",
+      "scheduledEnd": "13:20",
+      "durationMinutes": 20
+    },
+    {
+      "title": "Teaching support tasks",
+      "scheduledStart": "14:00",
+      "scheduledEnd": "14:45",
+      "durationMinutes": 45
+    },
+    {
+      "title": "Prepare two reading group questions",
+      "scheduledStart": "15:00",
+      "scheduledEnd": "15:30",
+      "durationMinutes": 30
+    },
+    {
+      "title": "Send advisor progress note",
+      "scheduledStart": "16:15",
+      "scheduledEnd": "16:35",
+      "durationMinutes": 20
     }
   ]
 }
 ```
 
-## baseline script (245 words)
+## baseline script (244 words)
 
-Today’s visible schedule has three planned work blocks: 90 minutes to draft the related work section, 20 minutes to answer TA emails, and 30 minutes to prepare two reading group questions. A useful way to prepare is to treat each block as a distinct item with its own beginning and ending. Before starting, note the total planned time: 140 minutes. That gives the day a clear structure without needing to add anything beyond what is listed.
+Today’s schedule begins with a short planning block: Review paper plan from 08:15 to 08:35 for 20 minutes. After a 25-minute gap, the next scheduled block is Draft related work section from 09:00 to 10:30 for 90 minutes. It may help to note the transition between these two items, since the first is brief and the second is the longest scheduled work period of the morning. After drafting, there is a 15-minute gap before Lab standup from 10:45 to 11:15 for 30 minutes.
 
-For the 90-minute related work section block, plan to use the time for drafting rather than for unrelated tasks. Since this is the longest item, it may help to begin by deciding what part of the section will be worked on first, then continue through the block until the scheduled time is complete. After that, the 20-minute TA email block can be handled as a shorter administrative task. The limited duration can support a simple approach: open the messages, answer what can be answered within the time, and stop when the block ends.
+There is then time before Lunch break, which is scheduled from 12:10 to 12:40 for 30 minutes. After lunch, Answer TA emails is scheduled from 13:00 to 13:20 for 20 minutes. This creates a compact early-afternoon administrative block, followed by a 40-minute gap before Teaching support tasks from 14:00 to 14:45 for 45 minutes. The next item follows soon after: Prepare two reading group questions from 15:00 to 15:30 for 30 minutes.
 
-The final listed item is 30 minutes to prepare two reading group questions. Since the output is specific, the time can be divided in a straightforward way: work toward one question, then the second, leaving a brief moment to check that both are usable. Moving through the schedule in order can reduce uncertainty. The main preparation is to know what is planned, how long each item has, and when to move on to the next task.
+The final scheduled item is Send advisor progress note from 16:15 to 16:35 for 20 minutes. Looking across the day, the schedule alternates between writing-related work, meetings or support tasks, and shorter communication items. A practical plan is to keep each block matched to its listed time, use the gaps to close one item before the next begins, and check the next start time before moving on. The day ends with a brief written update, so the earlier blocks can be handled with that final scheduled note in mind.
 ## mind input
 
 ```json
@@ -76,6 +112,72 @@ The final listed item is 30 minutes to prepare two reading group questions. Sinc
       }
     }
   },
+  "calendarEvents": [
+    {
+      "eventId": "maya-plan",
+      "title": "Review paper plan",
+      "kind": "planning",
+      "scheduledStart": "08:15",
+      "scheduledEnd": "08:35",
+      "durationMinutes": 20
+    },
+    {
+      "eventId": "maya-related-work",
+      "title": "Draft related work section",
+      "kind": "task",
+      "scheduledStart": "09:00",
+      "scheduledEnd": "10:30",
+      "durationMinutes": 90
+    },
+    {
+      "eventId": "maya-lab-standup",
+      "title": "Lab standup",
+      "kind": "meeting",
+      "scheduledStart": "10:45",
+      "scheduledEnd": "11:15",
+      "durationMinutes": 30
+    },
+    {
+      "eventId": "maya-lunch",
+      "title": "Lunch break",
+      "kind": "break",
+      "scheduledStart": "12:10",
+      "scheduledEnd": "12:40",
+      "durationMinutes": 30
+    },
+    {
+      "eventId": "maya-ta-email",
+      "title": "Answer TA emails",
+      "kind": "task",
+      "scheduledStart": "13:00",
+      "scheduledEnd": "13:20",
+      "durationMinutes": 20
+    },
+    {
+      "eventId": "maya-teaching-support",
+      "title": "Teaching support tasks",
+      "kind": "admin",
+      "scheduledStart": "14:00",
+      "scheduledEnd": "14:45",
+      "durationMinutes": 45
+    },
+    {
+      "eventId": "maya-reading-questions",
+      "title": "Prepare two reading group questions",
+      "kind": "task",
+      "scheduledStart": "15:00",
+      "scheduledEnd": "15:30",
+      "durationMinutes": 30
+    },
+    {
+      "eventId": "maya-advisor-note",
+      "title": "Send advisor progress note",
+      "kind": "admin",
+      "scheduledStart": "16:15",
+      "scheduledEnd": "16:35",
+      "durationMinutes": 20
+    }
+  ],
   "prioritySchedule": [
     {
       "rank": 1,
@@ -83,9 +185,7 @@ The final listed item is 30 minutes to prepare two reading group questions. Sinc
       "scheduledStart": "09:00",
       "scheduledEnd": "10:30",
       "durationMinutes": 90,
-      "priority": "high",
-      "linkedValue": "Success",
-      "energyCost": "high"
+      "priority": "high"
     },
     {
       "rank": 2,
@@ -93,9 +193,7 @@ The final listed item is 30 minutes to prepare two reading group questions. Sinc
       "scheduledStart": "13:00",
       "scheduledEnd": "13:20",
       "durationMinutes": 20,
-      "priority": "medium",
-      "linkedValue": "Open-Mindedness",
-      "energyCost": "low"
+      "priority": "medium"
     },
     {
       "rank": 3,
@@ -103,21 +201,19 @@ The final listed item is 30 minutes to prepare two reading group questions. Sinc
       "scheduledStart": "15:00",
       "scheduledEnd": "15:30",
       "durationMinutes": 30,
-      "priority": "medium",
-      "linkedValue": "Open-Mindedness",
-      "energyCost": "medium"
+      "priority": "medium"
     }
   ]
 }
 ```
 
-## mind script (281 words)
+## mind script (277 words)
 
-Begin with the larger arc of today: becoming an independent researcher, building judgment through the work of thinking and writing on questions worth defending. The month’s aim is one strong workshop paper submission by the end of June 2026, and today’s first ranked task carries the most weight. Imagine the 90-minute, high-priority stretch titled “Draft related work section,” linked with Success. What might it feel like to give this task enough room because it supports the paper directly? What might the mind be thinking as scattered sources become one coherent section draft? What might the body notice as the task has a clear beginning, a sustained middle, and a stopping point? Let the image include choosing what belongs, noticing what connects, and leaving behind a section that can be strengthened later.
+Picture the day as a series of mental checkpoints supporting the larger aim of becoming an independent researcher and submitting one strong workshop paper by the end of June 2026. At 08:15, Review paper plan lasts 20 minutes; what might the mind be thinking as the paper’s direction becomes clearer, especially the related work, gap statement, and eventual complete draft? Then at 09:00, Draft related work section lasts 90 minutes; what might it feel like to choose one thread, hold it in attention, and turn scattered readings into one coherent section draft? Let the rest of that work period remain open enough for judgment, revision, and decisions that can be defended later.
 
-Next, picture the second ranked task: “Answer TA emails,” a 20-minute, medium-priority item linked with Open-Mindedness. This is shorter and lighter in the day’s sequence, a contained response period rather than the main creative effort. What might it feel like to handle a defined set of messages without letting them expand beyond their place? What might the mind be thinking as each reply becomes a small clarification or next step? What might the body notice when a task has only 20 minutes and can be completed cleanly?
+At 10:45, Lab standup lasts 30 minutes; imagine entering that conversation with the paper plan still present in thought, and consider what the mind might be thinking when giving or hearing updates. At 12:10, Lunch break lasts 30 minutes; what might it feel like to let the morning’s research work settle without forcing the next answer immediately? At 13:00, Answer TA emails lasts 20 minutes; imagine handling those messages as a contained task, with the mind distinguishing quick replies from anything that should not expand beyond the allotted time.
 
-Finally, imagine the third ranked task: “Prepare two reading group questions,” 30 minutes, medium priority, also linked with Open-Mindedness. What might it feel like to turn reading into two useful questions? What might the mind be thinking as curiosity becomes wording another person can engage with? What might the body notice as this final preparation supports independent judgment in a modest, concrete way?
+At 14:00, Teaching support tasks lasts 45 minutes; what might the mind be thinking as administrative details are completed carefully, then mentally set aside? At 15:00, Prepare two reading group questions lasts 30 minutes; what might it feel like to form questions that sharpen independent judgment rather than simply summarize? At 16:15, Send advisor progress note lasts 20 minutes; imagine the note naming real progress, open uncertainties, and a next step your advisor can react to.
 ## body input
 
 ```json
@@ -165,13 +261,13 @@ Finally, imagine the third ranked task: “Prepare two reading group questions,�
 }
 ```
 
-## body script (279 words)
+## body script (251 words)
 
-Begin with the breath: a slow inhale, a longer exhale, and a moment to let the shoulders settle. Posture can be simple and supported, feet on the floor, contact points easy to feel. Current energy is a 3: low, but usable. After 5.5 hours of sleep, a late bedtime, some restlessness, low HRV, and a slightly elevated resting heart rate, the body may not feel fully restored. What might it feel like to meet that honestly—without forcing brightness, just noticing enough steadiness to begin?
+Begin with one slow breath in, and let the next breath leave without effort. Notice posture as something adjustable rather than fixed: feet on the floor, weight settling through the chair, shoulders able to soften a few millimeters. With current energy at 3, the body may feel low but still usable, not empty. What might it feel like to begin from that honest level, using only the steadiness available right now?
 
-Picture the immediate physical scene: laptop open to the paper draft, three anchor papers beside the keyboard, morning light coming through the window. The quiet apartment hum sits in the background. Coffee is nearby; coffee or water is available as a taste cue. Phone face down. What might the body notice here—the weight through the feet, the chair underneath, the hands near the keyboard, the first signs of warmth from the cup, the small lift that caffeine or hydration may offer? With 4200 steps and 22 active minutes already in the recent body record, there is some movement in the system, even if recovery is limited.
+The night gave 5.5 hours of sleep after a late bedtime, with some restlessness and 28 awake minutes. Sleep quality was moderate, but the shorter duration, low HRV, and resting heart rate of 73 suggest a system that may be carrying extra strain. Yesterday’s movement was present but not heavy: 4200 steps, 22 active minutes, 1900 calories out. What might the body notice as it takes this in—heavier eyelids, slower reactions, a need for warmth, coffee or water, or a clearer window forming later in the morning?
 
-Let the next few breaths be about conserving effort and finding a usable rhythm. What might the mind be thinking when the body is tired but not stopped: perhaps slower is still workable, perhaps steadier matters more than intense. The recovery signals—HRV 29 ms, resting heart rate 73 bpm—suggest a body that may benefit from grounding before activity. What might it feel like to begin from feet, breath, coffee scent, morning light, and the quiet room, allowing the body to organize around one calm physical cue at a time?
+Let the body orient to concrete cues: laptop open to the paper draft, three anchor papers beside the keyboard, morning light coming through the window. The quiet apartment hum can mark the background. Coffee is in reach; its smell and taste can be simple signals of arrival. The phone is face down. What might the mind be thinking when the body stays with these cues—less reaching, more settling, one breath and one contact point at a time? Feet on the floor, posture supported, energy conserved: enough steadiness to begin from the body first.
 ## soul input
 
 ```json
@@ -225,13 +321,13 @@ Let the next few breaths be about conserving effort and finding a usable rhythm.
 }
 ```
 
-## soul script (274 words)
+## soul script (256 words)
 
-Imagine the day as a quiet opening for what matters most: Independent Thinking, Success, and Open-Mindedness. Independent Thinking means trusting your own questions before borrowing other people’s. What might it feel like to move with that kind of self-trust: mentally clear, unboxed, able to give your own questions room? What might the mind be thinking when it remembers that a borrowed answer does not have to arrive before an honest question? There may be a simple steadiness in having room to think, and in making decisions faster because the inner signal is easier to hear.
+Picture the day as a blank page with your own questions written at the top. Independent Thinking is present as trusting your own questions before borrowing other people’s, a quality that may feel mentally clear, self-trusting, and unboxed. What might it feel like to have room to think before any outside answer becomes louder than your own? What might the mind be thinking when it recognizes, gently and quickly, “I can decide from here”? Imagine that clarity carrying you forward in a life where you think and write on your own questions.
 
-Success, here, is not a vague outside measure; it means finishing what matters. Imagine the day carrying that definition in the background, like a clean line to return to. What might it feel like to be accomplished, focused, and competent without needing to make it complicated? What might the mind be thinking when visible progress is enough evidence that the direction is real? There can be a sense of finishing what matters as a form of respect for your own attention, your own standards, and the future self who benefits from what becomes complete.
+Success can enter as a quiet sense of finishing what matters. Not as pressure, but as the feeling of being accomplished, focused, and competent while visible progress becomes easier to recognize. What might it feel like when finishing what matters is enough to steady the day? What might the mind be thinking when it notices progress without needing to over-explain it? Let the meaning of Success stay simple: finishing what matters, and letting that be seen by you.
 
-Open-Mindedness adds softness to the strength: staying curious about answers you did not expect. What might it feel like to be curious and supported by that curiosity, rather than threatened by surprise? What might the mind be thinking when learning something becomes part of the path instead of a detour? Let the larger picture stay close: a life where you think and write on your own questions, shaped by independent research and deep work mornings. The day can become one small expression of that life.
+Open-Mindedness may move beside these values as staying curious about answers you did not expect. It might feel curious and supported, with learning something becoming a daily sign that the page is still alive. What might it feel like to meet an unexpected answer without closing down? What might the mind be thinking when curiosity and self-trust are both allowed? Imagine the rest of the day shaped by independent research, deep work mornings, and the steady inner permission to think and write from your own questions.
 ## full input
 
 ```json
@@ -276,6 +372,72 @@ Open-Mindedness adds softness to the strength: staying curious about answers you
         }
       }
     },
+    "calendarEvents": [
+      {
+        "eventId": "maya-plan",
+        "title": "Review paper plan",
+        "kind": "planning",
+        "scheduledStart": "08:15",
+        "scheduledEnd": "08:35",
+        "durationMinutes": 20
+      },
+      {
+        "eventId": "maya-related-work",
+        "title": "Draft related work section",
+        "kind": "task",
+        "scheduledStart": "09:00",
+        "scheduledEnd": "10:30",
+        "durationMinutes": 90
+      },
+      {
+        "eventId": "maya-lab-standup",
+        "title": "Lab standup",
+        "kind": "meeting",
+        "scheduledStart": "10:45",
+        "scheduledEnd": "11:15",
+        "durationMinutes": 30
+      },
+      {
+        "eventId": "maya-lunch",
+        "title": "Lunch break",
+        "kind": "break",
+        "scheduledStart": "12:10",
+        "scheduledEnd": "12:40",
+        "durationMinutes": 30
+      },
+      {
+        "eventId": "maya-ta-email",
+        "title": "Answer TA emails",
+        "kind": "task",
+        "scheduledStart": "13:00",
+        "scheduledEnd": "13:20",
+        "durationMinutes": 20
+      },
+      {
+        "eventId": "maya-teaching-support",
+        "title": "Teaching support tasks",
+        "kind": "admin",
+        "scheduledStart": "14:00",
+        "scheduledEnd": "14:45",
+        "durationMinutes": 45
+      },
+      {
+        "eventId": "maya-reading-questions",
+        "title": "Prepare two reading group questions",
+        "kind": "task",
+        "scheduledStart": "15:00",
+        "scheduledEnd": "15:30",
+        "durationMinutes": 30
+      },
+      {
+        "eventId": "maya-advisor-note",
+        "title": "Send advisor progress note",
+        "kind": "admin",
+        "scheduledStart": "16:15",
+        "scheduledEnd": "16:35",
+        "durationMinutes": 20
+      }
+    ],
     "prioritySchedule": [
       {
         "rank": 1,
@@ -283,9 +445,7 @@ Open-Mindedness adds softness to the strength: staying curious about answers you
         "scheduledStart": "09:00",
         "scheduledEnd": "10:30",
         "durationMinutes": 90,
-        "priority": "high",
-        "linkedValue": "Success",
-        "energyCost": "high"
+        "priority": "high"
       },
       {
         "rank": 2,
@@ -293,9 +453,7 @@ Open-Mindedness adds softness to the strength: staying curious about answers you
         "scheduledStart": "13:00",
         "scheduledEnd": "13:20",
         "durationMinutes": 20,
-        "priority": "medium",
-        "linkedValue": "Open-Mindedness",
-        "energyCost": "low"
+        "priority": "medium"
       },
       {
         "rank": 3,
@@ -303,9 +461,7 @@ Open-Mindedness adds softness to the strength: staying curious about answers you
         "scheduledStart": "15:00",
         "scheduledEnd": "15:30",
         "durationMinutes": 30,
-        "priority": "medium",
-        "linkedValue": "Open-Mindedness",
-        "energyCost": "medium"
+        "priority": "medium"
       }
     ]
   },
@@ -402,10 +558,10 @@ Open-Mindedness adds softness to the strength: staying curious about answers you
 }
 ```
 
-## full script (277 words)
+## full script (275 words)
 
-Begin with the body as it is today: low but usable energy, about 3 out of 10, after 5.5 hours of sleep from a late 01:05 bedtime to a 06:40 wake time. Let the breath be simple and steady, the posture supported, feet on the floor. Recovery is not perfect: some restlessness, HRV at 29 ms, resting heart rate 73 bpm. Still, there is a steadier window later this morning. Around the quiet apartment hum, coffee or water nearby, phone face down, what might the body notice as it gathers just enough focus for the first important block? What might the mind be thinking as it chooses one clear next step rather than the whole month at once?
+Begin with the body as it is today: low but usable energy, after 5.5 hours of sleep, a late bedtime, some restlessness, low HRV, and a slightly elevated resting heart rate. Picture a simple morning setup: feet on the floor, posture supported, breath arriving without needing to be perfect. There may be coffee or water in reach, the quiet apartment hum, morning light through the window, the laptop open to the paper draft, three anchor papers beside the keyboard, and the phone face down. What might the body notice as it settles into this steadier window later in the morning?
 
-At 09:00, picture the laptop open to the paper draft, three anchor papers beside the keyboard, morning light at the window, and the related work section waiting for 90 minutes of careful attention. This is the largest effort of the day, connected to Success: finishing what matters, visible progress, one coherent section draft. What might it feel like to compare papers, find the thread, and let a paragraph become defendable? Later, at 13:00, the 20-minute TA email block can be smaller and contained, a chance for Open-Mindedness and clear replies. At 15:00, two reading group questions ask for curiosity about answers not expected.
+At 08:15, Review paper plan begins; what might the mind be thinking as the day’s research path becomes visible? At 09:00, Draft related work section: perhaps the page, the anchor papers, and one coherent section draft start to connect. At 10:45, Lab standup arrives; what might it feel like to speak from honest progress rather than perfection? At 12:10, Lunch break gives the system a pause. At 13:00, Answer TA emails may call for concise attention. At 14:00, Teaching support tasks ask for follow-through. At 15:00, Prepare two reading group questions invites curiosity. At 16:15, Send advisor progress note closes the loop with visible progress.
 
-These moments point toward one workshop paper submission by the end of June 2026, and beyond that, becoming an independent researcher. Today can be part of a life where thinking and writing on your own questions is real: independent research, deep work mornings, self-trusting judgment. Even with imperfect sleep, credible progress can happen in measured blocks.
+Let the larger direction come back into view: becoming an independent researcher, submitting one strong workshop paper by the end of June 2026, and building a life where thinking and writing on personal questions is real. Independent Thinking, Success, and Open-Mindedness can show up in small daily signs: room to think, finishing what matters, learning something. Even with imperfect recovery, this day can move one credible step toward that life.

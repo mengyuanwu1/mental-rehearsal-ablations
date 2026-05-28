@@ -11,9 +11,12 @@ Small static web UI for Prolific / Qualtrics pairwise comparison tasks.
 - 6 trials per participant
 - Each trial shows one scenario and two scripts from different conditions
 - Script order randomized per assignment slot / trial
+- Each participant sees 2-3 comparisons that include the `baseline` condition
 - After entering a Prolific ID, participants see a brief introduction to mental rehearsal and the study task
-- Each comparison requires a 1-minute review period before the participant can continue
+- Each comparison requires a 45-second review period before the participant can continue
 - Participants must choose one script and rate both scripts before continuing
+- Comparisons 2 and 5 include short attention checks that rotate across scenario task,
+  values, and energy-state questions
 - After the 6 comparisons, participants complete a final personalization questionnaire
 
 Across assignment ids `0` through `49`:
@@ -90,6 +93,8 @@ Trial sheet columns:
 ```text
 receivedAt, studyId, responseId, participantId, assignmentId, trialIndex, scenarioId,
 leftCondition, rightCondition, choice, leftRating, rightRating, reason,
+attentionCheckId, attentionCheckKind, attentionCheckPrompt, attentionCheckAnswer,
+attentionCheckCorrectAnswer, attentionCheckPassed,
 startedAt, submittedAt, elapsedMs, userAgent
 ```
 
@@ -111,8 +116,8 @@ with final model-generated scripts before launch. Keep condition labels hidden f
 participants; use `?debug=1` only for researcher QA.
 
 Scenario inputs live in `src/data/studyInputs.ts`. The UI derives its context banner
-from those inputs: daily scenarios show the top 3 ranked priorities, and task scenarios
-show the focus task plus subtasks.
+from those inputs: daily scenarios show the full day schedule with event notes and
+rank badges for the top 3 priorities, and task scenarios show the focus task plus subtasks.
 
 ## Development
 

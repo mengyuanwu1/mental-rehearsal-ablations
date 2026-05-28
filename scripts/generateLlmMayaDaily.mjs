@@ -80,9 +80,14 @@ const mayaDailyInput = {
   scope: "daily",
   baseline: {
     visibleScheduleOnly: [
-      { title: "Draft related work section", durationMinutes: 90 },
-      { title: "Answer TA emails", durationMinutes: 20 },
-      { title: "Prepare two reading group questions", durationMinutes: 30 },
+      { title: "Review paper plan", scheduledStart: "08:15", scheduledEnd: "08:35", durationMinutes: 20 },
+      { title: "Draft related work section", scheduledStart: "09:00", scheduledEnd: "10:30", durationMinutes: 90 },
+      { title: "Lab standup", scheduledStart: "10:45", scheduledEnd: "11:15", durationMinutes: 30 },
+      { title: "Lunch break", scheduledStart: "12:10", scheduledEnd: "12:40", durationMinutes: 30 },
+      { title: "Answer TA emails", scheduledStart: "13:00", scheduledEnd: "13:20", durationMinutes: 20 },
+      { title: "Teaching support tasks", scheduledStart: "14:00", scheduledEnd: "14:45", durationMinutes: 45 },
+      { title: "Prepare two reading group questions", scheduledStart: "15:00", scheduledEnd: "15:30", durationMinutes: 30 },
+      { title: "Send advisor progress note", scheduledStart: "16:15", scheduledEnd: "16:35", durationMinutes: 20 },
     ],
   },
   mind: {
@@ -123,6 +128,16 @@ const mayaDailyInput = {
         },
       },
     },
+    calendarEvents: [
+      { eventId: "maya-plan", title: "Review paper plan", kind: "planning", scheduledStart: "08:15", scheduledEnd: "08:35", durationMinutes: 20 },
+      { eventId: "maya-related-work", title: "Draft related work section", kind: "task", scheduledStart: "09:00", scheduledEnd: "10:30", durationMinutes: 90 },
+      { eventId: "maya-lab-standup", title: "Lab standup", kind: "meeting", scheduledStart: "10:45", scheduledEnd: "11:15", durationMinutes: 30 },
+      { eventId: "maya-lunch", title: "Lunch break", kind: "break", scheduledStart: "12:10", scheduledEnd: "12:40", durationMinutes: 30 },
+      { eventId: "maya-ta-email", title: "Answer TA emails", kind: "task", scheduledStart: "13:00", scheduledEnd: "13:20", durationMinutes: 20 },
+      { eventId: "maya-teaching-support", title: "Teaching support tasks", kind: "admin", scheduledStart: "14:00", scheduledEnd: "14:45", durationMinutes: 45 },
+      { eventId: "maya-reading-questions", title: "Prepare two reading group questions", kind: "task", scheduledStart: "15:00", scheduledEnd: "15:30", durationMinutes: 30 },
+      { eventId: "maya-advisor-note", title: "Send advisor progress note", kind: "admin", scheduledStart: "16:15", scheduledEnd: "16:35", durationMinutes: 20 },
+    ],
     prioritySchedule: [
       {
         rank: 1,
@@ -218,13 +233,28 @@ const mayaDailyInput = {
 
 const armOrder = ["baseline", "mind", "body", "soul", "full"];
 
+function taskForMindInput(task) {
+  const { linkedValue, energyCost, ...visibleTask } = task;
+  return visibleTask;
+}
+
+function mindInputForGeneration(mind) {
+  return {
+    userGoal: mind.userGoal,
+    calendarEvents: mind.calendarEvents,
+    prioritySchedule: mind.prioritySchedule.map(taskForMindInput),
+  };
+}
+
+const mayaMindInput = mindInputForGeneration(mayaDailyInput.mind);
+
 const armInputs = {
   baseline: mayaDailyInput.baseline,
-  mind: mayaDailyInput.mind,
+  mind: mayaMindInput,
   body: mayaDailyInput.body,
   soul: mayaDailyInput.value,
   full: {
-    mind: mayaDailyInput.mind,
+    mind: mayaMindInput,
     body: mayaDailyInput.body,
     value: mayaDailyInput.value,
   },
@@ -264,11 +294,13 @@ Use plain mental-preparation and planning language, not guided imagery.`,
 
   mind: `Generate the mind-only script.
 
-Use only MIND fields: userGoal and prioritySchedule.
-For daily scope, use only the top 3 priority tasks in prioritySchedule as the task imagery sequence based on rank.
-Use each item's title, durationMinutes, priority, linkedValue, and order as light grounding cues.
-Use duration to ground the length and relative weight of the rehearsal.
+Use only MIND fields: userGoal and calendarEvents.
+For daily scope, use the full calendarEvents list in time order as the rehearsal sequence.
+Use each event's title, scheduled time, durationMinutes, and notes/descriptions as grounding cues.
+Do not convert the day into a top-three list, priority ranking, or rank/order sequence.
+For task scope in other scenarios, use subtask durations only if they are present; do not invent timing estimates for subtasks.
 Use userGoal and life priority only for larger-goal context.
+Do not mention linked value tags, task value labels, or phrases like "linked with" / "connected to [value]".
 Do not mention body state, energy, sleep, HRV, recovery, activity, focus cues, environment cues, sensory scene details, value definitions, ideal life, or desired-feeling labels.`,
 
   body: `Generate the body-only script.
@@ -288,7 +320,7 @@ Do not mention tasks, schedule, priority, rank, goals, life priority, body state
 
 Use MIND, BODY, and VALUE fields together.
 Introduction: ground the body first with breath, posture, current energy, sleep/recovery language, and focus cues.
-Task visualization: use the top 3 priority tasks in rank order, proportionally weighting the 90-minute task more than the shorter tasks.
+Task visualization: use the full calendarEvents list in time order as the rehearsal sequence, including event notes/descriptions when present. Do not convert the day into a top-three list, priority ranking, or rank/order sequence.
 Ending: connect back to the larger goal, life priority, values, ideal life, and credible belief that the user can move toward them.`,
 };
 

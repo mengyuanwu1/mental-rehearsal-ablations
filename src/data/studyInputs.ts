@@ -72,6 +72,9 @@ export type CalendarEventSnapshot = {
   scheduledStart: string;
   scheduledEnd: string;
   durationMinutes: number;
+  note?: string;
+  notes?: string;
+  description?: string;
 };
 
 export type PriorityScheduleItem = {
@@ -140,7 +143,7 @@ export type StudyInputScenario = {
       subtaskId: string;
       title: string;
       order: number;
-      durationMinutes: number;
+      durationMinutes?: number;
     }>;
   };
   value: {
@@ -167,7 +170,7 @@ export const conditionInputRules: Record<StudyCondition, string> = {
   baseline:
     "Use only the visible schedule/task preparation context. Do not use body energy, life priority, ideal life, or value definitions.",
   mind:
-    "Use only MIND fields: user_goal plus full calendar events for orientation and prioritySchedule top-three tasks for daily rehearsal, or focusTask/focusSubtasks for task scope. Do not verbalize linked value tags.",
+    "Use only MIND fields: user_goal plus full calendar events with notes for daily rehearsal, or focusTask/focusSubtasks for task scope. Do not verbalize linked value tags.",
   body:
     "Use only BODY fields: current energy, observed summaries, hourly energy, and focus_cues. Do not use location or flattened environmental_cues.",
   soul:
@@ -179,7 +182,9 @@ export const conditionInputRules: Record<StudyCondition, string> = {
 const formatCalendarItems = (events: CalendarEventSnapshot[]) =>
   events.map(
     (event) =>
-      `${event.scheduledStart}-${event.scheduledEnd} ${event.title} - ${event.durationMinutes} min`,
+      `${event.scheduledStart}-${event.scheduledEnd} ${event.title} - ${event.durationMinutes} min${
+        event.notes || event.note || event.description ? ` - ${event.notes || event.note || event.description}` : ""
+      }`,
   );
 
 const mayaProfile = {
@@ -771,6 +776,7 @@ export const studyInputScenarios: StudyInputScenario[] = [
           source: "onboarding",
         },
       },
+      calendarEvents: mayaDailyCalendarEvents,
       prioritySchedule: [
         { rank: 1, title: "Draft related work section", kind: "task", priority: "high", linkedValue: "Success", energyCost: "high", durationMinutes: 90, scheduledStart: "09:00", scheduledEnd: "10:30" },
         { rank: 2, title: "Answer TA emails", kind: "task", priority: "medium", linkedValue: "Open-Mindedness", energyCost: "low", durationMinutes: 20, scheduledStart: "13:00", scheduledEnd: "13:20" },
@@ -779,8 +785,8 @@ export const studyInputScenarios: StudyInputScenario[] = [
     },
     value: mayaValue,
     baselineInput: {
-      preparationOnlyContext: "Daily preparation with three ranked tasks and durations.",
-      visibleItems: ["Draft related work section - 90 min", "Answer TA emails - 20 min", "Prepare two reading group questions - 30 min"],
+      preparationOnlyContext: "Daily preparation with the full calendar schedule and durations, without priority ranking.",
+      visibleItems: formatCalendarItems(mayaDailyCalendarEvents),
     },
   },
   {
@@ -870,6 +876,7 @@ export const studyInputScenarios: StudyInputScenario[] = [
           source: "onboarding",
         },
       },
+      calendarEvents: jonahDailyCalendarEvents,
       prioritySchedule: [
         { rank: 1, title: "Finalize launch risk brief", kind: "task", priority: "high", linkedValue: "Responsibility", energyCost: "high", durationMinutes: 60, scheduledStart: "09:30", scheduledEnd: "10:30" },
         { rank: 2, title: "Review support escalation notes", kind: "task", priority: "medium", linkedValue: "Clarity", energyCost: "medium", durationMinutes: 30, scheduledStart: "11:00", scheduledEnd: "11:30" },
@@ -878,8 +885,8 @@ export const studyInputScenarios: StudyInputScenario[] = [
     },
     value: jonahValue,
     baselineInput: {
-      preparationOnlyContext: "Daily preparation for launch review work.",
-      visibleItems: ["Finalize launch risk brief - 60 min", "Review support escalation notes - 30 min", "Draft meeting opening - 20 min"],
+      preparationOnlyContext: "Daily preparation with the full calendar schedule and durations, without priority ranking.",
+      visibleItems: formatCalendarItems(jonahDailyCalendarEvents),
     },
   },
   {
@@ -969,6 +976,7 @@ export const studyInputScenarios: StudyInputScenario[] = [
           source: "onboarding",
         },
       },
+      calendarEvents: priyaDailyCalendarEvents,
       prioritySchedule: [
         { rank: 1, title: "Review cardiac medication flashcards", kind: "task", priority: "high", linkedValue: "Competence", energyCost: "medium", durationMinutes: 45, scheduledStart: "08:15", scheduledEnd: "09:00" },
         { rank: 2, title: "Complete clinical reflection note", kind: "task", priority: "medium", linkedValue: "Care", energyCost: "medium", durationMinutes: 35, scheduledStart: "10:20", scheduledEnd: "10:55" },
@@ -977,8 +985,8 @@ export const studyInputScenarios: StudyInputScenario[] = [
     },
     value: priyaValue,
     baselineInput: {
-      preparationOnlyContext: "Daily preparation for exam review and clinical paperwork.",
-      visibleItems: ["Review cardiac medication flashcards - 45 min", "Complete clinical reflection note - 35 min", "Pack class materials - 15 min"],
+      preparationOnlyContext: "Daily preparation with the full calendar schedule and durations, without priority ranking.",
+      visibleItems: formatCalendarItems(priyaDailyCalendarEvents),
     },
   },
   {
@@ -1068,6 +1076,7 @@ export const studyInputScenarios: StudyInputScenario[] = [
           source: "onboarding",
         },
       },
+      calendarEvents: alexDailyCalendarEvents,
       prioritySchedule: [
         { rank: 1, title: "Build pitch deck narrative", kind: "task", priority: "high", linkedValue: "Originality", energyCost: "high", durationMinutes: 80, scheduledStart: "09:00", scheduledEnd: "10:20" },
         { rank: 2, title: "Export client-ready mockups", kind: "task", priority: "medium", linkedValue: "Reliability", energyCost: "medium", durationMinutes: 35, scheduledStart: "11:00", scheduledEnd: "11:35" },
@@ -1076,8 +1085,8 @@ export const studyInputScenarios: StudyInputScenario[] = [
     },
     value: alexValue,
     baselineInput: {
-      preparationOnlyContext: "Daily preparation for pitch deck and client admin.",
-      visibleItems: ["Build pitch deck narrative - 80 min", "Export client-ready mockups - 35 min", "Send invoice reminder - 10 min"],
+      preparationOnlyContext: "Daily preparation with the full calendar schedule and durations, without priority ranking.",
+      visibleItems: formatCalendarItems(alexDailyCalendarEvents),
     },
   },
   {
@@ -1167,6 +1176,7 @@ export const studyInputScenarios: StudyInputScenario[] = [
           source: "onboarding",
         },
       },
+      calendarEvents: serenaDailyCalendarEvents,
       prioritySchedule: [
         { rank: 1, title: "Draft argument section", kind: "task", priority: "high", linkedValue: "Justice", energyCost: "high", durationMinutes: 85, scheduledStart: "08:30", scheduledEnd: "09:55" },
         { rank: 2, title: "Confirm pickup logistics", kind: "task", priority: "medium", linkedValue: "Care", energyCost: "low", durationMinutes: 15, scheduledStart: "10:15", scheduledEnd: "10:30" },
@@ -1175,8 +1185,8 @@ export const studyInputScenarios: StudyInputScenario[] = [
     },
     value: serenaValue,
     baselineInput: {
-      preparationOnlyContext: "Daily preparation for brief drafting and time-sensitive logistics.",
-      visibleItems: ["Draft argument section - 85 min", "Confirm pickup logistics - 15 min", "Send case update - 25 min"],
+      preparationOnlyContext: "Daily preparation with the full calendar schedule and durations, without priority ranking.",
+      visibleItems: formatCalendarItems(serenaDailyCalendarEvents),
     },
   },
   {

@@ -3,7 +3,7 @@ var TRIAL_SHEET_NAME = "responses";
 var QUESTIONNAIRE_SHEET_NAME = "questionnaire_responses";
 var RESPONSE_SECRET = "6e5080ee019452f3275167dbd230593744baed57d6cea68b";
 
-var TRIAL_HEADERS = ["receivedAt", "studyId", "responseId", "participantId", "assignmentId", "trialIndex", "scenarioId", "leftCondition", "rightCondition", "choice", "leftRating", "rightRating", "reason", "startedAt", "submittedAt", "elapsedMs", "userAgent"];
+var TRIAL_HEADERS = ["receivedAt", "studyId", "responseId", "participantId", "assignmentId", "trialIndex", "scenarioId", "leftCondition", "rightCondition", "choice", "leftRating", "rightRating", "reason", "attentionCheckId", "attentionCheckKind", "attentionCheckPrompt", "attentionCheckAnswer", "attentionCheckCorrectAnswer", "attentionCheckPassed", "startedAt", "submittedAt", "elapsedMs", "userAgent"];
 var QUESTIONNAIRE_HEADERS = ["receivedAt", "studyId", "responseId", "participantId", "assignmentId", "questionnaireVersion", "perspectivePreference", "perspectivePreferenceOther", "guidanceLevel", "guidanceLevelOther", "backgroundAudio", "backgroundAudioOther", "scriptLength", "scriptLengthOther", "toneStyle", "toneStyleOther", "personalizationFocus", "personalizationFocusOther", "deliveryFormat", "deliveryFormatOther", "startedAt", "submittedAt", "elapsedMs", "userAgent", "idealMorningGuidance"];
 
 function setup() {
@@ -32,7 +32,7 @@ function appendTrialResponse_(payload) {
   var sheet = getOrCreateSheet_(TRIAL_SHEET_NAME);
   ensureHeaders_(sheet, TRIAL_HEADERS);
   var responseId = r.responseId || [r.participantId || "anonymous", valueOrBlank_(r.assignmentId), valueOrBlank_(r.trialIndex)].join(":");
-  var row = [new Date().toISOString(), payload.studyId || "", responseId, r.participantId || "", valueOrBlank_(r.assignmentId), valueOrBlank_(r.trialIndex), r.scenarioId || "", r.leftCondition || "", r.rightCondition || "", r.choice || "", valueOrBlank_(r.leftRating), valueOrBlank_(r.rightRating), r.reason || "", r.startedAt || "", r.submittedAt || "", valueOrBlank_(r.elapsedMs), r.userAgent || ""];
+  var row = [new Date().toISOString(), payload.studyId || "", responseId, r.participantId || "", valueOrBlank_(r.assignmentId), valueOrBlank_(r.trialIndex), r.scenarioId || "", r.leftCondition || "", r.rightCondition || "", r.choice || "", valueOrBlank_(r.leftRating), valueOrBlank_(r.rightRating), r.reason || "", r.attentionCheckId || "", r.attentionCheckKind || "", r.attentionCheckPrompt || "", r.attentionCheckAnswer || "", r.attentionCheckCorrectAnswer || "", valueOrBlank_(r.attentionCheckPassed), r.startedAt || "", r.submittedAt || "", valueOrBlank_(r.elapsedMs), r.userAgent || ""];
   upsertRow_(sheet, TRIAL_HEADERS, responseId, row);
 }
 

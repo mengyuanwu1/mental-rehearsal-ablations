@@ -1,7 +1,15 @@
-import type { ConditionId, PriorityTask, Scenario } from "../types";
-import studyLlmArtifact from "../../outputs/llm_study_scripts.json";
+import type { ConditionId, DayScheduleItem, PriorityTask, Scenario } from "../types";
+import studyLlmArtifact from "./llmStudyScripts.json";
 
 const llmScriptOverrides = studyLlmArtifact.scripts as Record<
+  string,
+  Partial<Record<ConditionId, string>>
+>;
+const llmModels = studyLlmArtifact.modelsByScenarioArm as Record<
+  string,
+  Partial<Record<ConditionId, string>>
+>;
+const llmSources = studyLlmArtifact.generationSourceByScenarioArm as Record<
   string,
   Partial<Record<ConditionId, string>>
 >;
@@ -10,6 +18,11 @@ const taskPhrase = (task: PriorityTask) => {
   const timeRange =
     task.scheduledStart && task.scheduledEnd ? `${task.scheduledStart}-${task.scheduledEnd}, ` : "";
   return `${timeRange}${task.durationMinutes} minutes on ${task.title.toLowerCase()}`;
+};
+
+const scheduleItemPhrase = (item: DayScheduleItem) => {
+  const note = item.note ? ` (${item.note})` : "";
+  return `${item.scheduledStart}-${item.scheduledEnd} ${item.title.toLowerCase()}, ${item.durationMinutes} minutes${note}`;
 };
 
 const fallbackTask = (scenario: Scenario): PriorityTask => ({
@@ -25,23 +38,39 @@ const rehearsalTasks = (scenario: Scenario): PriorityTask[] =>
 
 const taskList = (scenario: Scenario) => rehearsalTasks(scenario).map((task) => taskPhrase(task)).join(", then ");
 
+const focusSubtaskLine = (scenario: Scenario) => {
+  const subtasks = scenario.focusSubtasks ?? [];
+  if (!subtasks.length) return taskList(scenario);
+
+  return subtasks
+    .map((subtask) => `${subtask.title.toLowerCase()}${subtask.durationMinutes ? ` (${subtask.durationMinutes} minutes)` : ""}`)
+    .join(", then ");
+};
+
 const valueLine = (scenario: Scenario) =>
   `${scenario.values.slice(0, 3).join(", ")} -- aiming to feel ${scenario.desiredFeelings.slice(0, 3).join(", ")}.`;
 
 const baselinePlan = (scenario: Scenario) =>
-  scenario.baselineItems.length > 0 ? scenario.baselineItems.join(", then ") : taskList(scenario);
+  scenario.scope === "daily" && scenario.daySchedule.length > 0
+    ? scenario.daySchedule.map((item) => scheduleItemPhrase(item)).join(", then ")
+    : scenario.baselineItems.length > 0
+      ? scenario.baselineItems.join(", then ")
+      : taskList(scenario);
 
 const cueLine = (scenario: Scenario) => scenario.focusCues.slice(0, 4).join(", ");
 
 const taskSequenceLine = (scenario: Scenario, tasks: PriorityTask[]) => {
   if (scenario.scope === "task" && scenario.focusTask) {
-    return `Picture the focus task: ${scenario.focusTask.title}. Let the sequence move through ${taskList(scenario)}, with the longer pieces taking more mental space.`;
+    return `Picture the focus task: ${scenario.focusTask.title}. Let the sequence move through ${focusSubtaskLine(scenario)}.`;
   }
 
-  const [first, second, third] = tasks;
-  return `Picture rank 1 first: ${taskPhrase(first)}, the ${first.priority}-priority anchor. Then let rank 2 arrive as ${
-    second ? taskPhrase(second) : "the next priority"
-  }, followed by rank 3: ${third ? taskPhrase(third) : "the final priority anchor"}.`;
+  if (scenario.daySchedule.length > 0) {
+    return `Picture the whole day schedule in time order: ${scenario.daySchedule
+      .map((item) => scheduleItemPhrase(item))
+      .join(", then ")}. Let the notes beside each item help the transitions feel concrete without turning the day into a ranking exercise.`;
+  }
+
+  return `Picture the day moving through ${tasks.map((task) => taskPhrase(task)).join(", then ")}. Let the timing and duration of each block shape the rehearsal.`;
 };
 
 export function scriptForCondition(scenario: Scenario, condition: ConditionId): string {
@@ -60,6 +89,14 @@ export function scriptForCondition(scenario: Scenario, condition: ConditionId): 
       ].join("\n\n");
 
     case "mind":
+      if (scenario.scope === "daily") {
+        return [
+          `Let the larger aim appear in the background: ${scenario.userGoal}. It stays present but light, like context around today's schedule rather than pressure to rank the day.`,
+          taskSequenceLine(scenario, tasks),
+          `As each scheduled item arrives, imagine one clear transition into it and one note you would want to remember afterward. Each block can be part of ${scenario.lifePriority.toLowerCase()}, without needing to make every item equally important.`,
+        ].join("\n\n");
+      }
+
       return [
         `Let the larger aim appear in the background: ${scenario.userGoal}. It stays present but light, like context around today's ranked work. This image is not the whole goal and not the whole season. It is one rehearsal for the priority sequence in front of the user.`,
         taskSequenceLine(scenario, tasks),
@@ -81,6 +118,16 @@ export function scriptForCondition(scenario: Scenario, condition: ConditionId): 
       ].join("\n\n");
 
     case "full":
+      if (scenario.scope === "daily" && scenario.daySchedule.length > 0) {
+        return [
+          `Imagine arriving with today's real body state: ${scenario.bodyState.toLowerCase()} The scene does not need to become a perfect day. It can simply hold the schedule and the cues around it: ${cueLine(scenario)}.`,
+          `Let the full day unfold in order: ${scenario.daySchedule
+            .map((item) => scheduleItemPhrase(item))
+            .join(", then ")}. What might the mind notice at each transition? What might the body use as a simple reset before the next block begins?`,
+          `The image supports ${scenario.userGoal.toLowerCase()} and ${scenario.lifePriority.toLowerCase()} Let ${scenario.values.slice(0, 3).join(", ")} show up as visible action, not abstract pressure. What might it feel like to end the day with notes captured and the work moved forward in a way that feels ${scenario.desiredFeelings.slice(0, 2).join(" and ")}?`,
+        ].join("\n\n");
+      }
+
       return [
         `Imagine arriving with today's real body state: ${scenario.bodyState.toLowerCase()} The scene does not need to become a perfect day. It can simply hold some of the work: ${cueLine(scenario)}.`,
         `Let the sequence unfold as imagery: ${taskPhrase(first)} for the most important stretch${
@@ -89,4 +136,11 @@ export function scriptForCondition(scenario: Scenario, condition: ConditionId): 
         `The image supports ${scenario.userGoal.toLowerCase()} and ${scenario.lifePriority.toLowerCase()} Let ${scenario.values.slice(0, 3).join(", ")} show up as visible action, not abstract pressure. What might it feel like to end with the work moved forward in a way that feels ${scenario.desiredFeelings.slice(0, 2).join(" and ")}?`,
       ].join("\n\n");
   }
+}
+
+export function scriptMetadataForCondition(scenario: Scenario, condition: ConditionId) {
+  return {
+    model: llmModels[scenario.id]?.[condition] ?? "fallback-local",
+    source: llmSources[scenario.id]?.[condition] ?? "fallback-local",
+  };
 }
