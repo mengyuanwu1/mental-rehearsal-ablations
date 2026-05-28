@@ -1,9 +1,10 @@
 import type { ConditionId, PriorityTask, Scenario } from "../types";
-import mayaDailyLlmArtifact from "../../outputs/maya_daily_llm_scripts.json";
+import studyLlmArtifact from "../../outputs/llm_study_scripts.json";
 
-const llmScriptOverrides: Partial<Record<string, Partial<Record<ConditionId, string>>>> = {
-  maya_daily: mayaDailyLlmArtifact.scripts as Record<ConditionId, string>,
-};
+const llmScriptOverrides = studyLlmArtifact.scripts as Record<
+  string,
+  Partial<Record<ConditionId, string>>
+>;
 
 const taskPhrase = (task: PriorityTask) => {
   const timeRange =

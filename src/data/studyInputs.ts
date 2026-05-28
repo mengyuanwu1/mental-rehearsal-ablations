@@ -65,6 +65,27 @@ export type GoalAnswers = {
   how?: Record<string, string | boolean>;
 };
 
+export type CalendarEventSnapshot = {
+  eventId: string;
+  title: string;
+  kind: string;
+  scheduledStart: string;
+  scheduledEnd: string;
+  durationMinutes: number;
+};
+
+export type PriorityScheduleItem = {
+  rank: number;
+  title: string;
+  kind: "task";
+  priority: "high" | "medium" | "low";
+  linkedValue: string;
+  energyCost: "high" | "medium" | "low";
+  durationMinutes: number;
+  scheduledStart: string;
+  scheduledEnd: string;
+};
+
 export type StudyInputScenario = {
   id: string;
   scope: StudyScope;
@@ -102,17 +123,8 @@ export type StudyInputScenario = {
         source: "onboarding";
       };
     };
-    prioritySchedule?: Array<{
-      rank: number;
-      title: string;
-      kind: "task";
-      priority: "high" | "medium" | "low";
-      linkedValue: string;
-      energyCost: "high" | "medium" | "low";
-      durationMinutes: number;
-      scheduledStart: string;
-      scheduledEnd: string;
-    }>;
+    calendarEvents?: CalendarEventSnapshot[];
+    prioritySchedule?: PriorityScheduleItem[];
     focusTask?: {
       taskId: string;
       title: string;
@@ -155,7 +167,7 @@ export const conditionInputRules: Record<StudyCondition, string> = {
   baseline:
     "Use only the visible schedule/task preparation context. Do not use body energy, life priority, ideal life, or value definitions.",
   mind:
-    "Use only MIND fields: user_goal plus prioritySchedule for daily scope or focusTask/focusSubtasks for task scope.",
+    "Use only MIND fields: user_goal plus full calendar events for orientation and prioritySchedule top-three tasks for daily rehearsal, or focusTask/focusSubtasks for task scope. Do not verbalize linked value tags.",
   body:
     "Use only BODY fields: current energy, observed summaries, hourly energy, and focus_cues. Do not use location or flattened environmental_cues.",
   soul:
@@ -163,6 +175,12 @@ export const conditionInputRules: Record<StudyCondition, string> = {
   full:
     "Use MIND, BODY, and VALUE fields together.",
 };
+
+const formatCalendarItems = (events: CalendarEventSnapshot[]) =>
+  events.map(
+    (event) =>
+      `${event.scheduledStart}-${event.scheduledEnd} ${event.title} - ${event.durationMinutes} min`,
+  );
 
 const mayaProfile = {
   id: "maya",
@@ -664,6 +682,61 @@ const serenaGoalAnswers: GoalAnswers = {
   metric: "argument draft complete",
   deadline: "2026-05-28",
 };
+
+const mayaDailyCalendarEvents: CalendarEventSnapshot[] = [
+  { eventId: "maya-plan", title: "Review paper plan", kind: "planning", scheduledStart: "08:15", scheduledEnd: "08:35", durationMinutes: 20 },
+  { eventId: "maya-related-work", title: "Draft related work section", kind: "task", scheduledStart: "09:00", scheduledEnd: "10:30", durationMinutes: 90 },
+  { eventId: "maya-lab-standup", title: "Lab standup", kind: "meeting", scheduledStart: "10:45", scheduledEnd: "11:15", durationMinutes: 30 },
+  { eventId: "maya-lunch", title: "Lunch break", kind: "break", scheduledStart: "12:10", scheduledEnd: "12:40", durationMinutes: 30 },
+  { eventId: "maya-ta-email", title: "Answer TA emails", kind: "task", scheduledStart: "13:00", scheduledEnd: "13:20", durationMinutes: 20 },
+  { eventId: "maya-teaching-support", title: "Teaching support tasks", kind: "admin", scheduledStart: "14:00", scheduledEnd: "14:45", durationMinutes: 45 },
+  { eventId: "maya-reading-questions", title: "Prepare two reading group questions", kind: "task", scheduledStart: "15:00", scheduledEnd: "15:30", durationMinutes: 30 },
+  { eventId: "maya-advisor-note", title: "Send advisor progress note", kind: "admin", scheduledStart: "16:15", scheduledEnd: "16:35", durationMinutes: 20 },
+];
+
+const jonahDailyCalendarEvents: CalendarEventSnapshot[] = [
+  { eventId: "jonah-inbox", title: "Inbox triage", kind: "admin", scheduledStart: "08:45", scheduledEnd: "09:05", durationMinutes: 20 },
+  { eventId: "jonah-risk-brief", title: "Finalize launch risk brief", kind: "task", scheduledStart: "09:30", scheduledEnd: "10:30", durationMinutes: 60 },
+  { eventId: "jonah-eng-checkin", title: "Engineering check-in", kind: "meeting", scheduledStart: "10:40", scheduledEnd: "10:55", durationMinutes: 15 },
+  { eventId: "jonah-support-notes", title: "Review support escalation notes", kind: "task", scheduledStart: "11:00", scheduledEnd: "11:30", durationMinutes: 30 },
+  { eventId: "jonah-lunch", title: "Lunch break", kind: "break", scheduledStart: "12:15", scheduledEnd: "12:45", durationMinutes: 30 },
+  { eventId: "jonah-stakeholder-sync", title: "Stakeholder sync", kind: "meeting", scheduledStart: "13:00", scheduledEnd: "13:30", durationMinutes: 30 },
+  { eventId: "jonah-opening", title: "Draft meeting opening", kind: "task", scheduledStart: "14:10", scheduledEnd: "14:30", durationMinutes: 20 },
+  { eventId: "jonah-launch-review", title: "Launch review meeting", kind: "meeting", scheduledStart: "15:00", scheduledEnd: "16:00", durationMinutes: 60 },
+];
+
+const priyaDailyCalendarEvents: CalendarEventSnapshot[] = [
+  { eventId: "priya-commute", title: "Commute to campus", kind: "personal", scheduledStart: "07:35", scheduledEnd: "08:05", durationMinutes: 30 },
+  { eventId: "priya-flashcards", title: "Review cardiac medication flashcards", kind: "task", scheduledStart: "08:15", scheduledEnd: "09:00", durationMinutes: 45 },
+  { eventId: "priya-lecture", title: "Pharmacology lecture", kind: "class", scheduledStart: "09:15", scheduledEnd: "10:05", durationMinutes: 50 },
+  { eventId: "priya-reflection", title: "Complete clinical reflection note", kind: "task", scheduledStart: "10:20", scheduledEnd: "10:55", durationMinutes: 35 },
+  { eventId: "priya-lunch", title: "Lunch and reset", kind: "break", scheduledStart: "11:45", scheduledEnd: "12:15", durationMinutes: 30 },
+  { eventId: "priya-pack", title: "Pack materials for afternoon class", kind: "task", scheduledStart: "12:30", scheduledEnd: "12:45", durationMinutes: 15 },
+  { eventId: "priya-review-group", title: "Exam review group", kind: "class", scheduledStart: "13:00", scheduledEnd: "14:00", durationMinutes: 60 },
+  { eventId: "priya-clinical-checkin", title: "Clinical check-in message", kind: "admin", scheduledStart: "15:30", scheduledEnd: "15:45", durationMinutes: 15 },
+];
+
+const alexDailyCalendarEvents: CalendarEventSnapshot[] = [
+  { eventId: "alex-admin", title: "Client inbox and file check", kind: "admin", scheduledStart: "08:30", scheduledEnd: "08:50", durationMinutes: 20 },
+  { eventId: "alex-narrative", title: "Build pitch deck narrative", kind: "task", scheduledStart: "09:00", scheduledEnd: "10:20", durationMinutes: 80 },
+  { eventId: "alex-asset-review", title: "Review client assets", kind: "task", scheduledStart: "10:30", scheduledEnd: "10:50", durationMinutes: 20 },
+  { eventId: "alex-mockups", title: "Export client-ready mockups", kind: "task", scheduledStart: "11:00", scheduledEnd: "11:35", durationMinutes: 35 },
+  { eventId: "alex-lunch", title: "Lunch break", kind: "break", scheduledStart: "12:20", scheduledEnd: "12:50", durationMinutes: 30 },
+  { eventId: "alex-call-prep", title: "Prepare client call notes", kind: "meeting_prep", scheduledStart: "13:30", scheduledEnd: "14:00", durationMinutes: 30 },
+  { eventId: "alex-invoice", title: "Send invoice reminder", kind: "admin", scheduledStart: "14:40", scheduledEnd: "14:50", durationMinutes: 10 },
+  { eventId: "alex-client-call", title: "Client call", kind: "meeting", scheduledStart: "16:00", scheduledEnd: "16:45", durationMinutes: 45 },
+];
+
+const serenaDailyCalendarEvents: CalendarEventSnapshot[] = [
+  { eventId: "serena-dropoff", title: "School drop-off", kind: "personal", scheduledStart: "07:15", scheduledEnd: "07:50", durationMinutes: 35 },
+  { eventId: "serena-argument", title: "Draft argument section", kind: "task", scheduledStart: "08:30", scheduledEnd: "09:55", durationMinutes: 85 },
+  { eventId: "serena-pickup", title: "Confirm pickup logistics", kind: "personal", scheduledStart: "10:15", scheduledEnd: "10:30", durationMinutes: 15 },
+  { eventId: "serena-cocounsel", title: "Send case update to co-counsel", kind: "task", scheduledStart: "11:05", scheduledEnd: "11:30", durationMinutes: 25 },
+  { eventId: "serena-client-checkin", title: "Client check-in", kind: "meeting", scheduledStart: "12:00", scheduledEnd: "12:30", durationMinutes: 30 },
+  { eventId: "serena-lunch", title: "Lunch break", kind: "break", scheduledStart: "13:00", scheduledEnd: "13:25", durationMinutes: 25 },
+  { eventId: "serena-filing-check", title: "Filing window check", kind: "admin", scheduledStart: "14:30", scheduledEnd: "14:50", durationMinutes: 20 },
+  { eventId: "serena-family-pickup", title: "Afternoon pickup", kind: "personal", scheduledStart: "16:00", scheduledEnd: "16:30", durationMinutes: 30 },
+];
 
 export const studyInputScenarios: StudyInputScenario[] = [
   {

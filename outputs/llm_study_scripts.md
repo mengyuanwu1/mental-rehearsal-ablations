@@ -3174,3 +3174,2127 @@ Begin with the body that is already here: one breath that makes room in the ribs
 At 09:20, the scene opens around simulation lab preparation: Practice assessment sequence, high priority, connected with Care. First, for about 10 minutes, imagine reviewing the opening patient safety checks, one checklist pass at a time. What might the mind be thinking as each safety step becomes visible and less vague? Then the longer center of the practice, about 20 minutes, is walking through the assessment sequence aloud: words forming, pauses allowed, order becoming familiar through one full spoken rehearsal. What might the body notice as nervous energy turns into rhythm—breath, voice, shoulders, hands, and attention improving because the sequence is visible? Finally, for about 10 minutes, picture marking one question to ask the instructor, a single learning question that makes mistakes useful instead of threatening.
 
 This walk-through is not about being flawless before lab today; it is about entering prepared enough to learn from mistakes. The larger direction is building calm clinical judgment: becoming a capable nurse who can stay present under pressure, keep learning from practice, and offer steady care to patients. Care may look like staying attentive to the person in front of Priya. Competence may look like one sequence practiced. Learning may look like asking one good question. What might it feel like to move, credibly and gradually, toward a life of skilled care, clinical confidence, and steady presence?
+
+# alex_daily
+
+Models by arm: {"baseline":"gpt-5.5-2026-04-23","mind":"gpt-5.5-2026-04-23","body":"gpt-5.5-2026-04-23","soul":"gpt-5.5-2026-04-23","full":"gpt-5.5-2026-04-23"}
+Word counts: {"baseline":279,"mind":320,"body":337,"soul":266,"full":323}
+
+## baseline input
+
+```json
+{
+  "preparationOnlyContext": "Daily preparation for pitch deck and client admin.",
+  "visibleItems": [
+    "Build pitch deck narrative - 80 min",
+    "Export client-ready mockups - 35 min",
+    "Send invoice reminder - 10 min"
+  ]
+}
+```
+
+## baseline script (279 words)
+
+Today’s preparation is centered on the pitch deck and client admin. The visible plan includes three items: Build pitch deck narrative for 80 minutes, Export client-ready mockups for 35 minutes, and Send invoice reminder for 10 minutes. A useful way to prepare is to look at the day as a defined set of work blocks, with each block having a clear label and time limit. Before starting, it may help to note the total planned work time: 125 minutes. That makes the schedule easier to hold in mind as a sequence rather than as a general to-do list.
+
+For the 80-minute pitch deck narrative block, preparation can include deciding what materials need to be open before the timer begins and what counts as a usable stopping point when the block ends. Since this is the longest item, it may help to treat it as the main work period and keep its boundary clear. After that, the 35-minute mockup export block can be prepared as a production task: identify the files, export requirements, and any final naming or delivery steps that need to be completed within that time. Keeping this block specific can reduce time spent deciding what to do next.
+
+The 10-minute invoice reminder is short, so it can be prepared as a contained admin item. Before reaching it, it may help to know where the invoice information is and what message needs to be sent. Once the three items are reviewed, the day can be approached by following the listed order, using the stated durations as the guide. If one block reaches its time limit, the next planned item is already defined, which can make the transition simpler.
+
+## mind input
+
+```json
+{
+  "userGoal": {
+    "userid": "alex-morgan",
+    "priority": {
+      "title": "Build an independent creative practice",
+      "description": "Build an independent creative practice that supports originality, reliable client work, and financial steadiness."
+    },
+    "goal_1": {
+      "answers": {
+        "what": "Send a strong pitch deck before the client call",
+        "exactQuantity": {
+          "value": 1,
+          "unit": "client-ready pitch deck",
+          "description": "one exported deck ready before the call"
+        },
+        "exactDate": {
+          "label": "by 4:00 PM today",
+          "isoDate": "2026-05-28"
+        },
+        "keySteps": [
+          {
+            "id": "story",
+            "label": "Choose the core story arc",
+            "target": "one narrative direction"
+          },
+          {
+            "id": "slides",
+            "label": "Sequence strongest concept slides",
+            "target": "one deck flow"
+          },
+          {
+            "id": "export",
+            "label": "Export client-ready mockups",
+            "target": "final PDF and image files"
+          }
+        ],
+        "metric": "client-ready deck exported",
+        "deadline": "2026-05-28"
+      },
+      "completed": true,
+      "source": "onboarding"
+    }
+  },
+  "prioritySchedule": [
+    {
+      "rank": 1,
+      "title": "Build pitch deck narrative",
+      "kind": "task",
+      "priority": "high",
+      "linkedValue": "Originality",
+      "energyCost": "high",
+      "durationMinutes": 80,
+      "scheduledStart": "09:00",
+      "scheduledEnd": "10:20"
+    },
+    {
+      "rank": 2,
+      "title": "Export client-ready mockups",
+      "kind": "task",
+      "priority": "medium",
+      "linkedValue": "Reliability",
+      "energyCost": "medium",
+      "durationMinutes": 35,
+      "scheduledStart": "11:00",
+      "scheduledEnd": "11:35"
+    },
+    {
+      "rank": 3,
+      "title": "Send invoice reminder",
+      "kind": "task",
+      "priority": "low",
+      "linkedValue": "Freedom",
+      "energyCost": "low",
+      "durationMinutes": 10,
+      "scheduledStart": "14:40",
+      "scheduledEnd": "14:50"
+    }
+  ]
+}
+```
+
+## mind script (320 words)
+
+Consider today through the larger aim of building an independent creative practice: originality, reliable client work, and financial steadiness supported by what gets finished. The main outcome already has a clear shape: one client-ready pitch deck exported before the call, due by 4:00 PM today. Let the first priority come into view: rank 1, Build pitch deck narrative, 80 minutes, high priority, linked with Originality. This is the longest and weightiest rehearsal block. What might it feel like to give that task enough mental room, moving from the core story arc toward a deck flow that can carry the strongest concepts? What might the mind be thinking when choosing one narrative direction instead of circling many possibilities?
+
+Next, let the second priority appear: rank 2, Export client-ready mockups, 35 minutes, medium priority, linked with Reliability. Compared with the first block, this one is shorter and more finishing-oriented, a bridge from concept into client-ready material. What might the mind be thinking as it checks whether the mockups, PDF, and image files are complete enough to send? What might it feel like for the work to become more concrete, less open-ended, and closer to the promised deck? The rehearsal here can stay simple: review, export, confirm the files match the intended outcome, and keep the larger goal in view.
+
+Finally, picture the third priority: rank 3, Send invoice reminder, 10 minutes, low priority, linked with Freedom. It is brief compared with the creative work, but it still supports financial steadiness inside the same independent practice. What might the mind be thinking when a small administrative action is treated as part of the whole system, not a distraction from it? What might it feel like to let a ten-minute task have its proper size: clear, contained, and complete? Across the three tasks, the day can be rehearsed as a sequence: create the narrative, export the client-ready assets, then handle one small financial follow-through.
+
+## body input
+
+```json
+{
+  "currentEnergyLevel": 7,
+  "bodyState": "Strong creative energy early, with lower tolerance for admin later.",
+  "sleepSummary": {
+    "summary": "7.6 hours slept with strong continuity; sleep quality 84/100 and recovery signals that support a creative morning block.",
+    "durationHours": 7.6,
+    "targetHours": 7.5,
+    "bedtime": "23:20",
+    "wakeTime": "07:05",
+    "sleepQualityScore": 84,
+    "sleepEfficiencyPercent": 91,
+    "awakeMinutes": 16,
+    "restlessMinutes": 22,
+    "hrvMs": 52,
+    "restingHeartRate": 60
+  },
+  "activitySummary": "1800 steps; light morning stretch",
+  "recoverySummary": "resting heart rate 60 bpm; HRV 52 ms",
+  "energyCurveInputs": {
+    "sleep_hours": 7.6,
+    "sleep_quality": 84,
+    "steps": 1800,
+    "active_minutes": 10,
+    "resting_heart_rate": 60,
+    "hrv_ms": 52
+  },
+  "hourlyEnergy": [
+    {
+      "hour": 7,
+      "energyLevel": 5
+    },
+    {
+      "hour": 8,
+      "energyLevel": 6
+    },
+    {
+      "hour": 9,
+      "energyLevel": 6
+    },
+    {
+      "hour": 10,
+      "energyLevel": 6
+    },
+    {
+      "hour": 11,
+      "energyLevel": 5
+    },
+    {
+      "hour": 12,
+      "energyLevel": 5
+    },
+    {
+      "hour": 13,
+      "energyLevel": 4
+    },
+    {
+      "hour": 14,
+      "energyLevel": 5
+    },
+    {
+      "hour": 15,
+      "energyLevel": 5
+    },
+    {
+      "hour": 16,
+      "energyLevel": 4
+    }
+  ],
+  "focusCues": {
+    "visual": [
+      "moodboard wall visible",
+      "deck outline open",
+      "tablet charged"
+    ],
+    "auditory": [
+      "playlist ready"
+    ],
+    "tactileBody": [
+      "stylus in hand",
+      "feet tucked under chair"
+    ],
+    "smell": [
+      "coffee"
+    ],
+    "taste": [
+      "coffee"
+    ],
+    "other": [
+      "client call reminder visible"
+    ]
+  }
+}
+```
+
+## body script (337 words)
+
+Begin with the breath arriving before anything else: one steady inhale, one slower exhale, enough to let the shoulders drop and the jaw soften. Picture a seated position that feels supported rather than rigid, with feet tucked under the chair and the weight of the body settling downward. Current energy is at a 7, so there may be real charge available, especially early, but it does not need to become tension. What might it feel like to let that energy gather in the ribs, hands, and eyes without rushing? What might the body notice as the stylus rests in hand, the tablet is charged, and the surface in front of you is ready?
+
+The body has a solid base today: 7.6 hours of sleep, close to target, with strong continuity, 91% efficiency, only 16 awake minutes, and 22 restless minutes. Recovery signs are steady, with resting heart rate at 60 bpm and HRV at 52 ms. Light movement is already in the system from 1800 steps and a morning stretch. Imagine this as a warmed-up body rather than a depleted one: awake enough to begin, not so wound up that every signal needs attention. What might the mind be thinking when it senses that the nervous system has enough recovery behind it? What might the body notice in the hands, spine, breath, and face when coffee is nearby and the playlist is ready?
+
+Energy may feel strongest in the earlier part of the day, holding around 5 to 6 through the morning, then dipping closer to 4 or 5 later. Let that shape the physical pace: grounded, clear, and responsive. The moodboard wall can stay visible as a visual anchor, the deck outline open as a simple orientation point, and the client call reminder visible without pulling the body forward too soon. What might it feel like to return to these concrete cues whenever attention scatters? What might the body notice when the breath, posture, stylus, coffee, and visible setup all point back to the present moment?
+
+## soul input
+
+```json
+{
+  "topValues": [
+    {
+      "valueId": "originality",
+      "name": "Originality",
+      "emoji": "spark",
+      "personalDefinition": "making work that feels unmistakably mine",
+      "feelsLikeLabels": [
+        "inventive",
+        "alive",
+        "free"
+      ],
+      "dailySignLabels": [
+        "one strong concept choice",
+        "fresh visual language"
+      ]
+    },
+    {
+      "valueId": "reliability",
+      "name": "Reliability",
+      "emoji": "bridge",
+      "personalDefinition": "making trust feel visible in how I deliver",
+      "feelsLikeLabels": [
+        "solid",
+        "settled",
+        "professional"
+      ],
+      "dailySignLabels": [
+        "files exported cleanly",
+        "client knows what to expect"
+      ]
+    },
+    {
+      "valueId": "freedom",
+      "name": "Freedom",
+      "emoji": "window",
+      "personalDefinition": "keeping my practice independent and sustainable",
+      "feelsLikeLabels": [
+        "unblocked",
+        "self-directed",
+        "light"
+      ],
+      "dailySignLabels": [
+        "admin cleared",
+        "money tasks not avoided"
+      ]
+    }
+  ],
+  "idealLife": {
+    "statement": "A life where creative work stays original and the studio stays sustainable",
+    "lifeShapeLabels": [
+      "independent studio",
+      "creative mornings"
+    ]
+  }
+}
+```
+
+## soul script (266 words)
+
+Picture the day as an open studio of choices, with room for what matters to show itself. Originality might be present as making work that feels unmistakably yours: inventive, alive, free. What might it feel like when one strong concept choice carries your own signature? What might the mind be thinking when fresh visual language starts to appear, not as decoration, but as evidence of your particular way of seeing? There may be a quiet sense of ownership in letting the work sound like you.
+
+Reliability can sit beside that originality, not as a restriction, but as trust made visible in how you deliver. It might feel solid, settled, professional. What might it feel like when files are exported cleanly and there is nothing vague or careless in the handoff? What might the mind be thinking when the client knows what to expect, and your steadiness becomes part of the work itself? The day can carry a bridge-like quality: creative expression on one side, dependable follow-through on the other.
+
+Freedom may appear as the wider shape around it all: keeping your practice independent and sustainable. It might feel unblocked, self-directed, light. What might it feel like when admin is cleared instead of lingering, and money tasks are not avoided? What might the mind be thinking when independence is protected through small, honest acts of care? Imagine a life where creative work stays original and the studio stays sustainable, an independent studio with creative mornings. The rest of the day can be approached as a chance to let originality, reliability, and freedom become visible in ordinary choices.
+
+## full input
+
+```json
+{
+  "mind": {
+    "userGoal": {
+      "userid": "alex-morgan",
+      "priority": {
+        "title": "Build an independent creative practice",
+        "description": "Build an independent creative practice that supports originality, reliable client work, and financial steadiness."
+      },
+      "goal_1": {
+        "answers": {
+          "what": "Send a strong pitch deck before the client call",
+          "exactQuantity": {
+            "value": 1,
+            "unit": "client-ready pitch deck",
+            "description": "one exported deck ready before the call"
+          },
+          "exactDate": {
+            "label": "by 4:00 PM today",
+            "isoDate": "2026-05-28"
+          },
+          "keySteps": [
+            {
+              "id": "story",
+              "label": "Choose the core story arc",
+              "target": "one narrative direction"
+            },
+            {
+              "id": "slides",
+              "label": "Sequence strongest concept slides",
+              "target": "one deck flow"
+            },
+            {
+              "id": "export",
+              "label": "Export client-ready mockups",
+              "target": "final PDF and image files"
+            }
+          ],
+          "metric": "client-ready deck exported",
+          "deadline": "2026-05-28"
+        },
+        "completed": true,
+        "source": "onboarding"
+      }
+    },
+    "prioritySchedule": [
+      {
+        "rank": 1,
+        "title": "Build pitch deck narrative",
+        "kind": "task",
+        "priority": "high",
+        "linkedValue": "Originality",
+        "energyCost": "high",
+        "durationMinutes": 80,
+        "scheduledStart": "09:00",
+        "scheduledEnd": "10:20"
+      },
+      {
+        "rank": 2,
+        "title": "Export client-ready mockups",
+        "kind": "task",
+        "priority": "medium",
+        "linkedValue": "Reliability",
+        "energyCost": "medium",
+        "durationMinutes": 35,
+        "scheduledStart": "11:00",
+        "scheduledEnd": "11:35"
+      },
+      {
+        "rank": 3,
+        "title": "Send invoice reminder",
+        "kind": "task",
+        "priority": "low",
+        "linkedValue": "Freedom",
+        "energyCost": "low",
+        "durationMinutes": 10,
+        "scheduledStart": "14:40",
+        "scheduledEnd": "14:50"
+      }
+    ]
+  },
+  "body": {
+    "currentEnergyLevel": 7,
+    "bodyState": "Strong creative energy early, with lower tolerance for admin later.",
+    "sleepSummary": {
+      "summary": "7.6 hours slept with strong continuity; sleep quality 84/100 and recovery signals that support a creative morning block.",
+      "durationHours": 7.6,
+      "targetHours": 7.5,
+      "bedtime": "23:20",
+      "wakeTime": "07:05",
+      "sleepQualityScore": 84,
+      "sleepEfficiencyPercent": 91,
+      "awakeMinutes": 16,
+      "restlessMinutes": 22,
+      "hrvMs": 52,
+      "restingHeartRate": 60
+    },
+    "activitySummary": "1800 steps; light morning stretch",
+    "recoverySummary": "resting heart rate 60 bpm; HRV 52 ms",
+    "energyCurveInputs": {
+      "sleep_hours": 7.6,
+      "sleep_quality": 84,
+      "steps": 1800,
+      "active_minutes": 10,
+      "resting_heart_rate": 60,
+      "hrv_ms": 52
+    },
+    "hourlyEnergy": [
+      {
+        "hour": 7,
+        "energyLevel": 5
+      },
+      {
+        "hour": 8,
+        "energyLevel": 6
+      },
+      {
+        "hour": 9,
+        "energyLevel": 6
+      },
+      {
+        "hour": 10,
+        "energyLevel": 6
+      },
+      {
+        "hour": 11,
+        "energyLevel": 5
+      },
+      {
+        "hour": 12,
+        "energyLevel": 5
+      },
+      {
+        "hour": 13,
+        "energyLevel": 4
+      },
+      {
+        "hour": 14,
+        "energyLevel": 5
+      },
+      {
+        "hour": 15,
+        "energyLevel": 5
+      },
+      {
+        "hour": 16,
+        "energyLevel": 4
+      }
+    ],
+    "focusCues": {
+      "visual": [
+        "moodboard wall visible",
+        "deck outline open",
+        "tablet charged"
+      ],
+      "auditory": [
+        "playlist ready"
+      ],
+      "tactileBody": [
+        "stylus in hand",
+        "feet tucked under chair"
+      ],
+      "smell": [
+        "coffee"
+      ],
+      "taste": [
+        "coffee"
+      ],
+      "other": [
+        "client call reminder visible"
+      ]
+    }
+  },
+  "value": {
+    "topValues": [
+      {
+        "valueId": "originality",
+        "name": "Originality",
+        "emoji": "spark",
+        "personalDefinition": "making work that feels unmistakably mine",
+        "feelsLikeLabels": [
+          "inventive",
+          "alive",
+          "free"
+        ],
+        "dailySignLabels": [
+          "one strong concept choice",
+          "fresh visual language"
+        ]
+      },
+      {
+        "valueId": "reliability",
+        "name": "Reliability",
+        "emoji": "bridge",
+        "personalDefinition": "making trust feel visible in how I deliver",
+        "feelsLikeLabels": [
+          "solid",
+          "settled",
+          "professional"
+        ],
+        "dailySignLabels": [
+          "files exported cleanly",
+          "client knows what to expect"
+        ]
+      },
+      {
+        "valueId": "freedom",
+        "name": "Freedom",
+        "emoji": "window",
+        "personalDefinition": "keeping my practice independent and sustainable",
+        "feelsLikeLabels": [
+          "unblocked",
+          "self-directed",
+          "light"
+        ],
+        "dailySignLabels": [
+          "admin cleared",
+          "money tasks not avoided"
+        ]
+      }
+    ],
+    "idealLife": {
+      "statement": "A life where creative work stays original and the studio stays sustainable",
+      "lifeShapeLabels": [
+        "independent studio",
+        "creative mornings"
+      ]
+    }
+  }
+}
+```
+
+## full script (323 words)
+
+Before the day opens, let attention settle into the body. A breath comes in, a breath goes out, and posture can find a shape that feels awake without strain. Current energy is a 7, supported by 7.6 hours of sleep, strong continuity, and recovery signals that can carry a creative morning block. What might the body notice as the feet settle, the stylus waits in hand, coffee is nearby, the moodboard wall is visible, the deck outline is open, the tablet is charged, the playlist is ready, and the client call reminder sits in view? What might it feel like to begin from steadiness rather than rush?
+
+Now the morning scene centers on 09:00 to 10:20: Build pitch deck narrative. This is the longest, most demanding block, so let most of the rehearsal stay here. The core story arc begins to take shape; the strongest concept slides start to find sequence; originality has room to feel inventive, alive, and free. What might the mind be thinking when one narrative direction becomes clear enough to support the deck flow? Later, from 11:00 to 11:35, Export client-ready mockups carries reliability: clean files, a final PDF and images, trust made visible. What might the body notice as the work shifts from making choices to finishing details? At 14:40, Send invoice reminder is brief, practical, and tied to freedom. What might it feel like when that small money task is not avoided?
+
+By 4:00 PM, the larger picture is one client-ready pitch deck exported before the call. This day points back to building an independent creative practice that supports originality, reliable client work, and financial steadiness. Originality can show up as one strong concept choice; reliability as clean exported files; freedom as admin cleared. What might the mind believe after moving through these steps? A life where creative work stays original and the studio stays sustainable does not require everything at once—today offers credible movement toward it.
+
+# alex_task
+
+Models by arm: {"baseline":"gpt-5.5-2026-04-23","mind":"gpt-5.5-2026-04-23","body":"gpt-5.5-2026-04-23","soul":"gpt-5.5-2026-04-23","full":"gpt-5.5-2026-04-23"}
+Word counts: {"baseline":270,"mind":324,"body":305,"soul":278,"full":338}
+
+## baseline input
+
+```json
+{
+  "preparationOnlyContext": "Specific task preparation for building the pitch deck narrative.",
+  "visibleItems": [
+    "Choose core story arc - 20 min",
+    "Sequence concept slides - 35 min",
+    "Write transition notes - 25 min"
+  ]
+}
+```
+
+## baseline script (270 words)
+
+This preparation period is for building the pitch deck narrative. The visible plan has three parts: choose the core story arc for 20 minutes, sequence the concept slides for 35 minutes, and write transition notes for 25 minutes. Before starting, it may help to treat these as a simple order of work rather than one large task. The first block is for deciding the main shape of the story, the second block is for arranging the slide concepts in that order, and the third block is for adding notes that connect one section to the next.
+
+For the first 20 minutes, prepare to choose the core story arc by keeping the decision narrow: what the narrative begins with, how it develops, and where it lands. When that time is complete, move into the 35-minute block for sequencing concept slides. In that block, the main preparation is to place the slide ideas into a workable order, checking that each slide has a clear place in the overall sequence. This does not need to be final; the purpose is to create a usable structure that can be refined later.
+
+For the final 25 minutes, prepare to write transition notes between the arranged slide concepts. These notes can be brief and practical, capturing how one point leads into the next. A simple way to manage the session is to keep the three time blocks visible and use the listed order as the guide. By the end, the expected output is a selected story arc, a sequenced set of concept slides, and transition notes that make the pitch deck narrative easier to continue developing.
+
+## mind input
+
+```json
+{
+  "userGoal": {
+    "userid": "alex-morgan",
+    "priority": {
+      "title": "Build an independent creative practice",
+      "description": "Build an independent creative practice that supports originality, reliable client work, and financial steadiness."
+    },
+    "goal_1": {
+      "answers": {
+        "what": "Send a strong pitch deck before the client call",
+        "exactQuantity": {
+          "value": 1,
+          "unit": "client-ready pitch deck",
+          "description": "one exported deck ready before the call"
+        },
+        "exactDate": {
+          "label": "by 4:00 PM today",
+          "isoDate": "2026-05-28"
+        },
+        "keySteps": [
+          {
+            "id": "story",
+            "label": "Choose the core story arc",
+            "target": "one narrative direction"
+          },
+          {
+            "id": "slides",
+            "label": "Sequence strongest concept slides",
+            "target": "one deck flow"
+          },
+          {
+            "id": "export",
+            "label": "Export client-ready mockups",
+            "target": "final PDF and image files"
+          }
+        ],
+        "metric": "client-ready deck exported",
+        "deadline": "2026-05-28"
+      },
+      "completed": true,
+      "source": "onboarding"
+    }
+  },
+  "focusTask": {
+    "taskId": "alex-pitch-narrative",
+    "title": "Build pitch deck narrative",
+    "projectTitle": "Client brand pitch",
+    "scheduledStart": "09:00",
+    "scheduledEnd": "10:20",
+    "priority": "high",
+    "linkedValue": "Originality",
+    "energyCost": "high",
+    "durationMinutes": 80
+  },
+  "focusSubtasks": [
+    {
+      "subtaskId": "alex-pitch-1",
+      "title": "Choose the core story arc",
+      "order": 1,
+      "durationMinutes": 20
+    },
+    {
+      "subtaskId": "alex-pitch-2",
+      "title": "Sequence the strongest concept slides",
+      "order": 2,
+      "durationMinutes": 35
+    },
+    {
+      "subtaskId": "alex-pitch-3",
+      "title": "Write transition notes for the client call",
+      "order": 3,
+      "durationMinutes": 25
+    }
+  ]
+}
+```
+
+## mind script (324 words)
+
+Consider the 09:00 to 10:20 block for “Build pitch deck narrative,” an 80-minute, high-priority task connected to Originality within the larger aim to build an independent creative practice. This is one step toward sending one client-ready pitch deck before the 4:00 PM call today. In the mind’s rehearsal, the task can open as a clear sequence rather than one large demand: first the story arc, then the slide flow, then the transition notes. What might it feel like to treat the next 80 minutes as a defined creative pass with a specific finish line? What might the mind be thinking when the work is framed as building the deck’s narrative, not solving every detail at once?
+
+The first 20 minutes center on subtask 1: “Choose the core story arc.” The imagined question is not whether every idea is perfect, but which narrative direction gives the pitch its strongest spine. What might it feel like to compare options and let one direction become the working choice? What might the mind be thinking as it looks for the through-line that supports originality and client readiness? Then the next 35 minutes move into subtask 2: “Sequence the strongest concept slides.” The rehearsal can picture decisions becoming ordered: opening, development, strongest concepts, and a flow that makes the client conversation easier to follow.
+
+The final 25 minutes focus on subtask 3: “Write transition notes for the client call.” This part can be imagined as connecting the deck’s sections so the reasoning is easy to explain later. What might it feel like when the narrative has a beginning, a progression, and notes that support the call? What might the mind be thinking as the 10:20 endpoint approaches: the priority was high, the time was bounded, and the work moved from story arc to slide sequence to speaking transitions. This rehearsal leaves the task mentally organized around one practical outcome: a stronger pitch deck narrative serving today’s client-ready deck goal.
+
+## body input
+
+```json
+{
+  "currentEnergyLevel": 7,
+  "bodyState": "Creative energy is high, and the task needs a clear story before visuals expand.",
+  "sleepSummary": {
+    "summary": "7.6 hours slept with strong continuity; sleep quality 84/100 and recovery signals that support a creative morning block.",
+    "durationHours": 7.6,
+    "targetHours": 7.5,
+    "bedtime": "23:20",
+    "wakeTime": "07:05",
+    "sleepQualityScore": 84,
+    "sleepEfficiencyPercent": 91,
+    "awakeMinutes": 16,
+    "restlessMinutes": 22,
+    "hrvMs": 52,
+    "restingHeartRate": 60
+  },
+  "activitySummary": "light morning stretch before desk work",
+  "recoverySummary": "recovery signals strong",
+  "energyCurveInputs": {
+    "sleep_hours": 7.6,
+    "sleep_quality": 84,
+    "resting_heart_rate": 60,
+    "hrv_ms": 52
+  },
+  "hourlyEnergy": [
+    {
+      "hour": 7,
+      "energyLevel": 5
+    },
+    {
+      "hour": 8,
+      "energyLevel": 6
+    },
+    {
+      "hour": 9,
+      "energyLevel": 6
+    },
+    {
+      "hour": 10,
+      "energyLevel": 6
+    },
+    {
+      "hour": 11,
+      "energyLevel": 5
+    },
+    {
+      "hour": 12,
+      "energyLevel": 5
+    },
+    {
+      "hour": 13,
+      "energyLevel": 4
+    },
+    {
+      "hour": 14,
+      "energyLevel": 5
+    },
+    {
+      "hour": 15,
+      "energyLevel": 5
+    },
+    {
+      "hour": 16,
+      "energyLevel": 4
+    }
+  ],
+  "focusCues": {
+    "visual": [
+      "deck outline open",
+      "three concept thumbnails visible",
+      "moodboard wall nearby"
+    ],
+    "auditory": [
+      "playlist ready"
+    ],
+    "tactileBody": [
+      "stylus in hand",
+      "tablet warm from charging"
+    ],
+    "smell": [
+      "coffee"
+    ],
+    "taste": [
+      "coffee"
+    ],
+    "other": [
+      "client notes minimized but available"
+    ]
+  }
+}
+```
+
+## body script (305 words)
+
+Begin with one slow breath in, one easy breath out, and let posture become the first point of preparation. Imagine sitting near the deck outline open, three concept thumbnails visible, and the moodboard wall nearby. What might it feel like for the shoulders to drop just enough, the jaw to soften, and the hands to settle around the stylus? The tablet is warm from charging, coffee is nearby in smell and taste, and the playlist is ready. Current energy is a 7: enough charge for creative work, with a body that can use steadiness as much as momentum.
+
+The body has useful support underneath it today. Sleep was a little over the target, 7.6 hours, with strong continuity, high efficiency, and only brief awake time. In plain terms, the system is fairly well restored: heart rate is calm, recovery signals are strong, and the morning stretch has already given the body a light physical start before desk work. What might the body notice as this support shows up—warmer hands, easier breathing, a steadier spine, or less need to force effort? The energy pattern rises into the morning and then gradually softens later, so this is a good moment to use the available lift without rushing it.
+
+Now let the physical cues organize attention. The stylus in hand can be the anchor; the open outline can hold the next place to look; the three thumbnails and moodboard can stay visible without pulling the body in too many directions. What might the mind be thinking as the body stays grounded—clear story first, visuals expanding after? If attention scatters, the concrete return points are simple: breath, posture, stylus, warm tablet, coffee, playlist, and the minimized client notes available when needed. The aim is a body that feels alert but not tense, ready to begin from sensation into shape.
+
+## soul input
+
+```json
+{
+  "topValues": [
+    {
+      "valueId": "originality",
+      "name": "Originality",
+      "emoji": "spark",
+      "personalDefinition": "making work that feels unmistakably mine",
+      "feelsLikeLabels": [
+        "inventive",
+        "alive",
+        "free"
+      ],
+      "dailySignLabels": [
+        "one strong concept choice",
+        "fresh visual language"
+      ]
+    },
+    {
+      "valueId": "reliability",
+      "name": "Reliability",
+      "emoji": "bridge",
+      "personalDefinition": "making trust feel visible in how I deliver",
+      "feelsLikeLabels": [
+        "solid",
+        "settled",
+        "professional"
+      ],
+      "dailySignLabels": [
+        "files exported cleanly",
+        "client knows what to expect"
+      ]
+    },
+    {
+      "valueId": "freedom",
+      "name": "Freedom",
+      "emoji": "window",
+      "personalDefinition": "keeping my practice independent and sustainable",
+      "feelsLikeLabels": [
+        "unblocked",
+        "self-directed",
+        "light"
+      ],
+      "dailySignLabels": [
+        "admin cleared",
+        "money tasks not avoided"
+      ]
+    }
+  ],
+  "idealLife": {
+    "statement": "A life where creative work stays original and the studio stays sustainable",
+    "lifeShapeLabels": [
+      "independent studio",
+      "creative mornings"
+    ]
+  }
+}
+```
+
+## soul script (278 words)
+
+Picture a day shaped from the inside out by Originality, Reliability, and Freedom. Originality means making work that feels unmistakably yours; Reliability means making trust feel visible in how you deliver; Freedom means keeping your practice independent and sustainable. Without needing to force anything, imagine these values arriving as a quiet inner compass. What might it feel like to move with something inventive, alive, and free, while also solid, settled, and professional? What might the mind be thinking when it remembers that independence can feel unblocked, self-directed, and light?
+
+Let the scene stay simple and open. There may be a moment when one strong concept choice carries the mark of your own taste, or when fresh visual language makes the work feel less generic and more alive. There may be another moment when clean exporting, clear expectations, or unavoided money matters become expressions of care rather than pressure. What might it feel like when originality is not separate from reliability, and reliability is not separate from freedom? What might the mind be thinking when trust, independence, and creative distinctiveness all belong in the same life?
+
+Now imagine the larger shape: a life where creative work stays original and the studio stays sustainable. An independent studio, creative mornings, and a practice that can keep opening rather than tightening. The point is not perfection; it is remembering what matters before the day fills in. Originality can ask, “Does this feel unmistakably mine?” Reliability can ask, “Does this make trust visible?” Freedom can ask, “Does this keep the practice independent and sustainable?” Let those questions gently travel with you, making the day feel more aligned, more honest, and more your own.
+
+## full input
+
+```json
+{
+  "mind": {
+    "userGoal": {
+      "userid": "alex-morgan",
+      "priority": {
+        "title": "Build an independent creative practice",
+        "description": "Build an independent creative practice that supports originality, reliable client work, and financial steadiness."
+      },
+      "goal_1": {
+        "answers": {
+          "what": "Send a strong pitch deck before the client call",
+          "exactQuantity": {
+            "value": 1,
+            "unit": "client-ready pitch deck",
+            "description": "one exported deck ready before the call"
+          },
+          "exactDate": {
+            "label": "by 4:00 PM today",
+            "isoDate": "2026-05-28"
+          },
+          "keySteps": [
+            {
+              "id": "story",
+              "label": "Choose the core story arc",
+              "target": "one narrative direction"
+            },
+            {
+              "id": "slides",
+              "label": "Sequence strongest concept slides",
+              "target": "one deck flow"
+            },
+            {
+              "id": "export",
+              "label": "Export client-ready mockups",
+              "target": "final PDF and image files"
+            }
+          ],
+          "metric": "client-ready deck exported",
+          "deadline": "2026-05-28"
+        },
+        "completed": true,
+        "source": "onboarding"
+      }
+    },
+    "focusTask": {
+      "taskId": "alex-pitch-narrative",
+      "title": "Build pitch deck narrative",
+      "projectTitle": "Client brand pitch",
+      "scheduledStart": "09:00",
+      "scheduledEnd": "10:20",
+      "priority": "high",
+      "linkedValue": "Originality",
+      "energyCost": "high",
+      "durationMinutes": 80
+    },
+    "focusSubtasks": [
+      {
+        "subtaskId": "alex-pitch-1",
+        "title": "Choose the core story arc",
+        "order": 1,
+        "durationMinutes": 20
+      },
+      {
+        "subtaskId": "alex-pitch-2",
+        "title": "Sequence the strongest concept slides",
+        "order": 2,
+        "durationMinutes": 35
+      },
+      {
+        "subtaskId": "alex-pitch-3",
+        "title": "Write transition notes for the client call",
+        "order": 3,
+        "durationMinutes": 25
+      }
+    ]
+  },
+  "body": {
+    "currentEnergyLevel": 7,
+    "bodyState": "Creative energy is high, and the task needs a clear story before visuals expand.",
+    "sleepSummary": {
+      "summary": "7.6 hours slept with strong continuity; sleep quality 84/100 and recovery signals that support a creative morning block.",
+      "durationHours": 7.6,
+      "targetHours": 7.5,
+      "bedtime": "23:20",
+      "wakeTime": "07:05",
+      "sleepQualityScore": 84,
+      "sleepEfficiencyPercent": 91,
+      "awakeMinutes": 16,
+      "restlessMinutes": 22,
+      "hrvMs": 52,
+      "restingHeartRate": 60
+    },
+    "activitySummary": "light morning stretch before desk work",
+    "recoverySummary": "recovery signals strong",
+    "energyCurveInputs": {
+      "sleep_hours": 7.6,
+      "sleep_quality": 84,
+      "resting_heart_rate": 60,
+      "hrv_ms": 52
+    },
+    "hourlyEnergy": [
+      {
+        "hour": 7,
+        "energyLevel": 5
+      },
+      {
+        "hour": 8,
+        "energyLevel": 6
+      },
+      {
+        "hour": 9,
+        "energyLevel": 6
+      },
+      {
+        "hour": 10,
+        "energyLevel": 6
+      },
+      {
+        "hour": 11,
+        "energyLevel": 5
+      },
+      {
+        "hour": 12,
+        "energyLevel": 5
+      },
+      {
+        "hour": 13,
+        "energyLevel": 4
+      },
+      {
+        "hour": 14,
+        "energyLevel": 5
+      },
+      {
+        "hour": 15,
+        "energyLevel": 5
+      },
+      {
+        "hour": 16,
+        "energyLevel": 4
+      }
+    ],
+    "focusCues": {
+      "visual": [
+        "deck outline open",
+        "three concept thumbnails visible",
+        "moodboard wall nearby"
+      ],
+      "auditory": [
+        "playlist ready"
+      ],
+      "tactileBody": [
+        "stylus in hand",
+        "tablet warm from charging"
+      ],
+      "smell": [
+        "coffee"
+      ],
+      "taste": [
+        "coffee"
+      ],
+      "other": [
+        "client notes minimized but available"
+      ]
+    }
+  },
+  "value": {
+    "topValues": [
+      {
+        "valueId": "originality",
+        "name": "Originality",
+        "emoji": "spark",
+        "personalDefinition": "making work that feels unmistakably mine",
+        "feelsLikeLabels": [
+          "inventive",
+          "alive",
+          "free"
+        ],
+        "dailySignLabels": [
+          "one strong concept choice",
+          "fresh visual language"
+        ]
+      },
+      {
+        "valueId": "reliability",
+        "name": "Reliability",
+        "emoji": "bridge",
+        "personalDefinition": "making trust feel visible in how I deliver",
+        "feelsLikeLabels": [
+          "solid",
+          "settled",
+          "professional"
+        ],
+        "dailySignLabels": [
+          "files exported cleanly",
+          "client knows what to expect"
+        ]
+      },
+      {
+        "valueId": "freedom",
+        "name": "Freedom",
+        "emoji": "window",
+        "personalDefinition": "keeping my practice independent and sustainable",
+        "feelsLikeLabels": [
+          "unblocked",
+          "self-directed",
+          "light"
+        ],
+        "dailySignLabels": [
+          "admin cleared",
+          "money tasks not avoided"
+        ]
+      }
+    ],
+    "idealLife": {
+      "statement": "A life where creative work stays original and the studio stays sustainable",
+      "lifeShapeLabels": [
+        "independent studio",
+        "creative mornings"
+      ]
+    }
+  }
+}
+```
+
+## full script (338 words)
+
+Begin with the body already here: breath moving in and out, posture settling at the desk, current energy around a steady 7, supported by 7.6 hours of strong sleep, 84/100 quality, and recovery signals that support a creative morning block. After a light morning stretch, what might it feel like to arrive with enough fuel for clear choices? The scene can open around the deck outline, three concept thumbnails, the nearby moodboard wall, playlist ready, coffee present, stylus in hand, tablet warm from charging, and client notes minimized but available. What might the body notice as the 9:00 to 10:20 block begins: shoulders, hands, breath, eyes, attention?
+
+The focus is Build pitch deck narrative for the Client brand pitch, a high-priority 80-minute creative block linked to Originality. First, for about 20 minutes, the scene centers on choosing the core story arc. What might the mind be thinking as one narrative direction starts to stand out from the noise? Then the longer middle stretch, about 35 minutes, turns toward sequencing the strongest concept slides, giving the deck one flow. What might it feel like when the strongest thumbnails begin to relate to one another, and the visuals start serving the story instead of competing with it? Finally, for about 25 minutes, attention shifts to writing transition notes for the client call. What might the body notice as the deck becomes easier to explain, with the client-ready pitch taking shape before 4:00 PM today?
+
+This work connects to building an independent creative practice that supports originality, reliable client work, and financial steadiness. Originality can show up as one strong concept choice and fresh visual language; reliability as trust made visible in how the deck is delivered; freedom as a practice that feels more self-directed and sustainable. The larger life is an independent studio with creative mornings, where the work stays unmistakably yours and the studio stays steady. A credible next belief is simple: with today’s energy, recovery, and focused 80-minute block, moving one client-ready pitch deck closer is within reach.
+
+# serena_daily
+
+Models by arm: {"baseline":"gpt-5.5-2026-04-23","mind":"gpt-5.5-2026-04-23","body":"gpt-5.5-2026-04-23","soul":"gpt-5.5-2026-04-23","full":"gpt-5.5-2026-04-23"}
+Word counts: {"baseline":287,"mind":297,"body":306,"soul":268,"full":285}
+
+## baseline input
+
+```json
+{
+  "preparationOnlyContext": "Daily preparation for brief drafting and time-sensitive logistics.",
+  "visibleItems": [
+    "Draft argument section - 85 min",
+    "Confirm pickup logistics - 15 min",
+    "Send case update - 25 min"
+  ]
+}
+```
+
+## baseline script (287 words)
+
+Today’s preparation can stay simple and practical. The visible list has three items: Draft argument section for 85 minutes, Confirm pickup logistics for 15 minutes, and Send case update for 25 minutes. Before beginning, it may help to note the total planned working time: 125 minutes. This gives a clear outline of what is on the schedule without adding extra tasks. The main preparation is to keep the list available, check the durations, and decide how the work period will be tracked so each item has its own defined space.
+
+Start by reviewing the 85-minute drafting block. Since this is the longest item, it may be useful to treat it as the main work segment and make sure the needed materials for drafting are ready before the timer begins. A simple plan could be to use the full block for the argument section only, then stop when the time is complete and move to the next listed item. After that, the 15-minute pickup logistics item can be handled as a short, contained task. Because it is time-sensitive, prepare to use that block only for confirming the necessary details and closing the loop.
+
+The final listed item is the 25-minute case update. Before starting it, check what information needs to be included and keep the update within the planned duration. If a task finishes early, the remaining minutes can be used to review that same item rather than adding something new. If a task takes longer than expected, make a brief note of what remains and continue to the next scheduled item. The preparation for today is simply to follow the three listed blocks in a clear order: draft argument section, confirm pickup logistics, then send case update.
+
+## mind input
+
+```json
+{
+  "userGoal": {
+    "userid": "serena-park",
+    "priority": {
+      "title": "Practice humane advocacy",
+      "description": "Do rigorous public-interest advocacy while staying humane to herself and making complex systems more navigable for clients."
+    },
+    "goal_1": {
+      "answers": {
+        "what": "Submit a clear first draft of the argument section",
+        "exactQuantity": {
+          "value": 1,
+          "unit": "argument-section draft",
+          "description": "one complete first draft of the legal argument section"
+        },
+        "exactDate": {
+          "label": "by noon today",
+          "isoDate": "2026-05-28"
+        },
+        "keySteps": [
+          {
+            "id": "outline",
+            "label": "Review argument outline",
+            "target": "one outline pass"
+          },
+          {
+            "id": "claim",
+            "label": "Draft strongest claim paragraph",
+            "target": "one complete claim paragraph"
+          },
+          {
+            "id": "precedent",
+            "label": "Tie precedent back to client facts",
+            "target": "one integrated precedent section"
+          }
+        ],
+        "metric": "argument draft complete",
+        "deadline": "2026-05-28"
+      },
+      "completed": true,
+      "source": "onboarding"
+    }
+  },
+  "prioritySchedule": [
+    {
+      "rank": 1,
+      "title": "Draft argument section",
+      "kind": "task",
+      "priority": "high",
+      "linkedValue": "Justice",
+      "energyCost": "high",
+      "durationMinutes": 85,
+      "scheduledStart": "08:30",
+      "scheduledEnd": "09:55"
+    },
+    {
+      "rank": 2,
+      "title": "Confirm pickup logistics",
+      "kind": "task",
+      "priority": "medium",
+      "linkedValue": "Care",
+      "energyCost": "low",
+      "durationMinutes": 15,
+      "scheduledStart": "10:15",
+      "scheduledEnd": "10:30"
+    },
+    {
+      "rank": 3,
+      "title": "Send case update to co-counsel",
+      "kind": "task",
+      "priority": "medium",
+      "linkedValue": "Diligence",
+      "energyCost": "medium",
+      "durationMinutes": 25,
+      "scheduledStart": "11:05",
+      "scheduledEnd": "11:30"
+    }
+  ]
+}
+```
+
+## mind script (297 words)
+
+Consider the larger aim of practicing humane advocacy: doing rigorous public-interest work while remaining humane to herself and making complex systems more navigable for clients. The day’s central goal is one complete first draft of the legal argument section by noon today. Let the first and largest rehearsal point be rank 1: “Draft argument section,” high priority, linked with Justice, given 85 minutes. What might the mind be thinking at the start of that longer stretch as it moves from reviewing the argument outline, to drafting the strongest claim paragraph, to tying precedent back to client facts? What might it feel like to hold the standard of a clear first draft rather than a perfect final version?
+
+Next, let the rehearsal narrow to rank 2: “Confirm pickup logistics,” medium priority, linked with Care, given 15 minutes. This is a shorter task, so the mental picture can be brief and precise: identifying what needs confirming, sending or checking the necessary message, and knowing when the logistics are settled enough to move on. What might the mind be thinking when a small practical obligation is handled cleanly? What might it feel like to let this task take its proper size: important, but contained within a quarter hour?
+
+Then let the sequence turn to rank 3: “Send case update to co-counsel,” medium priority, linked with Diligence, given 25 minutes. The rehearsal can include choosing the key points, making the update clear, and sending it in a form that helps the shared work proceed. What might the mind be thinking as it separates what co-counsel needs to know from what can wait? What might it feel like to complete this third priority after the larger drafting block and the brief logistics confirmation, with the morning organized around Justice, Care, and Diligence?
+
+## body input
+
+```json
+{
+  "currentEnergyLevel": 4,
+  "bodyState": "Sleep was interrupted, but the morning has a usable quiet pocket.",
+  "sleepSummary": {
+    "summary": "5.9 hours slept with an interruption overnight; sleep quality 70/100, moderate restlessness, and a usable but compressed morning recovery window.",
+    "durationHours": 5.9,
+    "targetHours": 7.5,
+    "bedtime": "00:05",
+    "wakeTime": "06:10",
+    "sleepQualityScore": 70,
+    "sleepEfficiencyPercent": 84,
+    "awakeMinutes": 31,
+    "restlessMinutes": 42,
+    "hrvMs": 33,
+    "restingHeartRate": 69
+  },
+  "activitySummary": "school drop-off walk planned; light morning movement",
+  "recoverySummary": "resting heart rate 69 bpm; HRV 33 ms",
+  "energyCurveInputs": {
+    "sleep_hours": 5.9,
+    "sleep_quality": 70,
+    "resting_heart_rate": 69,
+    "hrv_ms": 33
+  },
+  "hourlyEnergy": [
+    {
+      "hour": 6,
+      "energyLevel": 3
+    },
+    {
+      "hour": 7,
+      "energyLevel": 3
+    },
+    {
+      "hour": 8,
+      "energyLevel": 4
+    },
+    {
+      "hour": 9,
+      "energyLevel": 5
+    },
+    {
+      "hour": 10,
+      "energyLevel": 5
+    },
+    {
+      "hour": 11,
+      "energyLevel": 4
+    },
+    {
+      "hour": 12,
+      "energyLevel": 4
+    },
+    {
+      "hour": 13,
+      "energyLevel": 3
+    },
+    {
+      "hour": 14,
+      "energyLevel": 3
+    },
+    {
+      "hour": 15,
+      "energyLevel": 4
+    },
+    {
+      "hour": 16,
+      "energyLevel": 5
+    }
+  ],
+  "focusCues": {
+    "visual": [
+      "case notes printed",
+      "phone on do-not-disturb",
+      "argument outline open"
+    ],
+    "auditory": [
+      "quiet apartment",
+      "email alerts muted"
+    ],
+    "tactileBody": [
+      "mug warming hands",
+      "chair pulled close to desk"
+    ],
+    "smell": [
+      "tea"
+    ],
+    "taste": [
+      "tea"
+    ],
+    "other": [
+      "pickup reminder visible"
+    ]
+  }
+}
+```
+
+## body script (306 words)
+
+Begin with one slow breath that gives the ribs a little room, then another that lets the shoulders drop without forcing them. Picture the chair pulled close to the desk, feet finding the floor, hands around the mug as warmth settles into the palms. Current energy is a 4: not empty, not fully charged, more like a steady low flame. Sleep was shorter than the target, 5.9 hours, with some waking and restlessness, so the body may want gentleness before speed. What might it feel like to let posture do some of the work: spine supported, jaw unclenched, eyes softening toward the space ahead?
+
+The body-state signal is mixed but usable: sleep quality was fair at 70/100, recovery is compressed, resting heart rate is 69 bpm, and HRV is 33 ms. That can translate into a system that may need a longer warm-up, clearer pauses, and less unnecessary tension. Imagine the quiet apartment holding the first part of the morning, email alerts muted, phone on do-not-disturb, tea nearby with its smell and taste giving the senses something simple to return to. What might the body notice first: the weight of the mug, the contact of the chair, the temperature of the room, the breath moving lower?
+
+Energy looks likely to rise from 3 early to 4, then 5 through midmorning, before softening later and lifting again. Light movement, including the school drop-off walk, can help wake the body without demanding intensity. Picture the visible cues: case notes printed, argument outline open, pickup reminder visible, each one reducing the need to hold extra information in the body. What might the mind be thinking when the body feels grounded enough to begin: slower is still useful, steady is enough, one physical cue can bring attention back? Let breath, contact, warmth, quiet, and muted alerts become the anchor points.
+
+## soul input
+
+```json
+{
+  "topValues": [
+    {
+      "valueId": "justice",
+      "name": "Justice",
+      "emoji": "scale",
+      "personalDefinition": "using legal skill to make unfair systems more answerable",
+      "feelsLikeLabels": [
+        "committed",
+        "clear",
+        "purposeful"
+      ],
+      "dailySignLabels": [
+        "argument made sharper",
+        "client position protected"
+      ]
+    },
+    {
+      "valueId": "care",
+      "name": "Care",
+      "emoji": "hand",
+      "personalDefinition": "remembering the human stakes inside the legal work",
+      "feelsLikeLabels": [
+        "kind",
+        "human",
+        "steady"
+      ],
+      "dailySignLabels": [
+        "plain-language next step",
+        "one check-in done"
+      ]
+    },
+    {
+      "valueId": "diligence",
+      "name": "Diligence",
+      "emoji": "file",
+      "personalDefinition": "doing the careful work even when the day is compressed",
+      "feelsLikeLabels": [
+        "thorough",
+        "prepared",
+        "grounded"
+      ],
+      "dailySignLabels": [
+        "notes updated",
+        "deadline risk reduced"
+      ]
+    }
+  ],
+  "idealLife": {
+    "statement": "A life where I do rigorous advocacy without losing my humanity",
+    "lifeShapeLabels": [
+      "humane advocacy",
+      "clear client care"
+    ]
+  }
+}
+```
+
+## soul script (268 words)
+
+Imagine the day as a quiet threshold, with the words Justice, Care, and Diligence waiting like steady companions. Justice here means using legal skill to make unfair systems more answerable. Care means remembering the human stakes inside the legal work. Diligence means doing the careful work even when the day is compressed. What might it feel like to move with these values close by: committed, clear, purposeful; kind, human, steady; thorough, prepared, grounded? The scene does not need to be perfect. It only needs to make room for what matters.
+
+As the day unfolds in the mind, these values may show themselves in small, recognizable ways. Justice might look like an argument made sharper, or a client position protected. Care might look like a plain-language next step, or one check-in done. Diligence might look like notes updated, or a deadline risk reduced. What might the mind be thinking when these signs appear? Perhaps something like: this is why the details matter, this is still about people, this carefulness can serve fairness. Let the imagined day carry those meanings without needing to force them.
+
+Now picture the larger shape behind it all: a life where rigorous advocacy happens without losing humanity. Humane advocacy and clear client care can be more than ideals; they can be the tone running underneath each choice. What might the body notice when the day is aligned with that tone, not in perfection, but in honest return? Maybe steadiness, resolve, or a softer sense of being intact. Let Justice, Care, and Diligence be remembered as anchors for moving through the day with purpose and humanity.
+
+## full input
+
+```json
+{
+  "mind": {
+    "userGoal": {
+      "userid": "serena-park",
+      "priority": {
+        "title": "Practice humane advocacy",
+        "description": "Do rigorous public-interest advocacy while staying humane to herself and making complex systems more navigable for clients."
+      },
+      "goal_1": {
+        "answers": {
+          "what": "Submit a clear first draft of the argument section",
+          "exactQuantity": {
+            "value": 1,
+            "unit": "argument-section draft",
+            "description": "one complete first draft of the legal argument section"
+          },
+          "exactDate": {
+            "label": "by noon today",
+            "isoDate": "2026-05-28"
+          },
+          "keySteps": [
+            {
+              "id": "outline",
+              "label": "Review argument outline",
+              "target": "one outline pass"
+            },
+            {
+              "id": "claim",
+              "label": "Draft strongest claim paragraph",
+              "target": "one complete claim paragraph"
+            },
+            {
+              "id": "precedent",
+              "label": "Tie precedent back to client facts",
+              "target": "one integrated precedent section"
+            }
+          ],
+          "metric": "argument draft complete",
+          "deadline": "2026-05-28"
+        },
+        "completed": true,
+        "source": "onboarding"
+      }
+    },
+    "prioritySchedule": [
+      {
+        "rank": 1,
+        "title": "Draft argument section",
+        "kind": "task",
+        "priority": "high",
+        "linkedValue": "Justice",
+        "energyCost": "high",
+        "durationMinutes": 85,
+        "scheduledStart": "08:30",
+        "scheduledEnd": "09:55"
+      },
+      {
+        "rank": 2,
+        "title": "Confirm pickup logistics",
+        "kind": "task",
+        "priority": "medium",
+        "linkedValue": "Care",
+        "energyCost": "low",
+        "durationMinutes": 15,
+        "scheduledStart": "10:15",
+        "scheduledEnd": "10:30"
+      },
+      {
+        "rank": 3,
+        "title": "Send case update to co-counsel",
+        "kind": "task",
+        "priority": "medium",
+        "linkedValue": "Diligence",
+        "energyCost": "medium",
+        "durationMinutes": 25,
+        "scheduledStart": "11:05",
+        "scheduledEnd": "11:30"
+      }
+    ]
+  },
+  "body": {
+    "currentEnergyLevel": 4,
+    "bodyState": "Sleep was interrupted, but the morning has a usable quiet pocket.",
+    "sleepSummary": {
+      "summary": "5.9 hours slept with an interruption overnight; sleep quality 70/100, moderate restlessness, and a usable but compressed morning recovery window.",
+      "durationHours": 5.9,
+      "targetHours": 7.5,
+      "bedtime": "00:05",
+      "wakeTime": "06:10",
+      "sleepQualityScore": 70,
+      "sleepEfficiencyPercent": 84,
+      "awakeMinutes": 31,
+      "restlessMinutes": 42,
+      "hrvMs": 33,
+      "restingHeartRate": 69
+    },
+    "activitySummary": "school drop-off walk planned; light morning movement",
+    "recoverySummary": "resting heart rate 69 bpm; HRV 33 ms",
+    "energyCurveInputs": {
+      "sleep_hours": 5.9,
+      "sleep_quality": 70,
+      "resting_heart_rate": 69,
+      "hrv_ms": 33
+    },
+    "hourlyEnergy": [
+      {
+        "hour": 6,
+        "energyLevel": 3
+      },
+      {
+        "hour": 7,
+        "energyLevel": 3
+      },
+      {
+        "hour": 8,
+        "energyLevel": 4
+      },
+      {
+        "hour": 9,
+        "energyLevel": 5
+      },
+      {
+        "hour": 10,
+        "energyLevel": 5
+      },
+      {
+        "hour": 11,
+        "energyLevel": 4
+      },
+      {
+        "hour": 12,
+        "energyLevel": 4
+      },
+      {
+        "hour": 13,
+        "energyLevel": 3
+      },
+      {
+        "hour": 14,
+        "energyLevel": 3
+      },
+      {
+        "hour": 15,
+        "energyLevel": 4
+      },
+      {
+        "hour": 16,
+        "energyLevel": 5
+      }
+    ],
+    "focusCues": {
+      "visual": [
+        "case notes printed",
+        "phone on do-not-disturb",
+        "argument outline open"
+      ],
+      "auditory": [
+        "quiet apartment",
+        "email alerts muted"
+      ],
+      "tactileBody": [
+        "mug warming hands",
+        "chair pulled close to desk"
+      ],
+      "smell": [
+        "tea"
+      ],
+      "taste": [
+        "tea"
+      ],
+      "other": [
+        "pickup reminder visible"
+      ]
+    }
+  },
+  "value": {
+    "topValues": [
+      {
+        "valueId": "justice",
+        "name": "Justice",
+        "emoji": "scale",
+        "personalDefinition": "using legal skill to make unfair systems more answerable",
+        "feelsLikeLabels": [
+          "committed",
+          "clear",
+          "purposeful"
+        ],
+        "dailySignLabels": [
+          "argument made sharper",
+          "client position protected"
+        ]
+      },
+      {
+        "valueId": "care",
+        "name": "Care",
+        "emoji": "hand",
+        "personalDefinition": "remembering the human stakes inside the legal work",
+        "feelsLikeLabels": [
+          "kind",
+          "human",
+          "steady"
+        ],
+        "dailySignLabels": [
+          "plain-language next step",
+          "one check-in done"
+        ]
+      },
+      {
+        "valueId": "diligence",
+        "name": "Diligence",
+        "emoji": "file",
+        "personalDefinition": "doing the careful work even when the day is compressed",
+        "feelsLikeLabels": [
+          "thorough",
+          "prepared",
+          "grounded"
+        ],
+        "dailySignLabels": [
+          "notes updated",
+          "deadline risk reduced"
+        ]
+      }
+    ],
+    "idealLife": {
+      "statement": "A life where I do rigorous advocacy without losing my humanity",
+      "lifeShapeLabels": [
+        "humane advocacy",
+        "clear client care"
+      ]
+    }
+  }
+}
+```
+
+## full script (285 words)
+
+Before the day gathers speed, a quiet scene can begin at the desk: case notes printed, argument outline open, phone on do-not-disturb, email alerts muted. The body may be starting from an energy level around 4 after 5.9 hours of interrupted sleep, with moderate restlessness and a compressed but usable recovery window. What might it feel like to let the chair support posture, the mug warm the hands, and one slower breath mark the shift into focus? What might the body notice as tea, quiet apartment, and the visible pickup reminder make the morning concrete rather than overwhelming?
+
+The longest opening stretch belongs to drafting the argument section from 8:30 to 9:55. The mind might first pass through the outline, then gather the strongest claim paragraph, then connect precedent back to the client facts until one complete argument-section draft exists by noon. What might the mind be thinking when Justice feels like using legal skill to make unfair systems more answerable: clear, committed, purposeful? After that, a shorter 10:15 pocket holds pickup logistics, a Care task with low energy cost; perhaps the human part of the day becomes steadier because the next step is confirmed. Then, from 11:05 to 11:30, sending the case update to co-counsel may call for Diligence: careful enough to reduce deadline risk, concise enough for a compressed morning.
+
+By the end of this sequence, the day may show signs of argument made sharper, client position protected, one check-in done, notes updated. What might it feel like to move through the morning as humane advocacy rather than self-punishment? The larger life remains possible in ordinary increments: rigorous advocacy without losing humanity, clear client care, careful work done even when recovery is imperfect.
+
+# serena_task
+
+Models by arm: {"baseline":"gpt-5.5-2026-04-23","mind":"gpt-5.5-2026-04-23","body":"gpt-5.5-2026-04-23","soul":"gpt-5.5-2026-04-23","full":"gpt-5.5-2026-04-23"}
+Word counts: {"baseline":263,"mind":276,"body":278,"soul":311,"full":347}
+
+## baseline input
+
+```json
+{
+  "preparationOnlyContext": "Specific task preparation for drafting the argument section.",
+  "visibleItems": [
+    "Review argument outline - 15 min",
+    "Draft strongest claim paragraph - 35 min",
+    "Tie precedent to client facts - 35 min"
+  ]
+}
+```
+
+## baseline script (263 words)
+
+This preparation is for drafting the argument section. The available plan has three parts: Review argument outline for 15 minutes, Draft strongest claim paragraph for 35 minutes, and Tie precedent to client facts for 35 minutes. Before beginning, it may help to note the total working time represented here: 85 minutes. The first part is a short review period, followed by two longer drafting periods. A simple way to prepare is to treat the list as the working sequence and keep the timing visible while moving through it.
+
+For the 15-minute review of the argument outline, the preparation can be limited to checking what is already set out and identifying the portion that will support the next writing step. This period can be used to read through the outline, confirm the order of points, and mark where the strongest claim paragraph should begin. Since the review time is brief, it may be useful to avoid expanding the outline during this part and instead use it to get ready for drafting.
+
+For the 35-minute drafting period, the task is to draft the strongest claim paragraph. The aim is to produce the paragraph within that time block, leaving refinement for later if needed. After that, the next 35-minute period is for tying precedent to client facts. This can be prepared as a separate writing step: identify the precedent to use, identify the client facts to connect it to, and write the connection clearly. Taken together, the schedule gives a straightforward sequence: review the outline, draft the strongest claim paragraph, then connect precedent with client facts.
+
+## mind input
+
+```json
+{
+  "userGoal": {
+    "userid": "serena-park",
+    "priority": {
+      "title": "Practice humane advocacy",
+      "description": "Do rigorous public-interest advocacy while staying humane to herself and making complex systems more navigable for clients."
+    },
+    "goal_1": {
+      "answers": {
+        "what": "Submit a clear first draft of the argument section",
+        "exactQuantity": {
+          "value": 1,
+          "unit": "argument-section draft",
+          "description": "one complete first draft of the legal argument section"
+        },
+        "exactDate": {
+          "label": "by noon today",
+          "isoDate": "2026-05-28"
+        },
+        "keySteps": [
+          {
+            "id": "outline",
+            "label": "Review argument outline",
+            "target": "one outline pass"
+          },
+          {
+            "id": "claim",
+            "label": "Draft strongest claim paragraph",
+            "target": "one complete claim paragraph"
+          },
+          {
+            "id": "precedent",
+            "label": "Tie precedent back to client facts",
+            "target": "one integrated precedent section"
+          }
+        ],
+        "metric": "argument draft complete",
+        "deadline": "2026-05-28"
+      },
+      "completed": true,
+      "source": "onboarding"
+    }
+  },
+  "focusTask": {
+    "taskId": "serena-argument-section",
+    "title": "Draft argument section",
+    "projectTitle": "Public-interest case brief",
+    "scheduledStart": "08:30",
+    "scheduledEnd": "09:55",
+    "priority": "high",
+    "linkedValue": "Justice",
+    "energyCost": "high",
+    "durationMinutes": 85
+  },
+  "focusSubtasks": [
+    {
+      "subtaskId": "serena-arg-1",
+      "title": "Review argument outline",
+      "order": 1,
+      "durationMinutes": 15
+    },
+    {
+      "subtaskId": "serena-arg-2",
+      "title": "Draft the strongest claim paragraph",
+      "order": 2,
+      "durationMinutes": 35
+    },
+    {
+      "subtaskId": "serena-arg-3",
+      "title": "Tie precedent back to client facts",
+      "order": 3,
+      "durationMinutes": 35
+    }
+  ]
+}
+```
+
+## mind script (276 words)
+
+Before the 08:30–09:55 work period begins, let the mind rehearse the shape of Draft argument section for the Public-interest case brief: one high-priority, 85-minute effort connected to Justice and to the larger aim of practicing humane advocacy. The wider goal is clear enough to hold lightly: submit one clear first draft of the argument section by noon today, making complex systems more navigable for clients while staying humane to herself. What might the mind be thinking as it treats this as one complete draft to move forward, rather than a perfect final version?
+
+The first 15 minutes can be pictured as order 1: Review argument outline. What might it feel like to scan the outline once and recognize the path the argument is meant to take? What might the mind be thinking when it notices the strongest sequence of points and lets that sequence guide the next move? Then the rehearsal shifts into order 2: Draft the strongest claim paragraph, a 35-minute stretch. What might the mind be thinking as it chooses a clear claim, builds it into a complete paragraph, and keeps returning to the purpose of a first draft whenever extra refinements appear?
+
+The final 35 minutes can be imagined as order 3: Tie precedent back to client facts. What might it feel like to connect legal authority to the client’s situation in language that is rigorous and usable? What might the mind be thinking as each precedent is brought back to why it matters here? By 09:55, the rehearsal can end with the argument section having moved through outline, claim, and precedent, aligned with the goal of one complete first draft by noon.
+
+## body input
+
+```json
+{
+  "currentEnergyLevel": 4,
+  "bodyState": "Compressed morning energy, with enough quiet to make a focused start.",
+  "sleepSummary": {
+    "summary": "5.9 hours slept with an interruption overnight; sleep quality 70/100, moderate restlessness, and a usable but compressed morning recovery window.",
+    "durationHours": 5.9,
+    "targetHours": 7.5,
+    "bedtime": "00:05",
+    "wakeTime": "06:10",
+    "sleepQualityScore": 70,
+    "sleepEfficiencyPercent": 84,
+    "awakeMinutes": 31,
+    "restlessMinutes": 42,
+    "hrvMs": 33,
+    "restingHeartRate": 69
+  },
+  "activitySummary": "light movement around morning logistics",
+  "recoverySummary": "recovery signals somewhat constrained",
+  "energyCurveInputs": {
+    "sleep_hours": 5.9,
+    "sleep_quality": 70,
+    "resting_heart_rate": 69,
+    "hrv_ms": 33
+  },
+  "hourlyEnergy": [
+    {
+      "hour": 6,
+      "energyLevel": 3
+    },
+    {
+      "hour": 7,
+      "energyLevel": 3
+    },
+    {
+      "hour": 8,
+      "energyLevel": 4
+    },
+    {
+      "hour": 9,
+      "energyLevel": 5
+    },
+    {
+      "hour": 10,
+      "energyLevel": 5
+    },
+    {
+      "hour": 11,
+      "energyLevel": 4
+    },
+    {
+      "hour": 12,
+      "energyLevel": 4
+    },
+    {
+      "hour": 13,
+      "energyLevel": 3
+    },
+    {
+      "hour": 14,
+      "energyLevel": 3
+    },
+    {
+      "hour": 15,
+      "energyLevel": 4
+    },
+    {
+      "hour": 16,
+      "energyLevel": 5
+    }
+  ],
+  "focusCues": {
+    "visual": [
+      "argument outline open",
+      "case notes printed",
+      "highlighted precedent beside laptop"
+    ],
+    "auditory": [
+      "quiet apartment",
+      "email alerts muted"
+    ],
+    "tactileBody": [
+      "mug warming hands",
+      "feet planted under desk"
+    ],
+    "smell": [
+      "tea"
+    ],
+    "taste": [
+      "tea"
+    ],
+    "other": [
+      "phone on do-not-disturb"
+    ]
+  }
+}
+```
+
+## body script (278 words)
+
+Begin with one slow breath in, and a slightly longer breath out. Let posture be simple: feet planted under the desk, mug warming the hands, shoulders allowed to settle without needing to force anything. The body is starting from a current energy level of about 4: not empty, not fully charged, more like compressed morning energy with enough quiet to make a focused start. With the apartment quiet, email alerts muted, and the phone on do-not-disturb, what might it feel like for the body to have fewer signals pulling at it? What might the body notice first: warmth in the hands, contact through the feet, the taste or smell of tea, or the steadiness of the chair? Sleep was usable but shortened: 5.9 hours, one overnight interruption, moderate restlessness, and a recovery window that feels somewhat constrained. In plain body terms, this may mean the system benefits from a slower ramp rather than a sudden push. Light movement around morning logistics has already begun warming things up, while the morning energy curve suggests a gradual rise from lower levels into steadier focus. What might the mind be thinking as the body recognizes, “Start narrow, stay grounded, build gradually”? Around 8, energy is near 4, then may rise toward 5 during the next couple of hours before easing later. Imagine the argument outline open, case notes printed, and highlighted precedent beside the laptop. Not as pressure, just as physical anchors for attention. What might the body notice when eyes land on one visible cue at a time? Perhaps the feet press down, the breath lengthens, the hands release the mug, and the quiet room supports a contained first step.
+
+## soul input
+
+```json
+{
+  "topValues": [
+    {
+      "valueId": "justice",
+      "name": "Justice",
+      "emoji": "scale",
+      "personalDefinition": "using legal skill to make unfair systems more answerable",
+      "feelsLikeLabels": [
+        "committed",
+        "clear",
+        "purposeful"
+      ],
+      "dailySignLabels": [
+        "argument made sharper",
+        "client position protected"
+      ]
+    },
+    {
+      "valueId": "care",
+      "name": "Care",
+      "emoji": "hand",
+      "personalDefinition": "remembering the human stakes inside the legal work",
+      "feelsLikeLabels": [
+        "kind",
+        "human",
+        "steady"
+      ],
+      "dailySignLabels": [
+        "plain-language next step",
+        "one check-in done"
+      ]
+    },
+    {
+      "valueId": "diligence",
+      "name": "Diligence",
+      "emoji": "file",
+      "personalDefinition": "doing the careful work even when the day is compressed",
+      "feelsLikeLabels": [
+        "thorough",
+        "prepared",
+        "grounded"
+      ],
+      "dailySignLabels": [
+        "notes updated",
+        "deadline risk reduced"
+      ]
+    }
+  ],
+  "idealLife": {
+    "statement": "A life where I do rigorous advocacy without losing my humanity",
+    "lifeShapeLabels": [
+      "humane advocacy",
+      "clear client care"
+    ]
+  }
+}
+```
+
+## soul script (311 words)
+
+Consider a day held by Justice, Care, and Diligence: not as abstract words, but as a quiet inner compass. Justice may mean using legal skill to make unfair systems more answerable. Care may mean remembering the human stakes inside the legal work. Diligence may mean doing the careful work even when the day is compressed. Let a scene begin with those values already present, as if the next moments can be met through them. What might it feel like for commitment, clarity, and purpose to sit alongside kindness, humanity, and steadiness? What might the mind be thinking when it remembers that rigorous advocacy can still stay humane?
+
+Imagine moving through the day with these values shaping tone and choices. Justice might appear as an argument made sharper or a client position protected. Care might appear as a plain-language next step or one check-in done. Diligence might appear as notes updated or a deadline risk reduced. The details can stay simple; the meaning can stay strong. What might it feel like when carefulness is not just pressure, but a way of honoring what matters? What might the mind be thinking when it notices a chance to be both exacting and human? What might the body notice when steadiness and groundedness are allowed to be part of the work?
+
+Now let the larger picture come into view: a life where rigorous advocacy happens without losing humanity. Perhaps it has the shape of humane advocacy and clear client care. There may be moments of sharpness, moments of warmth, and moments of quiet thoroughness, all belonging to the same person. What might it feel like to move with commitment, kindness, and preparation at once? What might the mind be thinking when the day becomes one small expression of Justice, Care, and Diligence? What might the body notice as those values become familiar, practical, and close?
+
+## full input
+
+```json
+{
+  "mind": {
+    "userGoal": {
+      "userid": "serena-park",
+      "priority": {
+        "title": "Practice humane advocacy",
+        "description": "Do rigorous public-interest advocacy while staying humane to herself and making complex systems more navigable for clients."
+      },
+      "goal_1": {
+        "answers": {
+          "what": "Submit a clear first draft of the argument section",
+          "exactQuantity": {
+            "value": 1,
+            "unit": "argument-section draft",
+            "description": "one complete first draft of the legal argument section"
+          },
+          "exactDate": {
+            "label": "by noon today",
+            "isoDate": "2026-05-28"
+          },
+          "keySteps": [
+            {
+              "id": "outline",
+              "label": "Review argument outline",
+              "target": "one outline pass"
+            },
+            {
+              "id": "claim",
+              "label": "Draft strongest claim paragraph",
+              "target": "one complete claim paragraph"
+            },
+            {
+              "id": "precedent",
+              "label": "Tie precedent back to client facts",
+              "target": "one integrated precedent section"
+            }
+          ],
+          "metric": "argument draft complete",
+          "deadline": "2026-05-28"
+        },
+        "completed": true,
+        "source": "onboarding"
+      }
+    },
+    "focusTask": {
+      "taskId": "serena-argument-section",
+      "title": "Draft argument section",
+      "projectTitle": "Public-interest case brief",
+      "scheduledStart": "08:30",
+      "scheduledEnd": "09:55",
+      "priority": "high",
+      "linkedValue": "Justice",
+      "energyCost": "high",
+      "durationMinutes": 85
+    },
+    "focusSubtasks": [
+      {
+        "subtaskId": "serena-arg-1",
+        "title": "Review argument outline",
+        "order": 1,
+        "durationMinutes": 15
+      },
+      {
+        "subtaskId": "serena-arg-2",
+        "title": "Draft the strongest claim paragraph",
+        "order": 2,
+        "durationMinutes": 35
+      },
+      {
+        "subtaskId": "serena-arg-3",
+        "title": "Tie precedent back to client facts",
+        "order": 3,
+        "durationMinutes": 35
+      }
+    ]
+  },
+  "body": {
+    "currentEnergyLevel": 4,
+    "bodyState": "Compressed morning energy, with enough quiet to make a focused start.",
+    "sleepSummary": {
+      "summary": "5.9 hours slept with an interruption overnight; sleep quality 70/100, moderate restlessness, and a usable but compressed morning recovery window.",
+      "durationHours": 5.9,
+      "targetHours": 7.5,
+      "bedtime": "00:05",
+      "wakeTime": "06:10",
+      "sleepQualityScore": 70,
+      "sleepEfficiencyPercent": 84,
+      "awakeMinutes": 31,
+      "restlessMinutes": 42,
+      "hrvMs": 33,
+      "restingHeartRate": 69
+    },
+    "activitySummary": "light movement around morning logistics",
+    "recoverySummary": "recovery signals somewhat constrained",
+    "energyCurveInputs": {
+      "sleep_hours": 5.9,
+      "sleep_quality": 70,
+      "resting_heart_rate": 69,
+      "hrv_ms": 33
+    },
+    "hourlyEnergy": [
+      {
+        "hour": 6,
+        "energyLevel": 3
+      },
+      {
+        "hour": 7,
+        "energyLevel": 3
+      },
+      {
+        "hour": 8,
+        "energyLevel": 4
+      },
+      {
+        "hour": 9,
+        "energyLevel": 5
+      },
+      {
+        "hour": 10,
+        "energyLevel": 5
+      },
+      {
+        "hour": 11,
+        "energyLevel": 4
+      },
+      {
+        "hour": 12,
+        "energyLevel": 4
+      },
+      {
+        "hour": 13,
+        "energyLevel": 3
+      },
+      {
+        "hour": 14,
+        "energyLevel": 3
+      },
+      {
+        "hour": 15,
+        "energyLevel": 4
+      },
+      {
+        "hour": 16,
+        "energyLevel": 5
+      }
+    ],
+    "focusCues": {
+      "visual": [
+        "argument outline open",
+        "case notes printed",
+        "highlighted precedent beside laptop"
+      ],
+      "auditory": [
+        "quiet apartment",
+        "email alerts muted"
+      ],
+      "tactileBody": [
+        "mug warming hands",
+        "feet planted under desk"
+      ],
+      "smell": [
+        "tea"
+      ],
+      "taste": [
+        "tea"
+      ],
+      "other": [
+        "phone on do-not-disturb"
+      ]
+    }
+  },
+  "value": {
+    "topValues": [
+      {
+        "valueId": "justice",
+        "name": "Justice",
+        "emoji": "scale",
+        "personalDefinition": "using legal skill to make unfair systems more answerable",
+        "feelsLikeLabels": [
+          "committed",
+          "clear",
+          "purposeful"
+        ],
+        "dailySignLabels": [
+          "argument made sharper",
+          "client position protected"
+        ]
+      },
+      {
+        "valueId": "care",
+        "name": "Care",
+        "emoji": "hand",
+        "personalDefinition": "remembering the human stakes inside the legal work",
+        "feelsLikeLabels": [
+          "kind",
+          "human",
+          "steady"
+        ],
+        "dailySignLabels": [
+          "plain-language next step",
+          "one check-in done"
+        ]
+      },
+      {
+        "valueId": "diligence",
+        "name": "Diligence",
+        "emoji": "file",
+        "personalDefinition": "doing the careful work even when the day is compressed",
+        "feelsLikeLabels": [
+          "thorough",
+          "prepared",
+          "grounded"
+        ],
+        "dailySignLabels": [
+          "notes updated",
+          "deadline risk reduced"
+        ]
+      }
+    ],
+    "idealLife": {
+      "statement": "A life where I do rigorous advocacy without losing my humanity",
+      "lifeShapeLabels": [
+        "humane advocacy",
+        "clear client care"
+      ]
+    }
+  }
+}
+```
+
+## full script (347 words)
+
+Before this 8:30 to 9:55 work period begins, there can be a small settling point: breath moving in and out, posture finding support, feet planted under the desk, a mug warming the hands. The morning energy is compressed but usable, around a 4, with 5.9 hours of interrupted sleep and recovery signals somewhat constrained. What might the body notice as it works with that reality rather than fighting it: the quiet apartment, tea, email alerts muted, phone on do-not-disturb, the argument outline open, case notes printed, highlighted precedent beside the laptop? What might the mind be thinking as focus narrows toward one complete argument-section draft by noon today?
+
+Imagine the scene opening with the public-interest case brief in front of Serena and the first 15 minutes devoted to reviewing the argument outline. The aim is one outline pass: seeing the structure, spotting where the strongest path already exists, and letting the draft have a clear runway. Then the larger middle of the session turns to drafting the strongest claim paragraph. What might it feel like to give that paragraph 35 minutes of steady attention, not perfection, but a complete claim taking shape? What might the mind be thinking as legal skill organizes pressure into a clear first position? The final 35 minutes move into tying precedent back to client facts, with the highlighted precedent beside the laptop and client realities held close enough to keep the argument humane.
+
+As the section comes together, what might the body notice when effort becomes purposeful rather than scattered: breath a little steadier, shoulders less braced, hands moving between notes and draft? This work connects directly to Justice, using legal skill to make unfair systems more answerable; to Care, remembering the human stakes inside the legal work; and to Diligence, doing careful work even when the day is compressed. One complete first draft can be a daily sign of an argument made sharper, a client position protected, and deadline risk reduced. It is credible that this focused morning can move Serena toward a life of rigorous advocacy without losing her humanity.
