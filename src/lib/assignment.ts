@@ -53,17 +53,18 @@ export function buildAssignment(assignmentId: number): Assignment {
   return { assignmentId: normalizedId, trials };
 }
 
-export function assignmentIdFromParams(params: URLSearchParams): number {
+export function assignmentIdFromParams(params: URLSearchParams, participantIdOverride?: string): number {
   const explicit = params.get("assignment_id") ?? params.get("assignment") ?? params.get("a");
   if (explicit && Number.isFinite(Number(explicit))) {
     return Number(explicit);
   }
 
   const prolificId =
-    params.get("PROLIFIC_PID") ??
+    participantIdOverride ||
+    (params.get("PROLIFIC_PID") ??
     params.get("prolific_pid") ??
     params.get("participant_id") ??
-    params.get("participant");
+    params.get("participant"));
 
   if (prolificId) {
     return hashString(prolificId) % SLOT_COUNT;
@@ -109,4 +110,3 @@ export function verifyAssignmentBalance(): {
 
   return { pairCounts, scenarioCounts, pairScenarioCounts, duplicateScenarioSlots };
 }
-

@@ -4,14 +4,32 @@ export type PriorityTask = {
   rank: number;
   title: string;
   durationMinutes: number;
+  scheduledStart?: string;
+  scheduledEnd?: string;
   priority: "high" | "medium" | "low";
   linkedValue: string;
 };
 
+export type ScenarioScope = "daily" | "task";
+
+export type FocusTask = PriorityTask & {
+  projectTitle?: string;
+};
+
+export type FocusSubtask = {
+  order: number;
+  title: string;
+  durationMinutes: number;
+};
+
 export type Scenario = {
   id: string;
+  scope: ScenarioScope;
   profileId: string;
   profileName: string;
+  age: string;
+  gender: string;
+  industry: string;
   profileSummary: string;
   contextTitle: string;
   dayFrame: string;
@@ -22,6 +40,9 @@ export type Scenario = {
   values: string[];
   desiredFeelings: string[];
   topTasks: PriorityTask[];
+  focusTask?: FocusTask;
+  focusSubtasks?: FocusSubtask[];
+  baselineItems: string[];
 };
 
 export type TrialAssignment = {
@@ -38,6 +59,7 @@ export type Assignment = {
 };
 
 export type TrialResponse = {
+  responseId: string;
   participantId: string;
   assignmentId: number;
   trialIndex: number;
@@ -48,6 +70,34 @@ export type TrialResponse = {
   leftRating: number;
   rightRating: number;
   reason: string;
+  startedAt: string;
+  submittedAt: string;
+  elapsedMs: number;
+  userAgent: string;
+};
+
+export type QuestionnaireAnswers = {
+  perspectivePreference: string;
+  perspectivePreferenceOther: string;
+  guidanceLevel: string;
+  guidanceLevelOther: string;
+  backgroundAudio: string;
+  backgroundAudioOther: string;
+  scriptLength: string;
+  scriptLengthOther: string;
+  toneStyle: string;
+  toneStyleOther: string;
+  personalizationFocus: string;
+  personalizationFocusOther: string;
+  deliveryFormat: string;
+  deliveryFormatOther: string;
+};
+
+export type QuestionnaireResponse = QuestionnaireAnswers & {
+  responseId: string;
+  participantId: string;
+  assignmentId: number;
+  questionnaireVersion: string;
   startedAt: string;
   submittedAt: string;
   elapsedMs: number;

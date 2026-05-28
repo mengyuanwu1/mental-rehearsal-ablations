@@ -1,7 +1,10 @@
-import type { TrialResponse } from "../types";
+import type { QuestionnaireResponse, TrialResponse } from "../types";
 
 const responseKey = (participantId: string, assignmentId: number) =>
   `mra-responses:${participantId || "anonymous"}:${assignmentId}`;
+
+const questionnaireKey = (participantId: string, assignmentId: number) =>
+  `mra-questionnaire:${participantId || "anonymous"}:${assignmentId}`;
 
 export function readStoredResponses(participantId: string, assignmentId: number): TrialResponse[] {
   const raw = window.localStorage.getItem(responseKey(participantId, assignmentId));
@@ -22,27 +25,62 @@ export function storeResponse(response: TrialResponse): TrialResponse[] {
   return next;
 }
 
-export async function postResponse(response: TrialResponse): Promise<void> {
+export function readStoredQuestionnaire(
+  participantId: string,
+  assignmentId: number,
+): QuestionnaireResponse | null {
+  const raw = window.localStorage.getItem(questionnaireKey(participantId, assignmentId));
+  if (!raw) return null;
+  try {
+    return JSON.parse(raw) as QuestionnaireResponse;
+  } catch {
+    return null;
+  }
+}
+
+export function storeQuestionnaire(response: QuestionnaireResponse): QuestionnaireResponse {
+  window.localStorage.setItem(
+    questionnaireKey(response.participantId, response.assignmentId),
+    JSON.stringify(response),
+  );
+  return response;
+}
+
+async function postPayload(payload: Record<string, unknown>): Promise<void> {
   const endpoint = import.meta.env.VITE_RESPONSE_ENDPOINT as string | undefined;
   if (!endpoint) return;
 
-  const payload = {
+  const body = {
     secret: (import.meta.env.VITE_RESPONSE_SECRET as string | undefined) ?? "",
     studyId: (import.meta.env.VITE_STUDY_ID as string | undefined) ?? "mental-rehearsal-ablation",
-    response,
+    ...payload,
   };
 
   await fetch(endpoint, {
     method: "POST",
     mode: "no-cors",
     headers: { "Content-Type": "text/plain;charset=utf-8" },
-    body: JSON.stringify(payload),
+    body: JSON.stringify(body),
     keepalive: true,
   });
 }
 
+export async function postResponse(response: TrialResponse): Promise<void> {
+  await postPayload({ response });
+}
+
+export async function postQuestionnaire(questionnaire: QuestionnaireResponse): Promise<void> {
+  await postPayload({ questionnaire });
+}
+
+const escapeCsvValue = (value: unknown) => {
+  const text = String(value ?? "");
+  return `"${text.replaceAll('"', '""')}"`;
+};
+
 export function responsesToCsv(responses: TrialResponse[]): string {
   const headers = [
+    "responseId",
     "participantId",
     "assignmentId",
     "trialIndex",
@@ -59,13 +97,44 @@ export function responsesToCsv(responses: TrialResponse[]): string {
     "userAgent",
   ];
 
-  const escape = (value: unknown) => {
-    const text = String(value ?? "");
-    return `"${text.replaceAll('"', '""')}"`;
-  };
+  return [
+    headers.join(","),
+    ...responses.map((response) =>
+      headers.map((key) => escapeCsvValue(response[key as keyof TrialResponse])).join(","),
+    ),
+  ].join("\n");
+}
+
+export function questionnaireToCsv(response: QuestionnaireResponse | null): string {
+  const headers = [
+    "responseId",
+    "participantId",
+    "assignmentId",
+    "questionnaireVersion",
+    "perspectivePreference",
+    "perspectivePreferenceOther",
+    "guidanceLevel",
+    "guidanceLevelOther",
+    "backgroundAudio",
+    "backgroundAudioOther",
+    "scriptLength",
+    "scriptLengthOther",
+    "toneStyle",
+    "toneStyleOther",
+    "personalizationFocus",
+    "personalizationFocusOther",
+    "deliveryFormat",
+    "deliveryFormatOther",
+    "startedAt",
+    "submittedAt",
+    "elapsedMs",
+    "userAgent",
+  ];
+
+  if (!response) return headers.join(",");
 
   return [
     headers.join(","),
-    ...responses.map((response) => headers.map((key) => escape(response[key as keyof TrialResponse])).join(",")),
+    headers.map((key) => escapeCsvValue(response[key as keyof QuestionnaireResponse])).join(","),
   ].join("\n");
 }

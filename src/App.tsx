@@ -1,37 +1,325 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import { getScenario } from "./data/scenarios";
 import { scriptForCondition } from "./data/scripts";
 import { assignmentIdFromParams, buildAssignment } from "./lib/assignment";
-import { postResponse, readStoredResponses, responsesToCsv, storeResponse } from "./lib/responses";
-import type { TrialResponse } from "./types";
+import {
+  postQuestionnaire,
+  postResponse,
+  readStoredQuestionnaire,
+  readStoredResponses,
+  storeQuestionnaire,
+  storeResponse,
+} from "./lib/responses";
+import type { QuestionnaireAnswers, QuestionnaireResponse, Scenario, TrialResponse } from "./types";
 
 const params = new URLSearchParams(window.location.search);
-const prolificId =
+const initialProlificId =
   params.get("PROLIFIC_PID") ??
   params.get("prolific_pid") ??
   params.get("participant_id") ??
   params.get("participant") ??
-  "anonymous";
+  "";
 
 const returnUrl = params.get("return_url") ?? params.get("redirect_url") ?? "";
 const debugMode = params.get("debug") === "1";
 const ratingScale = [1, 2, 3, 4, 5, 6, 7];
+const questionnaireVersion = "personalization-v1";
 
-function downloadCsv(responses: TrialResponse[]) {
-  const blob = new Blob([responsesToCsv(responses)], { type: "text/csv;charset=utf-8" });
-  const href = URL.createObjectURL(blob);
-  const link = document.createElement("a");
-  link.href = href;
-  link.download = `mental-rehearsal-responses-${prolificId}.csv`;
-  link.click();
-  URL.revokeObjectURL(href);
-}
+type QuestionnaireChoiceId =
+  | "perspectivePreference"
+  | "guidanceLevel"
+  | "backgroundAudio"
+  | "scriptLength"
+  | "toneStyle"
+  | "personalizationFocus"
+  | "deliveryFormat";
+
+type QuestionnaireOtherId =
+  | "perspectivePreferenceOther"
+  | "guidanceLevelOther"
+  | "backgroundAudioOther"
+  | "scriptLengthOther"
+  | "toneStyleOther"
+  | "personalizationFocusOther"
+  | "deliveryFormatOther";
+
+type QuestionnaireQuestion = {
+  id: QuestionnaireChoiceId;
+  otherId: QuestionnaireOtherId;
+  prompt: string;
+  options: Array<{
+    value: string;
+    label: string;
+    description: string;
+  }>;
+};
+
+const questionnaireQuestions: QuestionnaireQuestion[] = [
+  {
+    id: "perspectivePreference",
+    otherId: "perspectivePreferenceOther",
+    prompt: "What point of view would you prefer for your own rehearsal scripts?",
+    options: [
+      {
+        value: "first_person",
+        label: "First-person",
+        description: 'Uses "I" and feels self-directed.',
+      },
+      {
+        value: "second_person",
+        label: "Guide voice",
+        description: 'Uses "you" and feels coached.',
+      },
+      {
+        value: "third_person",
+        label: "Third-person",
+        description: "Uses your name or they/them framing.",
+      },
+      {
+        value: "no_preference",
+        label: "No preference",
+        description: "Any perspective is fine.",
+      },
+    ],
+  },
+  {
+    id: "guidanceLevel",
+    otherId: "guidanceLevelOther",
+    prompt: "How much guidance would you want from the rehearsal guide?",
+    options: [
+      {
+        value: "light",
+        label: "Light cues",
+        description: "Brief prompts with room to imagine.",
+      },
+      {
+        value: "moderate",
+        label: "Moderate guidance",
+        description: "Clear structure without too much detail.",
+      },
+      {
+        value: "step_by_step",
+        label: "Step-by-step",
+        description: "Specific actions and transitions.",
+      },
+      {
+        value: "adaptive",
+        label: "Adaptive",
+        description: "More help when the day feels harder.",
+      },
+    ],
+  },
+  {
+    id: "backgroundAudio",
+    otherId: "backgroundAudioOther",
+    prompt: "What background audio would you prefer, if any?",
+    options: [
+      {
+        value: "none",
+        label: "No music",
+        description: "Voice only.",
+      },
+      {
+        value: "ambient",
+        label: "Ambient",
+        description: "Soft instrumental texture.",
+      },
+      {
+        value: "nature",
+        label: "Nature sounds",
+        description: "Rain, forest, ocean, or similar.",
+      },
+      {
+        value: "piano_lofi",
+        label: "Piano or lo-fi",
+        description: "Gentle rhythm and melody.",
+      },
+      {
+        value: "energizing",
+        label: "Energizing",
+        description: "More upbeat focus music.",
+      },
+    ],
+  },
+  {
+    id: "scriptLength",
+    otherId: "scriptLengthOther",
+    prompt: "What rehearsal length would fit you best?",
+    options: [
+      {
+        value: "under_1_min",
+        label: "Under 1 minute",
+        description: "Fast reset.",
+      },
+      {
+        value: "1_to_2_min",
+        label: "1-2 minutes",
+        description: "Short daily guide.",
+      },
+      {
+        value: "3_to_5_min",
+        label: "3-5 minutes",
+        description: "More immersive practice.",
+      },
+      {
+        value: "varies",
+        label: "Depends",
+        description: "Length should match the task or day.",
+      },
+    ],
+  },
+  {
+    id: "toneStyle",
+    otherId: "toneStyleOther",
+    prompt: "What tone would make a rehearsal most useful?",
+    options: [
+      {
+        value: "calm_supportive",
+        label: "Calm and supportive",
+        description: "Warm, steady, low pressure.",
+      },
+      {
+        value: "practical_direct",
+        label: "Practical and direct",
+        description: "Clear, efficient, action-focused.",
+      },
+      {
+        value: "encouraging",
+        label: "Encouraging",
+        description: "Motivating and confidence-building.",
+      },
+      {
+        value: "reflective",
+        label: "Reflective",
+        description: "Meaning, values, and identity-focused.",
+      },
+    ],
+  },
+  {
+    id: "personalizationFocus",
+    otherId: "personalizationFocusOther",
+    prompt: "Which personalization would matter most to you?",
+    options: [
+      {
+        value: "schedule_tasks",
+        label: "Schedule and tasks",
+        description: "Uses the exact plan for the day.",
+      },
+      {
+        value: "energy_mood",
+        label: "Energy and mood",
+        description: "Matches how you feel right now.",
+      },
+      {
+        value: "values_goals",
+        label: "Values and goals",
+        description: "Connects action to what matters.",
+      },
+      {
+        value: "obstacles",
+        label: "Likely obstacles",
+        description: "Prepares for friction and recovery.",
+      },
+    ],
+  },
+  {
+    id: "deliveryFormat",
+    otherId: "deliveryFormatOther",
+    prompt: "Which delivery format would you prefer?",
+    options: [
+      {
+        value: "readable_text",
+        label: "Readable text",
+        description: "A script I can read silently.",
+      },
+      {
+        value: "spoken_audio",
+        label: "Spoken audio",
+        description: "A guided audio rehearsal.",
+      },
+      {
+        value: "text_and_audio",
+        label: "Text and audio",
+        description: "Both formats available.",
+      },
+      {
+        value: "interactive_steps",
+        label: "Interactive steps",
+        description: "One section at a time.",
+      },
+    ],
+  },
+];
+
+const emptyQuestionnaireAnswers: QuestionnaireAnswers = {
+  perspectivePreference: "",
+  perspectivePreferenceOther: "",
+  guidanceLevel: "",
+  guidanceLevelOther: "",
+  backgroundAudio: "",
+  backgroundAudioOther: "",
+  scriptLength: "",
+  scriptLengthOther: "",
+  toneStyle: "",
+  toneStyleOther: "",
+  personalizationFocus: "",
+  personalizationFocusOther: "",
+  deliveryFormat: "",
+  deliveryFormatOther: "",
+};
 
 export default function App() {
-  const assignmentId = useMemo(() => assignmentIdFromParams(params), []);
+  const [participantInput, setParticipantInput] = useState(initialProlificId);
+  const [participantId, setParticipantId] = useState("");
+
+  function beginStudy(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const trimmed = participantInput.trim();
+    if (!trimmed) return;
+    setParticipantId(trimmed);
+  }
+
+  if (!participantId) {
+    return (
+      <main className="app-shell">
+        <section className="start-panel">
+          <p className="overline">Mental rehearsal comparison</p>
+          <h1>Enter your Prolific ID to begin.</h1>
+          <p>
+            Please use the exact Prolific ID shown on Prolific. Your responses will be linked to
+            this ID for study payment and data quality checks.
+          </p>
+          <form className="participant-form" onSubmit={beginStudy}>
+            <label>
+              <span>Prolific ID</span>
+              <input
+                autoComplete="off"
+                autoFocus
+                value={participantInput}
+                onChange={(event) => setParticipantInput(event.target.value)}
+                placeholder="Enter Prolific ID"
+              />
+            </label>
+            <button className="primary-button" disabled={!participantInput.trim()} type="submit">
+              Begin comparison
+            </button>
+          </form>
+        </section>
+      </main>
+    );
+  }
+
+  return <StudyTask participantId={participantId} />;
+}
+
+function StudyTask({ participantId }: { participantId: string }) {
+  const assignmentId = useMemo(() => assignmentIdFromParams(params, participantId), [participantId]);
   const assignment = useMemo(() => buildAssignment(assignmentId), [assignmentId]);
   const [responses, setResponses] = useState<TrialResponse[]>(() =>
-    readStoredResponses(prolificId, assignment.assignmentId),
+    readStoredResponses(participantId, assignment.assignmentId),
+  );
+  const [questionnaire, setQuestionnaire] = useState<QuestionnaireResponse | null>(() =>
+    readStoredQuestionnaire(participantId, assignment.assignmentId),
   );
   const [trialIndex, setTrialIndex] = useState(() => Math.min(responses.length, assignment.trials.length - 1));
   const [choice, setChoice] = useState<"left" | "right" | "">("");
@@ -40,20 +328,35 @@ export default function App() {
   const [reason, setReason] = useState("");
   const [startedAt, setStartedAt] = useState(() => new Date().toISOString());
   const [postingError, setPostingError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const submittingRef = useRef(false);
 
-  const complete = responses.length >= assignment.trials.length;
-  const trial = assignment.trials[trialIndex];
+  const comparisonComplete = responses.length >= assignment.trials.length;
+  const complete = comparisonComplete && questionnaire !== null;
+  const trial = assignment.trials[Math.min(trialIndex, assignment.trials.length - 1)];
   const scenario = getScenario(trial.scenarioId);
   const leftScript = scriptForCondition(scenario, trial.leftCondition);
   const rightScript = scriptForCondition(scenario, trial.rightCondition);
-  const progressPercent = Math.round((responses.length / assignment.trials.length) * 100);
-  const canContinue = Boolean(choice && leftRating !== null && rightRating !== null);
+  const progressPercent = Math.round((Math.min(responses.length, assignment.trials.length) / assignment.trials.length) * 100);
+  const canContinue = Boolean(choice && leftRating !== null && rightRating !== null && !isSubmitting);
+
+  useEffect(() => {
+    if (!complete || !returnUrl) return;
+    const timeoutId = window.setTimeout(() => {
+      window.location.assign(returnUrl);
+    }, 1000);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [complete]);
 
   async function submit() {
-    if (!canContinue || leftRating === null || rightRating === null || !choice) return;
+    if (submittingRef.current || !canContinue || leftRating === null || rightRating === null || !choice) return;
+    submittingRef.current = true;
+    setIsSubmitting(true);
     const now = new Date().toISOString();
     const response: TrialResponse = {
-      participantId: prolificId,
+      responseId: `${participantId}:${assignment.assignmentId}:${trial.trialIndex}`,
+      participantId,
       assignmentId: assignment.assignmentId,
       trialIndex: trial.trialIndex,
       scenarioId: scenario.id,
@@ -73,10 +376,15 @@ export default function App() {
     setResponses(nextResponses);
 
     try {
-      await postResponse(response);
-      setPostingError("");
-    } catch {
-      setPostingError("Saved locally. Network post failed.");
+      try {
+        await postResponse(response);
+        setPostingError("");
+      } catch {
+        setPostingError("Saved locally. Network post failed.");
+      }
+    } finally {
+      submittingRef.current = false;
+      setIsSubmitting(false);
     }
 
     setChoice("");
@@ -87,24 +395,21 @@ export default function App() {
     setTrialIndex((current) => Math.min(current + 1, assignment.trials.length - 1));
   }
 
+  if (comparisonComplete && !questionnaire) {
+    return (
+      <QuestionnaireForm
+        assignmentId={assignment.assignmentId}
+        participantId={participantId}
+        onSubmitted={setQuestionnaire}
+      />
+    );
+  }
+
   if (complete) {
     return (
-      <main className="app-shell">
-        <section className="complete-panel">
-          <p className="overline">Study complete</p>
+      <main className="app-shell thank-you-shell">
+        <section className="complete-panel thank-you-panel">
           <h1>Thank you.</h1>
-          <p>Your responses are saved in this browser and submitted if a response endpoint is configured.</p>
-          <div className="complete-actions">
-            {returnUrl ? (
-              <a className="primary-button" href={returnUrl}>
-                Return to survey
-              </a>
-            ) : null}
-            <button className="secondary-button" onClick={() => downloadCsv(responses)}>
-              Download CSV
-            </button>
-          </div>
-          <pre className="payload-preview">{JSON.stringify(responses, null, 2)}</pre>
         </section>
       </main>
     );
@@ -128,30 +433,41 @@ export default function App() {
       </header>
 
       <section className="context-band" aria-label="Scenario context">
-        <div>
-          <p className="context-label">{scenario.profileName}</p>
+        <div className="profile-summary">
+          <p className="context-label">
+            {scenario.profileName} - {scenario.scope === "daily" ? "Daily scenario" : "Task scenario"}
+          </p>
           <h2>{scenario.contextTitle}</h2>
           <p>{scenario.profileSummary}</p>
+          <dl className="profile-meta">
+            <div>
+              <dt>Age</dt>
+              <dd>{scenario.age}</dd>
+            </div>
+            <div>
+              <dt>Gender</dt>
+              <dd>{scenario.gender}</dd>
+            </div>
+            <div>
+              <dt>Industry</dt>
+              <dd>{scenario.industry}</dd>
+            </div>
+          </dl>
         </div>
         <div className="context-grid">
           <div>
-            <span>Today</span>
-            <p>{scenario.dayFrame}</p>
+            <span>Life priority</span>
+            <p>{scenario.lifePriority}</p>
           </div>
           <div>
-            <span>Goal</span>
-            <p>{scenario.userGoal}</p>
+            <span>Values</span>
+            <p>{scenario.values.join(", ")}</p>
           </div>
           <div>
-            <span>Top priorities</span>
-            <ol>
-              {scenario.topTasks.map((task) => (
-                <li key={task.rank}>
-                  {task.title} <small>{task.durationMinutes} min</small>
-                </li>
-              ))}
-            </ol>
+            <span>Energy</span>
+            <p>{scenario.bodyState}</p>
           </div>
+          <ScenarioTaskSummary scenario={scenario} />
         </div>
       </section>
 
@@ -225,12 +541,208 @@ export default function App() {
         </label>
 
         <div className="footer-actions">
-          <p>{postingError || "Response saves after each trial."}</p>
+          <p>{postingError || (isSubmitting ? "Saving..." : "Response saves after each trial.")}</p>
           <button className="primary-button" disabled={!canContinue} onClick={submit}>
-            Continue
+            {isSubmitting ? "Saving..." : "Continue"}
           </button>
         </div>
       </section>
     </main>
+  );
+}
+
+function QuestionnaireForm({
+  assignmentId,
+  participantId,
+  onSubmitted,
+}: {
+  assignmentId: number;
+  participantId: string;
+  onSubmitted: (response: QuestionnaireResponse) => void;
+}) {
+  const [answers, setAnswers] = useState<QuestionnaireAnswers>(emptyQuestionnaireAnswers);
+  const [startedAt] = useState(() => new Date().toISOString());
+  const [postingError, setPostingError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const submittingRef = useRef(false);
+  const canSubmit =
+    questionnaireQuestions.every((question) => {
+      const selected = answers[question.id];
+      return Boolean(selected) && (selected !== "other" || Boolean(answers[question.otherId].trim()));
+    }) && !isSubmitting;
+
+  function setAnswer(questionId: QuestionnaireChoiceId, value: string) {
+    setAnswers((current) => ({ ...current, [questionId]: value }));
+  }
+
+  function setOtherAnswer(question: QuestionnaireQuestion, value: string) {
+    setAnswers((current) => ({
+      ...current,
+      [question.id]: "other",
+      [question.otherId]: value,
+    }));
+  }
+
+  async function submitQuestionnaire(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (!canSubmit || submittingRef.current) return;
+
+    submittingRef.current = true;
+    setIsSubmitting(true);
+    const now = new Date().toISOString();
+    const response: QuestionnaireResponse = {
+      ...answers,
+      perspectivePreferenceOther: answers.perspectivePreferenceOther.trim(),
+      guidanceLevelOther: answers.guidanceLevelOther.trim(),
+      backgroundAudioOther: answers.backgroundAudioOther.trim(),
+      scriptLengthOther: answers.scriptLengthOther.trim(),
+      toneStyleOther: answers.toneStyleOther.trim(),
+      personalizationFocusOther: answers.personalizationFocusOther.trim(),
+      deliveryFormatOther: answers.deliveryFormatOther.trim(),
+      responseId: `${participantId}:${assignmentId}:questionnaire`,
+      participantId,
+      assignmentId,
+      questionnaireVersion,
+      startedAt,
+      submittedAt: now,
+      elapsedMs: Date.now() - new Date(startedAt).getTime(),
+      userAgent: navigator.userAgent,
+    };
+
+    storeQuestionnaire(response);
+
+    try {
+      await postQuestionnaire(response);
+      setPostingError("");
+    } catch {
+      setPostingError("Saved locally. Network post failed.");
+    } finally {
+      submittingRef.current = false;
+      setIsSubmitting(false);
+      onSubmitted(response);
+    }
+  }
+
+  return (
+    <main className="app-shell questionnaire-shell">
+      <header className="study-header">
+        <div>
+          <p className="overline">Final personalization questions</p>
+          <h1>Tell us how you would want the rehearsal guide designed.</h1>
+        </div>
+        <div className="progress-block" aria-label="Comparison complete">
+          <span>Final step</span>
+          <div className="progress-track">
+            <div className="progress-fill" style={{ width: "100%" }} />
+          </div>
+        </div>
+      </header>
+
+      <form className="questionnaire-panel" onSubmit={submitQuestionnaire}>
+        {questionnaireQuestions.map((question, questionIndex) => (
+          <fieldset className="questionnaire-question" key={question.id}>
+            <legend>
+              <span>{questionIndex + 1}</span>
+              {question.prompt}
+            </legend>
+            <div className="option-grid">
+              {question.options.map((option) => {
+                const optionId = `${question.id}-${option.value}`;
+                const selected = answers[question.id] === option.value;
+                return (
+                  <label className={selected ? "option-choice selected" : "option-choice"} htmlFor={optionId} key={option.value}>
+                    <input
+                      checked={selected}
+                      id={optionId}
+                      name={question.id}
+                      onChange={() => setAnswer(question.id, option.value)}
+                      type="radio"
+                      value={option.value}
+                    />
+                    <span>{option.label}</span>
+                    <small>{option.description}</small>
+                  </label>
+                );
+              })}
+              <label
+                className={answers[question.id] === "other" ? "option-choice free-text-option selected" : "option-choice free-text-option"}
+                htmlFor={`${question.id}-other`}
+              >
+                <input
+                  checked={answers[question.id] === "other"}
+                  id={`${question.id}-other`}
+                  name={question.id}
+                  onChange={() => setAnswer(question.id, "other")}
+                  type="radio"
+                  value="other"
+                />
+                <span>Other / free response</span>
+                <textarea
+                  aria-label={`${question.prompt} other response`}
+                  onChange={(event) => setOtherAnswer(question, event.target.value)}
+                  onFocus={() => setAnswer(question.id, "other")}
+                  placeholder="Type your preference"
+                  rows={2}
+                  value={answers[question.otherId]}
+                />
+              </label>
+            </div>
+          </fieldset>
+        ))}
+
+        <div className="footer-actions">
+          <p>{postingError || (isSubmitting ? "Saving..." : "Questionnaire saves when submitted.")}</p>
+          <button className="primary-button" disabled={!canSubmit} type="submit">
+            {isSubmitting ? "Saving..." : "Submit final questions"}
+          </button>
+        </div>
+      </form>
+    </main>
+  );
+}
+
+function ScenarioTaskSummary({ scenario }: { scenario: Scenario }) {
+  if (scenario.scope === "task" && scenario.focusTask) {
+    return (
+      <div>
+        <span>Focus task</span>
+        <p className="focus-task-title">
+          {scenario.focusTask.title}{" "}
+          <small>
+            {scenario.focusTask.scheduledStart && scenario.focusTask.scheduledEnd
+              ? `${scenario.focusTask.scheduledStart}-${scenario.focusTask.scheduledEnd}, `
+              : ""}
+            {scenario.focusTask.durationMinutes} min
+          </small>
+        </p>
+        {scenario.focusTask.projectTitle ? <p className="task-project">{scenario.focusTask.projectTitle}</p> : null}
+        {scenario.focusSubtasks?.length ? (
+          <ol>
+            {scenario.focusSubtasks.map((subtask) => (
+              <li key={subtask.order}>
+                {subtask.title} <small>{subtask.durationMinutes} min</small>
+              </li>
+            ))}
+          </ol>
+        ) : null}
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      <span>Top priorities</span>
+      <ol>
+        {scenario.topTasks.map((task) => (
+          <li key={task.rank}>
+            {task.title}{" "}
+            <small>
+              {task.scheduledStart && task.scheduledEnd ? `${task.scheduledStart}-${task.scheduledEnd}, ` : ""}
+              {task.durationMinutes} min
+            </small>
+          </li>
+        ))}
+      </ol>
+    </div>
   );
 }
