@@ -121,6 +121,48 @@ li {
   margin-bottom: 14px;
 }
 
+.intro-panel {
+  max-width: 760px;
+}
+
+.intro-copy {
+  display: grid;
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.intro-copy section {
+  border-top: 1px solid #edf1f3;
+  padding-top: 16px;
+}
+
+.intro-copy h2 {
+  margin-bottom: 6px;
+  font-size: 18px;
+}
+
+.intro-copy p {
+  margin-bottom: 0;
+}
+
+.intro-id {
+  margin-top: 22px;
+  border-radius: 8px;
+  background: #f3faf9;
+  padding: 12px 14px;
+  color: #1f5c59;
+  font-size: 14px;
+  font-weight: 740;
+}
+
+.intro-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 22px;
+}
+
 .participant-form {
   display: grid;
   gap: 16px;
@@ -362,10 +404,12 @@ small {
 
 .questionnaire-question legend {
   display: flex;
+  float: left;
   align-items: flex-start;
   gap: 10px;
   width: 100%;
-  margin-bottom: 14px;
+  margin: 0;
+  padding: 0;
   color: #111a22;
   font-size: 18px;
   font-weight: 760;
@@ -387,9 +431,11 @@ small {
 }
 
 .option-grid {
+  clear: both;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
+  padding-top: 10px;
 }
 
 .option-choice {
@@ -456,6 +502,37 @@ small {
 }
 
 .free-text-option textarea:focus {
+  border-color: #1f8a82;
+  box-shadow: 0 0 0 3px rgb(31 138 130 / 14%);
+  outline: none;
+}
+
+.long-text-response {
+  clear: both;
+  display: grid;
+  gap: 8px;
+  padding-top: 10px;
+}
+
+.long-text-response span {
+  color: #22313d;
+  font-size: 15px;
+  font-weight: 760;
+}
+
+.long-text-response textarea {
+  width: 100%;
+  min-height: 112px;
+  resize: vertical;
+  border: 1px solid #cfd9de;
+  border-radius: 8px;
+  padding: 10px 12px;
+  color: #22313d;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.long-text-response textarea:focus {
   border-color: #1f8a82;
   box-shadow: 0 0 0 3px rgb(31 138 130 / 14%);
   outline: none;
@@ -532,6 +609,11 @@ small {
   font-size: 14px;
 }
 
+.footer-actions p.reading-gate {
+  color: #72520b;
+  font-weight: 720;
+}
+
 .primary-button {
   background: #17313b;
   color: #ffffff;
@@ -545,6 +627,19 @@ small {
 .secondary-button {
   background: #e8f3f2;
   color: #115f5a;
+}
+
+.secondary-button:disabled {
+  cursor: not-allowed;
+  background: #eef2f3;
+  color: #93a0a9;
+}
+
+.nav-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
 }
 
 .complete-panel {

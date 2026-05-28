@@ -129,6 +129,7 @@ export function questionnaireToCsv(response: QuestionnaireResponse | null): stri
     "submittedAt",
     "elapsedMs",
     "userAgent",
+    "idealMorningGuidance",
   ];
 
   if (!response) return headers.join(",");

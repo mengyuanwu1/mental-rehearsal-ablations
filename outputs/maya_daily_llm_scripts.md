@@ -1,0 +1,411 @@
+# Maya Daily LLM Scripts
+
+Generated at: 2026-05-28T20:27:54.974Z
+Requested model: gpt-5.5
+Models by arm: {"baseline":"gpt-5.5-2026-04-23","mind":"gpt-5.5-2026-04-23","body":"gpt-5.5-2026-04-23","soul":"gpt-5.5-2026-04-23","full":"gpt-5.5-2026-04-23"}
+Used mock: false
+
+## baseline input
+
+```json
+{
+  "visibleScheduleOnly": [
+    {
+      "title": "Draft related work section",
+      "durationMinutes": 90
+    },
+    {
+      "title": "Answer TA emails",
+      "durationMinutes": 20
+    },
+    {
+      "title": "Prepare two reading group questions",
+      "durationMinutes": 30
+    }
+  ]
+}
+```
+
+## baseline script (245 words)
+
+Today’s visible schedule has three planned work blocks: 90 minutes to draft the related work section, 20 minutes to answer TA emails, and 30 minutes to prepare two reading group questions. A useful way to prepare is to treat each block as a distinct item with its own beginning and ending. Before starting, note the total planned time: 140 minutes. That gives the day a clear structure without needing to add anything beyond what is listed.
+
+For the 90-minute related work section block, plan to use the time for drafting rather than for unrelated tasks. Since this is the longest item, it may help to begin by deciding what part of the section will be worked on first, then continue through the block until the scheduled time is complete. After that, the 20-minute TA email block can be handled as a shorter administrative task. The limited duration can support a simple approach: open the messages, answer what can be answered within the time, and stop when the block ends.
+
+The final listed item is 30 minutes to prepare two reading group questions. Since the output is specific, the time can be divided in a straightforward way: work toward one question, then the second, leaving a brief moment to check that both are usable. Moving through the schedule in order can reduce uncertainty. The main preparation is to know what is planned, how long each item has, and when to move on to the next task.
+## mind input
+
+```json
+{
+  "userGoal": {
+    "priority": {
+      "title": "Become an independent researcher",
+      "description": "Build a research life where she can think and write on her own questions, develop independent judgment, and produce work she is proud to defend."
+    },
+    "goal_1": {
+      "answers": {
+        "what": "Submit a strong workshop paper this month",
+        "exactQuantity": {
+          "value": 1,
+          "unit": "workshop paper submission",
+          "description": "one complete draft submitted to the workshop"
+        },
+        "exactDate": {
+          "label": "by the end of June 2026",
+          "isoDate": "2026-06-30"
+        },
+        "keySteps": [
+          {
+            "id": "related-work",
+            "label": "Complete the related work section",
+            "target": "one coherent section draft"
+          },
+          {
+            "id": "gap-statement",
+            "label": "Write the gap statement",
+            "target": "one paragraph the advisor can react to"
+          },
+          {
+            "id": "full-draft",
+            "label": "Assemble the workshop paper draft",
+            "target": "one submission-ready PDF"
+          }
+        ],
+        "metric": "one strong workshop paper draft submitted",
+        "deadline": "2026-06-30"
+      }
+    }
+  },
+  "prioritySchedule": [
+    {
+      "rank": 1,
+      "title": "Draft related work section",
+      "scheduledStart": "09:00",
+      "scheduledEnd": "10:30",
+      "durationMinutes": 90,
+      "priority": "high",
+      "linkedValue": "Success",
+      "energyCost": "high"
+    },
+    {
+      "rank": 2,
+      "title": "Answer TA emails",
+      "scheduledStart": "13:00",
+      "scheduledEnd": "13:20",
+      "durationMinutes": 20,
+      "priority": "medium",
+      "linkedValue": "Open-Mindedness",
+      "energyCost": "low"
+    },
+    {
+      "rank": 3,
+      "title": "Prepare two reading group questions",
+      "scheduledStart": "15:00",
+      "scheduledEnd": "15:30",
+      "durationMinutes": 30,
+      "priority": "medium",
+      "linkedValue": "Open-Mindedness",
+      "energyCost": "medium"
+    }
+  ]
+}
+```
+
+## mind script (281 words)
+
+Begin with the larger arc of today: becoming an independent researcher, building judgment through the work of thinking and writing on questions worth defending. The month’s aim is one strong workshop paper submission by the end of June 2026, and today’s first ranked task carries the most weight. Imagine the 90-minute, high-priority stretch titled “Draft related work section,” linked with Success. What might it feel like to give this task enough room because it supports the paper directly? What might the mind be thinking as scattered sources become one coherent section draft? What might the body notice as the task has a clear beginning, a sustained middle, and a stopping point? Let the image include choosing what belongs, noticing what connects, and leaving behind a section that can be strengthened later.
+
+Next, picture the second ranked task: “Answer TA emails,” a 20-minute, medium-priority item linked with Open-Mindedness. This is shorter and lighter in the day’s sequence, a contained response period rather than the main creative effort. What might it feel like to handle a defined set of messages without letting them expand beyond their place? What might the mind be thinking as each reply becomes a small clarification or next step? What might the body notice when a task has only 20 minutes and can be completed cleanly?
+
+Finally, imagine the third ranked task: “Prepare two reading group questions,” 30 minutes, medium priority, also linked with Open-Mindedness. What might it feel like to turn reading into two useful questions? What might the mind be thinking as curiosity becomes wording another person can engage with? What might the body notice as this final preparation supports independent judgment in a modest, concrete way?
+## body input
+
+```json
+{
+  "currentEnergyLevel": 3,
+  "bodyState": "Low but usable energy, with a steadier window later in the morning.",
+  "sleepSummary": {
+    "summary": "5.5 hours slept after a late bedtime; sleep quality 68/100 with short duration, some restlessness, low HRV, and slightly elevated resting heart rate.",
+    "durationHours": 5.5,
+    "targetHours": 7.5,
+    "bedtime": "01:05",
+    "wakeTime": "06:40",
+    "sleepQualityScore": 68,
+    "sleepEfficiencyPercent": 83,
+    "awakeMinutes": 28,
+    "restlessMinutes": 46,
+    "hrvMs": 29,
+    "restingHeartRate": 73
+  },
+  "activitySummary": "4200 steps; 22 active minutes; 1900 calories out",
+  "recoverySummary": "resting heart rate 73 bpm; HRV 29 ms",
+  "focusCues": {
+    "visual": [
+      "laptop open to the paper draft",
+      "three anchor papers beside the keyboard",
+      "morning light coming through the window"
+    ],
+    "auditory": [
+      "quiet apartment hum"
+    ],
+    "tactileBody": [
+      "second coffee in reach",
+      "feet on the floor"
+    ],
+    "smell": [
+      "coffee"
+    ],
+    "taste": [
+      "coffee or water"
+    ],
+    "other": [
+      "phone face down"
+    ]
+  }
+}
+```
+
+## body script (279 words)
+
+Begin with the breath: a slow inhale, a longer exhale, and a moment to let the shoulders settle. Posture can be simple and supported, feet on the floor, contact points easy to feel. Current energy is a 3: low, but usable. After 5.5 hours of sleep, a late bedtime, some restlessness, low HRV, and a slightly elevated resting heart rate, the body may not feel fully restored. What might it feel like to meet that honestly—without forcing brightness, just noticing enough steadiness to begin?
+
+Picture the immediate physical scene: laptop open to the paper draft, three anchor papers beside the keyboard, morning light coming through the window. The quiet apartment hum sits in the background. Coffee is nearby; coffee or water is available as a taste cue. Phone face down. What might the body notice here—the weight through the feet, the chair underneath, the hands near the keyboard, the first signs of warmth from the cup, the small lift that caffeine or hydration may offer? With 4200 steps and 22 active minutes already in the recent body record, there is some movement in the system, even if recovery is limited.
+
+Let the next few breaths be about conserving effort and finding a usable rhythm. What might the mind be thinking when the body is tired but not stopped: perhaps slower is still workable, perhaps steadier matters more than intense. The recovery signals—HRV 29 ms, resting heart rate 73 bpm—suggest a body that may benefit from grounding before activity. What might it feel like to begin from feet, breath, coffee scent, morning light, and the quiet room, allowing the body to organize around one calm physical cue at a time?
+## soul input
+
+```json
+{
+  "topValues": [
+    {
+      "name": "Independent Thinking",
+      "personalDefinition": "trusting my own questions before borrowing other people's",
+      "feelsLikeLabels": [
+        "mentally clear",
+        "self-trusting",
+        "unboxed"
+      ],
+      "dailySignLabels": [
+        "having room to think",
+        "making decisions faster"
+      ]
+    },
+    {
+      "name": "Success",
+      "personalDefinition": "finishing what matters",
+      "feelsLikeLabels": [
+        "accomplished",
+        "focused",
+        "competent"
+      ],
+      "dailySignLabels": [
+        "finishing what matters",
+        "visible progress"
+      ]
+    },
+    {
+      "name": "Open-Mindedness",
+      "personalDefinition": "staying curious about answers I did not expect",
+      "feelsLikeLabels": [
+        "curious",
+        "supported"
+      ],
+      "dailySignLabels": [
+        "learning something"
+      ]
+    }
+  ],
+  "idealLife": {
+    "statement": "A life where I think and write on my own questions",
+    "lifeShapeLabels": [
+      "independent research",
+      "deep work mornings"
+    ]
+  }
+}
+```
+
+## soul script (274 words)
+
+Imagine the day as a quiet opening for what matters most: Independent Thinking, Success, and Open-Mindedness. Independent Thinking means trusting your own questions before borrowing other people’s. What might it feel like to move with that kind of self-trust: mentally clear, unboxed, able to give your own questions room? What might the mind be thinking when it remembers that a borrowed answer does not have to arrive before an honest question? There may be a simple steadiness in having room to think, and in making decisions faster because the inner signal is easier to hear.
+
+Success, here, is not a vague outside measure; it means finishing what matters. Imagine the day carrying that definition in the background, like a clean line to return to. What might it feel like to be accomplished, focused, and competent without needing to make it complicated? What might the mind be thinking when visible progress is enough evidence that the direction is real? There can be a sense of finishing what matters as a form of respect for your own attention, your own standards, and the future self who benefits from what becomes complete.
+
+Open-Mindedness adds softness to the strength: staying curious about answers you did not expect. What might it feel like to be curious and supported by that curiosity, rather than threatened by surprise? What might the mind be thinking when learning something becomes part of the path instead of a detour? Let the larger picture stay close: a life where you think and write on your own questions, shaped by independent research and deep work mornings. The day can become one small expression of that life.
+## full input
+
+```json
+{
+  "mind": {
+    "userGoal": {
+      "priority": {
+        "title": "Become an independent researcher",
+        "description": "Build a research life where she can think and write on her own questions, develop independent judgment, and produce work she is proud to defend."
+      },
+      "goal_1": {
+        "answers": {
+          "what": "Submit a strong workshop paper this month",
+          "exactQuantity": {
+            "value": 1,
+            "unit": "workshop paper submission",
+            "description": "one complete draft submitted to the workshop"
+          },
+          "exactDate": {
+            "label": "by the end of June 2026",
+            "isoDate": "2026-06-30"
+          },
+          "keySteps": [
+            {
+              "id": "related-work",
+              "label": "Complete the related work section",
+              "target": "one coherent section draft"
+            },
+            {
+              "id": "gap-statement",
+              "label": "Write the gap statement",
+              "target": "one paragraph the advisor can react to"
+            },
+            {
+              "id": "full-draft",
+              "label": "Assemble the workshop paper draft",
+              "target": "one submission-ready PDF"
+            }
+          ],
+          "metric": "one strong workshop paper draft submitted",
+          "deadline": "2026-06-30"
+        }
+      }
+    },
+    "prioritySchedule": [
+      {
+        "rank": 1,
+        "title": "Draft related work section",
+        "scheduledStart": "09:00",
+        "scheduledEnd": "10:30",
+        "durationMinutes": 90,
+        "priority": "high",
+        "linkedValue": "Success",
+        "energyCost": "high"
+      },
+      {
+        "rank": 2,
+        "title": "Answer TA emails",
+        "scheduledStart": "13:00",
+        "scheduledEnd": "13:20",
+        "durationMinutes": 20,
+        "priority": "medium",
+        "linkedValue": "Open-Mindedness",
+        "energyCost": "low"
+      },
+      {
+        "rank": 3,
+        "title": "Prepare two reading group questions",
+        "scheduledStart": "15:00",
+        "scheduledEnd": "15:30",
+        "durationMinutes": 30,
+        "priority": "medium",
+        "linkedValue": "Open-Mindedness",
+        "energyCost": "medium"
+      }
+    ]
+  },
+  "body": {
+    "currentEnergyLevel": 3,
+    "bodyState": "Low but usable energy, with a steadier window later in the morning.",
+    "sleepSummary": {
+      "summary": "5.5 hours slept after a late bedtime; sleep quality 68/100 with short duration, some restlessness, low HRV, and slightly elevated resting heart rate.",
+      "durationHours": 5.5,
+      "targetHours": 7.5,
+      "bedtime": "01:05",
+      "wakeTime": "06:40",
+      "sleepQualityScore": 68,
+      "sleepEfficiencyPercent": 83,
+      "awakeMinutes": 28,
+      "restlessMinutes": 46,
+      "hrvMs": 29,
+      "restingHeartRate": 73
+    },
+    "activitySummary": "4200 steps; 22 active minutes; 1900 calories out",
+    "recoverySummary": "resting heart rate 73 bpm; HRV 29 ms",
+    "focusCues": {
+      "visual": [
+        "laptop open to the paper draft",
+        "three anchor papers beside the keyboard",
+        "morning light coming through the window"
+      ],
+      "auditory": [
+        "quiet apartment hum"
+      ],
+      "tactileBody": [
+        "second coffee in reach",
+        "feet on the floor"
+      ],
+      "smell": [
+        "coffee"
+      ],
+      "taste": [
+        "coffee or water"
+      ],
+      "other": [
+        "phone face down"
+      ]
+    }
+  },
+  "value": {
+    "topValues": [
+      {
+        "name": "Independent Thinking",
+        "personalDefinition": "trusting my own questions before borrowing other people's",
+        "feelsLikeLabels": [
+          "mentally clear",
+          "self-trusting",
+          "unboxed"
+        ],
+        "dailySignLabels": [
+          "having room to think",
+          "making decisions faster"
+        ]
+      },
+      {
+        "name": "Success",
+        "personalDefinition": "finishing what matters",
+        "feelsLikeLabels": [
+          "accomplished",
+          "focused",
+          "competent"
+        ],
+        "dailySignLabels": [
+          "finishing what matters",
+          "visible progress"
+        ]
+      },
+      {
+        "name": "Open-Mindedness",
+        "personalDefinition": "staying curious about answers I did not expect",
+        "feelsLikeLabels": [
+          "curious",
+          "supported"
+        ],
+        "dailySignLabels": [
+          "learning something"
+        ]
+      }
+    ],
+    "idealLife": {
+      "statement": "A life where I think and write on my own questions",
+      "lifeShapeLabels": [
+        "independent research",
+        "deep work mornings"
+      ]
+    }
+  }
+}
+```
+
+## full script (277 words)
+
+Begin with the body as it is today: low but usable energy, about 3 out of 10, after 5.5 hours of sleep from a late 01:05 bedtime to a 06:40 wake time. Let the breath be simple and steady, the posture supported, feet on the floor. Recovery is not perfect: some restlessness, HRV at 29 ms, resting heart rate 73 bpm. Still, there is a steadier window later this morning. Around the quiet apartment hum, coffee or water nearby, phone face down, what might the body notice as it gathers just enough focus for the first important block? What might the mind be thinking as it chooses one clear next step rather than the whole month at once?
+
+At 09:00, picture the laptop open to the paper draft, three anchor papers beside the keyboard, morning light at the window, and the related work section waiting for 90 minutes of careful attention. This is the largest effort of the day, connected to Success: finishing what matters, visible progress, one coherent section draft. What might it feel like to compare papers, find the thread, and let a paragraph become defendable? Later, at 13:00, the 20-minute TA email block can be smaller and contained, a chance for Open-Mindedness and clear replies. At 15:00, two reading group questions ask for curiosity about answers not expected.
+
+These moments point toward one workshop paper submission by the end of June 2026, and beyond that, becoming an independent researcher. Today can be part of a life where thinking and writing on your own questions is real: independent research, deep work mornings, self-trusting judgment. Even with imperfect sleep, credible progress can happen in measured blocks.

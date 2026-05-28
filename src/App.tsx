@@ -23,7 +23,8 @@ const initialProlificId =
 const returnUrl = params.get("return_url") ?? params.get("redirect_url") ?? "";
 const debugMode = params.get("debug") === "1";
 const ratingScale = [1, 2, 3, 4, 5, 6, 7];
-const questionnaireVersion = "personalization-v1";
+const minimumComparisonSeconds = 60;
+const questionnaireVersion = "personalization-v2";
 
 type QuestionnaireChoiceId =
   | "perspectivePreference"
@@ -266,17 +267,44 @@ const emptyQuestionnaireAnswers: QuestionnaireAnswers = {
   personalizationFocusOther: "",
   deliveryFormat: "",
   deliveryFormatOther: "",
+  idealMorningGuidance: "",
+};
+
+const questionnaireAnswersFromResponse = (response: QuestionnaireResponse | null): QuestionnaireAnswers => ({
+  perspectivePreference: response?.perspectivePreference ?? "",
+  perspectivePreferenceOther: response?.perspectivePreferenceOther ?? "",
+  guidanceLevel: response?.guidanceLevel ?? "",
+  guidanceLevelOther: response?.guidanceLevelOther ?? "",
+  backgroundAudio: response?.backgroundAudio ?? "",
+  backgroundAudioOther: response?.backgroundAudioOther ?? "",
+  scriptLength: response?.scriptLength ?? "",
+  scriptLengthOther: response?.scriptLengthOther ?? "",
+  toneStyle: response?.toneStyle ?? "",
+  toneStyleOther: response?.toneStyleOther ?? "",
+  personalizationFocus: response?.personalizationFocus ?? "",
+  personalizationFocusOther: response?.personalizationFocusOther ?? "",
+  deliveryFormat: response?.deliveryFormat ?? "",
+  deliveryFormatOther: response?.deliveryFormatOther ?? "",
+  idealMorningGuidance: response?.idealMorningGuidance ?? "",
+});
+
+const formatCountdown = (seconds: number) => {
+  const minutes = Math.floor(seconds / 60);
+  const remainingSeconds = seconds % 60;
+  return `${minutes}:${String(remainingSeconds).padStart(2, "0")}`;
 };
 
 export default function App() {
   const [participantInput, setParticipantInput] = useState(initialProlificId);
   const [participantId, setParticipantId] = useState("");
+  const [introAccepted, setIntroAccepted] = useState(false);
 
   function beginStudy(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const trimmed = participantInput.trim();
     if (!trimmed) return;
     setParticipantId(trimmed);
+    setIntroAccepted(false);
   }
 
   if (!participantId) {
@@ -301,9 +329,70 @@ export default function App() {
               />
             </label>
             <button className="primary-button" disabled={!participantInput.trim()} type="submit">
-              Begin comparison
+              Continue
             </button>
           </form>
+        </section>
+      </main>
+    );
+  }
+
+  if (!introAccepted) {
+    return (
+      <main className="app-shell">
+        <section className="start-panel intro-panel">
+          <p className="overline">Before you begin</p>
+          <h1>About mental rehearsal and this study.</h1>
+
+          <div className="intro-copy">
+            <section>
+              <h2>What is mental rehearsal?</h2>
+              <p>
+                Mental rehearsal is a short guided preview of a future situation. It asks you to
+                imagine the setting, the actions you might take, and the way you want to feel before
+                the moment actually happens.
+              </p>
+            </section>
+
+            <section>
+              <h2>What is this study about?</h2>
+              <p>
+                This study compares different styles of mental rehearsal guidance. You will read
+                six pairs of rehearsal scripts and choose which script would better help someone
+                prepare for their day or an important task.
+              </p>
+            </section>
+
+            <section>
+              <h2>How should you answer?</h2>
+              <p>
+                There are no right or wrong answers. Please focus on which script feels more useful,
+                clear, and supportive for the person in the scenario. After the comparisons, you will
+                answer a few questions about your own preferences for a rehearsal guide.
+              </p>
+              <p>
+                Each comparison has a 1-minute review timer before you can continue, so please take
+                time to read both scripts before making your final choice.
+              </p>
+            </section>
+          </div>
+
+          <div className="intro-id">Prolific ID: {participantId}</div>
+          <div className="intro-actions">
+            <button
+              className="secondary-button"
+              onClick={() => {
+                setParticipantId("");
+                setIntroAccepted(false);
+              }}
+              type="button"
+            >
+              Back
+            </button>
+            <button className="primary-button" onClick={() => setIntroAccepted(true)} type="button">
+              Start comparisons
+            </button>
+          </div>
         </section>
       </main>
     );
@@ -321,7 +410,10 @@ function StudyTask({ participantId }: { participantId: string }) {
   const [questionnaire, setQuestionnaire] = useState<QuestionnaireResponse | null>(() =>
     readStoredQuestionnaire(participantId, assignment.assignmentId),
   );
-  const [trialIndex, setTrialIndex] = useState(() => Math.min(responses.length, assignment.trials.length - 1));
+  const [questionnaireDraft, setQuestionnaireDraft] = useState<QuestionnaireAnswers>(() =>
+    questionnaireAnswersFromResponse(readStoredQuestionnaire(participantId, assignment.assignmentId)),
+  );
+  const [trialIndex, setTrialIndex] = useState(() => Math.min(responses.length, assignment.trials.length));
   const [choice, setChoice] = useState<"left" | "right" | "">("");
   const [leftRating, setLeftRating] = useState<number | null>(null);
   const [rightRating, setRightRating] = useState<number | null>(null);
@@ -329,16 +421,70 @@ function StudyTask({ participantId }: { participantId: string }) {
   const [startedAt, setStartedAt] = useState(() => new Date().toISOString());
   const [postingError, setPostingError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [readingSecondsRemaining, setReadingSecondsRemaining] = useState(minimumComparisonSeconds);
   const submittingRef = useRef(false);
 
-  const comparisonComplete = responses.length >= assignment.trials.length;
-  const complete = comparisonComplete && questionnaire !== null;
+  const comparisonComplete = trialIndex >= assignment.trials.length;
+  const complete = questionnaire !== null;
   const trial = assignment.trials[Math.min(trialIndex, assignment.trials.length - 1)];
   const scenario = getScenario(trial.scenarioId);
   const leftScript = scriptForCondition(scenario, trial.leftCondition);
   const rightScript = scriptForCondition(scenario, trial.rightCondition);
-  const progressPercent = Math.round((Math.min(responses.length, assignment.trials.length) / assignment.trials.length) * 100);
-  const canContinue = Boolean(choice && leftRating !== null && rightRating !== null && !isSubmitting);
+  const progressPercent = Math.round(
+    ((Math.min(trialIndex, assignment.trials.length - 1) + 1) / assignment.trials.length) * 100,
+  );
+  const currentTrialResponse = responses.find((response) => response.trialIndex === trialIndex);
+  const readingComplete = readingSecondsRemaining <= 0;
+  const canContinue = Boolean(choice && leftRating !== null && rightRating !== null && readingComplete && !isSubmitting);
+  const canGoBack = trialIndex > 0 && !isSubmitting;
+  const footerStatus = postingError
+    || (isSubmitting
+      ? "Saving..."
+      : readingComplete
+        ? "Response saves after each trial."
+        : `Please spend at least 1 minute reviewing both scripts. Continue unlocks in ${formatCountdown(
+          readingSecondsRemaining,
+        )}.`);
+
+  useEffect(() => {
+    if (trialIndex >= assignment.trials.length) return;
+
+    if (currentTrialResponse) {
+      setChoice(currentTrialResponse.choice);
+      setLeftRating(currentTrialResponse.leftRating);
+      setRightRating(currentTrialResponse.rightRating);
+      setReason(currentTrialResponse.reason);
+      setStartedAt(currentTrialResponse.startedAt || new Date().toISOString());
+    } else {
+      setChoice("");
+      setLeftRating(null);
+      setRightRating(null);
+      setReason("");
+      setStartedAt(new Date().toISOString());
+    }
+    setPostingError("");
+  }, [assignment.trials.length, currentTrialResponse, trialIndex]);
+
+  useEffect(() => {
+    if (trialIndex >= assignment.trials.length || currentTrialResponse) {
+      setReadingSecondsRemaining(0);
+      return;
+    }
+
+    const unlockAt = Date.now() + minimumComparisonSeconds * 1000;
+    setReadingSecondsRemaining(minimumComparisonSeconds);
+
+    const intervalId = window.setInterval(() => {
+      const secondsRemaining = Math.max(0, Math.ceil((unlockAt - Date.now()) / 1000));
+      setReadingSecondsRemaining(secondsRemaining);
+
+      if (secondsRemaining === 0) {
+        window.clearInterval(intervalId);
+      }
+    }, 250);
+
+    return () => window.clearInterval(intervalId);
+  }, [assignment.trials.length, currentTrialResponse, trialIndex]);
 
   useEffect(() => {
     if (!complete || !returnUrl) return;
@@ -392,13 +538,21 @@ function StudyTask({ participantId }: { participantId: string }) {
     setRightRating(null);
     setReason("");
     setStartedAt(new Date().toISOString());
-    setTrialIndex((current) => Math.min(current + 1, assignment.trials.length - 1));
+    setTrialIndex((current) => Math.min(current + 1, assignment.trials.length));
+  }
+
+  function goBack() {
+    if (!canGoBack) return;
+    setTrialIndex((current) => Math.max(current - 1, 0));
   }
 
   if (comparisonComplete && !questionnaire) {
     return (
       <QuestionnaireForm
         assignmentId={assignment.assignmentId}
+        initialAnswers={questionnaireDraft}
+        onBack={() => setTrialIndex(assignment.trials.length - 1)}
+        onDraftChange={setQuestionnaireDraft}
         participantId={participantId}
         onSubmitted={setQuestionnaire}
       />
@@ -422,9 +576,9 @@ function StudyTask({ participantId }: { participantId: string }) {
           <p className="overline">Mental rehearsal comparison</p>
           <h1>Choose the script that would better help you prepare.</h1>
         </div>
-        <div className="progress-block" aria-label={`Progress ${responses.length + 1} of ${assignment.trials.length}`}>
+        <div className="progress-block" aria-label={`Progress ${trialIndex + 1} of ${assignment.trials.length}`}>
           <span>
-            {responses.length + 1} / {assignment.trials.length}
+            {trialIndex + 1} / {assignment.trials.length}
           </span>
           <div className="progress-track">
             <div className="progress-fill" style={{ width: `${progressPercent}%` }} />
@@ -541,10 +695,21 @@ function StudyTask({ participantId }: { participantId: string }) {
         </label>
 
         <div className="footer-actions">
-          <p>{postingError || (isSubmitting ? "Saving..." : "Response saves after each trial.")}</p>
-          <button className="primary-button" disabled={!canContinue} onClick={submit}>
-            {isSubmitting ? "Saving..." : "Continue"}
-          </button>
+          <p className={readingComplete || postingError || isSubmitting ? "" : "reading-gate"}>
+            {footerStatus}
+          </p>
+          <div className="nav-actions">
+            <button className="secondary-button" disabled={!canGoBack} onClick={goBack} type="button">
+              Back
+            </button>
+            <button className="primary-button" disabled={!canContinue} onClick={submit}>
+              {isSubmitting
+                ? "Saving..."
+                : readingComplete
+                  ? "Continue"
+                  : `Continue in ${formatCountdown(readingSecondsRemaining)}`}
+            </button>
+          </div>
         </div>
       </section>
     </main>
@@ -553,14 +718,20 @@ function StudyTask({ participantId }: { participantId: string }) {
 
 function QuestionnaireForm({
   assignmentId,
+  initialAnswers,
+  onBack,
+  onDraftChange,
   participantId,
   onSubmitted,
 }: {
   assignmentId: number;
+  initialAnswers: QuestionnaireAnswers;
+  onBack: () => void;
+  onDraftChange: (answers: QuestionnaireAnswers) => void;
   participantId: string;
   onSubmitted: (response: QuestionnaireResponse) => void;
 }) {
-  const [answers, setAnswers] = useState<QuestionnaireAnswers>(emptyQuestionnaireAnswers);
+  const [answers, setAnswers] = useState<QuestionnaireAnswers>(initialAnswers);
   const [startedAt] = useState(() => new Date().toISOString());
   const [postingError, setPostingError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -569,7 +740,13 @@ function QuestionnaireForm({
     questionnaireQuestions.every((question) => {
       const selected = answers[question.id];
       return Boolean(selected) && (selected !== "other" || Boolean(answers[question.otherId].trim()));
-    }) && !isSubmitting;
+    }) &&
+    Boolean(answers.idealMorningGuidance.trim()) &&
+    !isSubmitting;
+
+  useEffect(() => {
+    onDraftChange(answers);
+  }, [answers, onDraftChange]);
 
   function setAnswer(questionId: QuestionnaireChoiceId, value: string) {
     setAnswers((current) => ({ ...current, [questionId]: value }));
@@ -599,6 +776,7 @@ function QuestionnaireForm({
       toneStyleOther: answers.toneStyleOther.trim(),
       personalizationFocusOther: answers.personalizationFocusOther.trim(),
       deliveryFormatOther: answers.deliveryFormatOther.trim(),
+      idealMorningGuidance: answers.idealMorningGuidance.trim(),
       responseId: `${participantId}:${assignmentId}:questionnaire`,
       participantId,
       assignmentId,
@@ -690,11 +868,37 @@ function QuestionnaireForm({
           </fieldset>
         ))}
 
+        <fieldset className="questionnaire-question">
+          <legend>
+            <span>{questionnaireQuestions.length + 1}</span>
+            What is your ideal mental rehearsal guidance to start your day?
+          </legend>
+          <label className="long-text-response">
+            <span>Your ideal guidance</span>
+            <textarea
+              onChange={(event) =>
+                setAnswers((current) => ({
+                  ...current,
+                  idealMorningGuidance: event.target.value,
+                }))
+              }
+              placeholder="Describe what would feel most useful before your day begins"
+              rows={4}
+              value={answers.idealMorningGuidance}
+            />
+          </label>
+        </fieldset>
+
         <div className="footer-actions">
           <p>{postingError || (isSubmitting ? "Saving..." : "Questionnaire saves when submitted.")}</p>
-          <button className="primary-button" disabled={!canSubmit} type="submit">
-            {isSubmitting ? "Saving..." : "Submit final questions"}
-          </button>
+          <div className="nav-actions">
+            <button className="secondary-button" disabled={isSubmitting} onClick={onBack} type="button">
+              Back
+            </button>
+            <button className="primary-button" disabled={!canSubmit} type="submit">
+              {isSubmitting ? "Saving..." : "Submit final questions"}
+            </button>
+          </div>
         </div>
       </form>
     </main>

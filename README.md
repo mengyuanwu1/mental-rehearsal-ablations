@@ -11,6 +11,8 @@ Small static web UI for Prolific / Qualtrics pairwise comparison tasks.
 - 6 trials per participant
 - Each trial shows one scenario and two scripts from different conditions
 - Script order randomized per assignment slot / trial
+- After entering a Prolific ID, participants see a brief introduction to mental rehearsal and the study task
+- Each comparison requires a 1-minute review period before the participant can continue
 - Participants must choose one script and rate both scripts before continuing
 - After the 6 comparisons, participants complete a final personalization questionnaire
 
@@ -32,8 +34,9 @@ The final screen asks multiple-choice questions about:
 - useful tone: calm/supportive, practical/direct, encouraging, or reflective
 - most important personalization focus: schedule/tasks, energy/mood, values/goals, or obstacles
 - delivery format: readable text, spoken audio, text and audio, or interactive steps
+- ideal morning mental rehearsal guidance, as a free-text response
 
-Each question also includes an "Other / free response" option with a text field.
+Each multiple-choice question also includes an "Other / free response" option with a text field.
 
 ## Qualtrics / Prolific link
 
@@ -78,7 +81,9 @@ The frontend sends one row per trial to the `responses` sheet, then one final ro
 `questionnaire_responses` sheet. It uses `text/plain` + `no-cors` so Google Apps Script
 accepts browser posts without a CORS preflight. This means the browser cannot confirm the
 sheet write response, so `localStorage` remains the participant-side backup.
-The questionnaire uses `responseId = participantId:assignmentId:questionnaire`.
+Trial rows use `responseId = participantId:assignmentId:trialIndex`, and the questionnaire
+uses `responseId = participantId:assignmentId:questionnaire`. The Apps Script collector
+updates an existing row with the same `responseId`, so Back edits replace the prior save.
 
 Trial sheet columns:
 
@@ -96,7 +101,7 @@ perspectivePreference, perspectivePreferenceOther, guidanceLevel, guidanceLevelO
 backgroundAudio, backgroundAudioOther, scriptLength, scriptLengthOther, toneStyle,
 toneStyleOther, personalizationFocus, personalizationFocusOther, deliveryFormat,
 deliveryFormatOther,
-startedAt, submittedAt, elapsedMs, userAgent
+startedAt, submittedAt, elapsedMs, userAgent, idealMorningGuidance
 ```
 
 ## Scripts

@@ -91,6 +91,7 @@ export type QuestionnaireAnswers = {
   personalizationFocusOther: string;
   deliveryFormat: string;
   deliveryFormatOther: string;
+  idealMorningGuidance: string;
 };
 
 export type QuestionnaireResponse = QuestionnaireAnswers & {

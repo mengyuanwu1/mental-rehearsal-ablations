@@ -7,6 +7,9 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
+    "export:materials": "node scripts/exportStudyMaterials.mjs",
+    "generate:llm:all": "node scripts/generateLlmStudyScripts.mjs",
+    "generate:llm:maya": "node scripts/generateLlmMayaDaily.mjs",
     "verify:assignments": "node scripts/verifyAssignments.mjs"
   },
   "dependencies": {
@@ -21,4 +24,3 @@
     "@types/react-dom": "^19.0.0"
   }
 }
-
