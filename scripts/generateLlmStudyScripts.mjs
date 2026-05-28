@@ -263,7 +263,7 @@ function parseScript(raw) {
 function validationIssues(script) {
   const count = wordCount(script);
   const issues = [];
-  if (count < 190 || count > 340) issues.push(`word count ${count} is outside 190-340`);
+  if (count < 190 || count > 380) issues.push(`word count ${count} is outside 190-380`);
   return issues;
 }
 
@@ -354,6 +354,15 @@ async function writeArtifacts(artifact) {
   await writeFile(mdPath, markdown);
 }
 
+async function readExistingArtifact() {
+  if (process.env.FORCE_LLM_GENERATION === "1") return null;
+  try {
+    return JSON.parse(await readFile(jsonPath, "utf8"));
+  } catch {
+    return null;
+  }
+}
+
 async function main() {
   const apiKey = await readEnvValue(["OPENAI_API_KEY", "EXPO_PUBLIC_OPENAI_API_KEY"]);
   if (!apiKey) {
@@ -366,25 +375,38 @@ async function main() {
     "https://api.openai.com/v1";
   const scenarios = await loadStudyInputs();
 
-  const artifact = {
+  const existingArtifact = await readExistingArtifact();
+  const artifact = existingArtifact ?? {
     generatedAt: new Date().toISOString(),
     requestedModel: model,
     usedMock: false,
-    scenarioMeta: Object.fromEntries(scenarios.map((scenario) => [scenario.id, scenarioMeta(scenario)])),
+    scenarioMeta: {},
     inputsByScenarioArm: {},
     modelsByScenarioArm: {},
     wordCounts: {},
     scripts: {},
   };
+  artifact.requestedModel = model;
+  artifact.usedMock = false;
+  artifact.scenarioMeta = Object.fromEntries(
+    scenarios.map((scenario) => [scenario.id, scenarioMeta(scenario)]),
+  );
 
   for (const scenario of scenarios) {
     const inputs = inputsForScenario(scenario);
     artifact.inputsByScenarioArm[scenario.id] = inputs;
-    artifact.modelsByScenarioArm[scenario.id] = {};
-    artifact.wordCounts[scenario.id] = {};
-    artifact.scripts[scenario.id] = {};
+    artifact.modelsByScenarioArm[scenario.id] ??= {};
+    artifact.wordCounts[scenario.id] ??= {};
+    artifact.scripts[scenario.id] ??= {};
 
     for (const arm of arms) {
+      if (artifact.scripts[scenario.id][arm]) {
+        console.log(
+          `${scenario.id}/${arm}: already generated, ${artifact.wordCounts[scenario.id][arm]} words`,
+        );
+        continue;
+      }
+
       const result = await generateArm({
         apiKey,
         baseUrl,

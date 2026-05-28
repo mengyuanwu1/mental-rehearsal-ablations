@@ -1395,6 +1395,1850 @@
           }
         }
       }
+    },
+    "jonah_daily": {
+      "baseline": {
+        "preparationOnlyContext": "Daily preparation for launch review work.",
+        "visibleItems": [
+          "Finalize launch risk brief - 60 min",
+          "Review support escalation notes - 30 min",
+          "Draft meeting opening - 20 min"
+        ]
+      },
+      "mind": {
+        "userGoal": {
+          "userid": "jonah-rivera",
+          "priority": {
+            "title": "Lead with clarity",
+            "description": "Lead product work with clarity and responsibility, making decisions that help the team move forward without becoming reactive."
+          },
+          "goal_1": {
+            "answers": {
+              "what": "Run a launch review that surfaces risks early",
+              "exactQuantity": {
+                "value": 1,
+                "unit": "launch review risk brief",
+                "description": "one meeting-ready risk brief before the review"
+              },
+              "exactDate": {
+                "label": "by 3:00 PM today",
+                "isoDate": "2026-05-28"
+              },
+              "keySteps": [
+                {
+                  "id": "risks",
+                  "label": "Name top unresolved launch risks",
+                  "target": "three to five risks"
+                },
+                {
+                  "id": "owners",
+                  "label": "Assign owners and decision points",
+                  "target": "one owner per risk"
+                },
+                {
+                  "id": "summary",
+                  "label": "Write the meeting-ready summary",
+                  "target": "one opening summary"
+                }
+              ],
+              "metric": "risk brief ready before review",
+              "deadline": "2026-05-28"
+            },
+            "completed": true,
+            "source": "onboarding"
+          }
+        },
+        "prioritySchedule": [
+          {
+            "rank": 1,
+            "title": "Finalize launch risk brief",
+            "kind": "task",
+            "priority": "high",
+            "linkedValue": "Responsibility",
+            "energyCost": "high",
+            "durationMinutes": 60,
+            "scheduledStart": "09:30",
+            "scheduledEnd": "10:30"
+          },
+          {
+            "rank": 2,
+            "title": "Review support escalation notes",
+            "kind": "task",
+            "priority": "medium",
+            "linkedValue": "Clarity",
+            "energyCost": "medium",
+            "durationMinutes": 30,
+            "scheduledStart": "11:00",
+            "scheduledEnd": "11:30"
+          },
+          {
+            "rank": 3,
+            "title": "Draft meeting opening",
+            "kind": "task",
+            "priority": "medium",
+            "linkedValue": "Calm Leadership",
+            "energyCost": "low",
+            "durationMinutes": 20,
+            "scheduledStart": "14:10",
+            "scheduledEnd": "14:30"
+          }
+        ]
+      },
+      "body": {
+        "currentEnergyLevel": 6,
+        "bodyState": "Good morning energy, with a likely dip after lunch and meeting pressure later.",
+        "sleepSummary": {
+          "summary": "7.1 hours slept with good continuity; sleep quality 82/100, normal recovery signals, and enough morning readiness for focused planning.",
+          "durationHours": 7.1,
+          "targetHours": 7.5,
+          "bedtime": "23:15",
+          "wakeTime": "06:35",
+          "sleepQualityScore": 82,
+          "sleepEfficiencyPercent": 90,
+          "awakeMinutes": 18,
+          "restlessMinutes": 24,
+          "hrvMs": 48,
+          "restingHeartRate": 62
+        },
+        "activitySummary": "2300 steps; 18 active minutes before work",
+        "recoverySummary": "resting heart rate 62 bpm; HRV 48 ms",
+        "energyCurveInputs": {
+          "sleep_hours": 7.1,
+          "sleep_quality": 82,
+          "steps": 2300,
+          "active_minutes": 18,
+          "resting_heart_rate": 62,
+          "hrv_ms": 48
+        },
+        "hourlyEnergy": [
+          {
+            "hour": 7,
+            "energyLevel": 5
+          },
+          {
+            "hour": 8,
+            "energyLevel": 6
+          },
+          {
+            "hour": 9,
+            "energyLevel": 6
+          },
+          {
+            "hour": 10,
+            "energyLevel": 6
+          },
+          {
+            "hour": 11,
+            "energyLevel": 5
+          },
+          {
+            "hour": 12,
+            "energyLevel": 5
+          },
+          {
+            "hour": 13,
+            "energyLevel": 4
+          },
+          {
+            "hour": 14,
+            "energyLevel": 5
+          },
+          {
+            "hour": 15,
+            "energyLevel": 5
+          },
+          {
+            "hour": 16,
+            "energyLevel": 4
+          }
+        ],
+        "focusCues": {
+          "visual": [
+            "launch dashboard pinned",
+            "stakeholder notes open",
+            "risk doc in split view"
+          ],
+          "auditory": [
+            "low office noise",
+            "calendar alerts muted"
+          ],
+          "tactileBody": [
+            "hands on keyboard",
+            "water bottle beside laptop"
+          ],
+          "smell": [],
+          "taste": [
+            "coffee"
+          ],
+          "other": [
+            "Slack set to focus mode"
+          ]
+        }
+      },
+      "soul": {
+        "topValues": [
+          {
+            "valueId": "clarity",
+            "name": "Clarity",
+            "emoji": "lens",
+            "personalDefinition": "making the next decision visible enough for the team to act",
+            "feelsLikeLabels": [
+              "organized",
+              "decisive",
+              "uncluttered"
+            ],
+            "dailySignLabels": [
+              "cleaner priorities",
+              "fewer ambiguous asks"
+            ]
+          },
+          {
+            "valueId": "responsibility",
+            "name": "Responsibility",
+            "emoji": "anchor",
+            "personalDefinition": "owning the risk without carrying every task alone",
+            "feelsLikeLabels": [
+              "prepared",
+              "steady",
+              "accountable"
+            ],
+            "dailySignLabels": [
+              "risks named clearly",
+              "owners identified"
+            ]
+          },
+          {
+            "valueId": "calm-leadership",
+            "name": "Calm Leadership",
+            "emoji": "signal",
+            "personalDefinition": "creating steadiness when the room gets noisy",
+            "feelsLikeLabels": [
+              "calm",
+              "firm",
+              "useful"
+            ],
+            "dailySignLabels": [
+              "clear openings",
+              "less reactive Slack checking"
+            ]
+          }
+        ],
+        "idealLife": {
+          "statement": "A work life where I help teams make clear decisions without living in urgency",
+          "lifeShapeLabels": [
+            "clear leadership",
+            "protected strategy time"
+          ]
+        }
+      },
+      "full": {
+        "mind": {
+          "userGoal": {
+            "userid": "jonah-rivera",
+            "priority": {
+              "title": "Lead with clarity",
+              "description": "Lead product work with clarity and responsibility, making decisions that help the team move forward without becoming reactive."
+            },
+            "goal_1": {
+              "answers": {
+                "what": "Run a launch review that surfaces risks early",
+                "exactQuantity": {
+                  "value": 1,
+                  "unit": "launch review risk brief",
+                  "description": "one meeting-ready risk brief before the review"
+                },
+                "exactDate": {
+                  "label": "by 3:00 PM today",
+                  "isoDate": "2026-05-28"
+                },
+                "keySteps": [
+                  {
+                    "id": "risks",
+                    "label": "Name top unresolved launch risks",
+                    "target": "three to five risks"
+                  },
+                  {
+                    "id": "owners",
+                    "label": "Assign owners and decision points",
+                    "target": "one owner per risk"
+                  },
+                  {
+                    "id": "summary",
+                    "label": "Write the meeting-ready summary",
+                    "target": "one opening summary"
+                  }
+                ],
+                "metric": "risk brief ready before review",
+                "deadline": "2026-05-28"
+              },
+              "completed": true,
+              "source": "onboarding"
+            }
+          },
+          "prioritySchedule": [
+            {
+              "rank": 1,
+              "title": "Finalize launch risk brief",
+              "kind": "task",
+              "priority": "high",
+              "linkedValue": "Responsibility",
+              "energyCost": "high",
+              "durationMinutes": 60,
+              "scheduledStart": "09:30",
+              "scheduledEnd": "10:30"
+            },
+            {
+              "rank": 2,
+              "title": "Review support escalation notes",
+              "kind": "task",
+              "priority": "medium",
+              "linkedValue": "Clarity",
+              "energyCost": "medium",
+              "durationMinutes": 30,
+              "scheduledStart": "11:00",
+              "scheduledEnd": "11:30"
+            },
+            {
+              "rank": 3,
+              "title": "Draft meeting opening",
+              "kind": "task",
+              "priority": "medium",
+              "linkedValue": "Calm Leadership",
+              "energyCost": "low",
+              "durationMinutes": 20,
+              "scheduledStart": "14:10",
+              "scheduledEnd": "14:30"
+            }
+          ]
+        },
+        "body": {
+          "currentEnergyLevel": 6,
+          "bodyState": "Good morning energy, with a likely dip after lunch and meeting pressure later.",
+          "sleepSummary": {
+            "summary": "7.1 hours slept with good continuity; sleep quality 82/100, normal recovery signals, and enough morning readiness for focused planning.",
+            "durationHours": 7.1,
+            "targetHours": 7.5,
+            "bedtime": "23:15",
+            "wakeTime": "06:35",
+            "sleepQualityScore": 82,
+            "sleepEfficiencyPercent": 90,
+            "awakeMinutes": 18,
+            "restlessMinutes": 24,
+            "hrvMs": 48,
+            "restingHeartRate": 62
+          },
+          "activitySummary": "2300 steps; 18 active minutes before work",
+          "recoverySummary": "resting heart rate 62 bpm; HRV 48 ms",
+          "energyCurveInputs": {
+            "sleep_hours": 7.1,
+            "sleep_quality": 82,
+            "steps": 2300,
+            "active_minutes": 18,
+            "resting_heart_rate": 62,
+            "hrv_ms": 48
+          },
+          "hourlyEnergy": [
+            {
+              "hour": 7,
+              "energyLevel": 5
+            },
+            {
+              "hour": 8,
+              "energyLevel": 6
+            },
+            {
+              "hour": 9,
+              "energyLevel": 6
+            },
+            {
+              "hour": 10,
+              "energyLevel": 6
+            },
+            {
+              "hour": 11,
+              "energyLevel": 5
+            },
+            {
+              "hour": 12,
+              "energyLevel": 5
+            },
+            {
+              "hour": 13,
+              "energyLevel": 4
+            },
+            {
+              "hour": 14,
+              "energyLevel": 5
+            },
+            {
+              "hour": 15,
+              "energyLevel": 5
+            },
+            {
+              "hour": 16,
+              "energyLevel": 4
+            }
+          ],
+          "focusCues": {
+            "visual": [
+              "launch dashboard pinned",
+              "stakeholder notes open",
+              "risk doc in split view"
+            ],
+            "auditory": [
+              "low office noise",
+              "calendar alerts muted"
+            ],
+            "tactileBody": [
+              "hands on keyboard",
+              "water bottle beside laptop"
+            ],
+            "smell": [],
+            "taste": [
+              "coffee"
+            ],
+            "other": [
+              "Slack set to focus mode"
+            ]
+          }
+        },
+        "value": {
+          "topValues": [
+            {
+              "valueId": "clarity",
+              "name": "Clarity",
+              "emoji": "lens",
+              "personalDefinition": "making the next decision visible enough for the team to act",
+              "feelsLikeLabels": [
+                "organized",
+                "decisive",
+                "uncluttered"
+              ],
+              "dailySignLabels": [
+                "cleaner priorities",
+                "fewer ambiguous asks"
+              ]
+            },
+            {
+              "valueId": "responsibility",
+              "name": "Responsibility",
+              "emoji": "anchor",
+              "personalDefinition": "owning the risk without carrying every task alone",
+              "feelsLikeLabels": [
+                "prepared",
+                "steady",
+                "accountable"
+              ],
+              "dailySignLabels": [
+                "risks named clearly",
+                "owners identified"
+              ]
+            },
+            {
+              "valueId": "calm-leadership",
+              "name": "Calm Leadership",
+              "emoji": "signal",
+              "personalDefinition": "creating steadiness when the room gets noisy",
+              "feelsLikeLabels": [
+                "calm",
+                "firm",
+                "useful"
+              ],
+              "dailySignLabels": [
+                "clear openings",
+                "less reactive Slack checking"
+              ]
+            }
+          ],
+          "idealLife": {
+            "statement": "A work life where I help teams make clear decisions without living in urgency",
+            "lifeShapeLabels": [
+              "clear leadership",
+              "protected strategy time"
+            ]
+          }
+        }
+      }
+    },
+    "jonah_task": {
+      "baseline": {
+        "preparationOnlyContext": "Specific task preparation for the launch risk brief.",
+        "visibleItems": [
+          "Name top risks - 20 min",
+          "Assign owners - 20 min",
+          "Write meeting-ready summary - 20 min"
+        ]
+      },
+      "mind": {
+        "userGoal": {
+          "userid": "jonah-rivera",
+          "priority": {
+            "title": "Lead with clarity",
+            "description": "Lead product work with clarity and responsibility, making decisions that help the team move forward without becoming reactive."
+          },
+          "goal_1": {
+            "answers": {
+              "what": "Run a launch review that surfaces risks early",
+              "exactQuantity": {
+                "value": 1,
+                "unit": "launch review risk brief",
+                "description": "one meeting-ready risk brief before the review"
+              },
+              "exactDate": {
+                "label": "by 3:00 PM today",
+                "isoDate": "2026-05-28"
+              },
+              "keySteps": [
+                {
+                  "id": "risks",
+                  "label": "Name top unresolved launch risks",
+                  "target": "three to five risks"
+                },
+                {
+                  "id": "owners",
+                  "label": "Assign owners and decision points",
+                  "target": "one owner per risk"
+                },
+                {
+                  "id": "summary",
+                  "label": "Write the meeting-ready summary",
+                  "target": "one opening summary"
+                }
+              ],
+              "metric": "risk brief ready before review",
+              "deadline": "2026-05-28"
+            },
+            "completed": true,
+            "source": "onboarding"
+          }
+        },
+        "focusTask": {
+          "taskId": "jonah-risk-brief",
+          "title": "Finalize launch risk brief",
+          "projectTitle": "Feature launch review",
+          "scheduledStart": "09:30",
+          "scheduledEnd": "10:30",
+          "priority": "high",
+          "linkedValue": "Responsibility",
+          "energyCost": "high",
+          "durationMinutes": 60
+        },
+        "focusSubtasks": [
+          {
+            "subtaskId": "jonah-risk-1",
+            "title": "Name top unresolved launch risks",
+            "order": 1,
+            "durationMinutes": 20
+          },
+          {
+            "subtaskId": "jonah-risk-2",
+            "title": "Assign owners and decision points",
+            "order": 2,
+            "durationMinutes": 20
+          },
+          {
+            "subtaskId": "jonah-risk-3",
+            "title": "Write the meeting-ready summary",
+            "order": 3,
+            "durationMinutes": 20
+          }
+        ]
+      },
+      "body": {
+        "currentEnergyLevel": 6,
+        "bodyState": "Clear enough to work through risk details before meetings begin.",
+        "sleepSummary": {
+          "summary": "7.1 hours slept with good continuity; sleep quality 82/100, normal recovery signals, and enough morning readiness for focused planning.",
+          "durationHours": 7.1,
+          "targetHours": 7.5,
+          "bedtime": "23:15",
+          "wakeTime": "06:35",
+          "sleepQualityScore": 82,
+          "sleepEfficiencyPercent": 90,
+          "awakeMinutes": 18,
+          "restlessMinutes": 24,
+          "hrvMs": 48,
+          "restingHeartRate": 62
+        },
+        "activitySummary": "light commute movement; morning desk block",
+        "recoverySummary": "recovery signals near normal",
+        "energyCurveInputs": {
+          "sleep_hours": 7.1,
+          "sleep_quality": 82,
+          "resting_heart_rate": 62,
+          "hrv_ms": 48
+        },
+        "hourlyEnergy": [
+          {
+            "hour": 7,
+            "energyLevel": 5
+          },
+          {
+            "hour": 8,
+            "energyLevel": 6
+          },
+          {
+            "hour": 9,
+            "energyLevel": 6
+          },
+          {
+            "hour": 10,
+            "energyLevel": 6
+          },
+          {
+            "hour": 11,
+            "energyLevel": 5
+          },
+          {
+            "hour": 12,
+            "energyLevel": 5
+          },
+          {
+            "hour": 13,
+            "energyLevel": 4
+          },
+          {
+            "hour": 14,
+            "energyLevel": 5
+          },
+          {
+            "hour": 15,
+            "energyLevel": 5
+          },
+          {
+            "hour": 16,
+            "energyLevel": 4
+          }
+        ],
+        "focusCues": {
+          "visual": [
+            "risk brief outline open",
+            "dashboard tab pinned",
+            "owner list beside the doc"
+          ],
+          "auditory": [
+            "quiet meeting room",
+            "notifications paused"
+          ],
+          "tactileBody": [
+            "laptop on conference table",
+            "water bottle nearby"
+          ],
+          "smell": [],
+          "taste": [
+            "coffee"
+          ],
+          "other": [
+            "meeting invite minimized"
+          ]
+        }
+      },
+      "soul": {
+        "topValues": [
+          {
+            "valueId": "clarity",
+            "name": "Clarity",
+            "emoji": "lens",
+            "personalDefinition": "making the next decision visible enough for the team to act",
+            "feelsLikeLabels": [
+              "organized",
+              "decisive",
+              "uncluttered"
+            ],
+            "dailySignLabels": [
+              "cleaner priorities",
+              "fewer ambiguous asks"
+            ]
+          },
+          {
+            "valueId": "responsibility",
+            "name": "Responsibility",
+            "emoji": "anchor",
+            "personalDefinition": "owning the risk without carrying every task alone",
+            "feelsLikeLabels": [
+              "prepared",
+              "steady",
+              "accountable"
+            ],
+            "dailySignLabels": [
+              "risks named clearly",
+              "owners identified"
+            ]
+          },
+          {
+            "valueId": "calm-leadership",
+            "name": "Calm Leadership",
+            "emoji": "signal",
+            "personalDefinition": "creating steadiness when the room gets noisy",
+            "feelsLikeLabels": [
+              "calm",
+              "firm",
+              "useful"
+            ],
+            "dailySignLabels": [
+              "clear openings",
+              "less reactive Slack checking"
+            ]
+          }
+        ],
+        "idealLife": {
+          "statement": "A work life where I help teams make clear decisions without living in urgency",
+          "lifeShapeLabels": [
+            "clear leadership",
+            "protected strategy time"
+          ]
+        }
+      },
+      "full": {
+        "mind": {
+          "userGoal": {
+            "userid": "jonah-rivera",
+            "priority": {
+              "title": "Lead with clarity",
+              "description": "Lead product work with clarity and responsibility, making decisions that help the team move forward without becoming reactive."
+            },
+            "goal_1": {
+              "answers": {
+                "what": "Run a launch review that surfaces risks early",
+                "exactQuantity": {
+                  "value": 1,
+                  "unit": "launch review risk brief",
+                  "description": "one meeting-ready risk brief before the review"
+                },
+                "exactDate": {
+                  "label": "by 3:00 PM today",
+                  "isoDate": "2026-05-28"
+                },
+                "keySteps": [
+                  {
+                    "id": "risks",
+                    "label": "Name top unresolved launch risks",
+                    "target": "three to five risks"
+                  },
+                  {
+                    "id": "owners",
+                    "label": "Assign owners and decision points",
+                    "target": "one owner per risk"
+                  },
+                  {
+                    "id": "summary",
+                    "label": "Write the meeting-ready summary",
+                    "target": "one opening summary"
+                  }
+                ],
+                "metric": "risk brief ready before review",
+                "deadline": "2026-05-28"
+              },
+              "completed": true,
+              "source": "onboarding"
+            }
+          },
+          "focusTask": {
+            "taskId": "jonah-risk-brief",
+            "title": "Finalize launch risk brief",
+            "projectTitle": "Feature launch review",
+            "scheduledStart": "09:30",
+            "scheduledEnd": "10:30",
+            "priority": "high",
+            "linkedValue": "Responsibility",
+            "energyCost": "high",
+            "durationMinutes": 60
+          },
+          "focusSubtasks": [
+            {
+              "subtaskId": "jonah-risk-1",
+              "title": "Name top unresolved launch risks",
+              "order": 1,
+              "durationMinutes": 20
+            },
+            {
+              "subtaskId": "jonah-risk-2",
+              "title": "Assign owners and decision points",
+              "order": 2,
+              "durationMinutes": 20
+            },
+            {
+              "subtaskId": "jonah-risk-3",
+              "title": "Write the meeting-ready summary",
+              "order": 3,
+              "durationMinutes": 20
+            }
+          ]
+        },
+        "body": {
+          "currentEnergyLevel": 6,
+          "bodyState": "Clear enough to work through risk details before meetings begin.",
+          "sleepSummary": {
+            "summary": "7.1 hours slept with good continuity; sleep quality 82/100, normal recovery signals, and enough morning readiness for focused planning.",
+            "durationHours": 7.1,
+            "targetHours": 7.5,
+            "bedtime": "23:15",
+            "wakeTime": "06:35",
+            "sleepQualityScore": 82,
+            "sleepEfficiencyPercent": 90,
+            "awakeMinutes": 18,
+            "restlessMinutes": 24,
+            "hrvMs": 48,
+            "restingHeartRate": 62
+          },
+          "activitySummary": "light commute movement; morning desk block",
+          "recoverySummary": "recovery signals near normal",
+          "energyCurveInputs": {
+            "sleep_hours": 7.1,
+            "sleep_quality": 82,
+            "resting_heart_rate": 62,
+            "hrv_ms": 48
+          },
+          "hourlyEnergy": [
+            {
+              "hour": 7,
+              "energyLevel": 5
+            },
+            {
+              "hour": 8,
+              "energyLevel": 6
+            },
+            {
+              "hour": 9,
+              "energyLevel": 6
+            },
+            {
+              "hour": 10,
+              "energyLevel": 6
+            },
+            {
+              "hour": 11,
+              "energyLevel": 5
+            },
+            {
+              "hour": 12,
+              "energyLevel": 5
+            },
+            {
+              "hour": 13,
+              "energyLevel": 4
+            },
+            {
+              "hour": 14,
+              "energyLevel": 5
+            },
+            {
+              "hour": 15,
+              "energyLevel": 5
+            },
+            {
+              "hour": 16,
+              "energyLevel": 4
+            }
+          ],
+          "focusCues": {
+            "visual": [
+              "risk brief outline open",
+              "dashboard tab pinned",
+              "owner list beside the doc"
+            ],
+            "auditory": [
+              "quiet meeting room",
+              "notifications paused"
+            ],
+            "tactileBody": [
+              "laptop on conference table",
+              "water bottle nearby"
+            ],
+            "smell": [],
+            "taste": [
+              "coffee"
+            ],
+            "other": [
+              "meeting invite minimized"
+            ]
+          }
+        },
+        "value": {
+          "topValues": [
+            {
+              "valueId": "clarity",
+              "name": "Clarity",
+              "emoji": "lens",
+              "personalDefinition": "making the next decision visible enough for the team to act",
+              "feelsLikeLabels": [
+                "organized",
+                "decisive",
+                "uncluttered"
+              ],
+              "dailySignLabels": [
+                "cleaner priorities",
+                "fewer ambiguous asks"
+              ]
+            },
+            {
+              "valueId": "responsibility",
+              "name": "Responsibility",
+              "emoji": "anchor",
+              "personalDefinition": "owning the risk without carrying every task alone",
+              "feelsLikeLabels": [
+                "prepared",
+                "steady",
+                "accountable"
+              ],
+              "dailySignLabels": [
+                "risks named clearly",
+                "owners identified"
+              ]
+            },
+            {
+              "valueId": "calm-leadership",
+              "name": "Calm Leadership",
+              "emoji": "signal",
+              "personalDefinition": "creating steadiness when the room gets noisy",
+              "feelsLikeLabels": [
+                "calm",
+                "firm",
+                "useful"
+              ],
+              "dailySignLabels": [
+                "clear openings",
+                "less reactive Slack checking"
+              ]
+            }
+          ],
+          "idealLife": {
+            "statement": "A work life where I help teams make clear decisions without living in urgency",
+            "lifeShapeLabels": [
+              "clear leadership",
+              "protected strategy time"
+            ]
+          }
+        }
+      }
+    },
+    "priya_daily": {
+      "baseline": {
+        "preparationOnlyContext": "Daily preparation for exam review and clinical paperwork.",
+        "visibleItems": [
+          "Review cardiac medication flashcards - 45 min",
+          "Complete clinical reflection note - 35 min",
+          "Pack class materials - 15 min"
+        ]
+      },
+      "mind": {
+        "userGoal": {
+          "userid": "priya-shah",
+          "priority": {
+            "title": "Build calm clinical judgment",
+            "description": "Become a capable nurse who can stay present under pressure, keep learning from practice, and offer steady care to patients."
+          },
+          "goal_1": {
+            "answers": {
+              "what": "Prepare for Friday's pharmacology exam while staying current on clinical notes",
+              "exactQuantity": {
+                "value": 1,
+                "unit": "medication unit plus clinical note",
+                "description": "one flashcard unit reviewed and one reflection note completed"
+              },
+              "exactDate": {
+                "label": "by Friday, May 29, 2026",
+                "isoDate": "2026-05-29"
+              },
+              "keySteps": [
+                {
+                  "id": "flashcards",
+                  "label": "Review cardiac medication flashcards",
+                  "target": "one focused medication set"
+                },
+                {
+                  "id": "reflection",
+                  "label": "Complete clinical reflection note",
+                  "target": "one submitted note"
+                },
+                {
+                  "id": "materials",
+                  "label": "Pack materials for class",
+                  "target": "class materials ready before leaving"
+                }
+              ],
+              "metric": "flashcards reviewed and reflection note complete",
+              "deadline": "2026-05-29"
+            },
+            "completed": true,
+            "source": "onboarding"
+          }
+        },
+        "prioritySchedule": [
+          {
+            "rank": 1,
+            "title": "Review cardiac medication flashcards",
+            "kind": "task",
+            "priority": "high",
+            "linkedValue": "Competence",
+            "energyCost": "medium",
+            "durationMinutes": 45,
+            "scheduledStart": "08:15",
+            "scheduledEnd": "09:00"
+          },
+          {
+            "rank": 2,
+            "title": "Complete clinical reflection note",
+            "kind": "task",
+            "priority": "medium",
+            "linkedValue": "Care",
+            "energyCost": "medium",
+            "durationMinutes": 35,
+            "scheduledStart": "10:20",
+            "scheduledEnd": "10:55"
+          },
+          {
+            "rank": 3,
+            "title": "Pack materials for afternoon class",
+            "kind": "task",
+            "priority": "low",
+            "linkedValue": "Presence",
+            "energyCost": "low",
+            "durationMinutes": 15,
+            "scheduledStart": "12:30",
+            "scheduledEnd": "12:45"
+          }
+        ]
+      },
+      "body": {
+        "currentEnergyLevel": 4,
+        "bodyState": "Tired legs after a shift, but alert enough for short study intervals.",
+        "sleepSummary": {
+          "summary": "6.0 hours slept after a long shift; sleep quality 72/100 with moderate restlessness and enough recovery for short, structured study intervals.",
+          "durationHours": 6,
+          "targetHours": 7.5,
+          "bedtime": "00:10",
+          "wakeTime": "06:20",
+          "sleepQualityScore": 72,
+          "sleepEfficiencyPercent": 86,
+          "awakeMinutes": 22,
+          "restlessMinutes": 38,
+          "hrvMs": 35,
+          "restingHeartRate": 70
+        },
+        "activitySummary": "6800 steps yesterday; 12 active minutes this morning",
+        "recoverySummary": "resting heart rate 70 bpm; HRV 35 ms",
+        "energyCurveInputs": {
+          "sleep_hours": 6,
+          "sleep_quality": 72,
+          "steps": 6800,
+          "active_minutes": 12,
+          "resting_heart_rate": 70,
+          "hrv_ms": 35
+        },
+        "hourlyEnergy": [
+          {
+            "hour": 6,
+            "energyLevel": 3
+          },
+          {
+            "hour": 7,
+            "energyLevel": 3
+          },
+          {
+            "hour": 8,
+            "energyLevel": 4
+          },
+          {
+            "hour": 9,
+            "energyLevel": 5
+          },
+          {
+            "hour": 10,
+            "energyLevel": 5
+          },
+          {
+            "hour": 11,
+            "energyLevel": 4
+          },
+          {
+            "hour": 12,
+            "energyLevel": 4
+          },
+          {
+            "hour": 13,
+            "energyLevel": 3
+          },
+          {
+            "hour": 14,
+            "energyLevel": 3
+          },
+          {
+            "hour": 15,
+            "energyLevel": 4
+          },
+          {
+            "hour": 16,
+            "energyLevel": 5
+          }
+        ],
+        "focusCues": {
+          "visual": [
+            "flashcards stacked by topic",
+            "scrubs folded on chair",
+            "timer set for study intervals"
+          ],
+          "auditory": [
+            "quiet kitchen",
+            "timer chime ready"
+          ],
+          "tactileBody": [
+            "feet heavy from shift",
+            "water bottle nearby"
+          ],
+          "smell": [
+            "tea"
+          ],
+          "taste": [
+            "tea"
+          ],
+          "other": [
+            "phone on silent"
+          ]
+        }
+      },
+      "soul": {
+        "topValues": [
+          {
+            "valueId": "care",
+            "name": "Care",
+            "emoji": "hands",
+            "personalDefinition": "staying attentive to the person in front of me",
+            "feelsLikeLabels": [
+              "grounded",
+              "kind",
+              "present"
+            ],
+            "dailySignLabels": [
+              "slowing down enough to notice",
+              "checking understanding"
+            ]
+          },
+          {
+            "valueId": "competence",
+            "name": "Competence",
+            "emoji": "check",
+            "personalDefinition": "building skills I can trust under pressure",
+            "feelsLikeLabels": [
+              "ready",
+              "capable",
+              "steady"
+            ],
+            "dailySignLabels": [
+              "one concept mastered",
+              "sequence practiced"
+            ]
+          },
+          {
+            "valueId": "learning",
+            "name": "Learning",
+            "emoji": "book",
+            "personalDefinition": "using practice and mistakes as information",
+            "feelsLikeLabels": [
+              "open",
+              "brave",
+              "curious"
+            ],
+            "dailySignLabels": [
+              "asking one good question",
+              "reviewing what changed"
+            ]
+          }
+        ],
+        "idealLife": {
+          "statement": "A life where I can offer skilled care while continuing to learn",
+          "lifeShapeLabels": [
+            "clinical confidence",
+            "steady presence"
+          ]
+        }
+      },
+      "full": {
+        "mind": {
+          "userGoal": {
+            "userid": "priya-shah",
+            "priority": {
+              "title": "Build calm clinical judgment",
+              "description": "Become a capable nurse who can stay present under pressure, keep learning from practice, and offer steady care to patients."
+            },
+            "goal_1": {
+              "answers": {
+                "what": "Prepare for Friday's pharmacology exam while staying current on clinical notes",
+                "exactQuantity": {
+                  "value": 1,
+                  "unit": "medication unit plus clinical note",
+                  "description": "one flashcard unit reviewed and one reflection note completed"
+                },
+                "exactDate": {
+                  "label": "by Friday, May 29, 2026",
+                  "isoDate": "2026-05-29"
+                },
+                "keySteps": [
+                  {
+                    "id": "flashcards",
+                    "label": "Review cardiac medication flashcards",
+                    "target": "one focused medication set"
+                  },
+                  {
+                    "id": "reflection",
+                    "label": "Complete clinical reflection note",
+                    "target": "one submitted note"
+                  },
+                  {
+                    "id": "materials",
+                    "label": "Pack materials for class",
+                    "target": "class materials ready before leaving"
+                  }
+                ],
+                "metric": "flashcards reviewed and reflection note complete",
+                "deadline": "2026-05-29"
+              },
+              "completed": true,
+              "source": "onboarding"
+            }
+          },
+          "prioritySchedule": [
+            {
+              "rank": 1,
+              "title": "Review cardiac medication flashcards",
+              "kind": "task",
+              "priority": "high",
+              "linkedValue": "Competence",
+              "energyCost": "medium",
+              "durationMinutes": 45,
+              "scheduledStart": "08:15",
+              "scheduledEnd": "09:00"
+            },
+            {
+              "rank": 2,
+              "title": "Complete clinical reflection note",
+              "kind": "task",
+              "priority": "medium",
+              "linkedValue": "Care",
+              "energyCost": "medium",
+              "durationMinutes": 35,
+              "scheduledStart": "10:20",
+              "scheduledEnd": "10:55"
+            },
+            {
+              "rank": 3,
+              "title": "Pack materials for afternoon class",
+              "kind": "task",
+              "priority": "low",
+              "linkedValue": "Presence",
+              "energyCost": "low",
+              "durationMinutes": 15,
+              "scheduledStart": "12:30",
+              "scheduledEnd": "12:45"
+            }
+          ]
+        },
+        "body": {
+          "currentEnergyLevel": 4,
+          "bodyState": "Tired legs after a shift, but alert enough for short study intervals.",
+          "sleepSummary": {
+            "summary": "6.0 hours slept after a long shift; sleep quality 72/100 with moderate restlessness and enough recovery for short, structured study intervals.",
+            "durationHours": 6,
+            "targetHours": 7.5,
+            "bedtime": "00:10",
+            "wakeTime": "06:20",
+            "sleepQualityScore": 72,
+            "sleepEfficiencyPercent": 86,
+            "awakeMinutes": 22,
+            "restlessMinutes": 38,
+            "hrvMs": 35,
+            "restingHeartRate": 70
+          },
+          "activitySummary": "6800 steps yesterday; 12 active minutes this morning",
+          "recoverySummary": "resting heart rate 70 bpm; HRV 35 ms",
+          "energyCurveInputs": {
+            "sleep_hours": 6,
+            "sleep_quality": 72,
+            "steps": 6800,
+            "active_minutes": 12,
+            "resting_heart_rate": 70,
+            "hrv_ms": 35
+          },
+          "hourlyEnergy": [
+            {
+              "hour": 6,
+              "energyLevel": 3
+            },
+            {
+              "hour": 7,
+              "energyLevel": 3
+            },
+            {
+              "hour": 8,
+              "energyLevel": 4
+            },
+            {
+              "hour": 9,
+              "energyLevel": 5
+            },
+            {
+              "hour": 10,
+              "energyLevel": 5
+            },
+            {
+              "hour": 11,
+              "energyLevel": 4
+            },
+            {
+              "hour": 12,
+              "energyLevel": 4
+            },
+            {
+              "hour": 13,
+              "energyLevel": 3
+            },
+            {
+              "hour": 14,
+              "energyLevel": 3
+            },
+            {
+              "hour": 15,
+              "energyLevel": 4
+            },
+            {
+              "hour": 16,
+              "energyLevel": 5
+            }
+          ],
+          "focusCues": {
+            "visual": [
+              "flashcards stacked by topic",
+              "scrubs folded on chair",
+              "timer set for study intervals"
+            ],
+            "auditory": [
+              "quiet kitchen",
+              "timer chime ready"
+            ],
+            "tactileBody": [
+              "feet heavy from shift",
+              "water bottle nearby"
+            ],
+            "smell": [
+              "tea"
+            ],
+            "taste": [
+              "tea"
+            ],
+            "other": [
+              "phone on silent"
+            ]
+          }
+        },
+        "value": {
+          "topValues": [
+            {
+              "valueId": "care",
+              "name": "Care",
+              "emoji": "hands",
+              "personalDefinition": "staying attentive to the person in front of me",
+              "feelsLikeLabels": [
+                "grounded",
+                "kind",
+                "present"
+              ],
+              "dailySignLabels": [
+                "slowing down enough to notice",
+                "checking understanding"
+              ]
+            },
+            {
+              "valueId": "competence",
+              "name": "Competence",
+              "emoji": "check",
+              "personalDefinition": "building skills I can trust under pressure",
+              "feelsLikeLabels": [
+                "ready",
+                "capable",
+                "steady"
+              ],
+              "dailySignLabels": [
+                "one concept mastered",
+                "sequence practiced"
+              ]
+            },
+            {
+              "valueId": "learning",
+              "name": "Learning",
+              "emoji": "book",
+              "personalDefinition": "using practice and mistakes as information",
+              "feelsLikeLabels": [
+                "open",
+                "brave",
+                "curious"
+              ],
+              "dailySignLabels": [
+                "asking one good question",
+                "reviewing what changed"
+              ]
+            }
+          ],
+          "idealLife": {
+            "statement": "A life where I can offer skilled care while continuing to learn",
+            "lifeShapeLabels": [
+              "clinical confidence",
+              "steady presence"
+            ]
+          }
+        }
+      }
+    },
+    "priya_task": {
+      "baseline": {
+        "preparationOnlyContext": "Specific task preparation for simulation assessment practice.",
+        "visibleItems": [
+          "Review safety checks - 10 min",
+          "Walk through sequence aloud - 20 min",
+          "Mark one instructor question - 10 min"
+        ]
+      },
+      "mind": {
+        "userGoal": {
+          "userid": "priya-shah",
+          "priority": {
+            "title": "Build calm clinical judgment",
+            "description": "Become a capable nurse who can stay present under pressure, keep learning from practice, and offer steady care to patients."
+          },
+          "goal_1": {
+            "answers": {
+              "what": "Enter simulation lab prepared enough to learn from mistakes",
+              "exactQuantity": {
+                "value": 1,
+                "unit": "assessment sequence practice",
+                "description": "one complete walk-through before lab"
+              },
+              "exactDate": {
+                "label": "before simulation lab today",
+                "isoDate": "2026-05-28"
+              },
+              "keySteps": [
+                {
+                  "id": "safety",
+                  "label": "Review opening patient safety checks",
+                  "target": "one checklist pass"
+                },
+                {
+                  "id": "sequence",
+                  "label": "Walk through assessment sequence aloud",
+                  "target": "one full spoken rehearsal"
+                },
+                {
+                  "id": "question",
+                  "label": "Mark one question to ask instructor",
+                  "target": "one learning question"
+                }
+              ],
+              "metric": "assessment sequence practiced",
+              "deadline": "2026-05-28"
+            },
+            "completed": true,
+            "source": "onboarding"
+          }
+        },
+        "focusTask": {
+          "taskId": "priya-assessment-sequence",
+          "title": "Practice assessment sequence",
+          "projectTitle": "Simulation lab preparation",
+          "scheduledStart": "09:20",
+          "scheduledEnd": "10:00",
+          "priority": "high",
+          "linkedValue": "Care",
+          "energyCost": "medium",
+          "durationMinutes": 40
+        },
+        "focusSubtasks": [
+          {
+            "subtaskId": "priya-assess-1",
+            "title": "Review opening patient safety checks",
+            "order": 1,
+            "durationMinutes": 10
+          },
+          {
+            "subtaskId": "priya-assess-2",
+            "title": "Walk through assessment sequence aloud",
+            "order": 2,
+            "durationMinutes": 20
+          },
+          {
+            "subtaskId": "priya-assess-3",
+            "title": "Mark one question to ask instructor",
+            "order": 3,
+            "durationMinutes": 10
+          }
+        ]
+      },
+      "body": {
+        "currentEnergyLevel": 5,
+        "bodyState": "Nervous energy before simulation, with attention improving when the sequence is visible.",
+        "sleepSummary": {
+          "summary": "6.7 hours slept; sleep quality 76/100 with a little pre-simulation restlessness but moderate recovery.",
+          "durationHours": 6.7,
+          "targetHours": 7.5,
+          "bedtime": "23:35",
+          "wakeTime": "06:30",
+          "sleepQualityScore": 76,
+          "sleepEfficiencyPercent": 88,
+          "awakeMinutes": 20,
+          "restlessMinutes": 32,
+          "hrvMs": 38,
+          "restingHeartRate": 68
+        },
+        "activitySummary": "short walk to campus; light morning movement",
+        "recoverySummary": "recovery signals moderate",
+        "energyCurveInputs": {
+          "sleep_hours": 6.7,
+          "sleep_quality": 76,
+          "resting_heart_rate": 68,
+          "hrv_ms": 38
+        },
+        "hourlyEnergy": [
+          {
+            "hour": 7,
+            "energyLevel": 5
+          },
+          {
+            "hour": 8,
+            "energyLevel": 6
+          },
+          {
+            "hour": 9,
+            "energyLevel": 6
+          },
+          {
+            "hour": 10,
+            "energyLevel": 6
+          },
+          {
+            "hour": 11,
+            "energyLevel": 5
+          },
+          {
+            "hour": 12,
+            "energyLevel": 5
+          },
+          {
+            "hour": 13,
+            "energyLevel": 4
+          },
+          {
+            "hour": 14,
+            "energyLevel": 5
+          },
+          {
+            "hour": 15,
+            "energyLevel": 5
+          },
+          {
+            "hour": 16,
+            "energyLevel": 4
+          }
+        ],
+        "focusCues": {
+          "visual": [
+            "skills checklist printed",
+            "stethoscope in bag",
+            "simulation notes highlighted"
+          ],
+          "auditory": [
+            "campus hallway noise",
+            "phone timer ready"
+          ],
+          "tactileBody": [
+            "hands around water bottle",
+            "shoulders slightly tense"
+          ],
+          "smell": [],
+          "taste": [
+            "water"
+          ],
+          "other": [
+            "study partner message pinned"
+          ]
+        }
+      },
+      "soul": {
+        "topValues": [
+          {
+            "valueId": "care",
+            "name": "Care",
+            "emoji": "hands",
+            "personalDefinition": "staying attentive to the person in front of me",
+            "feelsLikeLabels": [
+              "grounded",
+              "kind",
+              "present"
+            ],
+            "dailySignLabels": [
+              "slowing down enough to notice",
+              "checking understanding"
+            ]
+          },
+          {
+            "valueId": "competence",
+            "name": "Competence",
+            "emoji": "check",
+            "personalDefinition": "building skills I can trust under pressure",
+            "feelsLikeLabels": [
+              "ready",
+              "capable",
+              "steady"
+            ],
+            "dailySignLabels": [
+              "one concept mastered",
+              "sequence practiced"
+            ]
+          },
+          {
+            "valueId": "learning",
+            "name": "Learning",
+            "emoji": "book",
+            "personalDefinition": "using practice and mistakes as information",
+            "feelsLikeLabels": [
+              "open",
+              "brave",
+              "curious"
+            ],
+            "dailySignLabels": [
+              "asking one good question",
+              "reviewing what changed"
+            ]
+          }
+        ],
+        "idealLife": {
+          "statement": "A life where I can offer skilled care while continuing to learn",
+          "lifeShapeLabels": [
+            "clinical confidence",
+            "steady presence"
+          ]
+        }
+      },
+      "full": {
+        "mind": {
+          "userGoal": {
+            "userid": "priya-shah",
+            "priority": {
+              "title": "Build calm clinical judgment",
+              "description": "Become a capable nurse who can stay present under pressure, keep learning from practice, and offer steady care to patients."
+            },
+            "goal_1": {
+              "answers": {
+                "what": "Enter simulation lab prepared enough to learn from mistakes",
+                "exactQuantity": {
+                  "value": 1,
+                  "unit": "assessment sequence practice",
+                  "description": "one complete walk-through before lab"
+                },
+                "exactDate": {
+                  "label": "before simulation lab today",
+                  "isoDate": "2026-05-28"
+                },
+                "keySteps": [
+                  {
+                    "id": "safety",
+                    "label": "Review opening patient safety checks",
+                    "target": "one checklist pass"
+                  },
+                  {
+                    "id": "sequence",
+                    "label": "Walk through assessment sequence aloud",
+                    "target": "one full spoken rehearsal"
+                  },
+                  {
+                    "id": "question",
+                    "label": "Mark one question to ask instructor",
+                    "target": "one learning question"
+                  }
+                ],
+                "metric": "assessment sequence practiced",
+                "deadline": "2026-05-28"
+              },
+              "completed": true,
+              "source": "onboarding"
+            }
+          },
+          "focusTask": {
+            "taskId": "priya-assessment-sequence",
+            "title": "Practice assessment sequence",
+            "projectTitle": "Simulation lab preparation",
+            "scheduledStart": "09:20",
+            "scheduledEnd": "10:00",
+            "priority": "high",
+            "linkedValue": "Care",
+            "energyCost": "medium",
+            "durationMinutes": 40
+          },
+          "focusSubtasks": [
+            {
+              "subtaskId": "priya-assess-1",
+              "title": "Review opening patient safety checks",
+              "order": 1,
+              "durationMinutes": 10
+            },
+            {
+              "subtaskId": "priya-assess-2",
+              "title": "Walk through assessment sequence aloud",
+              "order": 2,
+              "durationMinutes": 20
+            },
+            {
+              "subtaskId": "priya-assess-3",
+              "title": "Mark one question to ask instructor",
+              "order": 3,
+              "durationMinutes": 10
+            }
+          ]
+        },
+        "body": {
+          "currentEnergyLevel": 5,
+          "bodyState": "Nervous energy before simulation, with attention improving when the sequence is visible.",
+          "sleepSummary": {
+            "summary": "6.7 hours slept; sleep quality 76/100 with a little pre-simulation restlessness but moderate recovery.",
+            "durationHours": 6.7,
+            "targetHours": 7.5,
+            "bedtime": "23:35",
+            "wakeTime": "06:30",
+            "sleepQualityScore": 76,
+            "sleepEfficiencyPercent": 88,
+            "awakeMinutes": 20,
+            "restlessMinutes": 32,
+            "hrvMs": 38,
+            "restingHeartRate": 68
+          },
+          "activitySummary": "short walk to campus; light morning movement",
+          "recoverySummary": "recovery signals moderate",
+          "energyCurveInputs": {
+            "sleep_hours": 6.7,
+            "sleep_quality": 76,
+            "resting_heart_rate": 68,
+            "hrv_ms": 38
+          },
+          "hourlyEnergy": [
+            {
+              "hour": 7,
+              "energyLevel": 5
+            },
+            {
+              "hour": 8,
+              "energyLevel": 6
+            },
+            {
+              "hour": 9,
+              "energyLevel": 6
+            },
+            {
+              "hour": 10,
+              "energyLevel": 6
+            },
+            {
+              "hour": 11,
+              "energyLevel": 5
+            },
+            {
+              "hour": 12,
+              "energyLevel": 5
+            },
+            {
+              "hour": 13,
+              "energyLevel": 4
+            },
+            {
+              "hour": 14,
+              "energyLevel": 5
+            },
+            {
+              "hour": 15,
+              "energyLevel": 5
+            },
+            {
+              "hour": 16,
+              "energyLevel": 4
+            }
+          ],
+          "focusCues": {
+            "visual": [
+              "skills checklist printed",
+              "stethoscope in bag",
+              "simulation notes highlighted"
+            ],
+            "auditory": [
+              "campus hallway noise",
+              "phone timer ready"
+            ],
+            "tactileBody": [
+              "hands around water bottle",
+              "shoulders slightly tense"
+            ],
+            "smell": [],
+            "taste": [
+              "water"
+            ],
+            "other": [
+              "study partner message pinned"
+            ]
+          }
+        },
+        "value": {
+          "topValues": [
+            {
+              "valueId": "care",
+              "name": "Care",
+              "emoji": "hands",
+              "personalDefinition": "staying attentive to the person in front of me",
+              "feelsLikeLabels": [
+                "grounded",
+                "kind",
+                "present"
+              ],
+              "dailySignLabels": [
+                "slowing down enough to notice",
+                "checking understanding"
+              ]
+            },
+            {
+              "valueId": "competence",
+              "name": "Competence",
+              "emoji": "check",
+              "personalDefinition": "building skills I can trust under pressure",
+              "feelsLikeLabels": [
+                "ready",
+                "capable",
+                "steady"
+              ],
+              "dailySignLabels": [
+                "one concept mastered",
+                "sequence practiced"
+              ]
+            },
+            {
+              "valueId": "learning",
+              "name": "Learning",
+              "emoji": "book",
+              "personalDefinition": "using practice and mistakes as information",
+              "feelsLikeLabels": [
+                "open",
+                "brave",
+                "curious"
+              ],
+              "dailySignLabels": [
+                "asking one good question",
+                "reviewing what changed"
+              ]
+            }
+          ],
+          "idealLife": {
+            "statement": "A life where I can offer skilled care while continuing to learn",
+            "lifeShapeLabels": [
+              "clinical confidence",
+              "steady presence"
+            ]
+          }
+        }
+      }
     }
   },
   "modelsByScenarioArm": {
@@ -1409,7 +3253,36 @@
       "baseline": "gpt-5.5-2026-04-23",
       "mind": "gpt-5.5-2026-04-23",
       "body": "gpt-5.5-2026-04-23",
-      "soul": "gpt-5.5-2026-04-23"
+      "soul": "gpt-5.5-2026-04-23",
+      "full": "gpt-5.5-2026-04-23"
+    },
+    "jonah_daily": {
+      "baseline": "gpt-5.5-2026-04-23",
+      "mind": "gpt-5.5-2026-04-23",
+      "body": "gpt-5.5-2026-04-23",
+      "soul": "gpt-5.5-2026-04-23",
+      "full": "gpt-5.5-2026-04-23"
+    },
+    "jonah_task": {
+      "baseline": "gpt-5.5-2026-04-23",
+      "mind": "gpt-5.5-2026-04-23",
+      "body": "gpt-5.5-2026-04-23",
+      "soul": "gpt-5.5-2026-04-23",
+      "full": "gpt-5.5-2026-04-23"
+    },
+    "priya_daily": {
+      "baseline": "gpt-5.5-2026-04-23",
+      "mind": "gpt-5.5-2026-04-23",
+      "body": "gpt-5.5-2026-04-23",
+      "soul": "gpt-5.5-2026-04-23",
+      "full": "gpt-5.5-2026-04-23"
+    },
+    "priya_task": {
+      "baseline": "gpt-5.5-2026-04-23",
+      "mind": "gpt-5.5-2026-04-23",
+      "body": "gpt-5.5-2026-04-23",
+      "soul": "gpt-5.5-2026-04-23",
+      "full": "gpt-5.5-2026-04-23"
     }
   },
   "wordCounts": {
@@ -1424,7 +3297,36 @@
       "baseline": 262,
       "mind": 333,
       "body": 307,
-      "soul": 293
+      "soul": 293,
+      "full": 367
+    },
+    "jonah_daily": {
+      "baseline": 275,
+      "mind": 322,
+      "body": 319,
+      "soul": 253,
+      "full": 368
+    },
+    "jonah_task": {
+      "baseline": 261,
+      "mind": 332,
+      "body": 296,
+      "soul": 253,
+      "full": 324
+    },
+    "priya_daily": {
+      "baseline": 264,
+      "mind": 323,
+      "body": 298,
+      "soul": 272,
+      "full": 380
+    },
+    "priya_task": {
+      "baseline": 251,
+      "mind": 292,
+      "body": 297,
+      "soul": 263,
+      "full": 347
     }
   },
   "scripts": {
@@ -1439,7 +3341,36 @@
       "baseline": "This preparation is for the related work writing block. The visible plan includes four pieces: Draft related work section for 90 minutes, Re-read anchor findings for 15 minutes, Draft gap statement for 20 minutes, and Connect related work to gap for 25 minutes. Before beginning, it may help to review these items as the full working sequence and note the total amount of planned time. The preparation can be kept simple: know which item comes first, how long each item is expected to take, and what the next item will be when one part is complete.\n\nFor the 90-minute related work section, the main preparation is to treat it as the largest writing block in the list. The 15-minute re-reading item can be prepared as a short review period, limited to anchor findings. The 20-minute gap statement item can be prepared as a focused drafting period for that specific statement. The 25-minute connection item can be prepared as a separate step that links the related work material to the gap statement. Keeping these items distinct can reduce the need to decide what to do next during the block.\n\nA simple way to prepare is to write the four items in order with their durations beside them: 90 minutes, 15 minutes, 20 minutes, and 25 minutes. Leave space to mark completion after each item. If timing changes, the list can still provide a clear structure for continuing. The main purpose of this preparation is to make the writing block easier to start and easier to follow, using only the scheduled pieces already listed.",
       "mind": "For the 09:00 to 10:30 block, the focus is the high-priority task, “Draft related work section,” for the CHI workshop paper. This 90-minute task connects to the larger aim of submitting one strong workshop paper by the end of June 2026, and to the broader priority of becoming an independent researcher: building a research life with independent judgment and work worth defending. Before beginning, imagine this task as one contained step in that path. What might it feel like to treat this section not as a final verdict, but as a place to clarify the paper’s argument? What might the mind be thinking when the purpose is simply to make the related work more coherent than it was before? The linked value is Success, so the rehearsal can center on making visible progress inside this one focused block.\n\nThe sequence begins with order 1: 15 minutes to re-read the three anchor papers’ findings sections. Picture attention moving through those findings with the question, “What matters here for my paper?” What might it feel like to notice one useful distinction, then another, without needing to solve the whole section at once? Next comes order 2: 20 minutes to draft the gap statement. What might the mind be thinking as it turns notes into one paragraph the advisor can react to? The aim is not perfection; the aim is a clear enough version of the gap that can be revised.\n\nThen comes order 3: 25 minutes to connect related work back to the gap. Imagine the section beginning to point toward the paper’s contribution rather than sitting as a list of sources. What might it feel like when one sentence starts to create that connection? What might the mind be thinking when it checks whether each cited idea helps the reader understand why the gap matters? By the end of the block, the task can be viewed as a meaningful draft step: related work shaped toward one coherent section, supporting the workshop paper submission ahead.",
       "body": "Begin with one slower breath in, and one longer breath out. Let the posture become simple: feet on the floor, seat supported, shoulders allowed to drop a little, jaw unclenched if it wants to. Current energy is low, around 3 out of 10, so this does not need to feel forceful. The body may be tired and a little avoidant, yet still able to begin with something small. What might it feel like to settle around the warm mug nearby, the quiet apartment hum, and the steady contact of the floor? What might the body notice first: heaviness, warmth, restlessness, or a small place that can soften?\n\nThe body is coming from a short night: about 5.5 hours of sleep after a late bedtime, with some restlessness and time awake. Recovery signals are also showing strain, with lower HRV and a resting heart rate that is a bit elevated. In plain terms, the system may be running with less reserve than usual. Light movement so far means there may not be much physical momentum yet. Energy may rise gradually through the morning, from 3 now toward 4 and 5 later, so the first step can be grounded rather than intense. What might the mind be thinking when it senses low reserve: reluctance, caution, or relief that only a small start is needed?\n\nNow let the nearby cues mark the beginning: paper draft open, anchor papers beside the keyboard, cursor at the related work section, phone face down. Coffee smell, coffee or water taste, warm mug, feet on floor, quiet hum. What might the body notice as attention gathers around these concrete details: fingers ready, breath steadier, eyes landing on the cursor? A small writing target can begin from this physical setup, with the body supported, tiredness acknowledged, and focus held by the visible cues already in place.",
-      "soul": "Begin with the idea of a life where thinking and writing grow from your own questions. Independent Thinking may be present as trusting your own questions before borrowing other people’s, with a compass-like sense of direction that comes from within. What might it feel like to move with that kind of self-trusting clarity, mentally clear and unboxed? What might the mind be thinking when there is room to think, when decisions come faster because they come from an honest inner yes or no? Let that image stay simple: a person allowing their own questions to be real enough to guide the next choice.\n\nSuccess can take shape as finishing what matters, not as pressure, but as a trophy-like marker of visible progress. What might it feel like to be accomplished, focused, and competent in a way that matches your own definition? What might the mind be thinking when progress is visible enough to notice, and enough to respect? Perhaps there is a quiet recognition: this is what finishing what matters can feel like. The image does not need to be dramatic. It can be the steady sense of something meaningful becoming more complete, one clear piece at a time.\n\nOpen-Mindedness may arrive like a telescope, staying curious about answers you did not expect. What might it feel like to be curious and supported at the same time? What might the mind be thinking when learning something becomes a sign that the day is alive, not fixed? Imagine independent research and deep work mornings as part of a larger life shape: not a perfect picture, just a direction. Across the day, these values can travel together: Independent Thinking asking its own questions, Success finishing what matters, and Open-Mindedness staying curious when the answer changes."
+      "soul": "Begin with the idea of a life where thinking and writing grow from your own questions. Independent Thinking may be present as trusting your own questions before borrowing other people’s, with a compass-like sense of direction that comes from within. What might it feel like to move with that kind of self-trusting clarity, mentally clear and unboxed? What might the mind be thinking when there is room to think, when decisions come faster because they come from an honest inner yes or no? Let that image stay simple: a person allowing their own questions to be real enough to guide the next choice.\n\nSuccess can take shape as finishing what matters, not as pressure, but as a trophy-like marker of visible progress. What might it feel like to be accomplished, focused, and competent in a way that matches your own definition? What might the mind be thinking when progress is visible enough to notice, and enough to respect? Perhaps there is a quiet recognition: this is what finishing what matters can feel like. The image does not need to be dramatic. It can be the steady sense of something meaningful becoming more complete, one clear piece at a time.\n\nOpen-Mindedness may arrive like a telescope, staying curious about answers you did not expect. What might it feel like to be curious and supported at the same time? What might the mind be thinking when learning something becomes a sign that the day is alive, not fixed? Imagine independent research and deep work mornings as part of a larger life shape: not a perfect picture, just a direction. Across the day, these values can travel together: Independent Thinking asking its own questions, Success finishing what matters, and Open-Mindedness staying curious when the answer changes.",
+      "full": "Before this 09:00–10:30 writing block begins, there might be a moment to notice breath, posture, and the real energy available today. After 5.5 hours of sleep, some restlessness, low HRV, and a slightly elevated resting heart rate, the body may feel tired and a little avoidant, while still able to begin with a small writing target. What might it feel like to let the feet settle on the floor, the warm mug sit nearby, and the shoulders find a workable position? What might the body notice as the paper draft is open, the anchor papers are beside the keyboard, the cursor is at the related work section, the apartment is quiet, the phone is face down, and coffee or water is within reach? What might the mind be thinking as it shifts from conserving energy toward one focused, high-priority step? Picture the first part: re-reading the three anchor papers’ findings sections. The task is not to solve the whole paper at once, only to gather what matters. What might the mind be thinking as it looks for the findings that actually shape the CHI workshop paper? What might the body notice as attention warms up slowly? Then the gap statement comes into view: one paragraph the advisor can react to. What might it feel like to write imperfectly but concretely, trusting the question enough to put it on the page? The longer center of the block is connecting related work back to the gap. Imagine the section beginning to hold together: prior findings, the missing piece, and Maya’s own reason for caring. What might the mind be thinking as links become clearer, sentence by sentence? What might the body notice when visible progress starts to replace avoidance? This related work section is one coherent draft toward one strong workshop paper submission by the end of June 2026. It also points toward a larger research life: thinking and writing on her own questions, practicing independent judgment, and producing work she is proud to defend. Finishing what matters can be Success; trusting her own questions can be Independent Thinking; staying curious can be Open-Mindedness. Even tired, one focused block can move her toward independent research and deep work mornings."
+    },
+    "jonah_daily": {
+      "baseline": "This is a simple preparation plan for launch review work using the listed items and time blocks. The day can be organized around three pieces: Finalize launch risk brief for 60 minutes, Review support escalation notes for 30 minutes, and Draft meeting opening for 20 minutes. Before starting, it may help to note the total planned work time: 110 minutes. This gives a clear outline of what needs to be covered and how much time is assigned to each part.\n\nA practical sequence is to begin with the 60-minute launch risk brief, since it has the longest allocated time and may require the most structured review. Set aside that hour for completing the brief as far as the time allows. When the hour is complete, make a short note of any remaining open items so they are not lost. Next, use 30 minutes to review the support escalation notes. Keep this block limited to checking the notes, identifying relevant points, and marking anything that may need to be referenced later. After that, use 20 minutes to draft the meeting opening, aiming for a clear beginning that introduces the launch review work.\n\nTo prepare mentally, think of the schedule as three defined work periods rather than one large task. Each block has a specific purpose and a set duration. If one item is not fully finished within its time, record what remains and move to the next listed item. This keeps the plan manageable and prevents one part from taking over the full preparation period. At the end, briefly review the three outputs: the launch risk brief, the escalation notes review, and the meeting opening draft.",
+      "mind": "Take a moment to frame the day around the larger intention: lead with clarity and responsibility, making decisions that help the team move forward without becoming reactive. The main goal is one meeting-ready launch review risk brief by 3:00 PM today. Imagine the first priority appearing in sequence: rank 1, “Finalize launch risk brief,” a high-priority 60-minute block tied to Responsibility. In this rehearsal, the hour has enough weight to hold the full brief: naming three to five unresolved launch risks, assigning one owner per risk, and shaping one opening summary. What might it feel like to treat the brief as the decision tool for the review? What might the mind be thinking when a risk is unclear: pause, name it plainly, connect it to an owner, move forward.\n\nNext in the sequence is rank 2, “Review support escalation notes,” a medium-priority 30-minute task tied to Clarity. Let this shorter block serve the larger brief, not compete with it. Imagine scanning the notes for what affects the launch review: repeated issues, unresolved questions, and anything that changes how risks should be described. What might it feel like to give this task a clear boundary? What might the mind be thinking when details multiply: look for the signal that helps the team decide. The rehearsal can include choosing what belongs in the risk brief and what can remain background.\n\nThen picture rank 3, “Draft meeting opening,” a medium-priority 20-minute task tied to Calm Leadership. This is a lighter, focused pass: not the whole review, just the opening that sets direction. Imagine the first sentences naming the purpose, the risks to resolve, and how decisions will be made. What might it feel like to begin with enough clarity that the room can orient quickly? What might the mind be thinking as the day approaches 3:00 PM: the brief is ready, the notes have informed it, and the opening helps the team move forward responsibly.",
+      "body": "Begin with one slow breath, letting the inhale make a little room through the ribs and the exhale soften the shoulders. Notice the posture available this morning: feet supported, spine tall enough without strain, hands ready to settle on the keyboard. Current energy is around a 6 out of 10, a usable middle-high level rather than a rush. After 7.1 hours of mostly continuous sleep, with 18 minutes awake and 24 restless minutes, the body may feel reasonably restored, not fully topped off, but steady. What might it feel like to let that steadiness show up first in the jaw, neck, and hands?\n\nPicture the workspace through the body’s senses: the launch dashboard pinned where the eyes can find it, stakeholder notes open, the risk doc in split view. Low office noise stays in the background, calendar alerts are muted, and Slack is set to focus mode. The water bottle sits beside the laptop; coffee taste may still be present. What might the body notice when these cues are all in place: less reaching, less searching, a clearer line from eyes to screen to hands? With 2300 steps and 18 active minutes already in the system, there is some morning circulation to work with. Resting heart rate at 62 and HRV at 48 suggest normal recovery signals, enough to begin without forcing intensity.\n\nAs the day’s energy curve unfolds, imagine pacing through the body rather than pushing past it. Morning energy may hold near 5 to 6, then drift lower after midday, with another softer point later. What might the mind be thinking when that dip appears: slow down, return to the next visible cue, take one breath before switching? What might the body notice as useful signals: heavier eyes, tighter shoulders, shallower breathing, or hands moving faster than needed? Let the anchor be concrete: dashboard pinned, notes open, risk doc visible, hands on keyboard, water nearby, alerts quiet.",
+      "soul": "Picture the day as a simple line that can be met with Clarity, Responsibility, and Calm Leadership. Clarity means making the next decision visible enough for the team to act. Responsibility means owning the risk without carrying every task alone. Calm Leadership means creating steadiness when the room gets noisy. What might it feel like to move through the day organized, decisive, and uncluttered, while still staying prepared, steady, accountable, calm, firm, and useful?\n\nImagine moments arriving where the next step is not obvious at first. The mind might return to the value of Clarity: make the decision visible enough. What might the mind be thinking when an ask feels ambiguous—perhaps, “What needs to be made clear?” or “What would make this easier to act on?” Responsibility can enter without becoming weight. Risks can be named clearly. Owners can be identified. What might it feel like to own what matters while not carrying everything alone?\n\nNow imagine the wider shape of the work life being built: helping teams make clear decisions without living in urgency. Clear leadership can look like clean openings, fewer ambiguous asks, and steadiness when noise rises. Protected strategy time can stand for a way of living that is not ruled by urgency. What might the mind be thinking when Calm Leadership is present—less reaction, more usefulness, more firmness without force? Let the day be framed by these values: Clarity to make decisions visible, Responsibility to hold risk wisely, and Calm Leadership to create steadiness when it is needed most.",
+      "full": "Begin with the body as it is this morning: 7.1 hours of mostly continuous sleep, good recovery signals, resting heart rate at 62, HRV at 48, and an energy level around 6. A breath could settle into an upright posture, with hands near the keyboard, coffee nearby, water beside the laptop, low office noise in the background, calendar alerts muted, and Slack in focus mode. What might the body notice as the day begins with enough readiness for focused planning, even with a likely dip after lunch and meeting pressure later? What might the mind be thinking as the launch dashboard, stakeholder notes, and risk doc create a clear field of attention? What might it feel like to begin from steadiness rather than urgency? The first scene is 9:30 to 10:30: finalizing the launch risk brief, the largest and highest-energy task. The risk doc is in split view, and the work moves through naming three to five unresolved launch risks, assigning one owner and decision point per risk, and shaping one meeting-ready opening summary. What might the mind be thinking when uncertainty becomes visible instead of vague? What might the body notice during this longer stretch: shoulders settling, eyes returning to the brief, hands moving steadily across the keyboard? What might it feel like to practice Responsibility as owning the risk without carrying every task alone? Later, from 11:00 to 11:30, the support escalation notes come into view. Clarity may look like cleaner priorities and fewer ambiguous asks. What might the mind be thinking as patterns separate from noise? Around 14:10, with energy lower but still usable, the meeting opening takes shape for twenty minutes. What might the body notice while choosing a calm, firm first sentence? What might it feel like to offer steadiness when the room gets noisy? These tasks point back to leading with clarity: helping the team move forward without becoming reactive. Each brief, owner, and opening line is a small version of an ideal work life where clear leadership and protected strategy time replace constant urgency. A credible belief can be simple: with today’s readiness, visible cues, and values of Clarity, Responsibility, and Calm Leadership, movement toward that life is already within reach."
+    },
+    "jonah_task": {
+      "baseline": "For the launch risk brief, the preparation list contains three parts: Name top risks - 20 min, Assign owners - 20 min, and Write meeting-ready summary - 20 min. A simple way to get ready is to treat the hour as three separate blocks, each with a clear stopping point. Before beginning, note the total available time and keep the list visible so the work stays tied to the three named items rather than expanding into extra tasks.\n\nDuring the first 20 minutes, use the time for naming the top risks. The useful preparation here is to decide how the risks will be captured, then write them in clear, short terms. When the 20 minutes is complete, move on rather than continuing to refine the wording. During the second 20 minutes, use the named risks as the working list and assign owners. This block can stay practical: each risk should have an owner written next to it, with no need to solve the entire issue during this step.\n\nDuring the final 20 minutes, write the meeting-ready summary. This can be prepared as a concise version of the work from the first two blocks: the named risks and the assigned owners. The summary should be ready for discussion, not perfect or expanded beyond the preparation list. If time remains inside the final block, use it to check that all three parts are represented: top risks are named, owners are assigned, and the summary is usable for the meeting. At the end, the task preparation is complete when those three items are present.",
+      "mind": "Imagine the hour from 9:30 to 10:30 as a focused space for one high-priority task: Finalize launch risk brief for the Feature launch review. This task connects to Responsibility and to the larger aim of leading with clarity: helping product work move forward without becoming reactive. The outcome is simple and concrete: one meeting-ready launch review risk brief before 3:00 PM today. As this hour begins in your mind, what might it feel like to treat the brief as a decision-support tool rather than a perfect document? What might the mind be thinking when it remembers the purpose: surface risks early, name what matters, and make the next conversation clearer?\n\nPicture the first 20 minutes moving into subtask 1: Name top unresolved launch risks. The mental sequence is to narrow attention toward three to five risks that still need daylight before the review. What might the mind be thinking as it separates unresolved risks from general concerns, and chooses the items most likely to affect launch readiness? Then imagine the second 20 minutes shifting to subtask 2: Assign owners and decision points. Each risk receives one owner and a next decision point. What might it feel like when responsibility becomes visible on the page, with fewer vague areas and more clear handoffs? What might the body notice as the work changes from identifying issues to structuring accountability?\n\nNow picture the final 20 minutes: Write the meeting-ready summary. The sequence gathers the named risks, owners, and decision points into one opening summary that can start the review with clarity. What might the mind be thinking as it chooses direct wording, avoids unnecessary detail, and frames the brief for a useful conversation? What might it feel like to reach 10:30 with the risk brief shaped enough to guide the meeting, not just describe the work? Let the rehearsal end with the task complete in outline: risks named, owners assigned, summary ready, and the larger priority of leading with clarity supported by one concrete brief.",
+      "body": "Take one slower breath and let the posture settle: feet placed, shoulders easy, jaw unclenched, hands resting near the laptop on the conference table. The body is starting from a steady middle range, around a 6 out of 10, clear enough to work through risk details before meetings begin. With 7.1 hours of sleep, good continuity, and only brief awake and restless periods, the system may not feel fully topped off, but it has enough steadiness for focused work. Recovery signals are near normal, with resting heart rate and HRV suggesting a body that can stay composed without needing to force intensity.\n\nPicture the quiet meeting room as the first physical container for attention: notifications paused, the meeting invite minimized, the risk brief outline open, the dashboard tab pinned, and the owner list beside the doc. What might it feel like for the eyes to land on one cue at a time instead of scanning everywhere at once? What might the mind be thinking as it registers, “the materials are in place”? What might the body notice from the table under the laptop, the water bottle nearby, and the taste of coffee still present enough to mark the start of concentration?\n\nEnergy looks fairly even through the morning, holding around 6 before easing later, so the body can use this window without rushing. The light commute movement and morning desk block may leave some alertness in the legs and some stillness in the hips or back; either signal can simply be noticed. A steady rhythm could be breath, glance, note, sip: breathe once, check the outline, add the next concrete detail, then reset. If tension gathers, the useful cue is physical and simple—feet, hands, screen, water—returning attention to the body before the next piece of work.",
+      "soul": "A moment can open with the values that matter most already present: Clarity, Responsibility, and Calm Leadership. Clarity means making the next decision visible enough for the team to act. Responsibility means owning the risk without carrying every task alone. Calm Leadership means creating steadiness when the room gets noisy. What might it feel like to move through the day organized, decisive, and uncluttered? What might the mind be thinking when the next step becomes visible enough, not perfect, just clear enough to support action?\n\nImagine these values showing up in small, recognizable signs. Clarity may appear as cleaner priorities and fewer ambiguous asks. Responsibility may appear as risks named clearly and owners identified. Calm Leadership may appear as clear openings and less reactive Slack checking. What might it feel like to be prepared, steady, and accountable without taking on everything personally? What might the mind be thinking when ownership is shared cleanly, risk is named plainly, and steadiness is treated as useful rather than passive?\n\nLet the larger shape come into view: a work life where clear decisions can happen without living in urgency. There may be a sense of clear leadership and protected strategy time, not as distant ideals, but as qualities that can be practiced in ordinary moments. What might it feel like to be calm, firm, and useful while urgency tries to pull attention around? What might the mind be thinking when leadership is measured by the clarity and steadiness it creates, not by how much noise it absorbs?",
+      "full": "Before this work begins, let the body arrive first. With 7.1 hours of mostly continuous sleep, sleep quality at 82/100, recovery signals near normal, and morning energy around 6, there may be enough steadiness for focused planning even if the effort is high. Picture the 9:30 to 10:30 block in a quiet meeting room: the risk brief outline open, dashboard tab pinned, owner list beside the doc, notifications paused, laptop on the conference table, water bottle nearby, coffee still present. What might the body notice as posture settles, breath slows slightly, and attention gathers around one clear task?\n\nThe scene is the Feature launch review preparation: finalizing the launch risk brief. First comes naming the top unresolved launch risks. For this twenty-minute stretch, imagine scanning the dashboard and outline until three to five risks become visible enough to say plainly. What might the mind be thinking as it separates real launch risk from background noise? Next comes assigning owners and decision points. The owner list sits beside the doc, and each risk begins to connect with one person and one decision point, so responsibility is shared rather than silently carried. What might it feel like to make accountability concrete without making the room heavier? Then comes writing the meeting-ready summary: one opening summary that can help the review begin with the right frame. What might the body notice when the brief shifts from scattered details into a usable opening?\n\nThis hour supports the larger goal: one launch review risk brief ready before 3:00 PM today, so the review can surface risks early. It is also a practice of Clarity, making the next decision visible enough for the team to act; Responsibility, owning the risk without carrying every task alone; and Calm Leadership, creating steadiness when the room gets noisy. Moving through this block can be one credible step toward a work life with clear leadership, protected strategy time, and fewer days lived in urgency."
+    },
+    "priya_daily": {
+      "baseline": "Today’s preparation is for exam review and clinical paperwork. The visible plan has three parts: Review cardiac medication flashcards for 45 minutes, Complete clinical reflection note for 35 minutes, and Pack class materials for 15 minutes. A simple way to prepare is to treat these as separate blocks, with a clear start and stop point for each one. Before beginning, it may help to note the order of the three items and make sure the materials needed for the first item are available.\n\nFor the 45-minute flashcard review, the main task is to work through cardiac medication cards within the time set aside. A timer can be used to keep the block contained. If a card needs more attention, it can be marked for later rather than letting one item take over the whole session. After that, the 35-minute clinical reflection note can be handled as its own paperwork block. The preparation here is to have the note ready to open, use the full block for drafting or completing it, and stop when the time is up or the note is complete.\n\nThe final item is packing class materials for 15 minutes. This can be kept practical and brief: gather what is needed for class, place it together, and check that the materials are ready before moving on. Since the total visible plan is 95 minutes, it may be useful to keep the day’s preparation centered on completing these three listed items within their assigned durations. The aim is simply to move through the review, the paperwork, and the packing in a straightforward sequence.",
+      "mind": "Begin by placing today inside the larger aim: building calm clinical judgment while preparing for Friday’s pharmacology exam and staying current on clinical notes. The first priority is Review cardiac medication flashcards, a high-priority, 45-minute task linked with Competence. In the rehearsal, this is the longest and weightiest block, so let the mind picture a steady opening, a middle where attention returns to the medication set, and a clear ending after one focused unit. What might it feel like to meet the first card without rushing? What might the mind be thinking when a detail is uncertain: pause, recall, check, continue? Let the 45 minutes represent practice in becoming capable under pressure, one answer at a time.\n\nNext comes Complete clinical reflection note, rank 2, medium priority, 35 minutes, linked with Care. Imagine the task beginning after the flashcard work has already created some forward motion. This block is shorter, but still meaningful: one reflection note moving from scattered memory into a completed submission. What might it feel like to turn practice into learning? What might the mind be thinking as it chooses the clearest point to write first, then the next point, then the closing line? Let the rehearsal include a moment when the note seems imperfect, and the response is to keep shaping it until it is complete enough to submit.\n\nFinally, picture Pack materials for afternoon class, rank 3, low priority, 15 minutes, linked with Presence. This is the briefest task, a closing preparation step rather than a long effort. What might it feel like to give a small task its proper place without overcomplicating it? What might the mind be thinking as each needed class material is accounted for and the day becomes easier to continue? The sequence now has a clear arc: 45 minutes for medication competence, 35 minutes for reflective care, and 15 minutes for present preparation, all serving the goal of steady clinical growth by Friday.",
+      "body": "Begin with one slow breath in, and one longer breath out. Let posture be simple: feet finding the floor, shoulders settling, jaw unclenched. The body may be carrying the weight of tired legs after a shift, while still having enough alertness for short study intervals. With current energy around 4 out of 10, this is not a full-power state; it is a steady, careful state. What might it feel like to notice the heaviness in the feet without fighting it? What might the body notice as the breath makes a little more room through the ribs and back?\n\nThe body has had 6 hours of sleep, short of the 7.5-hour target, with moderate restlessness and 22 minutes awake. Sleep quality was fair at 72 out of 100, with enough recovery for structure rather than force. Yesterday’s 6800 steps and this morning’s 12 active minutes may leave the legs warm, dull, or heavy. Resting heart rate at 70 and HRV at 35 suggest a system that can engage, but may need pacing. Energy may rise from lower early levels toward a steadier middle of the morning, dip after midday, and lift again later. What might the mind be thinking when it accepts that the body needs short intervals instead of one long push?\n\nLet the scene stay concrete: flashcards stacked by topic, scrubs folded on the chair, a timer set for study intervals. The quiet kitchen, the timer chime ready, phone on silent, water bottle nearby, and tea in smell and taste can become grounding cues. What might it feel like to begin with the feet heavy but supported, one sip available, one interval contained? What might the body notice when the timer, the chair, the bottle, and the breath all signal: start small, stay steady, pause before strain?",
+      "soul": "Picture the day as a quiet threshold: before any specific moment is named, there is simply a chance to move as someone who values Care, Competence, and Learning. Care may mean staying attentive to the person in front of you, letting grounded, kind, present qualities shape the way attention is given. What might it feel like to slow down enough to notice? What might the mind be thinking when it is checking understanding rather than rushing past another person’s meaning? Around that value, the day can become less about proving anything and more about meeting what is here with steadiness and respect.\n\nNow imagine Competence beside Care, not as perfection, but as building skills that can be trusted under pressure. It might feel ready, capable, steady. What might the mind be thinking when one concept is mastered with patience? What might the body notice when a sequence has been practiced enough to feel familiar, even if pressure is present? This kind of competence does not need to be loud. It can be quiet confidence, the sense that skill grows through repeated contact, careful attention, and the willingness to return again.\n\nLearning can travel through the same day as an open, brave, curious posture. Mistakes and practice can become information, not a verdict. What might it feel like to ask one good question? What might the mind be thinking while reviewing what changed, instead of judging what happened? In the larger picture, this points toward a life where skilled care and continued learning belong together: clinical confidence with steady presence, care that keeps deepening, and a person who remains both capable and curious.",
+      "full": "Begin by noticing the body as it is today: 6.0 hours of sleep after a long shift, sleep quality at 72 out of 100, enough recovery for short, structured study intervals, and tired legs that still have some alertness available. A slow breath might make room around the shoulders; posture might settle into something upright but not forced. With energy around 4 now, rising toward the morning, the quiet kitchen, tea, water bottle, phone on silent, and timer ready can become focus cues. What might it feel like to let the feet be heavy while the attention becomes a little clearer? What might the mind be thinking as it names the day’s aim: steady, realistic progress? What might the body notice as breath, posture, and current energy line up for one focused start? \n\nPicture the longest and most important stretch first: 8:15 to 9:00, cardiac medication flashcards stacked by topic. The scene can open with one medication set, the timer marking a contained interval, and the value of Competence nearby: building skills that can be trusted under pressure. What might the mind be thinking when one card is uncertain, then becomes information rather than failure? What might the body notice as alertness increases into the hour? Then the day moves to 10:20 to 10:55, the clinical reflection note, linked with Care: staying attentive to the person in front of you. What might it feel like to slow down enough to notice what mattered and check understanding on the page? Finally, at 12:30, a shorter scene: materials packed for afternoon class, scrubs folded nearby, Presence expressed through being ready before leaving.\n\nLet the three pieces connect back to the larger direction: preparing for Friday’s pharmacology exam while staying current on clinical notes. One flashcard unit, one reflection note, and packed materials are not the whole journey, but they are credible movement toward calm clinical judgment. This is a life priority shaped by Care, Competence, and Learning: offering skilled care while continuing to learn, with clinical confidence and steady presence. What might the mind be thinking if today proves that progress can be structured and kind? What might the body notice when effort and recovery both belong? A capable nurse is built through days like this, one steady interval at a time."
+    },
+    "priya_task": {
+      "baseline": "This preparation period is for simulation assessment practice. The available plan has three parts: Review safety checks for 10 minutes, Walk through sequence aloud for 20 minutes, and Mark one instructor question for 10 minutes. Before beginning, it may help to note the total time as 40 minutes and keep the parts separate so each one is handled in order. The aim is to be ready to start, move through, and finish the practice without needing to decide what comes next.\n\nFor the first 10 minutes, use the time to review safety checks. This can be treated as a short, contained pass through the safety material. The task is not to expand the list or add extra sections, but to cover the checks that need attention within the allotted time. When the 10 minutes are complete, move on rather than continuing to revise the same part. This keeps the preparation aligned with the schedule and leaves time for the longer practice section.\n\nFor the next 20 minutes, walk through the sequence aloud. This is the main portion of the preparation, so it can be used to practice the order of steps and the wording that may be needed during the assessment. After that, use the final 10 minutes to mark one instructor question. Keep this last part limited to one question so the ending stays clear and manageable. The full preparation plan is: 10 minutes for safety checks, 20 minutes for the sequence aloud, and 10 minutes for one instructor question.",
+      "mind": "This is a short mental rehearsal for Practice assessment sequence, scheduled from 09:20 to 10:00. It is a high-priority 40-minute task connected with Care and with the larger goal of building calm clinical judgment: becoming a capable nurse who can stay present under pressure, keep learning from practice, and offer steady care to patients. The aim is one complete assessment sequence practice before simulation lab today, prepared enough to learn from mistakes. What might the mind be thinking at the start, when the task is simply framed as one walk-through rather than a final test?\n\nImagine the sequence beginning with the first 10 minutes: Review opening patient safety checks. The first subtask is one checklist pass. What might it feel like to move through each safety check as a learnable opening step? What might the mind be thinking if one item feels uncertain, and the next useful thought is, “notice it, continue, and return if needed”? Then the middle 20 minutes arrives: Walk through assessment sequence aloud. This is the core practice, one full spoken rehearsal. What might the mind be thinking as the order of the assessment becomes clearer through speaking it, step by step, even if a phrase needs to be restarted?\n\nThe final 10 minutes is Mark one question to ask instructor. The third subtask turns practice into learning: one question, chosen from what the rehearsal revealed. What might it feel like to treat that question as evidence of preparation, not failure? What might the mind be thinking when the full 40 minutes has included one checklist pass, one spoken sequence, and one learning question? The practice can end with the larger goal in view: calm clinical judgment grows through prepared attempts, honest noticing, and steady willingness to learn.",
+      "body": "Begin with one slower breath in, and a longer breath out. Let the posture become easy to notice: feet meeting the floor, seat or legs supporting weight, shoulders slightly tense but available to soften. Current energy is around a 5, with nervous energy present before simulation and attention improving when the sequence is visible. What might the body notice first: the hands around the water bottle, the taste of water, the chest settling a little, or the jaw releasing just enough to make room for the next breath?\n\nThe body has had 6.7 hours of sleep, a little under the 7.5-hour target, with sleep quality at 76 out of 100. There was some pre-simulation restlessness, including awake time and restless minutes, yet recovery signals are moderate rather than depleted. A short walk to campus and light morning movement may have added some useful circulation without spending too much energy. What might it feel like to treat this as a steady, usable state: not fully rested, not empty, but warmed up? What might the mind be thinking when it sees the skills checklist printed, the simulation notes highlighted, and the stethoscope in the bag—perhaps that the next physical step can be simple and visible?\n\nEnergy looks likely to rise from 5 to 6 during the morning, then settle back toward 5, with a possible dip later. For now, the body can use concrete anchors: hands around the water bottle, shoulders softening by a small amount, campus hallway noise in the background, phone timer ready, study partner message pinned. What might the body notice if the breath, the printed checklist, and the highlighted notes all point in the same direction? The scene can stay practical: water nearby, materials visible, posture grounded, attention returning to one cue at a time.",
+      "soul": "Begin with the values that matter most: Care, Competence, and Learning. Care means staying attentive to the person in front of me. Competence means building skills I can trust under pressure. Learning means using practice and mistakes as information. Imagine moving through the day with these three qualities quietly available. What might it feel like when care shows up as grounded, kind, and present? What might the mind be thinking when competence feels ready, capable, and steady? What might become possible when learning feels open, brave, and curious?\n\nPicture a moment of connection with another person. Care might look like slowing down enough to notice, letting attention settle, and checking understanding rather than assuming. Competence might appear as one concept mastered, or a sequence practiced until it feels more trustworthy. Learning might appear in asking one good question, or reviewing what changed without turning that change into a judgment. If a moment feels uncertain, what might it be like to let it become information? If pressure rises, what might the mind return to: care, competence, learning?\n\nThe larger shape is a life where skilled care can be offered while continuing to learn. Clinical confidence and steady presence do not have to arrive all at once; they can be built through small signs that the values are still alive. Grounded, kind, present. Ready, capable, steady. Open, brave, curious. Imagine carrying those words as a simple inner compass. What might feel different when the day is not measured only by outcomes, but also by whether care was expressed, competence was strengthened, and learning remained possible?",
+      "full": "Begin with the body that is already here: one breath that makes room in the ribs, a posture that can be upright without being rigid, and the current energy level of about 5 becoming usable rather than perfect. After 6.7 hours of sleep, with a little restlessness but moderate recovery, what might it feel like to accept that the body is prepared enough for a focused 40-minute practice? Shoulders may still be slightly tense, hands may know the shape of the water bottle, and the taste of water, hallway noise, a ready phone timer, highlighted notes, the printed skills checklist, the stethoscope in the bag, and the pinned study partner message can all become cues for attention returning to the sequence in front of Priya.\n\nAt 09:20, the scene opens around simulation lab preparation: Practice assessment sequence, high priority, connected with Care. First, for about 10 minutes, imagine reviewing the opening patient safety checks, one checklist pass at a time. What might the mind be thinking as each safety step becomes visible and less vague? Then the longer center of the practice, about 20 minutes, is walking through the assessment sequence aloud: words forming, pauses allowed, order becoming familiar through one full spoken rehearsal. What might the body notice as nervous energy turns into rhythm—breath, voice, shoulders, hands, and attention improving because the sequence is visible? Finally, for about 10 minutes, picture marking one question to ask the instructor, a single learning question that makes mistakes useful instead of threatening.\n\nThis walk-through is not about being flawless before lab today; it is about entering prepared enough to learn from mistakes. The larger direction is building calm clinical judgment: becoming a capable nurse who can stay present under pressure, keep learning from practice, and offer steady care to patients. Care may look like staying attentive to the person in front of Priya. Competence may look like one sequence practiced. Learning may look like asking one good question. What might it feel like to move, credibly and gradually, toward a life of skilled care, clinical confidence, and steady presence?"
     }
   }
 }

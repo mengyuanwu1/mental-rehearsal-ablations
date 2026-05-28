@@ -122,3 +122,11 @@ npm run verify:assignments
 npm run dev
 npm run build
 ```
+
+## GitHub Pages
+
+The Vite build uses relative asset URLs (`base: "./"`) so the app can load when
+GitHub Pages serves it from a repository path such as `/mental-rehearsal-ablations/`.
+Set the `VITE_RESPONSE_ENDPOINT`, `VITE_RESPONSE_SECRET`, and `VITE_STUDY_ID`
+environment variables in the Pages build environment, or build locally with
+`.env.local` before publishing `dist`.
