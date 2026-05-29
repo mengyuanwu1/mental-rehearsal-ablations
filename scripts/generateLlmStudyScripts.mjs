@@ -247,6 +247,10 @@ function runBackendGeneration() {
         process.env.ABLATION_OPENAI_MODEL || process.env.OPENAI_MODEL || "gpt-5.5",
       REUSE_EXISTING_BACKEND_RESULTS:
         process.env.REUSE_BACKEND_RESULTS === "1" ? "1" : "",
+      REUSE_BASELINE_RESULTS:
+        process.env.REUSE_BASELINE_RESULTS === "1" ? "1" : "",
+      OVERRIDE_REHEARSAL_SYSTEM_PROMPT_PATH:
+        process.env.OVERRIDE_REHEARSAL_SYSTEM_PROMPT_PATH || "",
     },
     encoding: "utf8",
     stdio: ["ignore", "pipe", "pipe"],
@@ -264,7 +268,9 @@ function buildArtifact({ scenarios, requestPlan, backendResults }) {
     generatedAt: new Date().toISOString(),
     requestedModel: requestPlan.requestedModel,
     usedMock: false,
-    generationSource: "baseline=openai.vanilla_baseline_prompt; rehearsal=backend.generate_ablation_rehearsal",
+    generationSource:
+      backendResults.generationSource
+      ?? "baseline=openai.vanilla_baseline_prompt; rehearsal=backend.generate_ablation_rehearsal",
     scenarioMeta: {},
     inputsByScenarioArm: {},
     generationSourceByScenarioArm: {},
@@ -306,7 +312,7 @@ function buildArtifact({ scenarios, requestPlan, backendResults }) {
       const response = backendResults.responses[scenarioId][arm];
       artifact.inputsByScenarioArm[scenarioId][arm] = response.input;
       artifact.generationSourceByScenarioArm[scenarioId][arm] =
-        "backend.generate_ablation_rehearsal";
+        response.generation_source ?? "backend.generate_ablation_rehearsal";
       artifact.modelsByScenarioArm[scenarioId][arm] = response.model;
       artifact.wordCounts[scenarioId][arm] = wordCount(response.script);
       artifact.scripts[scenarioId][arm] = response.script;

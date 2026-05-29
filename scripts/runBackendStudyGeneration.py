@@ -73,12 +73,25 @@ def main() -> None:
     )
 
     from app.schemas.rehearsal_ablation import MentalRehearsalAblationRequest
-    from app.services.rehearsal_ablation import generate_ablation_rehearsal
+    from app.services import rehearsal_ablation as rehearsal_ablation_service
+
+    prompt_override_path = os.getenv("OVERRIDE_REHEARSAL_SYSTEM_PROMPT_PATH", "").strip()
+    rehearsal_generation_source = "backend.generate_ablation_rehearsal"
+    if prompt_override_path:
+        prompt_path = Path(prompt_override_path).resolve()
+        rehearsal_ablation_service._SYSTEM_PROMPT = prompt_path.read_text(
+            encoding="utf-8",
+        )
+        rehearsal_generation_source = (
+            f"backend.generate_ablation_rehearsal:{prompt_path.name}"
+        )
+        print(f"Using rehearsal prompt override: {prompt_path}", flush=True)
 
     plan = json.loads(request_plan_path.read_text(encoding="utf-8"))
     reuse_existing = os.getenv("REUSE_EXISTING_BACKEND_RESULTS") == "1"
+    reuse_baseline = os.getenv("REUSE_BASELINE_RESULTS") == "1"
     existing: dict[str, Any] = {}
-    if reuse_existing and result_path.exists():
+    if (reuse_existing or reuse_baseline) and result_path.exists():
         existing = json.loads(result_path.read_text(encoding="utf-8"))
 
     existing_responses = existing.get("responses", {}) if isinstance(existing, dict) else {}
@@ -90,7 +103,7 @@ def main() -> None:
 
         baseline_payload = scenario.get("baseline")
         if baseline_payload is not None:
-            if reuse_existing and responses[scenario_id].get("baseline"):
+            if (reuse_existing or reuse_baseline) and responses[scenario_id].get("baseline"):
                 response = responses[scenario_id]["baseline"]
                 print(
                     f"{scenario_id}/baseline: reused, {response.get('model')}, "
@@ -118,12 +131,13 @@ def main() -> None:
                 continue
 
             request = MentalRehearsalAblationRequest.model_validate(payload)
-            response = generate_ablation_rehearsal(request)
+            response = rehearsal_ablation_service.generate_ablation_rehearsal(request)
             responses[scenario_id][arm] = response.model_dump(
                 mode="json",
                 exclude_none=True,
                 exclude_defaults=True,
             )
+            responses[scenario_id][arm]["generation_source"] = rehearsal_generation_source
             mode = "mock" if response.used_mock else "real"
             print(
                 f"{scenario_id}/{arm}: {mode}, {response.model}, "
@@ -134,7 +148,10 @@ def main() -> None:
     result = {
         "generatedAt": plan["generatedAt"],
         "requestedModel": plan["requestedModel"],
-        "generationSource": "baseline=openai.vanilla_baseline_prompt; rehearsal=backend.generate_ablation_rehearsal",
+        "generationSource": (
+            "baseline=openai.vanilla_baseline_prompt; "
+            f"rehearsal={rehearsal_generation_source}"
+        ),
         "responses": responses,
     }
     result_path.write_text(
