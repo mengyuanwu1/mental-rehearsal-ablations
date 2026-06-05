@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-05T17:36:54.051Z",
+  "generatedAt": "2026-06-05T19:35:09.057Z",
   "requestedModel": "gpt-5.5",
   "studyDate": "2026-05-28",
   "scenarios": [
@@ -213,84 +213,11 @@
             "energy_level": 3,
             "sleep_hours": 5.5,
             "sleep_quality": 68,
-            "resting_heart_rate": 73,
-            "hrv_ms": 29,
-            "steps": 4200,
-            "active_minutes": 22,
-            "calories_out": 1900,
-            "notes": "Low but usable energy, with a steadier window later in the morning.",
             "raw_data": {
-              "sleep_summary": {
-                "summary": "5.5 hours slept after a late bedtime; sleep quality 68/100 with short duration, some restlessness, low HRV, and slightly elevated resting heart rate.",
-                "durationHours": 5.5,
-                "targetHours": 7.5,
-                "bedtime": "01:05",
-                "wakeTime": "06:40",
-                "sleepQualityScore": 68,
-                "sleepEfficiencyPercent": 83,
-                "awakeMinutes": 28,
-                "restlessMinutes": 46,
-                "hrvMs": 29,
-                "restingHeartRate": 73
-              },
-              "activity_summary": "4200 steps; 22 active minutes; 1900 calories out",
-              "recovery_summary": "resting heart rate 73 bpm; HRV 29 ms",
-              "energy_curve_inputs": {
-                "sleep_hours": 5.5,
-                "sleep_quality": 68,
-                "steps": 4200,
-                "active_minutes": 22,
-                "resting_heart_rate": 73,
-                "hrv_ms": 29,
-                "calories_out": 1900
-              }
-            },
-            "hourly_energy": [
-              {
-                "hour": 6,
-                "energy_level": 3
-              },
-              {
-                "hour": 7,
-                "energy_level": 3
-              },
-              {
-                "hour": 8,
-                "energy_level": 4
-              },
-              {
-                "hour": 9,
-                "energy_level": 5
-              },
-              {
-                "hour": 10,
-                "energy_level": 5
-              },
-              {
-                "hour": 11,
-                "energy_level": 4
-              },
-              {
-                "hour": 12,
-                "energy_level": 4
-              },
-              {
-                "hour": 13,
-                "energy_level": 3
-              },
-              {
-                "hour": 14,
-                "energy_level": 3
-              },
-              {
-                "hour": 15,
-                "energy_level": 4
-              },
-              {
-                "hour": 16,
-                "energy_level": 5
-              }
-            ]
+              "sleep_summary": "5.5 hours slept after a late bedtime; sleep quality 68/100 with short duration and some restlessness.",
+              "activity_summary": "4200 steps and 22 active minutes; mostly light movement before a morning writing block.",
+              "stress_summary": "Stress is elevated by short sleep and paper pressure, so focus may need a softer start."
+            }
           },
           "onboarding_values": [
             {
@@ -566,84 +493,11 @@
             "energy_level": 3,
             "sleep_hours": 5.5,
             "sleep_quality": 68,
-            "resting_heart_rate": 73,
-            "hrv_ms": 29,
-            "steps": 4200,
-            "active_minutes": 22,
-            "calories_out": 1900,
-            "notes": "Low but usable energy, with a steadier window later in the morning.",
             "raw_data": {
-              "sleep_summary": {
-                "summary": "5.5 hours slept after a late bedtime; sleep quality 68/100 with short duration, some restlessness, low HRV, and slightly elevated resting heart rate.",
-                "durationHours": 5.5,
-                "targetHours": 7.5,
-                "bedtime": "01:05",
-                "wakeTime": "06:40",
-                "sleepQualityScore": 68,
-                "sleepEfficiencyPercent": 83,
-                "awakeMinutes": 28,
-                "restlessMinutes": 46,
-                "hrvMs": 29,
-                "restingHeartRate": 73
-              },
-              "activity_summary": "4200 steps; 22 active minutes; 1900 calories out",
-              "recovery_summary": "resting heart rate 73 bpm; HRV 29 ms",
-              "energy_curve_inputs": {
-                "sleep_hours": 5.5,
-                "sleep_quality": 68,
-                "steps": 4200,
-                "active_minutes": 22,
-                "resting_heart_rate": 73,
-                "hrv_ms": 29,
-                "calories_out": 1900
-              }
-            },
-            "hourly_energy": [
-              {
-                "hour": 6,
-                "energy_level": 3
-              },
-              {
-                "hour": 7,
-                "energy_level": 3
-              },
-              {
-                "hour": 8,
-                "energy_level": 4
-              },
-              {
-                "hour": 9,
-                "energy_level": 5
-              },
-              {
-                "hour": 10,
-                "energy_level": 5
-              },
-              {
-                "hour": 11,
-                "energy_level": 4
-              },
-              {
-                "hour": 12,
-                "energy_level": 4
-              },
-              {
-                "hour": 13,
-                "energy_level": 3
-              },
-              {
-                "hour": 14,
-                "energy_level": 3
-              },
-              {
-                "hour": 15,
-                "energy_level": 4
-              },
-              {
-                "hour": 16,
-                "energy_level": 5
-              }
-            ]
+              "sleep_summary": "5.5 hours slept after a late bedtime; sleep quality 68/100 with short duration and some restlessness.",
+              "activity_summary": "4200 steps and 22 active minutes; mostly light movement before a morning writing block.",
+              "stress_summary": "Stress is elevated by short sleep and paper pressure, so focus may need a softer start."
+            }
           },
           "onboarding_values": [
             {
@@ -919,84 +773,11 @@
             "energy_level": 3,
             "sleep_hours": 5.5,
             "sleep_quality": 68,
-            "resting_heart_rate": 73,
-            "hrv_ms": 29,
-            "steps": 4200,
-            "active_minutes": 22,
-            "calories_out": 1900,
-            "notes": "Low but usable energy, with a steadier window later in the morning.",
             "raw_data": {
-              "sleep_summary": {
-                "summary": "5.5 hours slept after a late bedtime; sleep quality 68/100 with short duration, some restlessness, low HRV, and slightly elevated resting heart rate.",
-                "durationHours": 5.5,
-                "targetHours": 7.5,
-                "bedtime": "01:05",
-                "wakeTime": "06:40",
-                "sleepQualityScore": 68,
-                "sleepEfficiencyPercent": 83,
-                "awakeMinutes": 28,
-                "restlessMinutes": 46,
-                "hrvMs": 29,
-                "restingHeartRate": 73
-              },
-              "activity_summary": "4200 steps; 22 active minutes; 1900 calories out",
-              "recovery_summary": "resting heart rate 73 bpm; HRV 29 ms",
-              "energy_curve_inputs": {
-                "sleep_hours": 5.5,
-                "sleep_quality": 68,
-                "steps": 4200,
-                "active_minutes": 22,
-                "resting_heart_rate": 73,
-                "hrv_ms": 29,
-                "calories_out": 1900
-              }
-            },
-            "hourly_energy": [
-              {
-                "hour": 6,
-                "energy_level": 3
-              },
-              {
-                "hour": 7,
-                "energy_level": 3
-              },
-              {
-                "hour": 8,
-                "energy_level": 4
-              },
-              {
-                "hour": 9,
-                "energy_level": 5
-              },
-              {
-                "hour": 10,
-                "energy_level": 5
-              },
-              {
-                "hour": 11,
-                "energy_level": 4
-              },
-              {
-                "hour": 12,
-                "energy_level": 4
-              },
-              {
-                "hour": 13,
-                "energy_level": 3
-              },
-              {
-                "hour": 14,
-                "energy_level": 3
-              },
-              {
-                "hour": 15,
-                "energy_level": 4
-              },
-              {
-                "hour": 16,
-                "energy_level": 5
-              }
-            ]
+              "sleep_summary": "5.5 hours slept after a late bedtime; sleep quality 68/100 with short duration and some restlessness.",
+              "activity_summary": "4200 steps and 22 active minutes; mostly light movement before a morning writing block.",
+              "stress_summary": "Stress is elevated by short sleep and paper pressure, so focus may need a softer start."
+            }
           },
           "onboarding_values": [
             {
@@ -1272,84 +1053,11 @@
             "energy_level": 3,
             "sleep_hours": 5.5,
             "sleep_quality": 68,
-            "resting_heart_rate": 73,
-            "hrv_ms": 29,
-            "steps": 4200,
-            "active_minutes": 22,
-            "calories_out": 1900,
-            "notes": "Low but usable energy, with a steadier window later in the morning.",
             "raw_data": {
-              "sleep_summary": {
-                "summary": "5.5 hours slept after a late bedtime; sleep quality 68/100 with short duration, some restlessness, low HRV, and slightly elevated resting heart rate.",
-                "durationHours": 5.5,
-                "targetHours": 7.5,
-                "bedtime": "01:05",
-                "wakeTime": "06:40",
-                "sleepQualityScore": 68,
-                "sleepEfficiencyPercent": 83,
-                "awakeMinutes": 28,
-                "restlessMinutes": 46,
-                "hrvMs": 29,
-                "restingHeartRate": 73
-              },
-              "activity_summary": "4200 steps; 22 active minutes; 1900 calories out",
-              "recovery_summary": "resting heart rate 73 bpm; HRV 29 ms",
-              "energy_curve_inputs": {
-                "sleep_hours": 5.5,
-                "sleep_quality": 68,
-                "steps": 4200,
-                "active_minutes": 22,
-                "resting_heart_rate": 73,
-                "hrv_ms": 29,
-                "calories_out": 1900
-              }
-            },
-            "hourly_energy": [
-              {
-                "hour": 6,
-                "energy_level": 3
-              },
-              {
-                "hour": 7,
-                "energy_level": 3
-              },
-              {
-                "hour": 8,
-                "energy_level": 4
-              },
-              {
-                "hour": 9,
-                "energy_level": 5
-              },
-              {
-                "hour": 10,
-                "energy_level": 5
-              },
-              {
-                "hour": 11,
-                "energy_level": 4
-              },
-              {
-                "hour": 12,
-                "energy_level": 4
-              },
-              {
-                "hour": 13,
-                "energy_level": 3
-              },
-              {
-                "hour": 14,
-                "energy_level": 3
-              },
-              {
-                "hour": 15,
-                "energy_level": 4
-              },
-              {
-                "hour": 16,
-                "energy_level": 5
-              }
-            ]
+              "sleep_summary": "5.5 hours slept after a late bedtime; sleep quality 68/100 with short duration and some restlessness.",
+              "activity_summary": "4200 steps and 22 active minutes; mostly light movement before a morning writing block.",
+              "stress_summary": "Stress is elevated by short sleep and paper pressure, so focus may need a softer start."
+            }
           },
           "onboarding_values": [
             {
@@ -1597,78 +1305,11 @@
             "energy_level": 3,
             "sleep_hours": 5.5,
             "sleep_quality": 68,
-            "resting_heart_rate": 73,
-            "hrv_ms": 29,
-            "notes": "Tired and a little avoidant, but able to begin with a small writing target.",
             "raw_data": {
-              "sleep_summary": {
-                "summary": "5.5 hours slept after a late bedtime; sleep quality 68/100 with short duration, some restlessness, low HRV, and slightly elevated resting heart rate.",
-                "durationHours": 5.5,
-                "targetHours": 7.5,
-                "bedtime": "01:05",
-                "wakeTime": "06:40",
-                "sleepQualityScore": 68,
-                "sleepEfficiencyPercent": 83,
-                "awakeMinutes": 28,
-                "restlessMinutes": 46,
-                "hrvMs": 29,
-                "restingHeartRate": 73
-              },
+              "sleep_summary": "5.5 hours slept after a late bedtime; sleep quality 68/100 with short duration and some restlessness.",
               "activity_summary": "light movement so far; morning work block beginning",
-              "recovery_summary": "resting heart rate elevated relative to usual; HRV low",
-              "energy_curve_inputs": {
-                "sleep_hours": 5.5,
-                "sleep_quality": 68,
-                "resting_heart_rate": 73,
-                "hrv_ms": 29
-              }
-            },
-            "hourly_energy": [
-              {
-                "hour": 6,
-                "energy_level": 3
-              },
-              {
-                "hour": 7,
-                "energy_level": 3
-              },
-              {
-                "hour": 8,
-                "energy_level": 4
-              },
-              {
-                "hour": 9,
-                "energy_level": 5
-              },
-              {
-                "hour": 10,
-                "energy_level": 5
-              },
-              {
-                "hour": 11,
-                "energy_level": 4
-              },
-              {
-                "hour": 12,
-                "energy_level": 4
-              },
-              {
-                "hour": 13,
-                "energy_level": 3
-              },
-              {
-                "hour": 14,
-                "energy_level": 3
-              },
-              {
-                "hour": 15,
-                "energy_level": 4
-              },
-              {
-                "hour": 16,
-                "energy_level": 5
-              }
-            ]
+              "stress_summary": "Stress is elevated around the morning writing block, so the start may feel effortful."
+            }
           },
           "onboarding_values": [
             {
@@ -1879,78 +1520,11 @@
             "energy_level": 3,
             "sleep_hours": 5.5,
             "sleep_quality": 68,
-            "resting_heart_rate": 73,
-            "hrv_ms": 29,
-            "notes": "Tired and a little avoidant, but able to begin with a small writing target.",
             "raw_data": {
-              "sleep_summary": {
-                "summary": "5.5 hours slept after a late bedtime; sleep quality 68/100 with short duration, some restlessness, low HRV, and slightly elevated resting heart rate.",
-                "durationHours": 5.5,
-                "targetHours": 7.5,
-                "bedtime": "01:05",
-                "wakeTime": "06:40",
-                "sleepQualityScore": 68,
-                "sleepEfficiencyPercent": 83,
-                "awakeMinutes": 28,
-                "restlessMinutes": 46,
-                "hrvMs": 29,
-                "restingHeartRate": 73
-              },
+              "sleep_summary": "5.5 hours slept after a late bedtime; sleep quality 68/100 with short duration and some restlessness.",
               "activity_summary": "light movement so far; morning work block beginning",
-              "recovery_summary": "resting heart rate elevated relative to usual; HRV low",
-              "energy_curve_inputs": {
-                "sleep_hours": 5.5,
-                "sleep_quality": 68,
-                "resting_heart_rate": 73,
-                "hrv_ms": 29
-              }
-            },
-            "hourly_energy": [
-              {
-                "hour": 6,
-                "energy_level": 3
-              },
-              {
-                "hour": 7,
-                "energy_level": 3
-              },
-              {
-                "hour": 8,
-                "energy_level": 4
-              },
-              {
-                "hour": 9,
-                "energy_level": 5
-              },
-              {
-                "hour": 10,
-                "energy_level": 5
-              },
-              {
-                "hour": 11,
-                "energy_level": 4
-              },
-              {
-                "hour": 12,
-                "energy_level": 4
-              },
-              {
-                "hour": 13,
-                "energy_level": 3
-              },
-              {
-                "hour": 14,
-                "energy_level": 3
-              },
-              {
-                "hour": 15,
-                "energy_level": 4
-              },
-              {
-                "hour": 16,
-                "energy_level": 5
-              }
-            ]
+              "stress_summary": "Stress is elevated around the morning writing block, so the start may feel effortful."
+            }
           },
           "onboarding_values": [
             {
@@ -2161,78 +1735,11 @@
             "energy_level": 3,
             "sleep_hours": 5.5,
             "sleep_quality": 68,
-            "resting_heart_rate": 73,
-            "hrv_ms": 29,
-            "notes": "Tired and a little avoidant, but able to begin with a small writing target.",
             "raw_data": {
-              "sleep_summary": {
-                "summary": "5.5 hours slept after a late bedtime; sleep quality 68/100 with short duration, some restlessness, low HRV, and slightly elevated resting heart rate.",
-                "durationHours": 5.5,
-                "targetHours": 7.5,
-                "bedtime": "01:05",
-                "wakeTime": "06:40",
-                "sleepQualityScore": 68,
-                "sleepEfficiencyPercent": 83,
-                "awakeMinutes": 28,
-                "restlessMinutes": 46,
-                "hrvMs": 29,
-                "restingHeartRate": 73
-              },
+              "sleep_summary": "5.5 hours slept after a late bedtime; sleep quality 68/100 with short duration and some restlessness.",
               "activity_summary": "light movement so far; morning work block beginning",
-              "recovery_summary": "resting heart rate elevated relative to usual; HRV low",
-              "energy_curve_inputs": {
-                "sleep_hours": 5.5,
-                "sleep_quality": 68,
-                "resting_heart_rate": 73,
-                "hrv_ms": 29
-              }
-            },
-            "hourly_energy": [
-              {
-                "hour": 6,
-                "energy_level": 3
-              },
-              {
-                "hour": 7,
-                "energy_level": 3
-              },
-              {
-                "hour": 8,
-                "energy_level": 4
-              },
-              {
-                "hour": 9,
-                "energy_level": 5
-              },
-              {
-                "hour": 10,
-                "energy_level": 5
-              },
-              {
-                "hour": 11,
-                "energy_level": 4
-              },
-              {
-                "hour": 12,
-                "energy_level": 4
-              },
-              {
-                "hour": 13,
-                "energy_level": 3
-              },
-              {
-                "hour": 14,
-                "energy_level": 3
-              },
-              {
-                "hour": 15,
-                "energy_level": 4
-              },
-              {
-                "hour": 16,
-                "energy_level": 5
-              }
-            ]
+              "stress_summary": "Stress is elevated around the morning writing block, so the start may feel effortful."
+            }
           },
           "onboarding_values": [
             {
@@ -2443,78 +1950,11 @@
             "energy_level": 3,
             "sleep_hours": 5.5,
             "sleep_quality": 68,
-            "resting_heart_rate": 73,
-            "hrv_ms": 29,
-            "notes": "Tired and a little avoidant, but able to begin with a small writing target.",
             "raw_data": {
-              "sleep_summary": {
-                "summary": "5.5 hours slept after a late bedtime; sleep quality 68/100 with short duration, some restlessness, low HRV, and slightly elevated resting heart rate.",
-                "durationHours": 5.5,
-                "targetHours": 7.5,
-                "bedtime": "01:05",
-                "wakeTime": "06:40",
-                "sleepQualityScore": 68,
-                "sleepEfficiencyPercent": 83,
-                "awakeMinutes": 28,
-                "restlessMinutes": 46,
-                "hrvMs": 29,
-                "restingHeartRate": 73
-              },
+              "sleep_summary": "5.5 hours slept after a late bedtime; sleep quality 68/100 with short duration and some restlessness.",
               "activity_summary": "light movement so far; morning work block beginning",
-              "recovery_summary": "resting heart rate elevated relative to usual; HRV low",
-              "energy_curve_inputs": {
-                "sleep_hours": 5.5,
-                "sleep_quality": 68,
-                "resting_heart_rate": 73,
-                "hrv_ms": 29
-              }
-            },
-            "hourly_energy": [
-              {
-                "hour": 6,
-                "energy_level": 3
-              },
-              {
-                "hour": 7,
-                "energy_level": 3
-              },
-              {
-                "hour": 8,
-                "energy_level": 4
-              },
-              {
-                "hour": 9,
-                "energy_level": 5
-              },
-              {
-                "hour": 10,
-                "energy_level": 5
-              },
-              {
-                "hour": 11,
-                "energy_level": 4
-              },
-              {
-                "hour": 12,
-                "energy_level": 4
-              },
-              {
-                "hour": 13,
-                "energy_level": 3
-              },
-              {
-                "hour": 14,
-                "energy_level": 3
-              },
-              {
-                "hour": 15,
-                "energy_level": 4
-              },
-              {
-                "hour": 16,
-                "energy_level": 5
-              }
-            ]
+              "stress_summary": "Stress is elevated around the morning writing block, so the start may feel effortful."
+            }
           },
           "onboarding_values": [
             {
@@ -2879,78 +2319,11 @@
             "energy_level": 6,
             "sleep_hours": 7.1,
             "sleep_quality": 82,
-            "resting_heart_rate": 62,
-            "hrv_ms": 48,
-            "steps": 2300,
-            "active_minutes": 18,
-            "notes": "Good morning energy, with a likely dip after lunch and meeting pressure later.",
             "raw_data": {
-              "sleep_summary": {
-                "summary": "7.1 hours slept with good continuity; sleep quality 82/100, normal recovery signals, and enough morning readiness for focused planning.",
-                "durationHours": 7.1,
-                "targetHours": 7.5,
-                "bedtime": "23:15",
-                "wakeTime": "06:35",
-                "sleepQualityScore": 82,
-                "sleepEfficiencyPercent": 90,
-                "awakeMinutes": 18,
-                "restlessMinutes": 24,
-                "hrvMs": 48,
-                "restingHeartRate": 62
-              },
-              "activity_summary": "2300 steps; 18 active minutes before work",
-              "recovery_summary": "resting heart rate 62 bpm; HRV 48 ms",
-              "energy_curve_inputs": {
-                "sleep_hours": 7.1,
-                "sleep_quality": 82,
-                "steps": 2300,
-                "active_minutes": 18,
-                "resting_heart_rate": 62,
-                "hrv_ms": 48
-              }
-            },
-            "hourly_energy": [
-              {
-                "hour": 7,
-                "energy_level": 5
-              },
-              {
-                "hour": 8,
-                "energy_level": 6
-              },
-              {
-                "hour": 9,
-                "energy_level": 6
-              },
-              {
-                "hour": 10,
-                "energy_level": 6
-              },
-              {
-                "hour": 11,
-                "energy_level": 5
-              },
-              {
-                "hour": 12,
-                "energy_level": 5
-              },
-              {
-                "hour": 13,
-                "energy_level": 4
-              },
-              {
-                "hour": 14,
-                "energy_level": 5
-              },
-              {
-                "hour": 15,
-                "energy_level": 5
-              },
-              {
-                "hour": 16,
-                "energy_level": 4
-              }
-            ]
+              "sleep_summary": "7.1 hours slept with good continuity; sleep quality 82/100 and enough morning readiness for focused planning.",
+              "activity_summary": "2300 steps and 18 active minutes before work.",
+              "stress_summary": "Stress is manageable, with meeting pressure likely to rise near the launch review."
+            }
           },
           "onboarding_values": [
             {
@@ -3227,78 +2600,11 @@
             "energy_level": 6,
             "sleep_hours": 7.1,
             "sleep_quality": 82,
-            "resting_heart_rate": 62,
-            "hrv_ms": 48,
-            "steps": 2300,
-            "active_minutes": 18,
-            "notes": "Good morning energy, with a likely dip after lunch and meeting pressure later.",
             "raw_data": {
-              "sleep_summary": {
-                "summary": "7.1 hours slept with good continuity; sleep quality 82/100, normal recovery signals, and enough morning readiness for focused planning.",
-                "durationHours": 7.1,
-                "targetHours": 7.5,
-                "bedtime": "23:15",
-                "wakeTime": "06:35",
-                "sleepQualityScore": 82,
-                "sleepEfficiencyPercent": 90,
-                "awakeMinutes": 18,
-                "restlessMinutes": 24,
-                "hrvMs": 48,
-                "restingHeartRate": 62
-              },
-              "activity_summary": "2300 steps; 18 active minutes before work",
-              "recovery_summary": "resting heart rate 62 bpm; HRV 48 ms",
-              "energy_curve_inputs": {
-                "sleep_hours": 7.1,
-                "sleep_quality": 82,
-                "steps": 2300,
-                "active_minutes": 18,
-                "resting_heart_rate": 62,
-                "hrv_ms": 48
-              }
-            },
-            "hourly_energy": [
-              {
-                "hour": 7,
-                "energy_level": 5
-              },
-              {
-                "hour": 8,
-                "energy_level": 6
-              },
-              {
-                "hour": 9,
-                "energy_level": 6
-              },
-              {
-                "hour": 10,
-                "energy_level": 6
-              },
-              {
-                "hour": 11,
-                "energy_level": 5
-              },
-              {
-                "hour": 12,
-                "energy_level": 5
-              },
-              {
-                "hour": 13,
-                "energy_level": 4
-              },
-              {
-                "hour": 14,
-                "energy_level": 5
-              },
-              {
-                "hour": 15,
-                "energy_level": 5
-              },
-              {
-                "hour": 16,
-                "energy_level": 4
-              }
-            ]
+              "sleep_summary": "7.1 hours slept with good continuity; sleep quality 82/100 and enough morning readiness for focused planning.",
+              "activity_summary": "2300 steps and 18 active minutes before work.",
+              "stress_summary": "Stress is manageable, with meeting pressure likely to rise near the launch review."
+            }
           },
           "onboarding_values": [
             {
@@ -3575,78 +2881,11 @@
             "energy_level": 6,
             "sleep_hours": 7.1,
             "sleep_quality": 82,
-            "resting_heart_rate": 62,
-            "hrv_ms": 48,
-            "steps": 2300,
-            "active_minutes": 18,
-            "notes": "Good morning energy, with a likely dip after lunch and meeting pressure later.",
             "raw_data": {
-              "sleep_summary": {
-                "summary": "7.1 hours slept with good continuity; sleep quality 82/100, normal recovery signals, and enough morning readiness for focused planning.",
-                "durationHours": 7.1,
-                "targetHours": 7.5,
-                "bedtime": "23:15",
-                "wakeTime": "06:35",
-                "sleepQualityScore": 82,
-                "sleepEfficiencyPercent": 90,
-                "awakeMinutes": 18,
-                "restlessMinutes": 24,
-                "hrvMs": 48,
-                "restingHeartRate": 62
-              },
-              "activity_summary": "2300 steps; 18 active minutes before work",
-              "recovery_summary": "resting heart rate 62 bpm; HRV 48 ms",
-              "energy_curve_inputs": {
-                "sleep_hours": 7.1,
-                "sleep_quality": 82,
-                "steps": 2300,
-                "active_minutes": 18,
-                "resting_heart_rate": 62,
-                "hrv_ms": 48
-              }
-            },
-            "hourly_energy": [
-              {
-                "hour": 7,
-                "energy_level": 5
-              },
-              {
-                "hour": 8,
-                "energy_level": 6
-              },
-              {
-                "hour": 9,
-                "energy_level": 6
-              },
-              {
-                "hour": 10,
-                "energy_level": 6
-              },
-              {
-                "hour": 11,
-                "energy_level": 5
-              },
-              {
-                "hour": 12,
-                "energy_level": 5
-              },
-              {
-                "hour": 13,
-                "energy_level": 4
-              },
-              {
-                "hour": 14,
-                "energy_level": 5
-              },
-              {
-                "hour": 15,
-                "energy_level": 5
-              },
-              {
-                "hour": 16,
-                "energy_level": 4
-              }
-            ]
+              "sleep_summary": "7.1 hours slept with good continuity; sleep quality 82/100 and enough morning readiness for focused planning.",
+              "activity_summary": "2300 steps and 18 active minutes before work.",
+              "stress_summary": "Stress is manageable, with meeting pressure likely to rise near the launch review."
+            }
           },
           "onboarding_values": [
             {
@@ -3923,78 +3162,11 @@
             "energy_level": 6,
             "sleep_hours": 7.1,
             "sleep_quality": 82,
-            "resting_heart_rate": 62,
-            "hrv_ms": 48,
-            "steps": 2300,
-            "active_minutes": 18,
-            "notes": "Good morning energy, with a likely dip after lunch and meeting pressure later.",
             "raw_data": {
-              "sleep_summary": {
-                "summary": "7.1 hours slept with good continuity; sleep quality 82/100, normal recovery signals, and enough morning readiness for focused planning.",
-                "durationHours": 7.1,
-                "targetHours": 7.5,
-                "bedtime": "23:15",
-                "wakeTime": "06:35",
-                "sleepQualityScore": 82,
-                "sleepEfficiencyPercent": 90,
-                "awakeMinutes": 18,
-                "restlessMinutes": 24,
-                "hrvMs": 48,
-                "restingHeartRate": 62
-              },
-              "activity_summary": "2300 steps; 18 active minutes before work",
-              "recovery_summary": "resting heart rate 62 bpm; HRV 48 ms",
-              "energy_curve_inputs": {
-                "sleep_hours": 7.1,
-                "sleep_quality": 82,
-                "steps": 2300,
-                "active_minutes": 18,
-                "resting_heart_rate": 62,
-                "hrv_ms": 48
-              }
-            },
-            "hourly_energy": [
-              {
-                "hour": 7,
-                "energy_level": 5
-              },
-              {
-                "hour": 8,
-                "energy_level": 6
-              },
-              {
-                "hour": 9,
-                "energy_level": 6
-              },
-              {
-                "hour": 10,
-                "energy_level": 6
-              },
-              {
-                "hour": 11,
-                "energy_level": 5
-              },
-              {
-                "hour": 12,
-                "energy_level": 5
-              },
-              {
-                "hour": 13,
-                "energy_level": 4
-              },
-              {
-                "hour": 14,
-                "energy_level": 5
-              },
-              {
-                "hour": 15,
-                "energy_level": 5
-              },
-              {
-                "hour": 16,
-                "energy_level": 4
-              }
-            ]
+              "sleep_summary": "7.1 hours slept with good continuity; sleep quality 82/100 and enough morning readiness for focused planning.",
+              "activity_summary": "2300 steps and 18 active minutes before work.",
+              "stress_summary": "Stress is manageable, with meeting pressure likely to rise near the launch review."
+            }
           },
           "onboarding_values": [
             {
@@ -4240,74 +3412,11 @@
             "energy_level": 6,
             "sleep_hours": 7.1,
             "sleep_quality": 82,
-            "resting_heart_rate": 62,
-            "hrv_ms": 48,
-            "notes": "Clear enough to work through risk details before meetings begin.",
             "raw_data": {
-              "sleep_summary": {
-                "summary": "7.1 hours slept with good continuity; sleep quality 82/100, normal recovery signals, and enough morning readiness for focused planning.",
-                "durationHours": 7.1,
-                "targetHours": 7.5,
-                "bedtime": "23:15",
-                "wakeTime": "06:35",
-                "sleepQualityScore": 82,
-                "sleepEfficiencyPercent": 90,
-                "awakeMinutes": 18,
-                "restlessMinutes": 24,
-                "hrvMs": 48,
-                "restingHeartRate": 62
-              },
+              "sleep_summary": "7.1 hours slept with good continuity; sleep quality 82/100 and enough morning readiness for focused planning.",
               "activity_summary": "light commute movement; morning desk block",
-              "recovery_summary": "recovery signals near normal",
-              "energy_curve_inputs": {
-                "sleep_hours": 7.1,
-                "sleep_quality": 82,
-                "resting_heart_rate": 62,
-                "hrv_ms": 48
-              }
-            },
-            "hourly_energy": [
-              {
-                "hour": 7,
-                "energy_level": 5
-              },
-              {
-                "hour": 8,
-                "energy_level": 6
-              },
-              {
-                "hour": 9,
-                "energy_level": 6
-              },
-              {
-                "hour": 10,
-                "energy_level": 6
-              },
-              {
-                "hour": 11,
-                "energy_level": 5
-              },
-              {
-                "hour": 12,
-                "energy_level": 5
-              },
-              {
-                "hour": 13,
-                "energy_level": 4
-              },
-              {
-                "hour": 14,
-                "energy_level": 5
-              },
-              {
-                "hour": 15,
-                "energy_level": 5
-              },
-              {
-                "hour": 16,
-                "energy_level": 4
-              }
-            ]
+              "stress_summary": "Stress is moderate and tied to risk ownership and deadline pressure."
+            }
           },
           "onboarding_values": [
             {
@@ -4519,74 +3628,11 @@
             "energy_level": 6,
             "sleep_hours": 7.1,
             "sleep_quality": 82,
-            "resting_heart_rate": 62,
-            "hrv_ms": 48,
-            "notes": "Clear enough to work through risk details before meetings begin.",
             "raw_data": {
-              "sleep_summary": {
-                "summary": "7.1 hours slept with good continuity; sleep quality 82/100, normal recovery signals, and enough morning readiness for focused planning.",
-                "durationHours": 7.1,
-                "targetHours": 7.5,
-                "bedtime": "23:15",
-                "wakeTime": "06:35",
-                "sleepQualityScore": 82,
-                "sleepEfficiencyPercent": 90,
-                "awakeMinutes": 18,
-                "restlessMinutes": 24,
-                "hrvMs": 48,
-                "restingHeartRate": 62
-              },
+              "sleep_summary": "7.1 hours slept with good continuity; sleep quality 82/100 and enough morning readiness for focused planning.",
               "activity_summary": "light commute movement; morning desk block",
-              "recovery_summary": "recovery signals near normal",
-              "energy_curve_inputs": {
-                "sleep_hours": 7.1,
-                "sleep_quality": 82,
-                "resting_heart_rate": 62,
-                "hrv_ms": 48
-              }
-            },
-            "hourly_energy": [
-              {
-                "hour": 7,
-                "energy_level": 5
-              },
-              {
-                "hour": 8,
-                "energy_level": 6
-              },
-              {
-                "hour": 9,
-                "energy_level": 6
-              },
-              {
-                "hour": 10,
-                "energy_level": 6
-              },
-              {
-                "hour": 11,
-                "energy_level": 5
-              },
-              {
-                "hour": 12,
-                "energy_level": 5
-              },
-              {
-                "hour": 13,
-                "energy_level": 4
-              },
-              {
-                "hour": 14,
-                "energy_level": 5
-              },
-              {
-                "hour": 15,
-                "energy_level": 5
-              },
-              {
-                "hour": 16,
-                "energy_level": 4
-              }
-            ]
+              "stress_summary": "Stress is moderate and tied to risk ownership and deadline pressure."
+            }
           },
           "onboarding_values": [
             {
@@ -4798,74 +3844,11 @@
             "energy_level": 6,
             "sleep_hours": 7.1,
             "sleep_quality": 82,
-            "resting_heart_rate": 62,
-            "hrv_ms": 48,
-            "notes": "Clear enough to work through risk details before meetings begin.",
             "raw_data": {
-              "sleep_summary": {
-                "summary": "7.1 hours slept with good continuity; sleep quality 82/100, normal recovery signals, and enough morning readiness for focused planning.",
-                "durationHours": 7.1,
-                "targetHours": 7.5,
-                "bedtime": "23:15",
-                "wakeTime": "06:35",
-                "sleepQualityScore": 82,
-                "sleepEfficiencyPercent": 90,
-                "awakeMinutes": 18,
-                "restlessMinutes": 24,
-                "hrvMs": 48,
-                "restingHeartRate": 62
-              },
+              "sleep_summary": "7.1 hours slept with good continuity; sleep quality 82/100 and enough morning readiness for focused planning.",
               "activity_summary": "light commute movement; morning desk block",
-              "recovery_summary": "recovery signals near normal",
-              "energy_curve_inputs": {
-                "sleep_hours": 7.1,
-                "sleep_quality": 82,
-                "resting_heart_rate": 62,
-                "hrv_ms": 48
-              }
-            },
-            "hourly_energy": [
-              {
-                "hour": 7,
-                "energy_level": 5
-              },
-              {
-                "hour": 8,
-                "energy_level": 6
-              },
-              {
-                "hour": 9,
-                "energy_level": 6
-              },
-              {
-                "hour": 10,
-                "energy_level": 6
-              },
-              {
-                "hour": 11,
-                "energy_level": 5
-              },
-              {
-                "hour": 12,
-                "energy_level": 5
-              },
-              {
-                "hour": 13,
-                "energy_level": 4
-              },
-              {
-                "hour": 14,
-                "energy_level": 5
-              },
-              {
-                "hour": 15,
-                "energy_level": 5
-              },
-              {
-                "hour": 16,
-                "energy_level": 4
-              }
-            ]
+              "stress_summary": "Stress is moderate and tied to risk ownership and deadline pressure."
+            }
           },
           "onboarding_values": [
             {
@@ -5077,74 +4060,11 @@
             "energy_level": 6,
             "sleep_hours": 7.1,
             "sleep_quality": 82,
-            "resting_heart_rate": 62,
-            "hrv_ms": 48,
-            "notes": "Clear enough to work through risk details before meetings begin.",
             "raw_data": {
-              "sleep_summary": {
-                "summary": "7.1 hours slept with good continuity; sleep quality 82/100, normal recovery signals, and enough morning readiness for focused planning.",
-                "durationHours": 7.1,
-                "targetHours": 7.5,
-                "bedtime": "23:15",
-                "wakeTime": "06:35",
-                "sleepQualityScore": 82,
-                "sleepEfficiencyPercent": 90,
-                "awakeMinutes": 18,
-                "restlessMinutes": 24,
-                "hrvMs": 48,
-                "restingHeartRate": 62
-              },
+              "sleep_summary": "7.1 hours slept with good continuity; sleep quality 82/100 and enough morning readiness for focused planning.",
               "activity_summary": "light commute movement; morning desk block",
-              "recovery_summary": "recovery signals near normal",
-              "energy_curve_inputs": {
-                "sleep_hours": 7.1,
-                "sleep_quality": 82,
-                "resting_heart_rate": 62,
-                "hrv_ms": 48
-              }
-            },
-            "hourly_energy": [
-              {
-                "hour": 7,
-                "energy_level": 5
-              },
-              {
-                "hour": 8,
-                "energy_level": 6
-              },
-              {
-                "hour": 9,
-                "energy_level": 6
-              },
-              {
-                "hour": 10,
-                "energy_level": 6
-              },
-              {
-                "hour": 11,
-                "energy_level": 5
-              },
-              {
-                "hour": 12,
-                "energy_level": 5
-              },
-              {
-                "hour": 13,
-                "energy_level": 4
-              },
-              {
-                "hour": 14,
-                "energy_level": 5
-              },
-              {
-                "hour": 15,
-                "energy_level": 5
-              },
-              {
-                "hour": 16,
-                "energy_level": 4
-              }
-            ]
+              "stress_summary": "Stress is moderate and tied to risk ownership and deadline pressure."
+            }
           },
           "onboarding_values": [
             {
@@ -5511,82 +4431,11 @@
             "energy_level": 4,
             "sleep_hours": 6,
             "sleep_quality": 72,
-            "resting_heart_rate": 70,
-            "hrv_ms": 35,
-            "steps": 6800,
-            "active_minutes": 12,
-            "notes": "Tired legs after a shift, but alert enough for short study intervals.",
             "raw_data": {
-              "sleep_summary": {
-                "summary": "6.0 hours slept after a long shift; sleep quality 72/100 with moderate restlessness and enough recovery for short, structured study intervals.",
-                "durationHours": 6,
-                "targetHours": 7.5,
-                "bedtime": "00:10",
-                "wakeTime": "06:20",
-                "sleepQualityScore": 72,
-                "sleepEfficiencyPercent": 86,
-                "awakeMinutes": 22,
-                "restlessMinutes": 38,
-                "hrvMs": 35,
-                "restingHeartRate": 70
-              },
+              "sleep_summary": "6.0 hours slept after a long shift; sleep quality 72/100 with moderate restlessness and enough rest for short, structured study intervals.",
               "activity_summary": "6800 steps yesterday; 12 active minutes this morning",
-              "recovery_summary": "resting heart rate 70 bpm; HRV 35 ms",
-              "energy_curve_inputs": {
-                "sleep_hours": 6,
-                "sleep_quality": 72,
-                "steps": 6800,
-                "active_minutes": 12,
-                "resting_heart_rate": 70,
-                "hrv_ms": 35
-              }
-            },
-            "hourly_energy": [
-              {
-                "hour": 6,
-                "energy_level": 3
-              },
-              {
-                "hour": 7,
-                "energy_level": 3
-              },
-              {
-                "hour": 8,
-                "energy_level": 4
-              },
-              {
-                "hour": 9,
-                "energy_level": 5
-              },
-              {
-                "hour": 10,
-                "energy_level": 5
-              },
-              {
-                "hour": 11,
-                "energy_level": 4
-              },
-              {
-                "hour": 12,
-                "energy_level": 4
-              },
-              {
-                "hour": 13,
-                "energy_level": 3
-              },
-              {
-                "hour": 14,
-                "energy_level": 3
-              },
-              {
-                "hour": 15,
-                "energy_level": 4
-              },
-              {
-                "hour": 16,
-                "energy_level": 5
-              }
-            ]
+              "stress_summary": "Stress is moderate after shift load and an upcoming exam, but structure can help attention settle."
+            }
           },
           "onboarding_values": [
             {
@@ -5865,82 +4714,11 @@
             "energy_level": 4,
             "sleep_hours": 6,
             "sleep_quality": 72,
-            "resting_heart_rate": 70,
-            "hrv_ms": 35,
-            "steps": 6800,
-            "active_minutes": 12,
-            "notes": "Tired legs after a shift, but alert enough for short study intervals.",
             "raw_data": {
-              "sleep_summary": {
-                "summary": "6.0 hours slept after a long shift; sleep quality 72/100 with moderate restlessness and enough recovery for short, structured study intervals.",
-                "durationHours": 6,
-                "targetHours": 7.5,
-                "bedtime": "00:10",
-                "wakeTime": "06:20",
-                "sleepQualityScore": 72,
-                "sleepEfficiencyPercent": 86,
-                "awakeMinutes": 22,
-                "restlessMinutes": 38,
-                "hrvMs": 35,
-                "restingHeartRate": 70
-              },
+              "sleep_summary": "6.0 hours slept after a long shift; sleep quality 72/100 with moderate restlessness and enough rest for short, structured study intervals.",
               "activity_summary": "6800 steps yesterday; 12 active minutes this morning",
-              "recovery_summary": "resting heart rate 70 bpm; HRV 35 ms",
-              "energy_curve_inputs": {
-                "sleep_hours": 6,
-                "sleep_quality": 72,
-                "steps": 6800,
-                "active_minutes": 12,
-                "resting_heart_rate": 70,
-                "hrv_ms": 35
-              }
-            },
-            "hourly_energy": [
-              {
-                "hour": 6,
-                "energy_level": 3
-              },
-              {
-                "hour": 7,
-                "energy_level": 3
-              },
-              {
-                "hour": 8,
-                "energy_level": 4
-              },
-              {
-                "hour": 9,
-                "energy_level": 5
-              },
-              {
-                "hour": 10,
-                "energy_level": 5
-              },
-              {
-                "hour": 11,
-                "energy_level": 4
-              },
-              {
-                "hour": 12,
-                "energy_level": 4
-              },
-              {
-                "hour": 13,
-                "energy_level": 3
-              },
-              {
-                "hour": 14,
-                "energy_level": 3
-              },
-              {
-                "hour": 15,
-                "energy_level": 4
-              },
-              {
-                "hour": 16,
-                "energy_level": 5
-              }
-            ]
+              "stress_summary": "Stress is moderate after shift load and an upcoming exam, but structure can help attention settle."
+            }
           },
           "onboarding_values": [
             {
@@ -6219,82 +4997,11 @@
             "energy_level": 4,
             "sleep_hours": 6,
             "sleep_quality": 72,
-            "resting_heart_rate": 70,
-            "hrv_ms": 35,
-            "steps": 6800,
-            "active_minutes": 12,
-            "notes": "Tired legs after a shift, but alert enough for short study intervals.",
             "raw_data": {
-              "sleep_summary": {
-                "summary": "6.0 hours slept after a long shift; sleep quality 72/100 with moderate restlessness and enough recovery for short, structured study intervals.",
-                "durationHours": 6,
-                "targetHours": 7.5,
-                "bedtime": "00:10",
-                "wakeTime": "06:20",
-                "sleepQualityScore": 72,
-                "sleepEfficiencyPercent": 86,
-                "awakeMinutes": 22,
-                "restlessMinutes": 38,
-                "hrvMs": 35,
-                "restingHeartRate": 70
-              },
+              "sleep_summary": "6.0 hours slept after a long shift; sleep quality 72/100 with moderate restlessness and enough rest for short, structured study intervals.",
               "activity_summary": "6800 steps yesterday; 12 active minutes this morning",
-              "recovery_summary": "resting heart rate 70 bpm; HRV 35 ms",
-              "energy_curve_inputs": {
-                "sleep_hours": 6,
-                "sleep_quality": 72,
-                "steps": 6800,
-                "active_minutes": 12,
-                "resting_heart_rate": 70,
-                "hrv_ms": 35
-              }
-            },
-            "hourly_energy": [
-              {
-                "hour": 6,
-                "energy_level": 3
-              },
-              {
-                "hour": 7,
-                "energy_level": 3
-              },
-              {
-                "hour": 8,
-                "energy_level": 4
-              },
-              {
-                "hour": 9,
-                "energy_level": 5
-              },
-              {
-                "hour": 10,
-                "energy_level": 5
-              },
-              {
-                "hour": 11,
-                "energy_level": 4
-              },
-              {
-                "hour": 12,
-                "energy_level": 4
-              },
-              {
-                "hour": 13,
-                "energy_level": 3
-              },
-              {
-                "hour": 14,
-                "energy_level": 3
-              },
-              {
-                "hour": 15,
-                "energy_level": 4
-              },
-              {
-                "hour": 16,
-                "energy_level": 5
-              }
-            ]
+              "stress_summary": "Stress is moderate after shift load and an upcoming exam, but structure can help attention settle."
+            }
           },
           "onboarding_values": [
             {
@@ -6573,82 +5280,11 @@
             "energy_level": 4,
             "sleep_hours": 6,
             "sleep_quality": 72,
-            "resting_heart_rate": 70,
-            "hrv_ms": 35,
-            "steps": 6800,
-            "active_minutes": 12,
-            "notes": "Tired legs after a shift, but alert enough for short study intervals.",
             "raw_data": {
-              "sleep_summary": {
-                "summary": "6.0 hours slept after a long shift; sleep quality 72/100 with moderate restlessness and enough recovery for short, structured study intervals.",
-                "durationHours": 6,
-                "targetHours": 7.5,
-                "bedtime": "00:10",
-                "wakeTime": "06:20",
-                "sleepQualityScore": 72,
-                "sleepEfficiencyPercent": 86,
-                "awakeMinutes": 22,
-                "restlessMinutes": 38,
-                "hrvMs": 35,
-                "restingHeartRate": 70
-              },
+              "sleep_summary": "6.0 hours slept after a long shift; sleep quality 72/100 with moderate restlessness and enough rest for short, structured study intervals.",
               "activity_summary": "6800 steps yesterday; 12 active minutes this morning",
-              "recovery_summary": "resting heart rate 70 bpm; HRV 35 ms",
-              "energy_curve_inputs": {
-                "sleep_hours": 6,
-                "sleep_quality": 72,
-                "steps": 6800,
-                "active_minutes": 12,
-                "resting_heart_rate": 70,
-                "hrv_ms": 35
-              }
-            },
-            "hourly_energy": [
-              {
-                "hour": 6,
-                "energy_level": 3
-              },
-              {
-                "hour": 7,
-                "energy_level": 3
-              },
-              {
-                "hour": 8,
-                "energy_level": 4
-              },
-              {
-                "hour": 9,
-                "energy_level": 5
-              },
-              {
-                "hour": 10,
-                "energy_level": 5
-              },
-              {
-                "hour": 11,
-                "energy_level": 4
-              },
-              {
-                "hour": 12,
-                "energy_level": 4
-              },
-              {
-                "hour": 13,
-                "energy_level": 3
-              },
-              {
-                "hour": 14,
-                "energy_level": 3
-              },
-              {
-                "hour": 15,
-                "energy_level": 4
-              },
-              {
-                "hour": 16,
-                "energy_level": 5
-              }
-            ]
+              "stress_summary": "Stress is moderate after shift load and an upcoming exam, but structure can help attention settle."
+            }
           },
           "onboarding_values": [
             {
@@ -6897,74 +5533,11 @@
             "energy_level": 5,
             "sleep_hours": 6.7,
             "sleep_quality": 76,
-            "resting_heart_rate": 68,
-            "hrv_ms": 38,
-            "notes": "Nervous energy before simulation, with attention improving when the sequence is visible.",
             "raw_data": {
-              "sleep_summary": {
-                "summary": "6.7 hours slept; sleep quality 76/100 with a little pre-simulation restlessness but moderate recovery.",
-                "durationHours": 6.7,
-                "targetHours": 7.5,
-                "bedtime": "23:35",
-                "wakeTime": "06:30",
-                "sleepQualityScore": 76,
-                "sleepEfficiencyPercent": 88,
-                "awakeMinutes": 20,
-                "restlessMinutes": 32,
-                "hrvMs": 38,
-                "restingHeartRate": 68
-              },
+              "sleep_summary": "6.7 hours slept; sleep quality 76/100 with a little pre-simulation restlessness.",
               "activity_summary": "short walk to campus; light morning movement",
-              "recovery_summary": "recovery signals moderate",
-              "energy_curve_inputs": {
-                "sleep_hours": 6.7,
-                "sleep_quality": 76,
-                "resting_heart_rate": 68,
-                "hrv_ms": 38
-              }
-            },
-            "hourly_energy": [
-              {
-                "hour": 7,
-                "energy_level": 5
-              },
-              {
-                "hour": 8,
-                "energy_level": 6
-              },
-              {
-                "hour": 9,
-                "energy_level": 6
-              },
-              {
-                "hour": 10,
-                "energy_level": 6
-              },
-              {
-                "hour": 11,
-                "energy_level": 5
-              },
-              {
-                "hour": 12,
-                "energy_level": 5
-              },
-              {
-                "hour": 13,
-                "energy_level": 4
-              },
-              {
-                "hour": 14,
-                "energy_level": 5
-              },
-              {
-                "hour": 15,
-                "energy_level": 5
-              },
-              {
-                "hour": 16,
-                "energy_level": 4
-              }
-            ]
+              "stress_summary": "Stress is moderate before simulation practice and may show up as tension."
+            }
           },
           "onboarding_values": [
             {
@@ -7176,74 +5749,11 @@
             "energy_level": 5,
             "sleep_hours": 6.7,
             "sleep_quality": 76,
-            "resting_heart_rate": 68,
-            "hrv_ms": 38,
-            "notes": "Nervous energy before simulation, with attention improving when the sequence is visible.",
             "raw_data": {
-              "sleep_summary": {
-                "summary": "6.7 hours slept; sleep quality 76/100 with a little pre-simulation restlessness but moderate recovery.",
-                "durationHours": 6.7,
-                "targetHours": 7.5,
-                "bedtime": "23:35",
-                "wakeTime": "06:30",
-                "sleepQualityScore": 76,
-                "sleepEfficiencyPercent": 88,
-                "awakeMinutes": 20,
-                "restlessMinutes": 32,
-                "hrvMs": 38,
-                "restingHeartRate": 68
-              },
+              "sleep_summary": "6.7 hours slept; sleep quality 76/100 with a little pre-simulation restlessness.",
               "activity_summary": "short walk to campus; light morning movement",
-              "recovery_summary": "recovery signals moderate",
-              "energy_curve_inputs": {
-                "sleep_hours": 6.7,
-                "sleep_quality": 76,
-                "resting_heart_rate": 68,
-                "hrv_ms": 38
-              }
-            },
-            "hourly_energy": [
-              {
-                "hour": 7,
-                "energy_level": 5
-              },
-              {
-                "hour": 8,
-                "energy_level": 6
-              },
-              {
-                "hour": 9,
-                "energy_level": 6
-              },
-              {
-                "hour": 10,
-                "energy_level": 6
-              },
-              {
-                "hour": 11,
-                "energy_level": 5
-              },
-              {
-                "hour": 12,
-                "energy_level": 5
-              },
-              {
-                "hour": 13,
-                "energy_level": 4
-              },
-              {
-                "hour": 14,
-                "energy_level": 5
-              },
-              {
-                "hour": 15,
-                "energy_level": 5
-              },
-              {
-                "hour": 16,
-                "energy_level": 4
-              }
-            ]
+              "stress_summary": "Stress is moderate before simulation practice and may show up as tension."
+            }
           },
           "onboarding_values": [
             {
@@ -7455,74 +5965,11 @@
             "energy_level": 5,
             "sleep_hours": 6.7,
             "sleep_quality": 76,
-            "resting_heart_rate": 68,
-            "hrv_ms": 38,
-            "notes": "Nervous energy before simulation, with attention improving when the sequence is visible.",
             "raw_data": {
-              "sleep_summary": {
-                "summary": "6.7 hours slept; sleep quality 76/100 with a little pre-simulation restlessness but moderate recovery.",
-                "durationHours": 6.7,
-                "targetHours": 7.5,
-                "bedtime": "23:35",
-                "wakeTime": "06:30",
-                "sleepQualityScore": 76,
-                "sleepEfficiencyPercent": 88,
-                "awakeMinutes": 20,
-                "restlessMinutes": 32,
-                "hrvMs": 38,
-                "restingHeartRate": 68
-              },
+              "sleep_summary": "6.7 hours slept; sleep quality 76/100 with a little pre-simulation restlessness.",
               "activity_summary": "short walk to campus; light morning movement",
-              "recovery_summary": "recovery signals moderate",
-              "energy_curve_inputs": {
-                "sleep_hours": 6.7,
-                "sleep_quality": 76,
-                "resting_heart_rate": 68,
-                "hrv_ms": 38
-              }
-            },
-            "hourly_energy": [
-              {
-                "hour": 7,
-                "energy_level": 5
-              },
-              {
-                "hour": 8,
-                "energy_level": 6
-              },
-              {
-                "hour": 9,
-                "energy_level": 6
-              },
-              {
-                "hour": 10,
-                "energy_level": 6
-              },
-              {
-                "hour": 11,
-                "energy_level": 5
-              },
-              {
-                "hour": 12,
-                "energy_level": 5
-              },
-              {
-                "hour": 13,
-                "energy_level": 4
-              },
-              {
-                "hour": 14,
-                "energy_level": 5
-              },
-              {
-                "hour": 15,
-                "energy_level": 5
-              },
-              {
-                "hour": 16,
-                "energy_level": 4
-              }
-            ]
+              "stress_summary": "Stress is moderate before simulation practice and may show up as tension."
+            }
           },
           "onboarding_values": [
             {
@@ -7734,74 +6181,11 @@
             "energy_level": 5,
             "sleep_hours": 6.7,
             "sleep_quality": 76,
-            "resting_heart_rate": 68,
-            "hrv_ms": 38,
-            "notes": "Nervous energy before simulation, with attention improving when the sequence is visible.",
             "raw_data": {
-              "sleep_summary": {
-                "summary": "6.7 hours slept; sleep quality 76/100 with a little pre-simulation restlessness but moderate recovery.",
-                "durationHours": 6.7,
-                "targetHours": 7.5,
-                "bedtime": "23:35",
-                "wakeTime": "06:30",
-                "sleepQualityScore": 76,
-                "sleepEfficiencyPercent": 88,
-                "awakeMinutes": 20,
-                "restlessMinutes": 32,
-                "hrvMs": 38,
-                "restingHeartRate": 68
-              },
+              "sleep_summary": "6.7 hours slept; sleep quality 76/100 with a little pre-simulation restlessness.",
               "activity_summary": "short walk to campus; light morning movement",
-              "recovery_summary": "recovery signals moderate",
-              "energy_curve_inputs": {
-                "sleep_hours": 6.7,
-                "sleep_quality": 76,
-                "resting_heart_rate": 68,
-                "hrv_ms": 38
-              }
-            },
-            "hourly_energy": [
-              {
-                "hour": 7,
-                "energy_level": 5
-              },
-              {
-                "hour": 8,
-                "energy_level": 6
-              },
-              {
-                "hour": 9,
-                "energy_level": 6
-              },
-              {
-                "hour": 10,
-                "energy_level": 6
-              },
-              {
-                "hour": 11,
-                "energy_level": 5
-              },
-              {
-                "hour": 12,
-                "energy_level": 5
-              },
-              {
-                "hour": 13,
-                "energy_level": 4
-              },
-              {
-                "hour": 14,
-                "energy_level": 5
-              },
-              {
-                "hour": 15,
-                "energy_level": 5
-              },
-              {
-                "hour": 16,
-                "energy_level": 4
-              }
-            ]
+              "stress_summary": "Stress is moderate before simulation practice and may show up as tension."
+            }
           },
           "onboarding_values": [
             {
@@ -8168,78 +6552,11 @@
             "energy_level": 7,
             "sleep_hours": 7.6,
             "sleep_quality": 84,
-            "resting_heart_rate": 60,
-            "hrv_ms": 52,
-            "steps": 1800,
-            "active_minutes": 10,
-            "notes": "Strong creative energy early, with lower tolerance for admin later.",
             "raw_data": {
-              "sleep_summary": {
-                "summary": "7.6 hours slept with strong continuity; sleep quality 84/100 and recovery signals that support a creative morning block.",
-                "durationHours": 7.6,
-                "targetHours": 7.5,
-                "bedtime": "23:20",
-                "wakeTime": "07:05",
-                "sleepQualityScore": 84,
-                "sleepEfficiencyPercent": 91,
-                "awakeMinutes": 16,
-                "restlessMinutes": 22,
-                "hrvMs": 52,
-                "restingHeartRate": 60
-              },
+              "sleep_summary": "7.6 hours slept with strong continuity; sleep quality 84/100 and a rested start for a creative morning block.",
               "activity_summary": "1800 steps; light morning stretch",
-              "recovery_summary": "resting heart rate 60 bpm; HRV 52 ms",
-              "energy_curve_inputs": {
-                "sleep_hours": 7.6,
-                "sleep_quality": 84,
-                "steps": 1800,
-                "active_minutes": 10,
-                "resting_heart_rate": 60,
-                "hrv_ms": 52
-              }
-            },
-            "hourly_energy": [
-              {
-                "hour": 7,
-                "energy_level": 5
-              },
-              {
-                "hour": 8,
-                "energy_level": 6
-              },
-              {
-                "hour": 9,
-                "energy_level": 6
-              },
-              {
-                "hour": 10,
-                "energy_level": 6
-              },
-              {
-                "hour": 11,
-                "energy_level": 5
-              },
-              {
-                "hour": 12,
-                "energy_level": 5
-              },
-              {
-                "hour": 13,
-                "energy_level": 4
-              },
-              {
-                "hour": 14,
-                "energy_level": 5
-              },
-              {
-                "hour": 15,
-                "energy_level": 5
-              },
-              {
-                "hour": 16,
-                "energy_level": 4
-              }
-            ]
+              "stress_summary": "Stress is low to moderate, mostly around delivery and admin expectations later in the day."
+            }
           },
           "onboarding_values": [
             {
@@ -8517,78 +6834,11 @@
             "energy_level": 7,
             "sleep_hours": 7.6,
             "sleep_quality": 84,
-            "resting_heart_rate": 60,
-            "hrv_ms": 52,
-            "steps": 1800,
-            "active_minutes": 10,
-            "notes": "Strong creative energy early, with lower tolerance for admin later.",
             "raw_data": {
-              "sleep_summary": {
-                "summary": "7.6 hours slept with strong continuity; sleep quality 84/100 and recovery signals that support a creative morning block.",
-                "durationHours": 7.6,
-                "targetHours": 7.5,
-                "bedtime": "23:20",
-                "wakeTime": "07:05",
-                "sleepQualityScore": 84,
-                "sleepEfficiencyPercent": 91,
-                "awakeMinutes": 16,
-                "restlessMinutes": 22,
-                "hrvMs": 52,
-                "restingHeartRate": 60
-              },
+              "sleep_summary": "7.6 hours slept with strong continuity; sleep quality 84/100 and a rested start for a creative morning block.",
               "activity_summary": "1800 steps; light morning stretch",
-              "recovery_summary": "resting heart rate 60 bpm; HRV 52 ms",
-              "energy_curve_inputs": {
-                "sleep_hours": 7.6,
-                "sleep_quality": 84,
-                "steps": 1800,
-                "active_minutes": 10,
-                "resting_heart_rate": 60,
-                "hrv_ms": 52
-              }
-            },
-            "hourly_energy": [
-              {
-                "hour": 7,
-                "energy_level": 5
-              },
-              {
-                "hour": 8,
-                "energy_level": 6
-              },
-              {
-                "hour": 9,
-                "energy_level": 6
-              },
-              {
-                "hour": 10,
-                "energy_level": 6
-              },
-              {
-                "hour": 11,
-                "energy_level": 5
-              },
-              {
-                "hour": 12,
-                "energy_level": 5
-              },
-              {
-                "hour": 13,
-                "energy_level": 4
-              },
-              {
-                "hour": 14,
-                "energy_level": 5
-              },
-              {
-                "hour": 15,
-                "energy_level": 5
-              },
-              {
-                "hour": 16,
-                "energy_level": 4
-              }
-            ]
+              "stress_summary": "Stress is low to moderate, mostly around delivery and admin expectations later in the day."
+            }
           },
           "onboarding_values": [
             {
@@ -8866,78 +7116,11 @@
             "energy_level": 7,
             "sleep_hours": 7.6,
             "sleep_quality": 84,
-            "resting_heart_rate": 60,
-            "hrv_ms": 52,
-            "steps": 1800,
-            "active_minutes": 10,
-            "notes": "Strong creative energy early, with lower tolerance for admin later.",
             "raw_data": {
-              "sleep_summary": {
-                "summary": "7.6 hours slept with strong continuity; sleep quality 84/100 and recovery signals that support a creative morning block.",
-                "durationHours": 7.6,
-                "targetHours": 7.5,
-                "bedtime": "23:20",
-                "wakeTime": "07:05",
-                "sleepQualityScore": 84,
-                "sleepEfficiencyPercent": 91,
-                "awakeMinutes": 16,
-                "restlessMinutes": 22,
-                "hrvMs": 52,
-                "restingHeartRate": 60
-              },
+              "sleep_summary": "7.6 hours slept with strong continuity; sleep quality 84/100 and a rested start for a creative morning block.",
               "activity_summary": "1800 steps; light morning stretch",
-              "recovery_summary": "resting heart rate 60 bpm; HRV 52 ms",
-              "energy_curve_inputs": {
-                "sleep_hours": 7.6,
-                "sleep_quality": 84,
-                "steps": 1800,
-                "active_minutes": 10,
-                "resting_heart_rate": 60,
-                "hrv_ms": 52
-              }
-            },
-            "hourly_energy": [
-              {
-                "hour": 7,
-                "energy_level": 5
-              },
-              {
-                "hour": 8,
-                "energy_level": 6
-              },
-              {
-                "hour": 9,
-                "energy_level": 6
-              },
-              {
-                "hour": 10,
-                "energy_level": 6
-              },
-              {
-                "hour": 11,
-                "energy_level": 5
-              },
-              {
-                "hour": 12,
-                "energy_level": 5
-              },
-              {
-                "hour": 13,
-                "energy_level": 4
-              },
-              {
-                "hour": 14,
-                "energy_level": 5
-              },
-              {
-                "hour": 15,
-                "energy_level": 5
-              },
-              {
-                "hour": 16,
-                "energy_level": 4
-              }
-            ]
+              "stress_summary": "Stress is low to moderate, mostly around delivery and admin expectations later in the day."
+            }
           },
           "onboarding_values": [
             {
@@ -9215,78 +7398,11 @@
             "energy_level": 7,
             "sleep_hours": 7.6,
             "sleep_quality": 84,
-            "resting_heart_rate": 60,
-            "hrv_ms": 52,
-            "steps": 1800,
-            "active_minutes": 10,
-            "notes": "Strong creative energy early, with lower tolerance for admin later.",
             "raw_data": {
-              "sleep_summary": {
-                "summary": "7.6 hours slept with strong continuity; sleep quality 84/100 and recovery signals that support a creative morning block.",
-                "durationHours": 7.6,
-                "targetHours": 7.5,
-                "bedtime": "23:20",
-                "wakeTime": "07:05",
-                "sleepQualityScore": 84,
-                "sleepEfficiencyPercent": 91,
-                "awakeMinutes": 16,
-                "restlessMinutes": 22,
-                "hrvMs": 52,
-                "restingHeartRate": 60
-              },
+              "sleep_summary": "7.6 hours slept with strong continuity; sleep quality 84/100 and a rested start for a creative morning block.",
               "activity_summary": "1800 steps; light morning stretch",
-              "recovery_summary": "resting heart rate 60 bpm; HRV 52 ms",
-              "energy_curve_inputs": {
-                "sleep_hours": 7.6,
-                "sleep_quality": 84,
-                "steps": 1800,
-                "active_minutes": 10,
-                "resting_heart_rate": 60,
-                "hrv_ms": 52
-              }
-            },
-            "hourly_energy": [
-              {
-                "hour": 7,
-                "energy_level": 5
-              },
-              {
-                "hour": 8,
-                "energy_level": 6
-              },
-              {
-                "hour": 9,
-                "energy_level": 6
-              },
-              {
-                "hour": 10,
-                "energy_level": 6
-              },
-              {
-                "hour": 11,
-                "energy_level": 5
-              },
-              {
-                "hour": 12,
-                "energy_level": 5
-              },
-              {
-                "hour": 13,
-                "energy_level": 4
-              },
-              {
-                "hour": 14,
-                "energy_level": 5
-              },
-              {
-                "hour": 15,
-                "energy_level": 5
-              },
-              {
-                "hour": 16,
-                "energy_level": 4
-              }
-            ]
+              "stress_summary": "Stress is low to moderate, mostly around delivery and admin expectations later in the day."
+            }
           },
           "onboarding_values": [
             {
@@ -9534,74 +7650,11 @@
             "energy_level": 7,
             "sleep_hours": 7.6,
             "sleep_quality": 84,
-            "resting_heart_rate": 60,
-            "hrv_ms": 52,
-            "notes": "Creative energy is high, and the task needs a clear story before visuals expand.",
             "raw_data": {
-              "sleep_summary": {
-                "summary": "7.6 hours slept with strong continuity; sleep quality 84/100 and recovery signals that support a creative morning block.",
-                "durationHours": 7.6,
-                "targetHours": 7.5,
-                "bedtime": "23:20",
-                "wakeTime": "07:05",
-                "sleepQualityScore": 84,
-                "sleepEfficiencyPercent": 91,
-                "awakeMinutes": 16,
-                "restlessMinutes": 22,
-                "hrvMs": 52,
-                "restingHeartRate": 60
-              },
+              "sleep_summary": "7.6 hours slept with strong continuity; sleep quality 84/100 and a rested start for a creative morning block.",
               "activity_summary": "light morning stretch before desk work",
-              "recovery_summary": "recovery signals strong",
-              "energy_curve_inputs": {
-                "sleep_hours": 7.6,
-                "sleep_quality": 84,
-                "resting_heart_rate": 60,
-                "hrv_ms": 52
-              }
-            },
-            "hourly_energy": [
-              {
-                "hour": 7,
-                "energy_level": 5
-              },
-              {
-                "hour": 8,
-                "energy_level": 6
-              },
-              {
-                "hour": 9,
-                "energy_level": 6
-              },
-              {
-                "hour": 10,
-                "energy_level": 6
-              },
-              {
-                "hour": 11,
-                "energy_level": 5
-              },
-              {
-                "hour": 12,
-                "energy_level": 5
-              },
-              {
-                "hour": 13,
-                "energy_level": 4
-              },
-              {
-                "hour": 14,
-                "energy_level": 5
-              },
-              {
-                "hour": 15,
-                "energy_level": 5
-              },
-              {
-                "hour": 16,
-                "energy_level": 4
-              }
-            ]
+              "stress_summary": "Stress is low to moderate around clarifying the pitch direction."
+            }
           },
           "onboarding_values": [
             {
@@ -9814,74 +7867,11 @@
             "energy_level": 7,
             "sleep_hours": 7.6,
             "sleep_quality": 84,
-            "resting_heart_rate": 60,
-            "hrv_ms": 52,
-            "notes": "Creative energy is high, and the task needs a clear story before visuals expand.",
             "raw_data": {
-              "sleep_summary": {
-                "summary": "7.6 hours slept with strong continuity; sleep quality 84/100 and recovery signals that support a creative morning block.",
-                "durationHours": 7.6,
-                "targetHours": 7.5,
-                "bedtime": "23:20",
-                "wakeTime": "07:05",
-                "sleepQualityScore": 84,
-                "sleepEfficiencyPercent": 91,
-                "awakeMinutes": 16,
-                "restlessMinutes": 22,
-                "hrvMs": 52,
-                "restingHeartRate": 60
-              },
+              "sleep_summary": "7.6 hours slept with strong continuity; sleep quality 84/100 and a rested start for a creative morning block.",
               "activity_summary": "light morning stretch before desk work",
-              "recovery_summary": "recovery signals strong",
-              "energy_curve_inputs": {
-                "sleep_hours": 7.6,
-                "sleep_quality": 84,
-                "resting_heart_rate": 60,
-                "hrv_ms": 52
-              }
-            },
-            "hourly_energy": [
-              {
-                "hour": 7,
-                "energy_level": 5
-              },
-              {
-                "hour": 8,
-                "energy_level": 6
-              },
-              {
-                "hour": 9,
-                "energy_level": 6
-              },
-              {
-                "hour": 10,
-                "energy_level": 6
-              },
-              {
-                "hour": 11,
-                "energy_level": 5
-              },
-              {
-                "hour": 12,
-                "energy_level": 5
-              },
-              {
-                "hour": 13,
-                "energy_level": 4
-              },
-              {
-                "hour": 14,
-                "energy_level": 5
-              },
-              {
-                "hour": 15,
-                "energy_level": 5
-              },
-              {
-                "hour": 16,
-                "energy_level": 4
-              }
-            ]
+              "stress_summary": "Stress is low to moderate around clarifying the pitch direction."
+            }
           },
           "onboarding_values": [
             {
@@ -10094,74 +8084,11 @@
             "energy_level": 7,
             "sleep_hours": 7.6,
             "sleep_quality": 84,
-            "resting_heart_rate": 60,
-            "hrv_ms": 52,
-            "notes": "Creative energy is high, and the task needs a clear story before visuals expand.",
             "raw_data": {
-              "sleep_summary": {
-                "summary": "7.6 hours slept with strong continuity; sleep quality 84/100 and recovery signals that support a creative morning block.",
-                "durationHours": 7.6,
-                "targetHours": 7.5,
-                "bedtime": "23:20",
-                "wakeTime": "07:05",
-                "sleepQualityScore": 84,
-                "sleepEfficiencyPercent": 91,
-                "awakeMinutes": 16,
-                "restlessMinutes": 22,
-                "hrvMs": 52,
-                "restingHeartRate": 60
-              },
+              "sleep_summary": "7.6 hours slept with strong continuity; sleep quality 84/100 and a rested start for a creative morning block.",
               "activity_summary": "light morning stretch before desk work",
-              "recovery_summary": "recovery signals strong",
-              "energy_curve_inputs": {
-                "sleep_hours": 7.6,
-                "sleep_quality": 84,
-                "resting_heart_rate": 60,
-                "hrv_ms": 52
-              }
-            },
-            "hourly_energy": [
-              {
-                "hour": 7,
-                "energy_level": 5
-              },
-              {
-                "hour": 8,
-                "energy_level": 6
-              },
-              {
-                "hour": 9,
-                "energy_level": 6
-              },
-              {
-                "hour": 10,
-                "energy_level": 6
-              },
-              {
-                "hour": 11,
-                "energy_level": 5
-              },
-              {
-                "hour": 12,
-                "energy_level": 5
-              },
-              {
-                "hour": 13,
-                "energy_level": 4
-              },
-              {
-                "hour": 14,
-                "energy_level": 5
-              },
-              {
-                "hour": 15,
-                "energy_level": 5
-              },
-              {
-                "hour": 16,
-                "energy_level": 4
-              }
-            ]
+              "stress_summary": "Stress is low to moderate around clarifying the pitch direction."
+            }
           },
           "onboarding_values": [
             {
@@ -10374,74 +8301,11 @@
             "energy_level": 7,
             "sleep_hours": 7.6,
             "sleep_quality": 84,
-            "resting_heart_rate": 60,
-            "hrv_ms": 52,
-            "notes": "Creative energy is high, and the task needs a clear story before visuals expand.",
             "raw_data": {
-              "sleep_summary": {
-                "summary": "7.6 hours slept with strong continuity; sleep quality 84/100 and recovery signals that support a creative morning block.",
-                "durationHours": 7.6,
-                "targetHours": 7.5,
-                "bedtime": "23:20",
-                "wakeTime": "07:05",
-                "sleepQualityScore": 84,
-                "sleepEfficiencyPercent": 91,
-                "awakeMinutes": 16,
-                "restlessMinutes": 22,
-                "hrvMs": 52,
-                "restingHeartRate": 60
-              },
+              "sleep_summary": "7.6 hours slept with strong continuity; sleep quality 84/100 and a rested start for a creative morning block.",
               "activity_summary": "light morning stretch before desk work",
-              "recovery_summary": "recovery signals strong",
-              "energy_curve_inputs": {
-                "sleep_hours": 7.6,
-                "sleep_quality": 84,
-                "resting_heart_rate": 60,
-                "hrv_ms": 52
-              }
-            },
-            "hourly_energy": [
-              {
-                "hour": 7,
-                "energy_level": 5
-              },
-              {
-                "hour": 8,
-                "energy_level": 6
-              },
-              {
-                "hour": 9,
-                "energy_level": 6
-              },
-              {
-                "hour": 10,
-                "energy_level": 6
-              },
-              {
-                "hour": 11,
-                "energy_level": 5
-              },
-              {
-                "hour": 12,
-                "energy_level": 5
-              },
-              {
-                "hour": 13,
-                "energy_level": 4
-              },
-              {
-                "hour": 14,
-                "energy_level": 5
-              },
-              {
-                "hour": 15,
-                "energy_level": 5
-              },
-              {
-                "hour": 16,
-                "energy_level": 4
-              }
-            ]
+              "stress_summary": "Stress is low to moderate around clarifying the pitch direction."
+            }
           },
           "onboarding_values": [
             {
@@ -10809,78 +8673,11 @@
             "energy_level": 4,
             "sleep_hours": 5.9,
             "sleep_quality": 70,
-            "resting_heart_rate": 69,
-            "hrv_ms": 33,
-            "notes": "Sleep was interrupted, but the morning has a usable quiet pocket.",
             "raw_data": {
-              "sleep_summary": {
-                "summary": "5.9 hours slept with an interruption overnight; sleep quality 70/100, moderate restlessness, and a usable but compressed morning recovery window.",
-                "durationHours": 5.9,
-                "targetHours": 7.5,
-                "bedtime": "00:05",
-                "wakeTime": "06:10",
-                "sleepQualityScore": 70,
-                "sleepEfficiencyPercent": 84,
-                "awakeMinutes": 31,
-                "restlessMinutes": 42,
-                "hrvMs": 33,
-                "restingHeartRate": 69
-              },
+              "sleep_summary": "5.9 hours slept with an interruption overnight; sleep quality 70/100, moderate restlessness, and a usable but compressed morning window.",
               "activity_summary": "school drop-off walk planned; light morning movement",
-              "recovery_summary": "resting heart rate 69 bpm; HRV 33 ms",
-              "energy_curve_inputs": {
-                "sleep_hours": 5.9,
-                "sleep_quality": 70,
-                "resting_heart_rate": 69,
-                "hrv_ms": 33
-              }
-            },
-            "hourly_energy": [
-              {
-                "hour": 6,
-                "energy_level": 3
-              },
-              {
-                "hour": 7,
-                "energy_level": 3
-              },
-              {
-                "hour": 8,
-                "energy_level": 4
-              },
-              {
-                "hour": 9,
-                "energy_level": 5
-              },
-              {
-                "hour": 10,
-                "energy_level": 5
-              },
-              {
-                "hour": 11,
-                "energy_level": 4
-              },
-              {
-                "hour": 12,
-                "energy_level": 4
-              },
-              {
-                "hour": 13,
-                "energy_level": 3
-              },
-              {
-                "hour": 14,
-                "energy_level": 3
-              },
-              {
-                "hour": 15,
-                "energy_level": 4
-              },
-              {
-                "hour": 16,
-                "energy_level": 5
-              }
-            ]
+              "stress_summary": "Stress is moderate from interrupted sleep, family logistics, and a deadline window."
+            }
           },
           "onboarding_values": [
             {
@@ -11159,78 +8956,11 @@
             "energy_level": 4,
             "sleep_hours": 5.9,
             "sleep_quality": 70,
-            "resting_heart_rate": 69,
-            "hrv_ms": 33,
-            "notes": "Sleep was interrupted, but the morning has a usable quiet pocket.",
             "raw_data": {
-              "sleep_summary": {
-                "summary": "5.9 hours slept with an interruption overnight; sleep quality 70/100, moderate restlessness, and a usable but compressed morning recovery window.",
-                "durationHours": 5.9,
-                "targetHours": 7.5,
-                "bedtime": "00:05",
-                "wakeTime": "06:10",
-                "sleepQualityScore": 70,
-                "sleepEfficiencyPercent": 84,
-                "awakeMinutes": 31,
-                "restlessMinutes": 42,
-                "hrvMs": 33,
-                "restingHeartRate": 69
-              },
+              "sleep_summary": "5.9 hours slept with an interruption overnight; sleep quality 70/100, moderate restlessness, and a usable but compressed morning window.",
               "activity_summary": "school drop-off walk planned; light morning movement",
-              "recovery_summary": "resting heart rate 69 bpm; HRV 33 ms",
-              "energy_curve_inputs": {
-                "sleep_hours": 5.9,
-                "sleep_quality": 70,
-                "resting_heart_rate": 69,
-                "hrv_ms": 33
-              }
-            },
-            "hourly_energy": [
-              {
-                "hour": 6,
-                "energy_level": 3
-              },
-              {
-                "hour": 7,
-                "energy_level": 3
-              },
-              {
-                "hour": 8,
-                "energy_level": 4
-              },
-              {
-                "hour": 9,
-                "energy_level": 5
-              },
-              {
-                "hour": 10,
-                "energy_level": 5
-              },
-              {
-                "hour": 11,
-                "energy_level": 4
-              },
-              {
-                "hour": 12,
-                "energy_level": 4
-              },
-              {
-                "hour": 13,
-                "energy_level": 3
-              },
-              {
-                "hour": 14,
-                "energy_level": 3
-              },
-              {
-                "hour": 15,
-                "energy_level": 4
-              },
-              {
-                "hour": 16,
-                "energy_level": 5
-              }
-            ]
+              "stress_summary": "Stress is moderate from interrupted sleep, family logistics, and a deadline window."
+            }
           },
           "onboarding_values": [
             {
@@ -11509,78 +9239,11 @@
             "energy_level": 4,
             "sleep_hours": 5.9,
             "sleep_quality": 70,
-            "resting_heart_rate": 69,
-            "hrv_ms": 33,
-            "notes": "Sleep was interrupted, but the morning has a usable quiet pocket.",
             "raw_data": {
-              "sleep_summary": {
-                "summary": "5.9 hours slept with an interruption overnight; sleep quality 70/100, moderate restlessness, and a usable but compressed morning recovery window.",
-                "durationHours": 5.9,
-                "targetHours": 7.5,
-                "bedtime": "00:05",
-                "wakeTime": "06:10",
-                "sleepQualityScore": 70,
-                "sleepEfficiencyPercent": 84,
-                "awakeMinutes": 31,
-                "restlessMinutes": 42,
-                "hrvMs": 33,
-                "restingHeartRate": 69
-              },
+              "sleep_summary": "5.9 hours slept with an interruption overnight; sleep quality 70/100, moderate restlessness, and a usable but compressed morning window.",
               "activity_summary": "school drop-off walk planned; light morning movement",
-              "recovery_summary": "resting heart rate 69 bpm; HRV 33 ms",
-              "energy_curve_inputs": {
-                "sleep_hours": 5.9,
-                "sleep_quality": 70,
-                "resting_heart_rate": 69,
-                "hrv_ms": 33
-              }
-            },
-            "hourly_energy": [
-              {
-                "hour": 6,
-                "energy_level": 3
-              },
-              {
-                "hour": 7,
-                "energy_level": 3
-              },
-              {
-                "hour": 8,
-                "energy_level": 4
-              },
-              {
-                "hour": 9,
-                "energy_level": 5
-              },
-              {
-                "hour": 10,
-                "energy_level": 5
-              },
-              {
-                "hour": 11,
-                "energy_level": 4
-              },
-              {
-                "hour": 12,
-                "energy_level": 4
-              },
-              {
-                "hour": 13,
-                "energy_level": 3
-              },
-              {
-                "hour": 14,
-                "energy_level": 3
-              },
-              {
-                "hour": 15,
-                "energy_level": 4
-              },
-              {
-                "hour": 16,
-                "energy_level": 5
-              }
-            ]
+              "stress_summary": "Stress is moderate from interrupted sleep, family logistics, and a deadline window."
+            }
           },
           "onboarding_values": [
             {
@@ -11859,78 +9522,11 @@
             "energy_level": 4,
             "sleep_hours": 5.9,
             "sleep_quality": 70,
-            "resting_heart_rate": 69,
-            "hrv_ms": 33,
-            "notes": "Sleep was interrupted, but the morning has a usable quiet pocket.",
             "raw_data": {
-              "sleep_summary": {
-                "summary": "5.9 hours slept with an interruption overnight; sleep quality 70/100, moderate restlessness, and a usable but compressed morning recovery window.",
-                "durationHours": 5.9,
-                "targetHours": 7.5,
-                "bedtime": "00:05",
-                "wakeTime": "06:10",
-                "sleepQualityScore": 70,
-                "sleepEfficiencyPercent": 84,
-                "awakeMinutes": 31,
-                "restlessMinutes": 42,
-                "hrvMs": 33,
-                "restingHeartRate": 69
-              },
+              "sleep_summary": "5.9 hours slept with an interruption overnight; sleep quality 70/100, moderate restlessness, and a usable but compressed morning window.",
               "activity_summary": "school drop-off walk planned; light morning movement",
-              "recovery_summary": "resting heart rate 69 bpm; HRV 33 ms",
-              "energy_curve_inputs": {
-                "sleep_hours": 5.9,
-                "sleep_quality": 70,
-                "resting_heart_rate": 69,
-                "hrv_ms": 33
-              }
-            },
-            "hourly_energy": [
-              {
-                "hour": 6,
-                "energy_level": 3
-              },
-              {
-                "hour": 7,
-                "energy_level": 3
-              },
-              {
-                "hour": 8,
-                "energy_level": 4
-              },
-              {
-                "hour": 9,
-                "energy_level": 5
-              },
-              {
-                "hour": 10,
-                "energy_level": 5
-              },
-              {
-                "hour": 11,
-                "energy_level": 4
-              },
-              {
-                "hour": 12,
-                "energy_level": 4
-              },
-              {
-                "hour": 13,
-                "energy_level": 3
-              },
-              {
-                "hour": 14,
-                "energy_level": 3
-              },
-              {
-                "hour": 15,
-                "energy_level": 4
-              },
-              {
-                "hour": 16,
-                "energy_level": 5
-              }
-            ]
+              "stress_summary": "Stress is moderate from interrupted sleep, family logistics, and a deadline window."
+            }
           },
           "onboarding_values": [
             {
@@ -12179,78 +9775,11 @@
             "energy_level": 4,
             "sleep_hours": 5.9,
             "sleep_quality": 70,
-            "resting_heart_rate": 69,
-            "hrv_ms": 33,
-            "notes": "Compressed morning energy, with enough quiet to make a focused start.",
             "raw_data": {
-              "sleep_summary": {
-                "summary": "5.9 hours slept with an interruption overnight; sleep quality 70/100, moderate restlessness, and a usable but compressed morning recovery window.",
-                "durationHours": 5.9,
-                "targetHours": 7.5,
-                "bedtime": "00:05",
-                "wakeTime": "06:10",
-                "sleepQualityScore": 70,
-                "sleepEfficiencyPercent": 84,
-                "awakeMinutes": 31,
-                "restlessMinutes": 42,
-                "hrvMs": 33,
-                "restingHeartRate": 69
-              },
+              "sleep_summary": "5.9 hours slept with an interruption overnight; sleep quality 70/100, moderate restlessness, and a usable but compressed morning window.",
               "activity_summary": "light movement around morning logistics",
-              "recovery_summary": "recovery signals somewhat constrained",
-              "energy_curve_inputs": {
-                "sleep_hours": 5.9,
-                "sleep_quality": 70,
-                "resting_heart_rate": 69,
-                "hrv_ms": 33
-              }
-            },
-            "hourly_energy": [
-              {
-                "hour": 6,
-                "energy_level": 3
-              },
-              {
-                "hour": 7,
-                "energy_level": 3
-              },
-              {
-                "hour": 8,
-                "energy_level": 4
-              },
-              {
-                "hour": 9,
-                "energy_level": 5
-              },
-              {
-                "hour": 10,
-                "energy_level": 5
-              },
-              {
-                "hour": 11,
-                "energy_level": 4
-              },
-              {
-                "hour": 12,
-                "energy_level": 4
-              },
-              {
-                "hour": 13,
-                "energy_level": 3
-              },
-              {
-                "hour": 14,
-                "energy_level": 3
-              },
-              {
-                "hour": 15,
-                "energy_level": 4
-              },
-              {
-                "hour": 16,
-                "energy_level": 5
-              }
-            ]
+              "stress_summary": "Stress is moderate because the available work window is compressed."
+            }
           },
           "onboarding_values": [
             {
@@ -12464,78 +9993,11 @@
             "energy_level": 4,
             "sleep_hours": 5.9,
             "sleep_quality": 70,
-            "resting_heart_rate": 69,
-            "hrv_ms": 33,
-            "notes": "Compressed morning energy, with enough quiet to make a focused start.",
             "raw_data": {
-              "sleep_summary": {
-                "summary": "5.9 hours slept with an interruption overnight; sleep quality 70/100, moderate restlessness, and a usable but compressed morning recovery window.",
-                "durationHours": 5.9,
-                "targetHours": 7.5,
-                "bedtime": "00:05",
-                "wakeTime": "06:10",
-                "sleepQualityScore": 70,
-                "sleepEfficiencyPercent": 84,
-                "awakeMinutes": 31,
-                "restlessMinutes": 42,
-                "hrvMs": 33,
-                "restingHeartRate": 69
-              },
+              "sleep_summary": "5.9 hours slept with an interruption overnight; sleep quality 70/100, moderate restlessness, and a usable but compressed morning window.",
               "activity_summary": "light movement around morning logistics",
-              "recovery_summary": "recovery signals somewhat constrained",
-              "energy_curve_inputs": {
-                "sleep_hours": 5.9,
-                "sleep_quality": 70,
-                "resting_heart_rate": 69,
-                "hrv_ms": 33
-              }
-            },
-            "hourly_energy": [
-              {
-                "hour": 6,
-                "energy_level": 3
-              },
-              {
-                "hour": 7,
-                "energy_level": 3
-              },
-              {
-                "hour": 8,
-                "energy_level": 4
-              },
-              {
-                "hour": 9,
-                "energy_level": 5
-              },
-              {
-                "hour": 10,
-                "energy_level": 5
-              },
-              {
-                "hour": 11,
-                "energy_level": 4
-              },
-              {
-                "hour": 12,
-                "energy_level": 4
-              },
-              {
-                "hour": 13,
-                "energy_level": 3
-              },
-              {
-                "hour": 14,
-                "energy_level": 3
-              },
-              {
-                "hour": 15,
-                "energy_level": 4
-              },
-              {
-                "hour": 16,
-                "energy_level": 5
-              }
-            ]
+              "stress_summary": "Stress is moderate because the available work window is compressed."
+            }
           },
           "onboarding_values": [
             {
@@ -12749,78 +10211,11 @@
             "energy_level": 4,
             "sleep_hours": 5.9,
             "sleep_quality": 70,
-            "resting_heart_rate": 69,
-            "hrv_ms": 33,
-            "notes": "Compressed morning energy, with enough quiet to make a focused start.",
             "raw_data": {
-              "sleep_summary": {
-                "summary": "5.9 hours slept with an interruption overnight; sleep quality 70/100, moderate restlessness, and a usable but compressed morning recovery window.",
-                "durationHours": 5.9,
-                "targetHours": 7.5,
-                "bedtime": "00:05",
-                "wakeTime": "06:10",
-                "sleepQualityScore": 70,
-                "sleepEfficiencyPercent": 84,
-                "awakeMinutes": 31,
-                "restlessMinutes": 42,
-                "hrvMs": 33,
-                "restingHeartRate": 69
-              },
+              "sleep_summary": "5.9 hours slept with an interruption overnight; sleep quality 70/100, moderate restlessness, and a usable but compressed morning window.",
               "activity_summary": "light movement around morning logistics",
-              "recovery_summary": "recovery signals somewhat constrained",
-              "energy_curve_inputs": {
-                "sleep_hours": 5.9,
-                "sleep_quality": 70,
-                "resting_heart_rate": 69,
-                "hrv_ms": 33
-              }
-            },
-            "hourly_energy": [
-              {
-                "hour": 6,
-                "energy_level": 3
-              },
-              {
-                "hour": 7,
-                "energy_level": 3
-              },
-              {
-                "hour": 8,
-                "energy_level": 4
-              },
-              {
-                "hour": 9,
-                "energy_level": 5
-              },
-              {
-                "hour": 10,
-                "energy_level": 5
-              },
-              {
-                "hour": 11,
-                "energy_level": 4
-              },
-              {
-                "hour": 12,
-                "energy_level": 4
-              },
-              {
-                "hour": 13,
-                "energy_level": 3
-              },
-              {
-                "hour": 14,
-                "energy_level": 3
-              },
-              {
-                "hour": 15,
-                "energy_level": 4
-              },
-              {
-                "hour": 16,
-                "energy_level": 5
-              }
-            ]
+              "stress_summary": "Stress is moderate because the available work window is compressed."
+            }
           },
           "onboarding_values": [
             {
@@ -13034,78 +10429,11 @@
             "energy_level": 4,
             "sleep_hours": 5.9,
             "sleep_quality": 70,
-            "resting_heart_rate": 69,
-            "hrv_ms": 33,
-            "notes": "Compressed morning energy, with enough quiet to make a focused start.",
             "raw_data": {
-              "sleep_summary": {
-                "summary": "5.9 hours slept with an interruption overnight; sleep quality 70/100, moderate restlessness, and a usable but compressed morning recovery window.",
-                "durationHours": 5.9,
-                "targetHours": 7.5,
-                "bedtime": "00:05",
-                "wakeTime": "06:10",
-                "sleepQualityScore": 70,
-                "sleepEfficiencyPercent": 84,
-                "awakeMinutes": 31,
-                "restlessMinutes": 42,
-                "hrvMs": 33,
-                "restingHeartRate": 69
-              },
+              "sleep_summary": "5.9 hours slept with an interruption overnight; sleep quality 70/100, moderate restlessness, and a usable but compressed morning window.",
               "activity_summary": "light movement around morning logistics",
-              "recovery_summary": "recovery signals somewhat constrained",
-              "energy_curve_inputs": {
-                "sleep_hours": 5.9,
-                "sleep_quality": 70,
-                "resting_heart_rate": 69,
-                "hrv_ms": 33
-              }
-            },
-            "hourly_energy": [
-              {
-                "hour": 6,
-                "energy_level": 3
-              },
-              {
-                "hour": 7,
-                "energy_level": 3
-              },
-              {
-                "hour": 8,
-                "energy_level": 4
-              },
-              {
-                "hour": 9,
-                "energy_level": 5
-              },
-              {
-                "hour": 10,
-                "energy_level": 5
-              },
-              {
-                "hour": 11,
-                "energy_level": 4
-              },
-              {
-                "hour": 12,
-                "energy_level": 4
-              },
-              {
-                "hour": 13,
-                "energy_level": 3
-              },
-              {
-                "hour": 14,
-                "energy_level": 3
-              },
-              {
-                "hour": 15,
-                "energy_level": 4
-              },
-              {
-                "hour": 16,
-                "energy_level": 5
-              }
-            ]
+              "stress_summary": "Stress is moderate because the available work window is compressed."
+            }
           },
           "onboarding_values": [
             {

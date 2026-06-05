@@ -369,7 +369,7 @@ li {
 }
 
 .context-grid span,
-.reason-field span,
+.improvement-field span,
 .rating-field span {
   display: block;
   margin-bottom: 6px;
@@ -985,7 +985,7 @@ small {
   line-height: 1.35;
 }
 
-.reason-field textarea {
+.improvement-field textarea {
   width: 100%;
   resize: vertical;
   border: 1px solid #cfd9de;
@@ -994,13 +994,13 @@ small {
   color: #22313d;
 }
 
-.reason-field small {
+.improvement-field small {
   display: block;
   margin-top: 6px;
   white-space: normal;
 }
 
-.reason-field {
+.improvement-field {
   grid-column: 1 / -1;
 }
 

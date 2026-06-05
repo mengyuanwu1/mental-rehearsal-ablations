@@ -92,7 +92,7 @@ Trial sheet columns:
 
 ```text
 receivedAt, studyId, responseId, participantId, assignmentId, trialIndex, scenarioId,
-leftCondition, rightCondition, choice, leftRating, rightRating, reason,
+leftCondition, rightCondition, choice, leftRating, rightRating, improvement,
 attentionCheckId, attentionCheckKind, attentionCheckPrompt, attentionCheckAnswer,
 attentionCheckCorrectAnswer, attentionCheckPassed,
 startedAt, submittedAt, elapsedMs, userAgent

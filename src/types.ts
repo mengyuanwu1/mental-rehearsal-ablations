@@ -80,7 +80,7 @@ export type TrialResponse = {
   choice: "left" | "right";
   leftRating: number;
   rightRating: number;
-  reason: string;
+  improvement: string;
   attentionCheckId?: string;
   attentionCheckKind?: string;
   attentionCheckPrompt?: string;

@@ -104,29 +104,17 @@ function backendSubtasks(scenario) {
 
 function backendHealth(scenario) {
   const sleep = scenario.energy.sleepSummary ?? {};
-  const curveInputs = scenario.energy.energyCurveInputs ?? {};
   return {
     snapshot_date: studyDate,
     source: "fitbit",
     energy_level: scenario.energy.currentEnergyLevel,
     sleep_hours: sleep.durationHours,
     sleep_quality: sleep.sleepQualityScore,
-    resting_heart_rate: sleep.restingHeartRate,
-    hrv_ms: sleep.hrvMs,
-    steps: curveInputs.steps,
-    active_minutes: curveInputs.active_minutes,
-    calories_out: curveInputs.calories_out,
-    notes: scenario.energy.bodyState,
     raw_data: {
-      sleep_summary: sleep,
+      sleep_summary: sleep.summary,
       activity_summary: scenario.energy.activitySummary,
-      recovery_summary: scenario.energy.recoverySummary,
-      energy_curve_inputs: curveInputs,
+      stress_summary: scenario.energy.stressSummary,
     },
-    hourly_energy: (scenario.energy.hourlyEnergy ?? []).map((reading) => ({
-      hour: reading.hour,
-      energy_level: reading.energyLevel,
-    })),
   };
 }
 
@@ -246,7 +234,10 @@ function runBackendGeneration() {
       OPENAI_MODEL:
         process.env.ABLATION_OPENAI_MODEL || process.env.OPENAI_MODEL || "gpt-5.5",
       REUSE_EXISTING_BACKEND_RESULTS:
-        process.env.REUSE_BACKEND_RESULTS === "1" ? "1" : "",
+        process.env.REUSE_BACKEND_RESULTS === "1" ||
+        process.env.REUSE_EXISTING_BACKEND_RESULTS === "1"
+          ? "1"
+          : "",
       REUSE_BASELINE_RESULTS:
         process.env.REUSE_BASELINE_RESULTS === "1" ? "1" : "",
       OVERRIDE_REHEARSAL_SYSTEM_PROMPT_PATH:

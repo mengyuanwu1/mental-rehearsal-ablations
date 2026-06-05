@@ -173,10 +173,11 @@ const mayaDailyInput = {
   },
   body: {
     currentEnergyLevel: 3,
-    bodyState: "Low but usable energy, with a steadier window later in the morning.",
+    bodyState:
+      "Sleep: 5.5 hours after a late bedtime; quality 68/100 with short duration and some restlessness. Activity: 4200 steps and 22 active minutes. Stress: elevated by short sleep and paper pressure.",
     sleepSummary: {
       summary:
-        "5.5 hours slept after a late bedtime; sleep quality 68/100 with short duration, some restlessness, low HRV, and slightly elevated resting heart rate.",
+        "5.5 hours slept after a late bedtime; sleep quality 68/100 with short duration and some restlessness.",
       durationHours: 5.5,
       targetHours: 7.5,
       bedtime: "01:05",
@@ -185,11 +186,9 @@ const mayaDailyInput = {
       sleepEfficiencyPercent: 83,
       awakeMinutes: 28,
       restlessMinutes: 46,
-      hrvMs: 29,
-      restingHeartRate: 73,
     },
-    activitySummary: "4200 steps; 22 active minutes; 1900 calories out",
-    recoverySummary: "resting heart rate 73 bpm; HRV 29 ms",
+    activitySummary: "4200 steps and 22 active minutes; mostly light movement before a morning writing block.",
+    stressSummary: "Stress is elevated by short sleep and paper pressure, so focus may need a softer start.",
     focusCues: {
       visual: [
         "laptop open to the paper draft",
@@ -289,7 +288,7 @@ const armRules = {
   baseline: `Generate the baseline script.
 
 Use only the visible schedule and durations.
-Do not mention priority, rank, goals, life priority, values, desired feelings, body state, energy, sleep, HRV, recovery, activity, focus cues, environment cues, or sensory imagery.
+Do not mention priority, rank, goals, life priority, values, desired feelings, body state, energy, sleep, stress, activity, focus cues, environment cues, or sensory imagery.
 Use plain mental-preparation and planning language, not guided imagery.`,
 
   mind: `Generate the mind-only script.
@@ -301,25 +300,25 @@ Do not convert the day into a top-three list, priority ranking, or rank/order se
 For task scope in other scenarios, use subtask durations only if they are present; do not invent timing estimates for subtasks.
 Use userGoal and life priority only for larger-goal context.
 Do not mention linked value tags, task value labels, or phrases like "linked with" / "connected to [value]".
-Do not mention body state, energy, sleep, HRV, recovery, activity, focus cues, environment cues, sensory scene details, value definitions, ideal life, or desired-feeling labels.`,
+Do not mention body state, energy, sleep, stress, activity, focus cues, environment cues, sensory scene details, value definitions, ideal life, or desired-feeling labels.`,
 
   body: `Generate the body-only script.
 
-Use only BODY fields: currentEnergyLevel, bodyState, sleepSummary, activitySummary, recoverySummary, and focusCues.
+Use only BODY fields: currentEnergyLevel, bodyState as coarse energy background, sleepSummary, activitySummary, stressSummary, and focusCues.
 Primary goal: grounding the body before activity. Start with breath, posture, physical sensation, current energy, and concrete focus cues.
-Translate sleep, activity, and recovery signals into plain body-state language.
+Translate sleep, activity, and stress summaries into plain body-state language.
 Do not mention tasks, schedule, priority, rank, goals, life priority, values, ideal life, desired feelings, or task titles not present in focusCues.`,
 
   soul: `Generate the value-only script.
 
 Use only VALUE fields: topValues, personalDefinition, feelsLikeLabels, dailySignLabels, and idealLife.
 Primary goal: remind the user what matters and help them imagine moving through the day with those values.
-Do not mention tasks, schedule, priority, rank, goals, life priority, body state, energy, sleep, HRV, recovery, activity, focus cues, or environment cues.`,
+Do not mention tasks, schedule, priority, rank, goals, life priority, body state, energy, sleep, stress, activity, focus cues, or environment cues.`,
 
   full: `Generate the full script.
 
 Use MIND, BODY, and VALUE fields together.
-Introduction: ground the body first with breath, posture, current energy, sleep/recovery language, and focus cues.
+Introduction: ground the body first with breath, posture, current energy, sleep/stress language, and focus cues.
 Task visualization: use the full calendarEvents list in time order as the rehearsal sequence, including event notes/descriptions when present. Do not convert the day into a top-three list, priority ranking, or rank/order sequence.
 Ending: connect back to the larger goal, life priority, values, ideal life, and credible belief that the user can move toward them.`,
 };
@@ -328,11 +327,11 @@ const forbiddenPatterns = {
   baseline: [
     ["priority/rank", /\b(priorit(?:y|ies|ized)|rank(?:ed)?|top[- ]priority|highest[- ]priority)\b/i],
     ["mind goal", /\b(workshop paper|independent researcher|life priority|larger goal|own questions)\b/i],
-    ["body data", /\b(energy|sleep|slept|HRV|heart rate|recovery|body state|coffee|morning light|apartment|feet on the floor|phone face down)\b/i],
+    ["body data", /\b(energy|sleep|slept|stress|body state|coffee|morning light|apartment|feet on the floor|phone face down)\b/i],
     ["values", /\b(Independent Thinking|Open-Mindedness|values?|self-trusting|unboxed|mentally clear|accomplished|curious)\b/i],
   ],
   mind: [
-    ["body data", /\b(energy|sleep|slept|HRV|heart rate|recovery|coffee|morning light|apartment|feet on the floor|phone face down|quiet apartment|body state)\b/i],
+    ["body data", /\b(energy|sleep|slept|stress|coffee|morning light|apartment|feet on the floor|phone face down|quiet apartment|body state)\b/i],
     ["value definitions", /\b(self-trusting|unboxed|mentally clear|accomplished|competent|curious|supported|ideal life)\b/i],
   ],
   body: [
@@ -341,7 +340,7 @@ const forbiddenPatterns = {
   ],
   soul: [
     ["mind tasks", /\b(related work|TA emails?|reading group|workshop paper|rank|priority|90[- ]minute|20[- ]minute|30[- ]minute)\b/i],
-    ["body data", /\b(energy|sleep|slept|HRV|heart rate|recovery|activity|steps|coffee|morning light|apartment|laptop|keyboard|anchor papers|feet on the floor|phone face down)\b/i],
+    ["body data", /\b(energy|sleep|slept|stress|activity|steps|coffee|morning light|apartment|laptop|keyboard|anchor papers|feet on the floor|phone face down)\b/i],
   ],
   full: [],
 };

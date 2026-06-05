@@ -92,7 +92,7 @@ export const scenarios: Scenario[] = studyInputScenarios.map((input) => {
     industry: input.persona.demo.occupation,
     profileSummary: input.persona.demo.occupation,
     contextTitle: input.contextTitle,
-    dayFrame: `${input.energy.sleepSummary.summary}; ${input.energy.activitySummary}; ${input.energy.recoverySummary}`,
+    dayFrame: `${input.energy.sleepSummary.summary}; ${input.energy.activitySummary}; ${input.energy.stressSummary}`,
     lifePriority: input.persona.onboarding.lifePriority.description,
     userGoal: goalText(input),
     bodyState: input.energy.bodyState,

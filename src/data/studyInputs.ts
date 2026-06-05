@@ -40,8 +40,6 @@ export type SleepSummary = {
   sleepEfficiencyPercent?: number;
   awakeMinutes?: number;
   restlessMinutes?: number;
-  hrvMs?: number;
-  restingHeartRate?: number;
 };
 
 export type GoalAnswers = {
@@ -104,9 +102,7 @@ export type StudyInputScenario = {
     bodyState: string;
     sleepSummary: SleepSummary;
     activitySummary: string;
-    recoverySummary: string;
-    energyCurveInputs: Record<string, number | string>;
-    hourlyEnergy: Array<{ hour: number; energyLevel: number }>;
+    stressSummary: string;
     focusCues: {
       visual: string[];
       auditory: string[];
@@ -172,7 +168,7 @@ export const conditionInputRules: Record<StudyCondition, string> = {
   mind:
     "Use only MIND fields: user_goal plus full calendar events with notes for daily rehearsal, or focusTask/focusSubtasks for task scope. Do not verbalize linked value tags.",
   body:
-    "Use only BODY fields: current energy, observed summaries, hourly energy, and focus_cues. Do not use location or flattened environmental_cues.",
+    "Use only BODY fields: current energy, sleep/activity/stress summaries, and focus_cues. Do not use location, flattened environmental_cues, or unsupported sensor detail.",
   soul:
     "Use only VALUE fields: top values, personal definitions, clarification labels, desired feelings, daily signs, and ideal_life.",
   full:
@@ -499,35 +495,8 @@ const serenaValue = {
   },
 };
 
-const lowMorningEnergy = [
-  { hour: 6, energyLevel: 3 },
-  { hour: 7, energyLevel: 3 },
-  { hour: 8, energyLevel: 4 },
-  { hour: 9, energyLevel: 5 },
-  { hour: 10, energyLevel: 5 },
-  { hour: 11, energyLevel: 4 },
-  { hour: 12, energyLevel: 4 },
-  { hour: 13, energyLevel: 3 },
-  { hour: 14, energyLevel: 3 },
-  { hour: 15, energyLevel: 4 },
-  { hour: 16, energyLevel: 5 },
-];
-
-const steadyDayEnergy = [
-  { hour: 7, energyLevel: 5 },
-  { hour: 8, energyLevel: 6 },
-  { hour: 9, energyLevel: 6 },
-  { hour: 10, energyLevel: 6 },
-  { hour: 11, energyLevel: 5 },
-  { hour: 12, energyLevel: 5 },
-  { hour: 13, energyLevel: 4 },
-  { hour: 14, energyLevel: 5 },
-  { hour: 15, energyLevel: 5 },
-  { hour: 16, energyLevel: 4 },
-];
-
 const mayaShortSleep: SleepSummary = {
-  summary: "5.5 hours slept after a late bedtime; sleep quality 68/100 with short duration, some restlessness, low HRV, and slightly elevated resting heart rate.",
+  summary: "5.5 hours slept after a late bedtime; sleep quality 68/100 with short duration and some restlessness.",
   durationHours: 5.5,
   targetHours: 7.5,
   bedtime: "01:05",
@@ -536,12 +505,10 @@ const mayaShortSleep: SleepSummary = {
   sleepEfficiencyPercent: 83,
   awakeMinutes: 28,
   restlessMinutes: 46,
-  hrvMs: 29,
-  restingHeartRate: 73,
 };
 
 const jonahSteadySleep: SleepSummary = {
-  summary: "7.1 hours slept with good continuity; sleep quality 82/100, normal recovery signals, and enough morning readiness for focused planning.",
+  summary: "7.1 hours slept with good continuity; sleep quality 82/100 and enough morning readiness for focused planning.",
   durationHours: 7.1,
   targetHours: 7.5,
   bedtime: "23:15",
@@ -550,12 +517,10 @@ const jonahSteadySleep: SleepSummary = {
   sleepEfficiencyPercent: 90,
   awakeMinutes: 18,
   restlessMinutes: 24,
-  hrvMs: 48,
-  restingHeartRate: 62,
 };
 
 const priyaPostShiftSleep: SleepSummary = {
-  summary: "6.0 hours slept after a long shift; sleep quality 72/100 with moderate restlessness and enough recovery for short, structured study intervals.",
+  summary: "6.0 hours slept after a long shift; sleep quality 72/100 with moderate restlessness and enough rest for short, structured study intervals.",
   durationHours: 6.0,
   targetHours: 7.5,
   bedtime: "00:10",
@@ -564,12 +529,10 @@ const priyaPostShiftSleep: SleepSummary = {
   sleepEfficiencyPercent: 86,
   awakeMinutes: 22,
   restlessMinutes: 38,
-  hrvMs: 35,
-  restingHeartRate: 70,
 };
 
 const priyaSimulationSleep: SleepSummary = {
-  summary: "6.7 hours slept; sleep quality 76/100 with a little pre-simulation restlessness but moderate recovery.",
+  summary: "6.7 hours slept; sleep quality 76/100 with a little pre-simulation restlessness.",
   durationHours: 6.7,
   targetHours: 7.5,
   bedtime: "23:35",
@@ -578,12 +541,10 @@ const priyaSimulationSleep: SleepSummary = {
   sleepEfficiencyPercent: 88,
   awakeMinutes: 20,
   restlessMinutes: 32,
-  hrvMs: 38,
-  restingHeartRate: 68,
 };
 
 const alexRestedSleep: SleepSummary = {
-  summary: "7.6 hours slept with strong continuity; sleep quality 84/100 and recovery signals that support a creative morning block.",
+  summary: "7.6 hours slept with strong continuity; sleep quality 84/100 and a rested start for a creative morning block.",
   durationHours: 7.6,
   targetHours: 7.5,
   bedtime: "23:20",
@@ -592,12 +553,10 @@ const alexRestedSleep: SleepSummary = {
   sleepEfficiencyPercent: 91,
   awakeMinutes: 16,
   restlessMinutes: 22,
-  hrvMs: 52,
-  restingHeartRate: 60,
 };
 
 const serenaInterruptedSleep: SleepSummary = {
-  summary: "5.9 hours slept with an interruption overnight; sleep quality 70/100, moderate restlessness, and a usable but compressed morning recovery window.",
+  summary: "5.9 hours slept with an interruption overnight; sleep quality 70/100, moderate restlessness, and a usable but compressed morning window.",
   durationHours: 5.9,
   targetHours: 7.5,
   bedtime: "00:05",
@@ -606,8 +565,6 @@ const serenaInterruptedSleep: SleepSummary = {
   sleepEfficiencyPercent: 84,
   awakeMinutes: 31,
   restlessMinutes: 42,
-  hrvMs: 33,
-  restingHeartRate: 69,
 };
 
 const mayaGoalAnswers: GoalAnswers = {
@@ -751,12 +708,11 @@ export const studyInputScenarios: StudyInputScenario[] = [
     contextTitle: "Short-sleep research writing day",
     energy: {
       currentEnergyLevel: 3,
-      bodyState: "Low but usable energy, with a steadier window later in the morning.",
+      bodyState:
+        "Sleep: 5.5 hours after a late bedtime; quality 68/100 with short duration and some restlessness. Activity: 4200 steps and 22 active minutes. Stress: elevated by short sleep and paper pressure.",
       sleepSummary: mayaShortSleep,
-      activitySummary: "4200 steps; 22 active minutes; 1900 calories out",
-      recoverySummary: "resting heart rate 73 bpm; HRV 29 ms",
-      energyCurveInputs: { sleep_hours: 5.5, sleep_quality: 68, steps: 4200, active_minutes: 22, resting_heart_rate: 73, hrv_ms: 29, calories_out: 1900 },
-      hourlyEnergy: lowMorningEnergy,
+      activitySummary: "4200 steps and 22 active minutes; mostly light movement before a morning writing block.",
+      stressSummary: "Stress is elevated by short sleep and paper pressure, so focus may need a softer start.",
       focusCues: {
         visual: ["laptop open to the paper draft", "three anchor papers beside the keyboard", "morning light coming through the window"],
         auditory: ["quiet apartment hum"],
@@ -796,12 +752,11 @@ export const studyInputScenarios: StudyInputScenario[] = [
     contextTitle: "Paper writing block",
     energy: {
       currentEnergyLevel: 3,
-      bodyState: "Tired and a little avoidant, but able to begin with a small writing target.",
+      bodyState:
+        "Sleep: 5.5 hours after a late bedtime; quality 68/100 with short duration and some restlessness. Activity: light movement so far. Stress: elevated around the morning writing block.",
       sleepSummary: mayaShortSleep,
       activitySummary: "light movement so far; morning work block beginning",
-      recoverySummary: "resting heart rate elevated relative to usual; HRV low",
-      energyCurveInputs: { sleep_hours: 5.5, sleep_quality: 68, resting_heart_rate: 73, hrv_ms: 29 },
-      hourlyEnergy: lowMorningEnergy,
+      stressSummary: "Stress is elevated around the morning writing block, so the start may feel effortful.",
       focusCues: {
         visual: ["paper draft open", "anchor papers beside the keyboard", "cursor at the related work section"],
         auditory: ["quiet apartment hum"],
@@ -851,12 +806,11 @@ export const studyInputScenarios: StudyInputScenario[] = [
     contextTitle: "Launch review preparation day",
     energy: {
       currentEnergyLevel: 6,
-      bodyState: "Good morning energy, with a likely dip after lunch and meeting pressure later.",
+      bodyState:
+        "Sleep: 7.1 hours with good continuity; quality 82/100. Activity: 2300 steps and 18 active minutes before work. Stress: manageable, with meeting pressure likely to rise near the launch review.",
       sleepSummary: jonahSteadySleep,
-      activitySummary: "2300 steps; 18 active minutes before work",
-      recoverySummary: "resting heart rate 62 bpm; HRV 48 ms",
-      energyCurveInputs: { sleep_hours: 7.1, sleep_quality: 82, steps: 2300, active_minutes: 18, resting_heart_rate: 62, hrv_ms: 48 },
-      hourlyEnergy: steadyDayEnergy,
+      activitySummary: "2300 steps and 18 active minutes before work.",
+      stressSummary: "Stress is manageable, with meeting pressure likely to rise near the launch review.",
       focusCues: {
         visual: ["launch dashboard pinned", "stakeholder notes open", "risk doc in split view"],
         auditory: ["low office noise", "calendar alerts muted"],
@@ -896,12 +850,11 @@ export const studyInputScenarios: StudyInputScenario[] = [
     contextTitle: "Finalize launch risk brief",
     energy: {
       currentEnergyLevel: 6,
-      bodyState: "Clear enough to work through risk details before meetings begin.",
+      bodyState:
+        "Sleep: 7.1 hours with good continuity; quality 82/100. Activity: light commute movement before a morning desk block. Stress: moderate around risk ownership and deadline pressure.",
       sleepSummary: jonahSteadySleep,
       activitySummary: "light commute movement; morning desk block",
-      recoverySummary: "recovery signals near normal",
-      energyCurveInputs: { sleep_hours: 7.1, sleep_quality: 82, resting_heart_rate: 62, hrv_ms: 48 },
-      hourlyEnergy: steadyDayEnergy,
+      stressSummary: "Stress is moderate and tied to risk ownership and deadline pressure.",
       focusCues: {
         visual: ["risk brief outline open", "dashboard tab pinned", "owner list beside the doc"],
         auditory: ["quiet meeting room", "notifications paused"],
@@ -951,12 +904,11 @@ export const studyInputScenarios: StudyInputScenario[] = [
     contextTitle: "Exam and clinical paperwork day",
     energy: {
       currentEnergyLevel: 4,
-      bodyState: "Tired legs after a shift, but alert enough for short study intervals.",
+      bodyState:
+        "Sleep: 6.0 hours after a long shift; quality 72/100 with moderate restlessness. Activity: 6800 steps yesterday and 12 active minutes this morning. Stress: moderate after shift load and an upcoming exam.",
       sleepSummary: priyaPostShiftSleep,
       activitySummary: "6800 steps yesterday; 12 active minutes this morning",
-      recoverySummary: "resting heart rate 70 bpm; HRV 35 ms",
-      energyCurveInputs: { sleep_hours: 6.0, sleep_quality: 72, steps: 6800, active_minutes: 12, resting_heart_rate: 70, hrv_ms: 35 },
-      hourlyEnergy: lowMorningEnergy,
+      stressSummary: "Stress is moderate after shift load and an upcoming exam, but structure can help attention settle.",
       focusCues: {
         visual: ["flashcards stacked by topic", "scrubs folded on chair", "timer set for study intervals"],
         auditory: ["quiet kitchen", "timer chime ready"],
@@ -996,12 +948,11 @@ export const studyInputScenarios: StudyInputScenario[] = [
     contextTitle: "Practice assessment sequence",
     energy: {
       currentEnergyLevel: 5,
-      bodyState: "Nervous energy before simulation, with attention improving when the sequence is visible.",
+      bodyState:
+        "Sleep: 6.7 hours with a little pre-simulation restlessness; quality 76/100. Activity: short walk to campus and light morning movement. Stress: moderate before simulation practice.",
       sleepSummary: priyaSimulationSleep,
       activitySummary: "short walk to campus; light morning movement",
-      recoverySummary: "recovery signals moderate",
-      energyCurveInputs: { sleep_hours: 6.7, sleep_quality: 76, resting_heart_rate: 68, hrv_ms: 38 },
-      hourlyEnergy: steadyDayEnergy,
+      stressSummary: "Stress is moderate before simulation practice and may show up as tension.",
       focusCues: {
         visual: ["skills checklist printed", "stethoscope in bag", "simulation notes highlighted"],
         auditory: ["campus hallway noise", "phone timer ready"],
@@ -1051,12 +1002,11 @@ export const studyInputScenarios: StudyInputScenario[] = [
     contextTitle: "Client pitch assembly day",
     energy: {
       currentEnergyLevel: 7,
-      bodyState: "Strong creative energy early, with lower tolerance for admin later.",
+      bodyState:
+        "Sleep: 7.6 hours with strong continuity; quality 84/100. Activity: 1800 steps and a light morning stretch. Stress: low to moderate around delivery and admin expectations later in the day.",
       sleepSummary: alexRestedSleep,
       activitySummary: "1800 steps; light morning stretch",
-      recoverySummary: "resting heart rate 60 bpm; HRV 52 ms",
-      energyCurveInputs: { sleep_hours: 7.6, sleep_quality: 84, steps: 1800, active_minutes: 10, resting_heart_rate: 60, hrv_ms: 52 },
-      hourlyEnergy: steadyDayEnergy,
+      stressSummary: "Stress is low to moderate, mostly around delivery and admin expectations later in the day.",
       focusCues: {
         visual: ["moodboard wall visible", "deck outline open", "tablet charged"],
         auditory: ["playlist ready"],
@@ -1096,12 +1046,11 @@ export const studyInputScenarios: StudyInputScenario[] = [
     contextTitle: "Build pitch deck narrative",
     energy: {
       currentEnergyLevel: 7,
-      bodyState: "Creative energy is high, and the task needs a clear story before visuals expand.",
+      bodyState:
+        "Sleep: 7.6 hours with strong continuity; quality 84/100. Activity: light morning stretch before desk work. Stress: low to moderate around clarifying the pitch direction.",
       sleepSummary: alexRestedSleep,
       activitySummary: "light morning stretch before desk work",
-      recoverySummary: "recovery signals strong",
-      energyCurveInputs: { sleep_hours: 7.6, sleep_quality: 84, resting_heart_rate: 60, hrv_ms: 52 },
-      hourlyEnergy: steadyDayEnergy,
+      stressSummary: "Stress is low to moderate around clarifying the pitch direction.",
       focusCues: {
         visual: ["deck outline open", "three concept thumbnails visible", "moodboard wall nearby"],
         auditory: ["playlist ready"],
@@ -1151,12 +1100,11 @@ export const studyInputScenarios: StudyInputScenario[] = [
     contextTitle: "Brief deadline day",
     energy: {
       currentEnergyLevel: 4,
-      bodyState: "Sleep was interrupted, but the morning has a usable quiet pocket.",
+      bodyState:
+        "Sleep: 5.9 hours with an overnight interruption; quality 70/100 with moderate restlessness. Activity: school drop-off walk planned and light morning movement. Stress: moderate from family logistics and a deadline window.",
       sleepSummary: serenaInterruptedSleep,
       activitySummary: "school drop-off walk planned; light morning movement",
-      recoverySummary: "resting heart rate 69 bpm; HRV 33 ms",
-      energyCurveInputs: { sleep_hours: 5.9, sleep_quality: 70, resting_heart_rate: 69, hrv_ms: 33 },
-      hourlyEnergy: lowMorningEnergy,
+      stressSummary: "Stress is moderate from interrupted sleep, family logistics, and a deadline window.",
       focusCues: {
         visual: ["case notes printed", "phone on do-not-disturb", "argument outline open"],
         auditory: ["quiet apartment", "email alerts muted"],
@@ -1196,12 +1144,11 @@ export const studyInputScenarios: StudyInputScenario[] = [
     contextTitle: "Draft argument section",
     energy: {
       currentEnergyLevel: 4,
-      bodyState: "Compressed morning energy, with enough quiet to make a focused start.",
+      bodyState:
+        "Sleep: 5.9 hours with an overnight interruption; quality 70/100 with moderate restlessness. Activity: light movement around morning logistics. Stress: moderate because the available work window is compressed.",
       sleepSummary: serenaInterruptedSleep,
       activitySummary: "light movement around morning logistics",
-      recoverySummary: "recovery signals somewhat constrained",
-      energyCurveInputs: { sleep_hours: 5.9, sleep_quality: 70, resting_heart_rate: 69, hrv_ms: 33 },
-      hourlyEnergy: lowMorningEnergy,
+      stressSummary: "Stress is moderate because the available work window is compressed.",
       focusCues: {
         visual: ["argument outline open", "case notes printed", "highlighted precedent beside laptop"],
         auditory: ["quiet apartment", "email alerts muted"],

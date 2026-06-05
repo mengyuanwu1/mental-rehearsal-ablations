@@ -10,7 +10,10 @@ export function readStoredResponses(participantId: string, assignmentId: number)
   const raw = window.localStorage.getItem(responseKey(participantId, assignmentId));
   if (!raw) return [];
   try {
-    return JSON.parse(raw) as TrialResponse[];
+    return (JSON.parse(raw) as Array<TrialResponse & { reason?: string }>).map((response) => ({
+      ...response,
+      improvement: response.improvement ?? response.reason ?? "",
+    }));
   } catch {
     return [];
   }
@@ -90,7 +93,7 @@ export function responsesToCsv(responses: TrialResponse[]): string {
     "choice",
     "leftRating",
     "rightRating",
-    "reason",
+    "improvement",
     "attentionCheckId",
     "attentionCheckKind",
     "attentionCheckPrompt",

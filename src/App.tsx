@@ -72,7 +72,7 @@ const attentionCheckPrompt = (kind: AttentionCheckKind) => {
     case "values":
       return "Quick check: which values were listed for this person?";
     case "energy":
-      return "Quick check: which energy state was described for this person?";
+      return "Quick check: which energy background was described for this person?";
   }
 };
 
@@ -242,6 +242,7 @@ const questionnaireQuestions: QuestionnaireQuestion[] = [
   {
     id: "toneStyle",
     otherId: "toneStyleOther",
+    mode: "multiple",
     prompt: "What tone would make a rehearsal most useful?",
     options: [
       {
@@ -690,7 +691,7 @@ function StudyTask({
   const [choice, setChoice] = useState<"left" | "right" | "">("");
   const [leftRating, setLeftRating] = useState<number | null>(null);
   const [rightRating, setRightRating] = useState<number | null>(null);
-  const [reason, setReason] = useState("");
+  const [improvement, setImprovement] = useState("");
   const [attentionCheckAnswer, setAttentionCheckAnswer] = useState("");
   const [startedAt, setStartedAt] = useState(() => new Date().toISOString());
   const [postingError, setPostingError] = useState("");
@@ -715,7 +716,7 @@ function StudyTask({
   const currentTrialResponse = responses.find((response) => response.trialIndex === trialIndex);
   const readingComplete = readingSecondsRemaining <= 0;
   const chosenScriptLabel = choice === "left" ? "Script A" : choice === "right" ? "Script B" : "the chosen script";
-  const improvementWordCount = wordCount(reason);
+  const improvementWordCount = wordCount(improvement);
   const improvementComplete = adminMode || improvementWordCount >= minimumImprovementWords;
   const canContinue = Boolean(
     choice &&
@@ -745,14 +746,14 @@ function StudyTask({
       setChoice(currentTrialResponse.choice);
       setLeftRating(currentTrialResponse.leftRating);
       setRightRating(currentTrialResponse.rightRating);
-      setReason(currentTrialResponse.reason);
+      setImprovement(currentTrialResponse.improvement);
       setAttentionCheckAnswer(currentTrialResponse.attentionCheckAnswer ?? "");
       setStartedAt(currentTrialResponse.startedAt || new Date().toISOString());
     } else {
       setChoice("");
       setLeftRating(null);
       setRightRating(null);
-      setReason("");
+      setImprovement("");
       setAttentionCheckAnswer("");
       setStartedAt(new Date().toISOString());
     }
@@ -805,7 +806,7 @@ function StudyTask({
       choice,
       leftRating,
       rightRating,
-      reason,
+      improvement,
       ...(attentionCheck
         ? {
             attentionCheckId: attentionCheck.id,
@@ -840,7 +841,7 @@ function StudyTask({
     setChoice("");
     setLeftRating(null);
     setRightRating(null);
-    setReason("");
+    setImprovement("");
     setAttentionCheckAnswer("");
     setStartedAt(new Date().toISOString());
     setTrialIndex((current) => Math.min(current + 1, assignment.trials.length));
@@ -928,7 +929,7 @@ function StudyTask({
             <p>{scenario.values.join(", ")}</p>
           </div>
           <div>
-            <span>Energy</span>
+            <span>Energy background</span>
             <p>{scenario.bodyState}</p>
           </div>
           <ScenarioTaskSummary scenario={scenario} />
@@ -1038,13 +1039,13 @@ function StudyTask({
           </fieldset>
         ) : null}
 
-        <label className="reason-field">
+        <label className="improvement-field">
           <span>If you could make {chosenScriptLabel} better, how would you improve it?</span>
           <textarea
             aria-describedby="improvement-note-requirement"
             aria-required={!adminMode}
-            value={reason}
-            onChange={(event) => setReason(event.target.value)}
+            value={improvement}
+            onChange={(event) => setImprovement(event.target.value)}
             rows={3}
           />
           <small id="improvement-note-requirement">
