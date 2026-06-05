@@ -251,6 +251,8 @@ function runBackendGeneration() {
         process.env.REUSE_BASELINE_RESULTS === "1" ? "1" : "",
       OVERRIDE_REHEARSAL_SYSTEM_PROMPT_PATH:
         process.env.OVERRIDE_REHEARSAL_SYSTEM_PROMPT_PATH || "",
+      SCENARIO_FILTER: process.env.SCENARIO_FILTER || "",
+      ARM_FILTER: process.env.ARM_FILTER || "",
     },
     encoding: "utf8",
     stdio: ["ignore", "pipe", "pipe"],

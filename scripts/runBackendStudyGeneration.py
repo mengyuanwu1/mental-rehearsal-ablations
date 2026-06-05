@@ -22,7 +22,7 @@ _BASELINE_SYSTEM_PROMPT = """You are a general-purpose writing assistant produci
 
 Use only the visible schedule or task-preparation context provided by the user. Do not use or infer body data, energy, sleep, values, life priority, goals, demographics, priority rank, or hidden personalization. Do not use the mental-rehearsal scaffold, PETTLEP framing, value anchoring, or cue-guided imagery style.
 
-Write a neutral, vanilla preparation script that helps the person mentally prepare to follow the visible schedule or task context. Treat all listed schedule items as ordinary visible items, not ranked priorities. Keep the script similar in length to the experimental scripts, about 180-230 words. Use plain paragraphs, no bullets or section headings. Return only the script text."""
+Write a neutral, vanilla preparation script that helps the person mentally prepare to follow the visible schedule or task context. Treat all listed schedule items as ordinary visible items, not ranked priorities. Keep the script similar in length to the experimental scripts, about 230-260 words. Use plain paragraphs, no bullets or section headings. Return only the script text."""
 
 
 def _baseline_user_prompt(payload: dict[str, Any]) -> str:
@@ -90,6 +90,16 @@ def main() -> None:
     plan = json.loads(request_plan_path.read_text(encoding="utf-8"))
     reuse_existing = os.getenv("REUSE_EXISTING_BACKEND_RESULTS") == "1"
     reuse_baseline = os.getenv("REUSE_BASELINE_RESULTS") == "1"
+    scenario_filter = {
+        item.strip()
+        for item in os.getenv("SCENARIO_FILTER", "").split(",")
+        if item.strip()
+    }
+    arm_filter = {
+        item.strip()
+        for item in os.getenv("ARM_FILTER", "").split(",")
+        if item.strip()
+    }
     existing: dict[str, Any] = {}
     if (reuse_existing or reuse_baseline) and result_path.exists():
         existing = json.loads(result_path.read_text(encoding="utf-8"))
@@ -100,10 +110,17 @@ def main() -> None:
     for scenario in plan["scenarios"]:
         scenario_id = scenario["id"]
         responses[scenario_id] = dict(existing_responses.get(scenario_id, {}))
+        scenario_selected = not scenario_filter or scenario_id in scenario_filter
 
         baseline_payload = scenario.get("baseline")
         if baseline_payload is not None:
-            if (reuse_existing or reuse_baseline) and responses[scenario_id].get("baseline"):
+            should_generate_baseline = scenario_selected and (
+                not arm_filter or "baseline" in arm_filter
+            )
+            if (
+                not should_generate_baseline
+                or ((reuse_existing or reuse_baseline) and responses[scenario_id].get("baseline"))
+            ):
                 response = responses[scenario_id]["baseline"]
                 print(
                     f"{scenario_id}/baseline: reused, {response.get('model')}, "
@@ -121,7 +138,17 @@ def main() -> None:
                 )
 
         for arm, payload in scenario["requests"].items():
-            if reuse_existing and responses[scenario_id].get(arm):
+            should_generate_arm = scenario_selected and (
+                not arm_filter or arm in arm_filter
+            )
+            force_filtered_generation = should_generate_arm and bool(
+                scenario_filter or arm_filter
+            )
+            if not should_generate_arm or (
+                reuse_existing
+                and not force_filtered_generation
+                and responses[scenario_id].get(arm)
+            ):
                 response = responses[scenario_id][arm]
                 print(
                     f"{scenario_id}/{arm}: reused, {response.get('model')}, "

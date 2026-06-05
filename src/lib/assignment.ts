@@ -13,7 +13,7 @@ export const conditionPairs: Array<[ConditionId, ConditionId]> = (() => {
   return pairs;
 })();
 
-const SLOT_COUNT = 50;
+export const assignmentSlotCount = 50;
 const TRIALS_PER_SLOT = 6;
 const PAIR_STEP = 3;
 
@@ -31,7 +31,7 @@ function shouldSwapOrder(assignmentId: number, trialIndex: number): boolean {
 }
 
 export function buildAssignment(assignmentId: number): Assignment {
-  const normalizedId = ((assignmentId % SLOT_COUNT) + SLOT_COUNT) % SLOT_COUNT;
+  const normalizedId = ((assignmentId % assignmentSlotCount) + assignmentSlotCount) % assignmentSlotCount;
   const block = Math.floor(normalizedId / conditionPairs.length);
   const offset = normalizedId % conditionPairs.length;
   const trials: TrialAssignment[] = [];
@@ -68,7 +68,7 @@ export function assignmentIdFromParams(params: URLSearchParams, participantIdOve
     params.get("participant"));
 
   if (prolificId) {
-    return hashString(prolificId) % SLOT_COUNT;
+    return hashString(prolificId) % assignmentSlotCount;
   }
 
   const key = "mra-local-assignment-id";
@@ -76,7 +76,7 @@ export function assignmentIdFromParams(params: URLSearchParams, participantIdOve
   if (cached && Number.isFinite(Number(cached))) {
     return Number(cached);
   }
-  const generated = Math.floor(Math.random() * SLOT_COUNT);
+  const generated = Math.floor(Math.random() * assignmentSlotCount);
   window.localStorage.setItem(key, String(generated));
   return generated;
 }
@@ -96,7 +96,7 @@ export function verifyAssignmentBalance(): {
   const duplicateScenarioSlots: number[] = [];
   const baselineCountsBySlot: number[] = [];
 
-  for (let assignmentId = 0; assignmentId < SLOT_COUNT; assignmentId += 1) {
+  for (let assignmentId = 0; assignmentId < assignmentSlotCount; assignmentId += 1) {
     const assignment = buildAssignment(assignmentId);
     const seen = new Set<string>();
     let baselineCount = 0;

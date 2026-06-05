@@ -1,7 +1,7 @@
-import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
+import { useEffect, useMemo, useRef, useState, type CSSProperties, type ChangeEvent, type FormEvent } from "react";
 import { getScenario, scenarios } from "./data/scenarios";
 import { scriptForCondition, scriptMetadataForCondition } from "./data/scripts";
-import { assignmentIdFromParams, buildAssignment, hashString } from "./lib/assignment";
+import { assignmentIdFromParams, assignmentSlotCount, buildAssignment, hashString } from "./lib/assignment";
 import {
   postQuestionnaire,
   postResponse,
@@ -24,10 +24,13 @@ const returnUrl = params.get("return_url") ?? params.get("redirect_url") ?? "";
 const debugMode = params.get("debug") === "1";
 const ratingScale = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const minimumComparisonSeconds = 45;
-const questionnaireVersion = "personalization-v2";
+const minimumImprovementWords = 3;
+const adminModePassword = "mrmrmr";
+const questionnaireVersion = "personalization-v3";
 const attentionCheckTrialIndexes = [1, 4];
 const attentionCheckTrialIndexSet = new Set(attentionCheckTrialIndexes);
 const attentionCheckKinds = ["task", "values", "energy"] as const;
+const lastAdminAssignmentStorageKey = "mra-last-admin-assignment-id";
 
 type AttentionCheckKind = (typeof attentionCheckKinds)[number];
 
@@ -131,8 +134,9 @@ type QuestionnaireOtherId =
 type QuestionnaireQuestion = {
   id: QuestionnaireChoiceId;
   otherId: QuestionnaireOtherId;
+  mode?: "single" | "multiple" | "range" | "ranking";
   prompt: string;
-  options: Array<{
+  options?: Array<{
     value: string;
     label: string;
     description: string;
@@ -143,6 +147,7 @@ const questionnaireQuestions: QuestionnaireQuestion[] = [
   {
     id: "perspectivePreference",
     otherId: "perspectivePreferenceOther",
+    mode: "multiple",
     prompt: "What point of view would you prefer for your own rehearsal scripts?",
     options: [
       {
@@ -170,6 +175,7 @@ const questionnaireQuestions: QuestionnaireQuestion[] = [
   {
     id: "guidanceLevel",
     otherId: "guidanceLevelOther",
+    mode: "multiple",
     prompt: "How much guidance would you want from the rehearsal guide?",
     options: [
       {
@@ -197,6 +203,7 @@ const questionnaireQuestions: QuestionnaireQuestion[] = [
   {
     id: "backgroundAudio",
     otherId: "backgroundAudioOther",
+    mode: "multiple",
     prompt: "What background audio would you prefer, if any?",
     options: [
       {
@@ -229,29 +236,8 @@ const questionnaireQuestions: QuestionnaireQuestion[] = [
   {
     id: "scriptLength",
     otherId: "scriptLengthOther",
+    mode: "range",
     prompt: "What rehearsal length would fit you best?",
-    options: [
-      {
-        value: "under_1_min",
-        label: "Under 1 minute",
-        description: "Fast reset.",
-      },
-      {
-        value: "1_to_2_min",
-        label: "1-2 minutes",
-        description: "Short daily guide.",
-      },
-      {
-        value: "3_to_5_min",
-        label: "3-5 minutes",
-        description: "More immersive practice.",
-      },
-      {
-        value: "varies",
-        label: "Depends",
-        description: "Length should match the task or day.",
-      },
-    ],
   },
   {
     id: "toneStyle",
@@ -283,33 +269,45 @@ const questionnaireQuestions: QuestionnaireQuestion[] = [
   {
     id: "personalizationFocus",
     otherId: "personalizationFocusOther",
+    mode: "ranking",
     prompt: "Which personalization would matter most to you?",
     options: [
       {
-        value: "schedule_tasks",
-        label: "Schedule and tasks",
-        description: "Uses the exact plan for the day.",
+        value: "mind_grounding",
+        label: "Mind grounding",
+        description: "Ground attention before the rehearsal begins.",
       },
       {
-        value: "energy_mood",
-        label: "Energy and mood",
-        description: "Matches how you feel right now.",
+        value: "day_success_visualization",
+        label: "Success visualization of day",
+        description: "Imagine the day going well overall.",
       },
       {
-        value: "values_goals",
-        label: "Values and goals",
-        description: "Connects action to what matters.",
+        value: "task_success_visualization",
+        label: "Success visualization of task",
+        description: "Imagine a specific task reaching a successful outcome.",
       },
       {
-        value: "obstacles",
-        label: "Likely obstacles",
-        description: "Prepares for friction and recovery.",
+        value: "body_grounding",
+        label: "Body grounding",
+        description: "Use energy level, environmental cues, and physical state.",
+      },
+      {
+        value: "value_grounding",
+        label: "Value grounding",
+        description: "Remember personal values and the larger picture.",
+      },
+      {
+        value: "potential_obstacle_visualization",
+        label: "Potential obstacle visualization",
+        description: "Preview likely obstacles and recovery moves.",
       },
     ],
   },
   {
     id: "deliveryFormat",
     otherId: "deliveryFormatOther",
+    mode: "multiple",
     prompt: "Which delivery format would you prefer?",
     options: [
       {
@@ -336,6 +334,100 @@ const questionnaireQuestions: QuestionnaireQuestion[] = [
   },
 ];
 
+const scriptLengthMin = 0;
+const scriptLengthMax = 15;
+const defaultScriptLengthRange = {
+  lower: 0,
+  upper: 5,
+};
+
+const selectedValuesFromAnswer = (answer: string) =>
+  answer
+    .split(",")
+    .map((value) => value.trim())
+    .filter(Boolean);
+
+const answerFromSelectedValues = (values: string[]) => values.join(",");
+
+const rankingValuesForQuestion = (question: QuestionnaireQuestion, answer: string) => {
+  const optionValues = (question.options ?? []).map((option) => option.value);
+  const rankedValues = selectedValuesFromAnswer(answer).filter((value) => optionValues.includes(value));
+  const missingValues = optionValues.filter((value) => !rankedValues.includes(value));
+
+  return [...rankedValues, ...missingValues];
+};
+
+const wordCount = (text: string) => text.trim().split(/\s+/).filter(Boolean).length;
+
+const clampScriptLengthMinutes = (minutes: number) =>
+  Number.isFinite(minutes) ? Math.min(scriptLengthMax, Math.max(scriptLengthMin, minutes)) : scriptLengthMin;
+
+const upperScriptLengthAnswer = (minutes: number) =>
+  minutes >= scriptLengthMax ? `${scriptLengthMax}_plus` : String(minutes);
+
+const scriptLengthAnswerFromRange = (lower: number, upper: number) => {
+  const nextLower = clampScriptLengthMinutes(lower);
+  const nextUpper = clampScriptLengthMinutes(Math.max(nextLower, upper));
+  return `${nextLower}-${upperScriptLengthAnswer(nextUpper)}`;
+};
+
+const minutesFromLegacyScriptLengthAnswer = (answer: string) => {
+  if (answer.endsWith("_plus")) return scriptLengthMax;
+
+  const minutes = Number.parseInt(answer, 10);
+  if (Number.isFinite(minutes)) return clampScriptLengthMinutes(minutes);
+
+  return defaultScriptLengthRange.upper;
+};
+
+const scriptLengthRangeFromAnswer = (answer: string) => {
+  if (!answer.includes("-")) {
+    return {
+      lower: scriptLengthMin,
+      upper: minutesFromLegacyScriptLengthAnswer(answer),
+    };
+  }
+
+  const [lowerAnswer, upperAnswer] = answer.split("-");
+  const lower = clampScriptLengthMinutes(Number.parseInt(lowerAnswer, 10));
+  const upper = Math.max(lower, minutesFromLegacyScriptLengthAnswer(upperAnswer));
+
+  return {
+    lower,
+    upper: clampScriptLengthMinutes(upper),
+  };
+};
+
+const normalizeScriptLengthAnswer = (answer: string) => {
+  const range = scriptLengthRangeFromAnswer(answer);
+  return scriptLengthAnswerFromRange(range.lower, range.upper);
+};
+
+const formatScriptLengthRangeAnswer = (answer: string) => {
+  const { lower, upper } = scriptLengthRangeFromAnswer(answer);
+  const upperLabel = upper >= scriptLengthMax ? `${scriptLengthMax}+` : String(upper);
+  const unit = upper === 1 && lower === 1 ? "minute" : "minutes";
+  if (lower === upper) return `${upperLabel} ${unit}`;
+  return `${lower}-${upperLabel} ${unit}`;
+};
+
+const createAdminSession = (participantLabel: string) => {
+  const sessionKey = `${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
+  const proposedAssignmentId = hashString(`${participantLabel}:admin:${sessionKey}`) % assignmentSlotCount;
+  const previousAssignmentId = Number(window.localStorage.getItem(lastAdminAssignmentStorageKey));
+  const assignmentId =
+    assignmentSlotCount > 1 && Number.isFinite(previousAssignmentId) && proposedAssignmentId === previousAssignmentId
+      ? (proposedAssignmentId + 1) % assignmentSlotCount
+      : proposedAssignmentId;
+
+  window.localStorage.setItem(lastAdminAssignmentStorageKey, String(assignmentId));
+
+  return {
+    participantId: `${participantLabel || "admin"}__admin_${sessionKey}`,
+    assignmentId,
+  };
+};
+
 const emptyQuestionnaireAnswers: QuestionnaireAnswers = {
   perspectivePreference: "",
   perspectivePreferenceOther: "",
@@ -343,7 +435,7 @@ const emptyQuestionnaireAnswers: QuestionnaireAnswers = {
   guidanceLevelOther: "",
   backgroundAudio: "",
   backgroundAudioOther: "",
-  scriptLength: "",
+  scriptLength: scriptLengthAnswerFromRange(defaultScriptLengthRange.lower, defaultScriptLengthRange.upper),
   scriptLengthOther: "",
   toneStyle: "",
   toneStyleOther: "",
@@ -361,7 +453,7 @@ const questionnaireAnswersFromResponse = (response: QuestionnaireResponse | null
   guidanceLevelOther: response?.guidanceLevelOther ?? "",
   backgroundAudio: response?.backgroundAudio ?? "",
   backgroundAudioOther: response?.backgroundAudioOther ?? "",
-  scriptLength: response?.scriptLength ?? "",
+  scriptLength: normalizeScriptLengthAnswer(response?.scriptLength ?? emptyQuestionnaireAnswers.scriptLength),
   scriptLengthOther: response?.scriptLengthOther ?? "",
   toneStyle: response?.toneStyle ?? "",
   toneStyleOther: response?.toneStyleOther ?? "",
@@ -382,6 +474,12 @@ export default function App() {
   const [participantInput, setParticipantInput] = useState(initialProlificId);
   const [participantId, setParticipantId] = useState("");
   const [introAccepted, setIntroAccepted] = useState(false);
+  const [adminMode, setAdminMode] = useState(false);
+  const [adminPasswordInput, setAdminPasswordInput] = useState("");
+  const [adminModeError, setAdminModeError] = useState("");
+  const [showAdminPassword, setShowAdminPassword] = useState(false);
+  const [adminParticipantId, setAdminParticipantId] = useState("");
+  const [adminAssignmentId, setAdminAssignmentId] = useState<number | null>(null);
 
   function beginStudy(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -389,6 +487,50 @@ export default function App() {
     if (!trimmed) return;
     setParticipantId(trimmed);
     setIntroAccepted(false);
+  }
+
+  function resetAdminMode() {
+    setAdminMode(false);
+    setAdminPasswordInput("");
+    setAdminModeError("");
+    setShowAdminPassword(false);
+    setAdminParticipantId("");
+    setAdminAssignmentId(null);
+  }
+
+  function toggleAdminMode() {
+    if (adminMode) {
+      resetAdminMode();
+      return;
+    }
+
+    if (showAdminPassword) {
+      setAdminPasswordInput("");
+      setAdminModeError("");
+      setShowAdminPassword(false);
+      return;
+    }
+
+    setShowAdminPassword(true);
+    setAdminModeError("");
+  }
+
+  function updateAdminPassword(event: ChangeEvent<HTMLInputElement>) {
+    const password = event.currentTarget.value;
+    setAdminPasswordInput(password);
+
+    if (password === adminModePassword) {
+      const adminSession = createAdminSession(participantInput.trim() || "admin");
+      setAdminMode(true);
+      setAdminParticipantId(adminSession.participantId);
+      setAdminAssignmentId(adminSession.assignmentId);
+      setAdminPasswordInput("");
+      setAdminModeError("");
+      setShowAdminPassword(false);
+      return;
+    }
+
+    setAdminModeError(password.length >= adminModePassword.length ? "Admin password incorrect." : "");
   }
 
   if (!participantId) {
@@ -408,10 +550,32 @@ export default function App() {
                 autoComplete="off"
                 autoFocus
                 value={participantInput}
-                onChange={(event) => setParticipantInput(event.target.value)}
+                onChange={(event) => {
+                  setParticipantInput(event.target.value);
+                  if (adminMode || showAdminPassword) {
+                    resetAdminMode();
+                  }
+                }}
                 placeholder="Enter Prolific ID"
               />
             </label>
+            <label className="admin-mode-toggle">
+              <input checked={adminMode} onChange={toggleAdminMode} type="checkbox" />
+              <span>Admin mode</span>
+            </label>
+            {showAdminPassword ? (
+              <label className="admin-password-field">
+                <span>Admin password</span>
+                <input
+                  autoComplete="off"
+                  autoFocus
+                  onChange={updateAdminPassword}
+                  type="password"
+                  value={adminPasswordInput}
+                />
+              </label>
+            ) : null}
+            {adminModeError ? <p className="admin-mode-error">{adminModeError}</p> : null}
             <button className="primary-button" disabled={!participantInput.trim()} type="submit">
               Continue
             </button>
@@ -473,7 +637,11 @@ export default function App() {
             >
               Back
             </button>
-            <button className="primary-button" onClick={() => setIntroAccepted(true)} type="button">
+            <button
+              className="primary-button"
+              onClick={() => setIntroAccepted(true)}
+              type="button"
+            >
               Start comparisons
             </button>
           </div>
@@ -482,11 +650,32 @@ export default function App() {
     );
   }
 
-  return <StudyTask participantId={participantId} />;
+  const activeParticipantId = adminMode && adminParticipantId ? adminParticipantId : participantId;
+  const activeAssignmentId = adminMode ? adminAssignmentId : null;
+
+  return (
+    <StudyTask
+      adminMode={adminMode}
+      forcedAssignmentId={activeAssignmentId}
+      key={`${activeParticipantId}:${activeAssignmentId ?? "auto"}`}
+      participantId={activeParticipantId}
+    />
+  );
 }
 
-function StudyTask({ participantId }: { participantId: string }) {
-  const assignmentId = useMemo(() => assignmentIdFromParams(params, participantId), [participantId]);
+function StudyTask({
+  adminMode,
+  forcedAssignmentId,
+  participantId,
+}: {
+  adminMode: boolean;
+  forcedAssignmentId: number | null;
+  participantId: string;
+}) {
+  const assignmentId = useMemo(
+    () => forcedAssignmentId ?? assignmentIdFromParams(params, participantId),
+    [forcedAssignmentId, participantId],
+  );
   const assignment = useMemo(() => buildAssignment(assignmentId), [assignmentId]);
   const [responses, setResponses] = useState<TrialResponse[]>(() =>
     readStoredResponses(participantId, assignment.assignmentId),
@@ -506,7 +695,9 @@ function StudyTask({ participantId }: { participantId: string }) {
   const [startedAt, setStartedAt] = useState(() => new Date().toISOString());
   const [postingError, setPostingError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [readingSecondsRemaining, setReadingSecondsRemaining] = useState(minimumComparisonSeconds);
+  const [readingSecondsRemaining, setReadingSecondsRemaining] = useState(
+    adminMode ? 0 : minimumComparisonSeconds,
+  );
   const submittingRef = useRef(false);
 
   const comparisonComplete = trialIndex >= assignment.trials.length;
@@ -523,10 +714,14 @@ function StudyTask({ participantId }: { participantId: string }) {
   );
   const currentTrialResponse = responses.find((response) => response.trialIndex === trialIndex);
   const readingComplete = readingSecondsRemaining <= 0;
+  const chosenScriptLabel = choice === "left" ? "Script A" : choice === "right" ? "Script B" : "the chosen script";
+  const improvementWordCount = wordCount(reason);
+  const improvementComplete = adminMode || improvementWordCount >= minimumImprovementWords;
   const canContinue = Boolean(
     choice &&
       leftRating !== null &&
       rightRating !== null &&
+      improvementComplete &&
       readingComplete &&
       (!attentionCheck || attentionCheckAnswer) &&
       !isSubmitting,
@@ -536,7 +731,9 @@ function StudyTask({ participantId }: { participantId: string }) {
     || (isSubmitting
       ? "Saving..."
       : readingComplete
-        ? "Response saves after each trial."
+        ? improvementComplete
+          ? "Response saves after each trial."
+          : `Please write at least ${minimumImprovementWords} words about how you would improve the chosen script.`
         : `Please spend at least 45 seconds reviewing both scripts. Continue unlocks in ${formatCountdown(
           readingSecondsRemaining,
         )}.`);
@@ -563,7 +760,7 @@ function StudyTask({ participantId }: { participantId: string }) {
   }, [assignment.trials.length, currentTrialResponse, trialIndex]);
 
   useEffect(() => {
-    if (trialIndex >= assignment.trials.length || currentTrialResponse) {
+    if (adminMode || trialIndex >= assignment.trials.length || currentTrialResponse) {
       setReadingSecondsRemaining(0);
       return;
     }
@@ -581,7 +778,7 @@ function StudyTask({ participantId }: { participantId: string }) {
     }, 250);
 
     return () => window.clearInterval(intervalId);
-  }, [assignment.trials.length, currentTrialResponse, trialIndex]);
+  }, [adminMode, assignment.trials.length, currentTrialResponse, trialIndex]);
 
   useEffect(() => {
     if (!complete || !returnUrl) return;
@@ -652,6 +849,11 @@ function StudyTask({ participantId }: { participantId: string }) {
   function goBack() {
     if (!canGoBack) return;
     setTrialIndex((current) => Math.max(current - 1, 0));
+  }
+
+  function skipToFinalStep() {
+    setPostingError("");
+    setTrialIndex(assignment.trials.length);
   }
 
   if (comparisonComplete && !questionnaire) {
@@ -734,6 +936,10 @@ function StudyTask({ participantId }: { participantId: string }) {
       </section>
 
       <section className="script-grid" aria-label="Script comparison">
+        <p className="script-choice-instruction">
+          Choose either Script A or Script B. You will still rate both scripts before continuing.
+        </p>
+
         <article className={`script-panel ${choice === "left" ? "selected" : ""}`}>
           <div className="script-heading">
             <h2>Script A</h2>
@@ -768,7 +974,7 @@ function StudyTask({ participantId }: { participantId: string }) {
       <section className="response-panel" aria-label="Response">
         <div className="question-block">
           <h2>Which script would better help this person prepare for the day?</h2>
-          <p>Choose one and rate both scripts before continuing.</p>
+          <p>Choose either Script A or Script B, then rate both scripts before continuing.</p>
         </div>
 
         <div className="rating-field" role="group" aria-label="Rate Script A">
@@ -833,8 +1039,19 @@ function StudyTask({ participantId }: { participantId: string }) {
         ) : null}
 
         <label className="reason-field">
-          <span>Optional note</span>
-          <textarea value={reason} onChange={(event) => setReason(event.target.value)} rows={3} />
+          <span>If you could make {chosenScriptLabel} better, how would you improve it?</span>
+          <textarea
+            aria-describedby="improvement-note-requirement"
+            aria-required={!adminMode}
+            value={reason}
+            onChange={(event) => setReason(event.target.value)}
+            rows={3}
+          />
+          <small id="improvement-note-requirement">
+            {adminMode
+              ? "Admin mode: no word minimum"
+              : `${Math.min(improvementWordCount, minimumImprovementWords)} / ${minimumImprovementWords} words minimum`}
+          </small>
         </label>
 
         <div className="footer-actions">
@@ -842,6 +1059,11 @@ function StudyTask({ participantId }: { participantId: string }) {
             {footerStatus}
           </p>
           <div className="nav-actions">
+            {adminMode ? (
+              <button className="secondary-button" disabled={isSubmitting} onClick={skipToFinalStep} type="button">
+                Skip to final step
+              </button>
+            ) : null}
             <button className="secondary-button" disabled={!canGoBack} onClick={goBack} type="button">
               Back
             </button>
@@ -879,11 +1101,30 @@ function QuestionnaireForm({
   const [postingError, setPostingError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const submittingRef = useRef(false);
+
+  function isQuestionAnswered(question: QuestionnaireQuestion) {
+    const selected = answers[question.id];
+    const mode = question.mode ?? "single";
+
+    if (mode === "range") return Boolean(selected);
+
+    if (mode === "ranking") {
+      return rankingValuesForQuestion(question, selected).length === (question.options ?? []).length;
+    }
+
+    if (mode === "multiple") {
+      const selectedValues = selectedValuesFromAnswer(selected);
+      return (
+        selectedValues.length > 0 &&
+        (!selectedValues.includes("other") || Boolean(answers[question.otherId].trim()))
+      );
+    }
+
+    return Boolean(selected) && (selected !== "other" || Boolean(answers[question.otherId].trim()));
+  }
+
   const canSubmit =
-    questionnaireQuestions.every((question) => {
-      const selected = answers[question.id];
-      return Boolean(selected) && (selected !== "other" || Boolean(answers[question.otherId].trim()));
-    }) &&
+    questionnaireQuestions.every(isQuestionAnswered) &&
     Boolean(answers.idealMorningGuidance.trim()) &&
     !isSubmitting;
 
@@ -895,7 +1136,82 @@ function QuestionnaireForm({
     setAnswers((current) => ({ ...current, [questionId]: value }));
   }
 
+  function setRangeAnswer(questionId: QuestionnaireChoiceId, bound: "lower" | "upper", value: string) {
+    const minutes = Number.parseInt(value, 10);
+    const normalizedMinutes = Number.isFinite(minutes)
+      ? clampScriptLengthMinutes(minutes)
+      : bound === "lower"
+        ? defaultScriptLengthRange.lower
+        : defaultScriptLengthRange.upper;
+
+    setAnswers((current) => ({
+      ...current,
+      [questionId]: (() => {
+        const currentRange = scriptLengthRangeFromAnswer(current[questionId]);
+        const nextRange =
+          bound === "lower"
+            ? {
+                lower: Math.min(normalizedMinutes, currentRange.upper),
+                upper: currentRange.upper,
+              }
+            : {
+                lower: currentRange.lower,
+                upper: Math.max(normalizedMinutes, currentRange.lower),
+              };
+
+        return scriptLengthAnswerFromRange(nextRange.lower, nextRange.upper);
+      })(),
+    }));
+  }
+
+  function toggleMultipleAnswer(question: QuestionnaireQuestion, value: string) {
+    setAnswers((current) => {
+      const selectedValues = selectedValuesFromAnswer(current[question.id]);
+      const nextValues = selectedValues.includes(value)
+        ? selectedValues.filter((selectedValue) => selectedValue !== value)
+        : [...selectedValues, value];
+
+      return {
+        ...current,
+        [question.id]: answerFromSelectedValues(nextValues),
+        ...(value === "other" && selectedValues.includes("other") ? { [question.otherId]: "" } : {}),
+      };
+    });
+  }
+
+  function moveRankingAnswer(question: QuestionnaireQuestion, value: string, direction: -1 | 1) {
+    setAnswers((current) => {
+      const rankingValues = rankingValuesForQuestion(question, current[question.id]);
+      const currentIndex = rankingValues.indexOf(value);
+      const nextIndex = currentIndex + direction;
+
+      if (currentIndex < 0 || nextIndex < 0 || nextIndex >= rankingValues.length) return current;
+
+      const nextValues = [...rankingValues];
+      [nextValues[currentIndex], nextValues[nextIndex]] = [nextValues[nextIndex], nextValues[currentIndex]];
+
+      return {
+        ...current,
+        [question.id]: answerFromSelectedValues(nextValues),
+      };
+    });
+  }
+
   function setOtherAnswer(question: QuestionnaireQuestion, value: string) {
+    if ((question.mode ?? "single") === "multiple") {
+      setAnswers((current) => {
+        const selectedValues = selectedValuesFromAnswer(current[question.id]);
+        const nextValues = selectedValues.includes("other") ? selectedValues : [...selectedValues, "other"];
+
+        return {
+          ...current,
+          [question.id]: answerFromSelectedValues(nextValues),
+          [question.otherId]: value,
+        };
+      });
+      return;
+    }
+
     setAnswers((current) => ({
       ...current,
       [question.id]: "other",
@@ -910,14 +1226,19 @@ function QuestionnaireForm({
     submittingRef.current = true;
     setIsSubmitting(true);
     const now = new Date().toISOString();
+    const personalizationFocusQuestion = questionnaireQuestions.find((question) => question.id === "personalizationFocus");
     const response: QuestionnaireResponse = {
       ...answers,
+      scriptLength: normalizeScriptLengthAnswer(answers.scriptLength),
       perspectivePreferenceOther: answers.perspectivePreferenceOther.trim(),
       guidanceLevelOther: answers.guidanceLevelOther.trim(),
       backgroundAudioOther: answers.backgroundAudioOther.trim(),
-      scriptLengthOther: answers.scriptLengthOther.trim(),
+      scriptLengthOther: "",
       toneStyleOther: answers.toneStyleOther.trim(),
-      personalizationFocusOther: answers.personalizationFocusOther.trim(),
+      personalizationFocus: personalizationFocusQuestion
+        ? answerFromSelectedValues(rankingValuesForQuestion(personalizationFocusQuestion, answers.personalizationFocus))
+        : answers.personalizationFocus,
+      personalizationFocusOther: "",
       deliveryFormatOther: answers.deliveryFormatOther.trim(),
       idealMorningGuidance: answers.idealMorningGuidance.trim(),
       responseId: `${participantId}:${assignmentId}:questionnaire`,
@@ -960,56 +1281,194 @@ function QuestionnaireForm({
       </header>
 
       <form className="questionnaire-panel" onSubmit={submitQuestionnaire}>
-        {questionnaireQuestions.map((question, questionIndex) => (
-          <fieldset className="questionnaire-question" key={question.id}>
-            <legend>
-              <span>{questionIndex + 1}</span>
-              {question.prompt}
-            </legend>
-            <div className="option-grid">
-              {question.options.map((option) => {
-                const optionId = `${question.id}-${option.value}`;
-                const selected = answers[question.id] === option.value;
-                return (
-                  <label className={selected ? "option-choice selected" : "option-choice"} htmlFor={optionId} key={option.value}>
+        {questionnaireQuestions.map((question, questionIndex) => {
+          const mode = question.mode ?? "single";
+          const selectedValues = selectedValuesFromAnswer(answers[question.id]);
+
+          if (mode === "ranking") {
+            const rankingValues = rankingValuesForQuestion(question, answers[question.id]);
+            const optionsByValue = new Map((question.options ?? []).map((option) => [option.value, option]));
+
+            return (
+              <fieldset className="questionnaire-question" key={question.id}>
+                <legend>
+                  <span>{questionIndex + 1}</span>
+                  {question.prompt}
+                </legend>
+                <ol className="ranking-list">
+                  {rankingValues.map((value, rankIndex) => {
+                    const option = optionsByValue.get(value);
+                    if (!option) return null;
+
+                    return (
+                      <li className="ranking-choice" key={option.value}>
+                        <div className="ranking-rank">{rankIndex + 1}</div>
+                        <div>
+                          <span>{option.label}</span>
+                          <small>{option.description}</small>
+                        </div>
+                        <div className="ranking-controls">
+                          <button
+                            disabled={rankIndex === 0}
+                            onClick={() => moveRankingAnswer(question, option.value, -1)}
+                            type="button"
+                          >
+                            Up
+                          </button>
+                          <button
+                            disabled={rankIndex === rankingValues.length - 1}
+                            onClick={() => moveRankingAnswer(question, option.value, 1)}
+                            type="button"
+                          >
+                            Down
+                          </button>
+                        </div>
+                      </li>
+                    );
+                  })}
+                </ol>
+              </fieldset>
+            );
+          }
+
+          if (mode === "range") {
+            const rangeValue = scriptLengthRangeFromAnswer(answers[question.id]);
+            const rangeStyle = {
+              "--range-lower": `${(rangeValue.lower / scriptLengthMax) * 100}%`,
+              "--range-upper": `${(rangeValue.upper / scriptLengthMax) * 100}%`,
+            } as CSSProperties;
+
+            return (
+              <fieldset className="questionnaire-question" key={question.id}>
+                <legend>
+                  <span>{questionIndex + 1}</span>
+                  {question.prompt}
+                </legend>
+                <div className="range-response">
+                  <div className="range-value">{formatScriptLengthRangeAnswer(answers[question.id])}</div>
+                  <div className="range-slider-stack" style={rangeStyle}>
                     <input
-                      checked={selected}
-                      id={optionId}
-                      name={question.id}
-                      onChange={() => setAnswer(question.id, option.value)}
-                      type="radio"
-                      value={option.value}
+                      aria-label="Minimum rehearsal length minutes"
+                      className="range-slider range-slider-lower"
+                      max={scriptLengthMax}
+                      min={scriptLengthMin}
+                      onChange={(event) => setRangeAnswer(question.id, "lower", event.currentTarget.value)}
+                      type="range"
+                      value={rangeValue.lower}
                     />
-                    <span>{option.label}</span>
-                    <small>{option.description}</small>
-                  </label>
-                );
-              })}
-              <label
-                className={answers[question.id] === "other" ? "option-choice free-text-option selected" : "option-choice free-text-option"}
-                htmlFor={`${question.id}-other`}
-              >
-                <input
-                  checked={answers[question.id] === "other"}
-                  id={`${question.id}-other`}
-                  name={question.id}
-                  onChange={() => setAnswer(question.id, "other")}
-                  type="radio"
-                  value="other"
-                />
-                <span>Other / free response</span>
-                <textarea
-                  aria-label={`${question.prompt} other response`}
-                  onChange={(event) => setOtherAnswer(question, event.target.value)}
-                  onFocus={() => setAnswer(question.id, "other")}
-                  placeholder="Type your preference"
-                  rows={2}
-                  value={answers[question.otherId]}
-                />
-              </label>
-            </div>
-          </fieldset>
-        ))}
+                    <input
+                      aria-label="Maximum rehearsal length minutes"
+                      className="range-slider range-slider-upper"
+                      max={scriptLengthMax}
+                      min={scriptLengthMin}
+                      onChange={(event) => setRangeAnswer(question.id, "upper", event.currentTarget.value)}
+                      type="range"
+                      value={rangeValue.upper}
+                    />
+                  </div>
+                  <div className="range-scale">
+                    <span>0 min</span>
+                    <span>{scriptLengthMax}+ min</span>
+                  </div>
+                  <div className="range-number-fields">
+                    <label className="range-number-field">
+                      <span>Minimum</span>
+                      <input
+                        aria-label="Minimum rehearsal length minutes"
+                        max={rangeValue.upper}
+                        min={scriptLengthMin}
+                        onChange={(event) => setRangeAnswer(question.id, "lower", event.currentTarget.value)}
+                        type="number"
+                        value={rangeValue.lower}
+                      />
+                    </label>
+                    <label className="range-number-field">
+                      <span>Maximum</span>
+                      <input
+                        aria-label="Maximum rehearsal length minutes"
+                        max={scriptLengthMax}
+                        min={rangeValue.lower}
+                        onChange={(event) => setRangeAnswer(question.id, "upper", event.currentTarget.value)}
+                        type="number"
+                        value={rangeValue.upper}
+                      />
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+            );
+          }
+
+          return (
+            <fieldset className="questionnaire-question" key={question.id}>
+              <legend>
+                <span>{questionIndex + 1}</span>
+                {question.prompt}
+              </legend>
+              <div className="option-grid">
+                {(question.options ?? []).map((option) => {
+                  const optionId = `${question.id}-${option.value}`;
+                  const selected =
+                    mode === "multiple"
+                      ? selectedValues.includes(option.value)
+                      : answers[question.id] === option.value;
+                  return (
+                    <label
+                      className={selected ? "option-choice selected" : "option-choice"}
+                      htmlFor={optionId}
+                      key={option.value}
+                    >
+                      <input
+                        checked={selected}
+                        id={optionId}
+                        name={question.id}
+                        onChange={() =>
+                          mode === "multiple"
+                            ? toggleMultipleAnswer(question, option.value)
+                            : setAnswer(question.id, option.value)
+                        }
+                        type={mode === "multiple" ? "checkbox" : "radio"}
+                        value={option.value}
+                      />
+                      <span>{option.label}</span>
+                      <small>{option.description}</small>
+                    </label>
+                  );
+                })}
+                <label
+                  className={
+                    (mode === "multiple" ? selectedValues.includes("other") : answers[question.id] === "other")
+                      ? "option-choice free-text-option selected"
+                      : "option-choice free-text-option"
+                  }
+                  htmlFor={`${question.id}-other`}
+                >
+                  <input
+                    checked={mode === "multiple" ? selectedValues.includes("other") : answers[question.id] === "other"}
+                    id={`${question.id}-other`}
+                    name={question.id}
+                    onChange={() =>
+                      mode === "multiple" ? toggleMultipleAnswer(question, "other") : setAnswer(question.id, "other")
+                    }
+                    type={mode === "multiple" ? "checkbox" : "radio"}
+                    value="other"
+                  />
+                  <span>Other / free response</span>
+                  <textarea
+                    aria-label={`${question.prompt} other response`}
+                    onChange={(event) => setOtherAnswer(question, event.target.value)}
+                    onFocus={() =>
+                      mode === "multiple" ? setOtherAnswer(question, answers[question.otherId]) : setAnswer(question.id, "other")
+                    }
+                    placeholder="Type your preference"
+                    rows={2}
+                    value={answers[question.otherId]}
+                  />
+                </label>
+              </div>
+            </fieldset>
+          );
+        })}
 
         <fieldset className="questionnaire-question">
           <legend>

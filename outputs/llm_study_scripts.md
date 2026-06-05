@@ -1,15 +1,15 @@
 # Backend Mental Rehearsal Study Scripts
 
-Generated at: 2026-05-29T01:59:14.404Z
+Generated at: 2026-06-05T17:37:06.880Z
 Requested model: gpt-5.5
-Generation source: baseline=openai.vanilla_baseline_prompt; rehearsal=backend.generate_ablation_rehearsal:rehearsal_system_prompt_draft.md
+Generation source: baseline=openai.vanilla_baseline_prompt; rehearsal=backend.generate_ablation_rehearsal
 Any backend mock used: false
 
 # maya_daily
 
 Models by arm: {"baseline":"gpt-5.5-2026-04-23","mind":"gpt-5.5-2026-04-23","body":"gpt-5.5-2026-04-23","soul":"gpt-5.5-2026-04-23","full":"gpt-5.5-2026-04-23"}
-Generation sources by arm: {"baseline":"openai.vanilla_baseline_prompt","mind":"backend.generate_ablation_rehearsal:rehearsal_system_prompt_draft.md","body":"backend.generate_ablation_rehearsal:rehearsal_system_prompt_draft.md","soul":"backend.generate_ablation_rehearsal:rehearsal_system_prompt_draft.md","full":"backend.generate_ablation_rehearsal:rehearsal_system_prompt_draft.md"}
-Word counts: {"baseline":204,"mind":270,"body":242,"soul":238,"full":285}
+Generation sources by arm: {"baseline":"openai.vanilla_baseline_prompt","mind":"backend.generate_ablation_rehearsal","body":"backend.generate_ablation_rehearsal","soul":"backend.generate_ablation_rehearsal","full":"backend.generate_ablation_rehearsal"}
+Word counts: {"baseline":258,"mind":269,"body":257,"soul":236,"full":228}
 
 ## baseline input
 
@@ -30,15 +30,17 @@ Word counts: {"baseline":204,"mind":270,"body":242,"soul":238,"full":285}
 ```
 
 
-## baseline script (204 words)
+## baseline script (258 words)
 
-Today’s schedule includes several defined work periods, meetings, and breaks. Begin by noting the first item, reviewing the paper plan from 08:15 to 08:35. Use that time to look over the plan and make any straightforward adjustments or reminders needed before moving on. At 09:00, shift to drafting the related work section for the 90-minute block, keeping attention on that writing task until 10:30.
+Today’s schedule contains several separate blocks, each with its own start time and duration. Begin by noting the first item, reviewing the paper plan from 08:15 to 08:35. This is a 20-minute block, so the preparation can be simple: have the relevant plan or notes available, check what needs to be reviewed, and use the time to look over the material steadily.
 
-After that, there is a lab standup from 10:45 to 11:15. Allow a few minutes before it to be ready to join or attend, then use the meeting time for the scheduled discussion. Lunch is listed from 12:10 to 12:40, so treat that as the planned break in the middle of the day.
+The next scheduled block is drafting the related work section from 09:00 to 10:30. This is the longest block of the day at 90 minutes. Before it starts, make sure the documents, references, and any notes needed for writing are accessible. When the block begins, work on the drafting task during that assigned period.
 
-In the afternoon, answer TA emails from 13:00 to 13:20, focusing on clearing or responding to the relevant messages during that short window. From 14:00 to 14:45, move to teaching support tasks and work through the items associated with that block. At 15:00, prepare two reading group questions during the 30-minute session. Later, from 16:15 to 16:35, send the advisor progress note.
+At 10:45, there is a 30-minute lab standup. Leave enough time before then to switch from writing to the meeting. Have any basic updates or points ready if needed. After that, there is a lunch break from 12:10 to 12:40.
 
-Follow the calendar times as they appear, completing each item in its assigned period and transitioning to the next scheduled activity when its time arrives.
+The afternoon begins with answering TA emails from 13:00 to 13:20. Use that 20-minute block for email responses related to TA work. Teaching support tasks are scheduled from 14:00 to 14:45, followed by preparing two reading group questions from 15:00 to 15:30. Keep the materials for each task separate and move from one block to the next according to the calendar.
+
+The final listed item is sending an advisor progress note from 16:15 to 16:35. Use that time to compose and send the note. Overall, follow the visible schedule, attend to each item during its assigned window, and transition calmly between blocks.
 
 ## mind input
 
@@ -179,21 +181,21 @@ Follow the calendar times as they appear, completing each item in its assigned p
 ## mind sections
 
 ### Introduction
-Feel your breath move in and out, and notice the contact of your body with the chair or the ground. Let your shoulders, jaw, and hands be exactly as they are, while sounds and thoughts pass through the room around you. You do not need to change your energy before the day begins; you only need to arrive here. In the background, Maya is moving toward becoming an independent researcher, building the kind of work she is proud to defend.
+Feel your breath arrive and leave, and let your feet register the ground beneath you. Notice the contact of the chair, the set of your shoulders, the sounds around you, and the movement of thoughts without needing to change any of it. Let the day come into view gently: a morning of research writing, a few teaching and lab touchpoints, and one larger direction behind it all.
 
 ### Task visualization
-Let the first anchor appear: Draft related work section, the high-priority stretch of the day. Imagine you are able to stay with it long enough for the section to become more coherent, more usable, more like something an advisor can read and respond to. What does it feel like when the most important part of that 90-minute effort is done enough to count? Let the next anchor come into view: Answer TA emails, a shorter piece of work that clears space without taking over the day. Then see yourself preparing two reading group questions, reaching the point where the questions are ready to bring into the room; can you sense the quiet accomplishment of moving research and responsibilities forward today?
+This work serves your path toward becoming an independent researcher: someone who can think, write, judge, and defend work with care. Now let the first anchor appear, Draft related work section, the high-priority stretch of the day; imagine the section beginning to take shape, and then reaching a point where there is one coherent draft that can be built on. What does it feel like when the argument has more structure than it had before? Let the next anchor come into view, Answer TA emails, a shorter piece of care for the teaching side of the day; imagine it becoming clear and contained. Then see Prepare two reading group questions, enough to bring real attention into the room. What changes in your focus when these three anchors are done enough to count?
 
 ### Ending
-Come back to the larger direction: one strong workshop paper submitted by the end of June, and a research life shaped by your own judgment. Let the body feel a little steadier, not perfect, just ready for the next doable action. You are capable of moving one real piece forward today. Say quietly to yourself: I can begin with the next anchor in service of the researcher I am becoming.
+Come back to the larger aim: one strong workshop paper submitted by the end of June, and a research life built one honest piece at a time. Today does not need to hold the whole future; it only needs the next real movement toward it. Let your mind feel a little clearer around what matters most. Say quietly to yourself: I can move one strong piece of research forward today.
 
-## mind script (270 words)
+## mind script (269 words)
 
-Feel your breath move in and out, and notice the contact of your body with the chair or the ground. Let your shoulders, jaw, and hands be exactly as they are, while sounds and thoughts pass through the room around you. You do not need to change your energy before the day begins; you only need to arrive here. In the background, Maya is moving toward becoming an independent researcher, building the kind of work she is proud to defend.
+Feel your breath arrive and leave, and let your feet register the ground beneath you. Notice the contact of the chair, the set of your shoulders, the sounds around you, and the movement of thoughts without needing to change any of it. Let the day come into view gently: a morning of research writing, a few teaching and lab touchpoints, and one larger direction behind it all.
 
-Let the first anchor appear: Draft related work section, the high-priority stretch of the day. Imagine you are able to stay with it long enough for the section to become more coherent, more usable, more like something an advisor can read and respond to. What does it feel like when the most important part of that 90-minute effort is done enough to count? Let the next anchor come into view: Answer TA emails, a shorter piece of work that clears space without taking over the day. Then see yourself preparing two reading group questions, reaching the point where the questions are ready to bring into the room; can you sense the quiet accomplishment of moving research and responsibilities forward today?
+This work serves your path toward becoming an independent researcher: someone who can think, write, judge, and defend work with care. Now let the first anchor appear, Draft related work section, the high-priority stretch of the day; imagine the section beginning to take shape, and then reaching a point where there is one coherent draft that can be built on. What does it feel like when the argument has more structure than it had before? Let the next anchor come into view, Answer TA emails, a shorter piece of care for the teaching side of the day; imagine it becoming clear and contained. Then see Prepare two reading group questions, enough to bring real attention into the room. What changes in your focus when these three anchors are done enough to count?
 
-Come back to the larger direction: one strong workshop paper submitted by the end of June, and a research life shaped by your own judgment. Let the body feel a little steadier, not perfect, just ready for the next doable action. You are capable of moving one real piece forward today. Say quietly to yourself: I can begin with the next anchor in service of the researcher I am becoming.
+Come back to the larger aim: one strong workshop paper submitted by the end of June, and a research life built one honest piece at a time. Today does not need to hold the whole future; it only needs the next real movement toward it. Let your mind feel a little clearer around what matters most. Say quietly to yourself: I can move one strong piece of research forward today.
 
 ## body input
 
@@ -301,21 +303,21 @@ Come back to the larger direction: one strong workshop paper submitted by the en
 ## body sections
 
 ### Introduction
-Feel your feet on the floor and let your breath settle into the chair beneath you. Notice the quiet apartment hum, the feeling in your shoulders and jaw, and any thoughts passing through without needing to fix them. Your body has slept some, not fully, and your energy is modest right now, with a clearer rise available later in the morning. After you land here, let the scene form: morning light through the window, coffee nearby, the phone face down, and the laptop open.
+Feel your feet meet the floor, and let your breath settle into the chair or the place beneath you. Notice the jaw, the shoulders, the quiet apartment hum, and any thoughts moving through without needing to fix them. Your body is starting from a low-energy place today, with shorter sleep and a recovery signal that asks for honesty. Let the morning light, the coffee, and the phone face down become simple cues for arriving.
 
 ### Task visualization
-Let the important work of the day come into view in a simple, unnamed way. Imagine beginning with the energy you actually have, not forcing brightness, just placing attention on the next useful piece in front of you. What does it feel like when your hands, breath, and eyes all agree to stay with one small stretch of work? Picture a moment when the paper draft, the anchor papers, or the quiet screen shows that something has moved forward enough to count. Can you sense the steadiness of doing one real part, then another, while the morning light and quiet hum hold the edges of the scene?
+Because no specific priority list is here, let today’s important work appear as one clear, modest shape rather than a full schedule. Imagine choosing the piece that matters most and beginning it with the energy you actually have, not the energy you wish you had. You can see yourself moving it forward enough for it to count. What does “done enough” look like today? What changes in your attention when the first useful part is finished? Let a second small anchor come into view, then a third, each one simple enough to meet from this steadier pace. Near the end of this imagined work, what do you notice in your breathing, your posture, or the space behind your eyes?
 
 ### Ending
-Let your body stay honest: feet grounded, breath steady, attention clear enough for the next step. You do not need to feel fully charged to make real progress today. Carry this as the line you return to when you begin. Say quietly to yourself: I can move one honest piece forward.
+Return to the body for a moment: feet on the floor, breath available, shoulders a little softer. Today does not need to become a high-energy performance to become a real day of progress. You can move toward what matters by choosing the next doable action and giving it your honest attention. Say quietly to yourself: I can work steadily from the energy I have.
 
-## body script (242 words)
+## body script (257 words)
 
-Feel your feet on the floor and let your breath settle into the chair beneath you. Notice the quiet apartment hum, the feeling in your shoulders and jaw, and any thoughts passing through without needing to fix them. Your body has slept some, not fully, and your energy is modest right now, with a clearer rise available later in the morning. After you land here, let the scene form: morning light through the window, coffee nearby, the phone face down, and the laptop open.
+Feel your feet meet the floor, and let your breath settle into the chair or the place beneath you. Notice the jaw, the shoulders, the quiet apartment hum, and any thoughts moving through without needing to fix them. Your body is starting from a low-energy place today, with shorter sleep and a recovery signal that asks for honesty. Let the morning light, the coffee, and the phone face down become simple cues for arriving.
 
-Let the important work of the day come into view in a simple, unnamed way. Imagine beginning with the energy you actually have, not forcing brightness, just placing attention on the next useful piece in front of you. What does it feel like when your hands, breath, and eyes all agree to stay with one small stretch of work? Picture a moment when the paper draft, the anchor papers, or the quiet screen shows that something has moved forward enough to count. Can you sense the steadiness of doing one real part, then another, while the morning light and quiet hum hold the edges of the scene?
+Because no specific priority list is here, let today’s important work appear as one clear, modest shape rather than a full schedule. Imagine choosing the piece that matters most and beginning it with the energy you actually have, not the energy you wish you had. You can see yourself moving it forward enough for it to count. What does “done enough” look like today? What changes in your attention when the first useful part is finished? Let a second small anchor come into view, then a third, each one simple enough to meet from this steadier pace. Near the end of this imagined work, what do you notice in your breathing, your posture, or the space behind your eyes?
 
-Let your body stay honest: feet grounded, breath steady, attention clear enough for the next step. You do not need to feel fully charged to make real progress today. Carry this as the line you return to when you begin. Say quietly to yourself: I can move one honest piece forward.
+Return to the body for a moment: feet on the floor, breath available, shoulders a little softer. Today does not need to become a high-energy performance to become a real day of progress. You can move toward what matters by choosing the next doable action and giving it your honest attention. Say quietly to yourself: I can work steadily from the energy I have.
 
 ## soul input
 
@@ -387,21 +389,21 @@ Let your body stay honest: feet grounded, breath steady, attention clear enough 
 ## soul sections
 
 ### Introduction
-Feel your breath arrive in your body, and notice the places where you make contact with the chair or the ground. Let your shoulders, jaw, and hands be exactly as they are, while sounds and thoughts move through the background. Without needing to change your energy, simply notice what is here now. In this space, Maya can remember Independent Thinking: trusting her own questions before borrowing other people's.
+Feel the breath arrive, and let the body notice contact with the chair or the ground. Notice any sound in the room, any tightness in the jaw or shoulders, and the movement of thoughts as they pass through. Nothing has to be fixed before the day begins. Let the scene open around having room to think, trusting your own questions before borrowing other people’s.
 
 ### Task visualization
-Because the specific priorities for today are not named, let the important work appear as a simple shape rather than a fixed list. Imagine the first meaningful piece of the day coming into view, the one that gives Maya room to think and make decisions faster. What does it feel like when she begins from self-trust, mentally clear and unboxed? Imagine visible progress forming, enough to feel focused and competent, and then let curiosity stay present as she learns something she did not expect. Can you sense the quiet accomplishment of finishing what matters, even without needing the whole day to be perfect?
+This day serves a life where you think and write on your own questions. With no specific task list here, let the most important work of the day come into view as a simple anchor: finishing what matters, making visible progress, and leaving space for curiosity. Imagine the moment when something begins to move because you give it your own attention. What does mentally clear feel like in your body? What changes in your attention when you are self-trusting and unboxed? Can you sense the quiet competence of reaching a point that is done enough to count, while still staying open to an answer you did not expect?
 
 ### Ending
-Come back to the breath, and let the next doable action feel close enough to begin. What matters is a life where Maya thinks and writes on her own questions, one honest step at a time. There is capability here, not as pressure, but as steadier trust in the next movement. Say quietly to yourself: I can trust my own questions and take the next clear step.
+Return to what matters: having room to think, finishing what matters, and staying curious as the day unfolds. Let the body be as it is, and let the next doable action be small enough to enter with trust. You do not need the whole day solved in advance. Say quietly to yourself: I can trust my own questions and move one real thing forward.
 
-## soul script (238 words)
+## soul script (236 words)
 
-Feel your breath arrive in your body, and notice the places where you make contact with the chair or the ground. Let your shoulders, jaw, and hands be exactly as they are, while sounds and thoughts move through the background. Without needing to change your energy, simply notice what is here now. In this space, Maya can remember Independent Thinking: trusting her own questions before borrowing other people's.
+Feel the breath arrive, and let the body notice contact with the chair or the ground. Notice any sound in the room, any tightness in the jaw or shoulders, and the movement of thoughts as they pass through. Nothing has to be fixed before the day begins. Let the scene open around having room to think, trusting your own questions before borrowing other people’s.
 
-Because the specific priorities for today are not named, let the important work appear as a simple shape rather than a fixed list. Imagine the first meaningful piece of the day coming into view, the one that gives Maya room to think and make decisions faster. What does it feel like when she begins from self-trust, mentally clear and unboxed? Imagine visible progress forming, enough to feel focused and competent, and then let curiosity stay present as she learns something she did not expect. Can you sense the quiet accomplishment of finishing what matters, even without needing the whole day to be perfect?
+This day serves a life where you think and write on your own questions. With no specific task list here, let the most important work of the day come into view as a simple anchor: finishing what matters, making visible progress, and leaving space for curiosity. Imagine the moment when something begins to move because you give it your own attention. What does mentally clear feel like in your body? What changes in your attention when you are self-trusting and unboxed? Can you sense the quiet competence of reaching a point that is done enough to count, while still staying open to an answer you did not expect?
 
-Come back to the breath, and let the next doable action feel close enough to begin. What matters is a life where Maya thinks and writes on her own questions, one honest step at a time. There is capability here, not as pressure, but as steadier trust in the next movement. Say quietly to yourself: I can trust my own questions and take the next clear step.
+Return to what matters: having room to think, finishing what matters, and staying curious as the day unfolds. Let the body be as it is, and let the next doable action be small enough to enter with trust. You do not need the whole day solved in advance. Say quietly to yourself: I can trust my own questions and move one real thing forward.
 
 ## full input
 
@@ -688,27 +690,27 @@ Come back to the breath, and let the next doable action feel close enough to beg
 ## full sections
 
 ### Introduction
-Feel your feet on the floor, the chair holding you, and the breath moving in and out without needing to become different. Notice the quiet apartment hum, the taste or smell of coffee, and any thoughts already circling the day. Your body is working with a shorter night behind it, so the energy feels modest, not absent; it rises most clearly through the morning and again later in the afternoon. Let the scene open gently: morning light through the window, phone face down, laptop waiting as a place for independent thinking.
+Feel your feet on the floor and let your breath settle into the chair beneath you. Notice the quiet apartment hum, the taste of coffee or water, the thoughts already moving, and the honest body-state of a shorter night: not empty, but needing a steady pace. Morning light comes through the window, the phone is face down, and you are here to think and write on your own questions.
 
 ### Task visualization
-Let the first anchor appear: Draft related work section, the high-priority stretch of the morning. Imagine you are able to give this ninety-minute block your clearest available attention, with the three anchor papers beside the keyboard and enough focus to shape one coherent section draft; what does it feel like when the work is done enough to count? Let the next anchor come into view: Answer TA emails, a smaller twenty-minute piece, handled with simple competence so it no longer pulls at the edge of your mind. Then see yourself preparing two reading group questions, staying curious and open-minded, reaching the point where the questions are useful and real; can you sense the feeling of visible progress inside this work?
+This work serves the research life you are building: independent judgment, a strong workshop paper, and work you are proud to defend. Let the first anchor appear: Draft related work section, the long high-priority stretch where you imagine the section becoming coherent enough to count. What does visible progress feel like in your body when the main shape is there? Let the smaller anchor appear: Answer TA emails, a brief piece of care that clears space. Then let Prepare two reading group questions come into view, with curiosity still available. Can you sense being mentally clear, focused, and self-trusting as each anchor reaches done enough?
 
 ### Ending
-Return to what matters: a life where you think and write on your own questions, one strong workshop paper moving forward by the end of June. Let your shoulders soften, your jaw unclench, and your attention settle into the next doable action rather than the whole mountain. You are capable of finishing what matters today in an honest, paced way. Say quietly to yourself: I can be self-trusting and take the next clear step.
+Return to the feeling of having room to think, even with limited energy. You do not need today to feel effortless; you can move steadily through the next doable action and let that become real progress toward the paper. Say quietly to yourself: I can be self-trusting and still move one clear piece forward.
 
-## full script (285 words)
+## full script (228 words)
 
-Feel your feet on the floor, the chair holding you, and the breath moving in and out without needing to become different. Notice the quiet apartment hum, the taste or smell of coffee, and any thoughts already circling the day. Your body is working with a shorter night behind it, so the energy feels modest, not absent; it rises most clearly through the morning and again later in the afternoon. Let the scene open gently: morning light through the window, phone face down, laptop waiting as a place for independent thinking.
+Feel your feet on the floor and let your breath settle into the chair beneath you. Notice the quiet apartment hum, the taste of coffee or water, the thoughts already moving, and the honest body-state of a shorter night: not empty, but needing a steady pace. Morning light comes through the window, the phone is face down, and you are here to think and write on your own questions.
 
-Let the first anchor appear: Draft related work section, the high-priority stretch of the morning. Imagine you are able to give this ninety-minute block your clearest available attention, with the three anchor papers beside the keyboard and enough focus to shape one coherent section draft; what does it feel like when the work is done enough to count? Let the next anchor come into view: Answer TA emails, a smaller twenty-minute piece, handled with simple competence so it no longer pulls at the edge of your mind. Then see yourself preparing two reading group questions, staying curious and open-minded, reaching the point where the questions are useful and real; can you sense the feeling of visible progress inside this work?
+This work serves the research life you are building: independent judgment, a strong workshop paper, and work you are proud to defend. Let the first anchor appear: Draft related work section, the long high-priority stretch where you imagine the section becoming coherent enough to count. What does visible progress feel like in your body when the main shape is there? Let the smaller anchor appear: Answer TA emails, a brief piece of care that clears space. Then let Prepare two reading group questions come into view, with curiosity still available. Can you sense being mentally clear, focused, and self-trusting as each anchor reaches done enough?
 
-Return to what matters: a life where you think and write on your own questions, one strong workshop paper moving forward by the end of June. Let your shoulders soften, your jaw unclench, and your attention settle into the next doable action rather than the whole mountain. You are capable of finishing what matters today in an honest, paced way. Say quietly to yourself: I can be self-trusting and take the next clear step.
+Return to the feeling of having room to think, even with limited energy. You do not need today to feel effortless; you can move steadily through the next doable action and let that become real progress toward the paper. Say quietly to yourself: I can be self-trusting and still move one clear piece forward.
 
 # maya_task
 
 Models by arm: {"baseline":"gpt-5.5-2026-04-23","mind":"gpt-5.5-2026-04-23","body":"gpt-5.5-2026-04-23","soul":"gpt-5.5-2026-04-23","full":"gpt-5.5-2026-04-23"}
-Generation sources by arm: {"baseline":"openai.vanilla_baseline_prompt","mind":"backend.generate_ablation_rehearsal:rehearsal_system_prompt_draft.md","body":"backend.generate_ablation_rehearsal:rehearsal_system_prompt_draft.md","soul":"backend.generate_ablation_rehearsal:rehearsal_system_prompt_draft.md","full":"backend.generate_ablation_rehearsal:rehearsal_system_prompt_draft.md"}
-Word counts: {"baseline":219,"mind":250,"body":257,"soul":223,"full":272}
+Generation sources by arm: {"baseline":"openai.vanilla_baseline_prompt","mind":"backend.generate_ablation_rehearsal","body":"backend.generate_ablation_rehearsal","soul":"backend.generate_ablation_rehearsal","full":"backend.generate_ablation_rehearsal"}
+Word counts: {"baseline":262,"mind":274,"body":271,"soul":251,"full":247}
 
 ## baseline input
 
@@ -725,17 +727,15 @@ Word counts: {"baseline":219,"mind":250,"body":257,"soul":223,"full":272}
 ```
 
 
-## baseline script (219 words)
+## baseline script (262 words)
 
-Prepare for the related work writing block by setting up the materials and notes needed for the session. Begin with the intention to work through the listed tasks in a steady, practical way, using the available time for each item as a guide. The main block is to draft the related work section for 90 minutes, so have the relevant sources, outline, or document open and ready before starting.
+Take a moment to get ready for the related work writing block. The session includes drafting the related work section, re-reading anchor findings, drafting a gap statement, and connecting the related work to the gap. These are ordinary parts of the writing process, and the aim is simply to move through them in a clear, steady way.
 
-After that, allow 15 minutes to re-read the anchor findings. Use this time to refresh the key points that need to be represented accurately. The aim is simply to review what is already available and notice which findings are most useful for the writing.
+Begin by preparing the materials needed for the block. Open the document where the related work section will be drafted, along with any notes, papers, or references needed for the anchor findings. Make sure the writing space is usable and that the relevant files are easy to access. If it helps, note the approximate timing of the block: 90 minutes for drafting the related work section, 15 minutes for re-reading anchor findings, 20 minutes for drafting the gap statement, and 25 minutes for connecting the related work to the gap.
 
-Next, spend 20 minutes drafting the gap statement. Keep the focus on producing a clear working version rather than making it final immediately. It can be revised later, but the goal for this block is to put the main idea into words.
+When starting the draft, focus on getting the main ideas onto the page rather than making every sentence final. The related work section can be shaped through revision later. After that, use the short re-reading period to check the anchor findings and refresh the main points that should be represented accurately.
 
-Then use 25 minutes to connect the related work to the gap. Look for places where the reviewed literature leads naturally into the gap statement. Make simple adjustments so the section moves clearly from prior work toward the reason for the current focus.
-
-Move through the tasks in order, keep the materials organized, and use the time blocks to maintain a steady writing pace.
+For the gap statement, write a concise version of what is missing, unresolved, or underdeveloped in the existing work. It does not need to be perfect at first. Then use the final portion to make the connection between the reviewed literature and the gap clearer. Work through the visible tasks one at a time, keeping attention on the current part of the writing block.
 
 ## mind input
 
@@ -828,21 +828,21 @@ Move through the tasks in order, keep the materials organized, and use the time 
 ## mind sections
 
 ### Introduction
-Feel the breath move in and out, and notice the weight of the body being held for a moment. Let the shoulders, jaw, and hands register how they are right now, without needing to fix anything. Hear whatever sounds are around you, and let thoughts pass through as part of arriving. In the background, the larger direction is clear: becoming an independent researcher who can think, write, and defend work with growing judgment.
+I feel my breath arriving in my body, and I notice the places where I meet the chair or the floor. I let my shoulders, jaw, and hands be exactly as they are for a moment. I notice any sounds around me, any thoughts moving through, and I do not need to change them before I begin. I am here, and my attention can gather around one meaningful piece of work.
 
 ### Task visualization
-I let the task come into view: drafting the related work section for the CHI workshop paper, a focused ninety-minute step toward a strong submission this month. I begin by re-reading the three anchor papers’ findings sections; what do I notice when the main patterns start to become clearer? Then I draft the gap statement, one paragraph another person can react to, and I sense the work becoming more concrete. I connect the related work back to that gap, seeing the section hold together enough to count as real progress. What does it feel like when I reach the point where this draft has moved forward in a way I can stand behind?
+This work serves my larger path of becoming an independent researcher: someone who can think and write on my own questions, develop judgment, and produce work I am proud to defend. I let the task come into view: drafting the related work section for the CHI workshop paper. I imagine a solid ninety-minute stretch where the most important part moves forward. The three anchor papers’ findings become clearer in my mind; the gap statement starts to have a shape; the related work begins to point back toward that gap. What does it feel like when the section is coherent enough to keep building? What changes in my attention when I can see the argument holding together? I can picture reaching a point where this draft is not perfect, but it is real enough for the next round of thinking.
 
 ### Ending
-Come back to the breath, and let the next doable action feel close rather than distant. This work does not have to be final to be meaningful; it only has to become clear enough to move the paper forward. I am able to write the next coherent piece in service of becoming an independent researcher. Carry that line into the first moment of work.
+I return to what matters: one strong workshop paper submitted by the end of June, built through focused pieces like this one. I do not need to solve the whole paper in this sitting. I can move one high-priority section forward with steady attention and honest judgment. Say quietly to myself: I can begin this section in service of the researcher I am becoming.
 
-## mind script (250 words)
+## mind script (274 words)
 
-Feel the breath move in and out, and notice the weight of the body being held for a moment. Let the shoulders, jaw, and hands register how they are right now, without needing to fix anything. Hear whatever sounds are around you, and let thoughts pass through as part of arriving. In the background, the larger direction is clear: becoming an independent researcher who can think, write, and defend work with growing judgment.
+I feel my breath arriving in my body, and I notice the places where I meet the chair or the floor. I let my shoulders, jaw, and hands be exactly as they are for a moment. I notice any sounds around me, any thoughts moving through, and I do not need to change them before I begin. I am here, and my attention can gather around one meaningful piece of work.
 
-I let the task come into view: drafting the related work section for the CHI workshop paper, a focused ninety-minute step toward a strong submission this month. I begin by re-reading the three anchor papers’ findings sections; what do I notice when the main patterns start to become clearer? Then I draft the gap statement, one paragraph another person can react to, and I sense the work becoming more concrete. I connect the related work back to that gap, seeing the section hold together enough to count as real progress. What does it feel like when I reach the point where this draft has moved forward in a way I can stand behind?
+This work serves my larger path of becoming an independent researcher: someone who can think and write on my own questions, develop judgment, and produce work I am proud to defend. I let the task come into view: drafting the related work section for the CHI workshop paper. I imagine a solid ninety-minute stretch where the most important part moves forward. The three anchor papers’ findings become clearer in my mind; the gap statement starts to have a shape; the related work begins to point back toward that gap. What does it feel like when the section is coherent enough to keep building? What changes in my attention when I can see the argument holding together? I can picture reaching a point where this draft is not perfect, but it is real enough for the next round of thinking.
 
-Come back to the breath, and let the next doable action feel close rather than distant. This work does not have to be final to be meaningful; it only has to become clear enough to move the paper forward. I am able to write the next coherent piece in service of becoming an independent researcher. Carry that line into the first moment of work.
+I return to what matters: one strong workshop paper submitted by the end of June, built through focused pieces like this one. I do not need to solve the whole paper in this sitting. I can move one high-priority section forward with steady attention and honest judgment. Say quietly to myself: I can begin this section in service of the researcher I am becoming.
 
 ## body input
 
@@ -948,21 +948,21 @@ Come back to the breath, and let the next doable action feel close rather than d
 ## body sections
 
 ### Introduction
-Feel your feet on the floor and let your breath arrive without forcing it. Notice the chair holding you, the quiet apartment hum, the taste of coffee or water, and any thoughts moving through. Energy is honest and modest today, shaped by a shorter night of sleep, so the body does not need to pretend to be sharper than it is. Let the scene form gently: the paper draft open, anchor papers beside the keyboard, the phone face down, and the cursor waiting at the related work section.
+I feel my feet on the floor and let my breath arrive without forcing it. I notice the chair holding me, my shoulders, my jaw, the quiet apartment hum, and any thoughts already moving through. My energy is low but present, shaped by a shorter night of sleep, so I let the body work honestly. I picture the paper draft open, anchor papers near the keyboard, the cursor waiting in the related work section, coffee close by, and my phone face down.
 
 ### Task visualization
-I begin with this one task in front of me, letting the paper and the related work section become the whole field of attention. I feel my feet stay grounded, my hands near the keyboard, and the warm mug nearby as the first useful sentence or adjustment starts to appear. What does it feel like when the section begins to move, even in a small, real way? I can imagine staying with the draft long enough to make visible progress, using the quiet hum and the face-down phone as cues that my attention is here. What changes in my body when I reach the point where this work is done enough for this sitting?
+I do not need to know the whole purpose of this task to begin the next real piece of it. I imagine entering the related work section with steady, modest attention, letting the first useful sentence or connection become visible. What does it feel like when the work starts to move, even a little? I can sense my mind staying with one paragraph, one citation, one clear relationship at a time. With energy at a three, success looks like a believable amount of progress, not a forced sprint. What changes in my body when the section is more shaped than when I began? Near the end of this imagined work, what do I notice in my breathing, my eyes, or my attention as I reach a point that counts?
 
 ### Ending
-Come back to the floor, the breath, and the steady evidence that modest energy can still support meaningful progress. The next action is small enough to enter, and I am capable of beginning from exactly this body state. Say quietly to yourself: I do not need full energy; I can take the next honest step.
+I come back to my body: feet, breath, chair, hands, the quiet around me. I can move at an honest pace and still make the work more real than it was before. The next action does not have to be dramatic; it only has to be available. Say quietly to myself: I can begin small and make this section clearer.
 
-## body script (257 words)
+## body script (271 words)
 
-Feel your feet on the floor and let your breath arrive without forcing it. Notice the chair holding you, the quiet apartment hum, the taste of coffee or water, and any thoughts moving through. Energy is honest and modest today, shaped by a shorter night of sleep, so the body does not need to pretend to be sharper than it is. Let the scene form gently: the paper draft open, anchor papers beside the keyboard, the phone face down, and the cursor waiting at the related work section.
+I feel my feet on the floor and let my breath arrive without forcing it. I notice the chair holding me, my shoulders, my jaw, the quiet apartment hum, and any thoughts already moving through. My energy is low but present, shaped by a shorter night of sleep, so I let the body work honestly. I picture the paper draft open, anchor papers near the keyboard, the cursor waiting in the related work section, coffee close by, and my phone face down.
 
-I begin with this one task in front of me, letting the paper and the related work section become the whole field of attention. I feel my feet stay grounded, my hands near the keyboard, and the warm mug nearby as the first useful sentence or adjustment starts to appear. What does it feel like when the section begins to move, even in a small, real way? I can imagine staying with the draft long enough to make visible progress, using the quiet hum and the face-down phone as cues that my attention is here. What changes in my body when I reach the point where this work is done enough for this sitting?
+I do not need to know the whole purpose of this task to begin the next real piece of it. I imagine entering the related work section with steady, modest attention, letting the first useful sentence or connection become visible. What does it feel like when the work starts to move, even a little? I can sense my mind staying with one paragraph, one citation, one clear relationship at a time. With energy at a three, success looks like a believable amount of progress, not a forced sprint. What changes in my body when the section is more shaped than when I began? Near the end of this imagined work, what do I notice in my breathing, my eyes, or my attention as I reach a point that counts?
 
-Come back to the floor, the breath, and the steady evidence that modest energy can still support meaningful progress. The next action is small enough to enter, and I am capable of beginning from exactly this body state. Say quietly to yourself: I do not need full energy; I can take the next honest step.
+I come back to my body: feet, breath, chair, hands, the quiet around me. I can move at an honest pace and still make the work more real than it was before. The next action does not have to be dramatic; it only has to be available. Say quietly to myself: I can begin small and make this section clearer.
 
 ## soul input
 
@@ -1036,21 +1036,21 @@ Come back to the floor, the breath, and the steady evidence that modest energy c
 ## soul sections
 
 ### Introduction
-Feel the breath arrive in your body, and notice the contact beneath you. Let your shoulders, jaw, and hands be exactly as they are for a moment, without needing to fix anything. You can hear what is around you, feel what is inside you, and let thoughts pass through without making them the whole scene. In the background, Independent Thinking is here as a quiet compass: trusting your own questions before borrowing other people’s.
+I feel my breath moving in and out, and I let my posture arrive as it is. I notice the contact beneath me, the sounds around me, and the thoughts already present, without needing to fix them. Since there is no body snapshot here, I simply meet my current energy honestly. I let the deeper shape of this moment appear: a life where I think and write on my own questions.
 
 ### Task visualization
-I let the task come into view in a simple, open way, without needing every detail named. I imagine beginning from room to think, with my attention becoming mentally clear, self-trusting, and unboxed. What does it feel like in my body when I trust my own first question? I sense the work moving toward Success as finishing what matters, and I picture the moment when there is visible progress, enough to feel accomplished, focused, and competent. What changes in my attention when I stay curious about an answer I did not expect?
+This work serves my wish to trust my own questions before borrowing other people’s. I do not need to know every detail of the task to enter it; I can imagine the important work in front of me becoming clear enough to begin. What does it feel like when I give myself room to think? Where do I sense mental clarity, self-trust, or curiosity in my body as the work starts to move? I imagine reaching a point where something meaningful is finished enough to count, with visible progress I can recognize. What changes in my attention when I feel focused and competent, while still staying open to an answer I did not expect?
 
 ### Ending
-Let the breath come back as the scene closes, steady enough for the next doable action. This work belongs to a life where I think and write on my own questions. I do not need the whole path defined before I begin. Say quietly to yourself: I can trust my own question and move one clear step.
+I return to what matters: thinking and writing from my own questions, with enough space to make real progress. I let my body become a little steadier, or simply more honest about its pace. I am capable of one grounded movement into the work now, in a way that feels clear and self-trusting. Say quietly to myself: I can trust my questions and begin from here.
 
-## soul script (223 words)
+## soul script (251 words)
 
-Feel the breath arrive in your body, and notice the contact beneath you. Let your shoulders, jaw, and hands be exactly as they are for a moment, without needing to fix anything. You can hear what is around you, feel what is inside you, and let thoughts pass through without making them the whole scene. In the background, Independent Thinking is here as a quiet compass: trusting your own questions before borrowing other people’s.
+I feel my breath moving in and out, and I let my posture arrive as it is. I notice the contact beneath me, the sounds around me, and the thoughts already present, without needing to fix them. Since there is no body snapshot here, I simply meet my current energy honestly. I let the deeper shape of this moment appear: a life where I think and write on my own questions.
 
-I let the task come into view in a simple, open way, without needing every detail named. I imagine beginning from room to think, with my attention becoming mentally clear, self-trusting, and unboxed. What does it feel like in my body when I trust my own first question? I sense the work moving toward Success as finishing what matters, and I picture the moment when there is visible progress, enough to feel accomplished, focused, and competent. What changes in my attention when I stay curious about an answer I did not expect?
+This work serves my wish to trust my own questions before borrowing other people’s. I do not need to know every detail of the task to enter it; I can imagine the important work in front of me becoming clear enough to begin. What does it feel like when I give myself room to think? Where do I sense mental clarity, self-trust, or curiosity in my body as the work starts to move? I imagine reaching a point where something meaningful is finished enough to count, with visible progress I can recognize. What changes in my attention when I feel focused and competent, while still staying open to an answer I did not expect?
 
-Let the breath come back as the scene closes, steady enough for the next doable action. This work belongs to a life where I think and write on my own questions. I do not need the whole path defined before I begin. Say quietly to yourself: I can trust my own question and move one clear step.
+I return to what matters: thinking and writing from my own questions, with enough space to make real progress. I let my body become a little steadier, or simply more honest about its pace. I am capable of one grounded movement into the work now, in a way that feels clear and self-trusting. Say quietly to myself: I can trust my questions and begin from here.
 
 ## full input
 
@@ -1287,27 +1287,27 @@ Let the breath come back as the scene closes, steady enough for the next doable 
 ## full sections
 
 ### Introduction
-Feel your feet on the floor, and let your breath arrive without forcing it. Notice the chair holding you, the set of your shoulders, the quiet apartment hum, and any thoughts already moving through your mind. Your energy is honest and limited today after a shorter night, so this rehearsal begins with steadiness rather than intensity. The smell of coffee, the warm mug nearby, and the phone face down help the scene become simple: one focused stretch in service of thinking and writing on your own questions.
+I feel my feet on the floor and let my breath arrive without forcing it. I notice my shoulders, jaw, the sound of the quiet apartment hum, and any thoughts already moving. My energy is honest and a little low after a shorter night, so I let the scene be steady rather than intense: paper draft open, anchor papers nearby, cursor waiting at the related work section, coffee or water close enough.
 
 ### Task visualization
-I see the paper draft open, the anchor papers beside the keyboard, and the cursor waiting at the related work section. I begin by re-reading the three anchor papers' findings sections, letting the important claims become clear enough to hold; what changes in my attention when I stop trying to know everything and just notice what matters? Then I draft the gap statement, one paragraph the advisor can react to, and I sense Independent Thinking as mentally clear and self-trusting. I connect the related work back to the gap, moving toward a coherent section for the CHI workshop paper; what does it feel like in my body when this section is done enough to count, and visible progress is real?
+This work serves my path toward becoming an independent researcher: thinking and writing on my own questions, and building a workshop paper I am proud to defend. I imagine the related work section beginning to take shape over this focused stretch. The three anchor papers' findings feel familiar again; the gap statement becomes clear enough for my advisor to react to; the related work starts pointing back toward that gap. What does it feel like in my body when the section is no longer vague, but moving? What changes in my attention when I trust my own questions before borrowing other people's? Can I sense being mentally clear, competent, and still curious as this draft becomes done enough for today?
 
 ### Ending
-Let the breath settle again, and let the body stay honestly paced. This work serves the larger path of becoming an independent researcher, building judgment through one focused draft at a time. I do not need perfect energy; I can make the next clear move. Carry that line into the first few minutes, with the feeling of being focused, competent, and a little more self-trusting.
+I return to the reason this matters: one strong workshop paper, and a research life built through my own judgment. My body does not have to feel perfectly charged; it can feel steady, paced, and ready for one honest piece of progress. Say quietly to myself: I can think clearly and move this section forward.
 
-## full script (272 words)
+## full script (247 words)
 
-Feel your feet on the floor, and let your breath arrive without forcing it. Notice the chair holding you, the set of your shoulders, the quiet apartment hum, and any thoughts already moving through your mind. Your energy is honest and limited today after a shorter night, so this rehearsal begins with steadiness rather than intensity. The smell of coffee, the warm mug nearby, and the phone face down help the scene become simple: one focused stretch in service of thinking and writing on your own questions.
+I feel my feet on the floor and let my breath arrive without forcing it. I notice my shoulders, jaw, the sound of the quiet apartment hum, and any thoughts already moving. My energy is honest and a little low after a shorter night, so I let the scene be steady rather than intense: paper draft open, anchor papers nearby, cursor waiting at the related work section, coffee or water close enough.
 
-I see the paper draft open, the anchor papers beside the keyboard, and the cursor waiting at the related work section. I begin by re-reading the three anchor papers' findings sections, letting the important claims become clear enough to hold; what changes in my attention when I stop trying to know everything and just notice what matters? Then I draft the gap statement, one paragraph the advisor can react to, and I sense Independent Thinking as mentally clear and self-trusting. I connect the related work back to the gap, moving toward a coherent section for the CHI workshop paper; what does it feel like in my body when this section is done enough to count, and visible progress is real?
+This work serves my path toward becoming an independent researcher: thinking and writing on my own questions, and building a workshop paper I am proud to defend. I imagine the related work section beginning to take shape over this focused stretch. The three anchor papers' findings feel familiar again; the gap statement becomes clear enough for my advisor to react to; the related work starts pointing back toward that gap. What does it feel like in my body when the section is no longer vague, but moving? What changes in my attention when I trust my own questions before borrowing other people's? Can I sense being mentally clear, competent, and still curious as this draft becomes done enough for today?
 
-Let the breath settle again, and let the body stay honestly paced. This work serves the larger path of becoming an independent researcher, building judgment through one focused draft at a time. I do not need perfect energy; I can make the next clear move. Carry that line into the first few minutes, with the feeling of being focused, competent, and a little more self-trusting.
+I return to the reason this matters: one strong workshop paper, and a research life built through my own judgment. My body does not have to feel perfectly charged; it can feel steady, paced, and ready for one honest piece of progress. Say quietly to myself: I can think clearly and move this section forward.
 
 # jonah_daily
 
 Models by arm: {"baseline":"gpt-5.5-2026-04-23","mind":"gpt-5.5-2026-04-23","body":"gpt-5.5-2026-04-23","soul":"gpt-5.5-2026-04-23","full":"gpt-5.5-2026-04-23"}
-Generation sources by arm: {"baseline":"openai.vanilla_baseline_prompt","mind":"backend.generate_ablation_rehearsal:rehearsal_system_prompt_draft.md","body":"backend.generate_ablation_rehearsal:rehearsal_system_prompt_draft.md","soul":"backend.generate_ablation_rehearsal:rehearsal_system_prompt_draft.md","full":"backend.generate_ablation_rehearsal:rehearsal_system_prompt_draft.md"}
-Word counts: {"baseline":196,"mind":256,"body":229,"soul":205,"full":285}
+Generation sources by arm: {"baseline":"openai.vanilla_baseline_prompt","mind":"backend.generate_ablation_rehearsal","body":"backend.generate_ablation_rehearsal","soul":"backend.generate_ablation_rehearsal","full":"backend.generate_ablation_rehearsal"}
+Word counts: {"baseline":235,"mind":261,"body":271,"soul":247,"full":264}
 
 ## baseline input
 
@@ -1328,13 +1328,15 @@ Word counts: {"baseline":196,"mind":256,"body":229,"soul":205,"full":285}
 ```
 
 
-## baseline script (196 words)
+## baseline script (235 words)
 
-Take a few moments to review the day’s visible schedule as a simple sequence of planned activities. The first scheduled item is inbox triage from 08:45 to 09:05, with 20 minutes set aside to sort and respond as needed. After a short gap, the next block is from 09:30 to 10:30 for finalizing the launch risk brief. This is followed by a 15-minute engineering check-in from 10:40 to 10:55.
+Take a few moments to look over the visible schedule for the day and note the order of the listed items. The day begins with inbox triage from 08:45 to 09:05, a 20-minute period for reviewing and sorting incoming messages. After that, there is time before the 09:30 to 10:30 block for finalizing the launch risk brief, which is scheduled for 60 minutes.
 
-The late morning continues with review of support escalation notes from 11:00 to 11:30. After that, there is a lunch break from 12:15 to 12:45. The afternoon begins with a stakeholder sync from 13:00 to 13:30. Later, from 14:10 to 14:30, there is time to draft the meeting opening. The final listed item is the launch review meeting from 15:00 to 16:00.
+The next item is the engineering check-in from 10:40 to 10:55, lasting 15 minutes. Shortly after, from 11:00 to 11:30, there is a 30-minute block to review support escalation notes. Then there is a lunch break from 12:15 to 12:45, also scheduled for 30 minutes.
 
-As you prepare, simply note the start and end times, the duration of each item, and the transitions between them. Keep the calendar available so you can refer to it during the day. When one block ends, allow yourself to close it out and move to the next scheduled item. The aim is to follow the visible plan steadily, one calendar entry at a time.
+In the afternoon, the schedule continues with a stakeholder sync from 13:00 to 13:30. Later, from 14:10 to 14:30, there is a 20-minute block to draft the meeting opening. The final listed item is the launch review meeting from 15:00 to 16:00, scheduled for 60 minutes.
+
+As you prepare, simply keep the sequence and timing in mind. Each item has its own start time, end time, and duration. When one scheduled block is complete, the next visible item can be approached according to the calendar. If there is space between items, that time can be used to transition, gather materials, or get ready for the next scheduled activity. The aim is to follow the listed calendar as written, moving through the day one item at a time.
 
 ## mind input
 
@@ -1475,21 +1477,21 @@ As you prepare, simply note the start and end times, the duration of each item, 
 ## mind sections
 
 ### Introduction
-Feel your breath arrive, and notice the contact of your body with what supports you. Let your shoulders, jaw, and hands be just as they are while sounds and thoughts move in the background. Without needing to change your energy, simply notice that this is the body you are bringing into today. In the background is the intention to lead with clarity, helping the team move forward without becoming reactive.
+Feel the breath move in and out, and notice the contact of your body with the chair or the ground. Let your shoulders, jaw, and hands be exactly as they are while sounds and thoughts pass through the space around you. You do not need to change your state before beginning. Today is oriented around leading with clarity, helping the team move forward without becoming reactive.
 
 ### Task visualization
-Let the first anchor appear: Finalize launch risk brief, the high-priority hour where the day begins to take shape. Imagine you are able to name the top unresolved launch risks, see owners and decision points become clear, and reach the moment when the brief is meeting-ready before the review; what does accomplishment feel like when the team can see the risks early? Let the next anchor come into view: Draft meeting opening, a shorter piece that helps you enter the 3:00 launch review with a clear first note. Then see yourself reviewing support escalation notes, gathering what matters, and carrying useful context forward; what changes in your attention when each piece is done enough to support responsible decisions?
+This work serves one clear aim: a launch review that surfaces risks early and gives the team something steady to decide from. Now let the first anchor appear, Finalize launch risk brief, the high-priority hour where the brief becomes meeting-ready before 3:00 PM. Imagine the point where the top unresolved risks are named, owners and decision points are visible, and the brief is done enough to guide the room. Let Draft meeting opening come into view, a shorter piece of work where the first words of the meeting help people enter with focus. Then Review support escalation notes, giving the review more context and responsibility. What does clarity feel like in your attention when these anchors are moving? What changes when the work feels ready enough to use?
 
 ### Ending
-Return to the larger purpose: clarity that steadies product work and helps the team move. You do not need the whole day to feel perfectly controlled; you can take the next clear action and let that be enough for forward motion. Feel the possibility of a steadier posture and a more direct focus. Say quietly to yourself: I can lead with clarity by taking the next clear action.
+Return to the simple purpose underneath the day: clear leadership that helps decisions happen earlier and with less reactivity. Let your body find one steadier breath, not forced, just available. The next doable action does not have to carry the whole launch; it only needs to move the most important brief forward. Say quietly to yourself: I can lead with clarity by taking the next responsible step.
 
-## mind script (256 words)
+## mind script (261 words)
 
-Feel your breath arrive, and notice the contact of your body with what supports you. Let your shoulders, jaw, and hands be just as they are while sounds and thoughts move in the background. Without needing to change your energy, simply notice that this is the body you are bringing into today. In the background is the intention to lead with clarity, helping the team move forward without becoming reactive.
+Feel the breath move in and out, and notice the contact of your body with the chair or the ground. Let your shoulders, jaw, and hands be exactly as they are while sounds and thoughts pass through the space around you. You do not need to change your state before beginning. Today is oriented around leading with clarity, helping the team move forward without becoming reactive.
 
-Let the first anchor appear: Finalize launch risk brief, the high-priority hour where the day begins to take shape. Imagine you are able to name the top unresolved launch risks, see owners and decision points become clear, and reach the moment when the brief is meeting-ready before the review; what does accomplishment feel like when the team can see the risks early? Let the next anchor come into view: Draft meeting opening, a shorter piece that helps you enter the 3:00 launch review with a clear first note. Then see yourself reviewing support escalation notes, gathering what matters, and carrying useful context forward; what changes in your attention when each piece is done enough to support responsible decisions?
+This work serves one clear aim: a launch review that surfaces risks early and gives the team something steady to decide from. Now let the first anchor appear, Finalize launch risk brief, the high-priority hour where the brief becomes meeting-ready before 3:00 PM. Imagine the point where the top unresolved risks are named, owners and decision points are visible, and the brief is done enough to guide the room. Let Draft meeting opening come into view, a shorter piece of work where the first words of the meeting help people enter with focus. Then Review support escalation notes, giving the review more context and responsibility. What does clarity feel like in your attention when these anchors are moving? What changes when the work feels ready enough to use?
 
-Return to the larger purpose: clarity that steadies product work and helps the team move. You do not need the whole day to feel perfectly controlled; you can take the next clear action and let that be enough for forward motion. Feel the possibility of a steadier posture and a more direct focus. Say quietly to yourself: I can lead with clarity by taking the next clear action.
+Return to the simple purpose underneath the day: clear leadership that helps decisions happen earlier and with less reactivity. Let your body find one steadier breath, not forced, just available. The next doable action does not have to carry the whole launch; it only needs to move the most important brief forward. Say quietly to yourself: I can lead with clarity by taking the next responsible step.
 
 ## body input
 
@@ -1590,21 +1592,21 @@ Return to the larger purpose: clarity that steadies product work and helps the t
 ## body sections
 
 ### Introduction
-Feel your breath move in and out, and let your feet know the floor beneath you. Notice your shoulders, your jaw, your hands, the sounds around you, and the thoughts passing through without needing to change them. Your body has had a solid night of sleep, steady recovery signals, and a moderate level of energy today, enough to arrive without forcing. Let the scene form gently: low office noise, calendar alerts muted, Slack set to focus mode, coffee nearby, and your hands finding the keyboard.
+Feel your breath arrive in your chest and belly, and let your feet notice the ground beneath you. Your shoulders can soften a little while you hear whatever is around you, including the low office noise, without needing to change it. Your body has a steady middle level of energy today, supported by solid sleep and some movement, enough to begin honestly. Picture the launch dashboard pinned, stakeholder notes open, risk doc in split view, and Slack set to focus mode.
 
 ### Task visualization
-Because today’s specific priority anchors are not named, let the important work appear as a simple shape in front of you. Imagine the moment when you begin: the launch dashboard pinned, stakeholder notes open, and the risk doc in split view, each cue helping your attention settle. What does it feel like in your body when the first useful piece starts to move? Can you sense the point where the work is done enough to count, even if the day’s energy rises and dips? You are capable of making real progress today by staying with the next clear piece.
+Without a named priority list today, let the most important work appear as one clear shape rather than a crowded schedule. Imagine you are able to begin the first meaningful anchor, stay with it long enough for it to move, and recognize the moment when it is done enough to count. Let a second anchor come into view, and sense yourself carrying steady attention into it, not rushed, not forced, just present. If there is a third piece that matters, imagine reaching the point where progress is visible. What does accomplishment feel like in your hands, your breathing, your face? What changes in your attention when the work starts to settle?
 
 ### Ending
-Let your body come back to this moment: breath steady, hands grounded, attention a little clearer. You do not need to know the whole day in advance to begin the next doable action. Say quietly to yourself: I can start with the next clear piece.
+Come back to the feeling of contact with the chair and the ground, and let the body find a pace that matches today’s real energy. You do not need to make the whole day perfect; you only need to meet the next useful piece with steadiness. Let the muted alerts and focused space remind you that progress can happen one clear stretch at a time. Say quietly to yourself: I can move one real piece forward with steady attention.
 
-## body script (229 words)
+## body script (271 words)
 
-Feel your breath move in and out, and let your feet know the floor beneath you. Notice your shoulders, your jaw, your hands, the sounds around you, and the thoughts passing through without needing to change them. Your body has had a solid night of sleep, steady recovery signals, and a moderate level of energy today, enough to arrive without forcing. Let the scene form gently: low office noise, calendar alerts muted, Slack set to focus mode, coffee nearby, and your hands finding the keyboard.
+Feel your breath arrive in your chest and belly, and let your feet notice the ground beneath you. Your shoulders can soften a little while you hear whatever is around you, including the low office noise, without needing to change it. Your body has a steady middle level of energy today, supported by solid sleep and some movement, enough to begin honestly. Picture the launch dashboard pinned, stakeholder notes open, risk doc in split view, and Slack set to focus mode.
 
-Because today’s specific priority anchors are not named, let the important work appear as a simple shape in front of you. Imagine the moment when you begin: the launch dashboard pinned, stakeholder notes open, and the risk doc in split view, each cue helping your attention settle. What does it feel like in your body when the first useful piece starts to move? Can you sense the point where the work is done enough to count, even if the day’s energy rises and dips? You are capable of making real progress today by staying with the next clear piece.
+Without a named priority list today, let the most important work appear as one clear shape rather than a crowded schedule. Imagine you are able to begin the first meaningful anchor, stay with it long enough for it to move, and recognize the moment when it is done enough to count. Let a second anchor come into view, and sense yourself carrying steady attention into it, not rushed, not forced, just present. If there is a third piece that matters, imagine reaching the point where progress is visible. What does accomplishment feel like in your hands, your breathing, your face? What changes in your attention when the work starts to settle?
 
-Let your body come back to this moment: breath steady, hands grounded, attention a little clearer. You do not need to know the whole day in advance to begin the next doable action. Say quietly to yourself: I can start with the next clear piece.
+Come back to the feeling of contact with the chair and the ground, and let the body find a pace that matches today’s real energy. You do not need to make the whole day perfect; you only need to meet the next useful piece with steadiness. Let the muted alerts and focused space remind you that progress can happen one clear stretch at a time. Say quietly to yourself: I can move one real piece forward with steady attention.
 
 ## soul input
 
@@ -1678,21 +1680,21 @@ Let your body come back to this moment: breath steady, hands grounded, attention
 ## soul sections
 
 ### Introduction
-Feel your breath moving in and out, and notice the contact beneath you. Let your shoulders, jaw, hands, and feet register the present moment without needing to change anything. Sounds, thoughts, and feelings are allowed to be here as you arrive. In this quiet arrival, let Clarity be near: making the next decision visible enough for the team to act.
+Feel the breath arrive and leave, and notice where the body meets the chair or the floor. Let the shoulders, jaw, and hands be exactly as they are, without needing to fix anything. Sounds, thoughts, and feelings can pass through the background while attention settles here. Today, what matters is a work life with clearer decisions, steadier leadership, and less urgency.
 
 ### Task visualization
-Let the important work of today come into view without forcing a full list. Since the exact tasks are not named here, imagine the day offering moments where priorities become cleaner, ambiguous asks become fewer, and the next decision is easier to see. What does organized, decisive, and uncluttered feel like in your body as you move through one meaningful piece of work? Can you sense Calm Leadership in the way you create steadiness when the room gets noisy, and Responsibility in naming risks clearly without carrying every task alone?
+This day serves the practice of making the next decision visible enough for people to act. Without needing a detailed map yet, let the important work of today come into view as a few clear anchors. Imagine moving through them with priorities becoming cleaner, ambiguous asks becoming fewer, and the room feeling a little less noisy because the opening is clear. What does decisiveness feel like in the body when the next right decision is visible? What changes in attention when risks are named clearly and owners are identified? Can there be a sense of being prepared, steady, and useful without carrying every task alone? Imagine reaching the point where today’s work is done enough to create clarity for others.
 
 ### Ending
-Return to the work life you are shaping: helping teams make clear decisions without living in urgency. Let your body stay honest, steady, and available for the next doable action. You do not need the whole day solved before you begin. Say quietly to yourself: I can create clarity one visible decision at a time.
+Return to the feeling of calm leadership: firm enough to be useful, soft enough not to live in urgency. The body does not have to feel perfect for the next doable action to be available. You can move toward clear leadership by making one decision, one owner, or one risk more visible. Say quietly to yourself: I can create steadiness by making the next decision visible.
 
-## soul script (205 words)
+## soul script (247 words)
 
-Feel your breath moving in and out, and notice the contact beneath you. Let your shoulders, jaw, hands, and feet register the present moment without needing to change anything. Sounds, thoughts, and feelings are allowed to be here as you arrive. In this quiet arrival, let Clarity be near: making the next decision visible enough for the team to act.
+Feel the breath arrive and leave, and notice where the body meets the chair or the floor. Let the shoulders, jaw, and hands be exactly as they are, without needing to fix anything. Sounds, thoughts, and feelings can pass through the background while attention settles here. Today, what matters is a work life with clearer decisions, steadier leadership, and less urgency.
 
-Let the important work of today come into view without forcing a full list. Since the exact tasks are not named here, imagine the day offering moments where priorities become cleaner, ambiguous asks become fewer, and the next decision is easier to see. What does organized, decisive, and uncluttered feel like in your body as you move through one meaningful piece of work? Can you sense Calm Leadership in the way you create steadiness when the room gets noisy, and Responsibility in naming risks clearly without carrying every task alone?
+This day serves the practice of making the next decision visible enough for people to act. Without needing a detailed map yet, let the important work of today come into view as a few clear anchors. Imagine moving through them with priorities becoming cleaner, ambiguous asks becoming fewer, and the room feeling a little less noisy because the opening is clear. What does decisiveness feel like in the body when the next right decision is visible? What changes in attention when risks are named clearly and owners are identified? Can there be a sense of being prepared, steady, and useful without carrying every task alone? Imagine reaching the point where today’s work is done enough to create clarity for others.
 
-Return to the work life you are shaping: helping teams make clear decisions without living in urgency. Let your body stay honest, steady, and available for the next doable action. You do not need the whole day solved before you begin. Say quietly to yourself: I can create clarity one visible decision at a time.
+Return to the feeling of calm leadership: firm enough to be useful, soft enough not to live in urgency. The body does not have to feel perfect for the next doable action to be available. You can move toward clear leadership by making one decision, one owner, or one risk more visible. Say quietly to yourself: I can create steadiness by making the next decision visible.
 
 ## full input
 
@@ -1974,27 +1976,27 @@ Return to the work life you are shaping: helping teams make clear decisions with
 ## full sections
 
 ### Introduction
-Feel your feet on the floor and your breath moving through your chest. Let your shoulders settle, notice the chair holding you, and hear the low office noise without needing to change anything. Your body has decent, steady energy today, supported by a full night of sleep, with enough capacity to focus without forcing intensity. Now let the scene form: calendar alerts muted, Slack in focus mode, the launch dashboard pinned, and the risk doc waiting in split view. In the background is your larger aim: lead with clarity and responsibility, helping the team move forward without becoming reactive.
+Feel your breath move through your chest and let your feet settle against the floor. Notice your shoulders, jaw, hands, the low sounds around you, and any thoughts already moving; nothing needs to be fixed before you begin. Your body has a solid base today, rested enough and moderately steady, with energy that can carry focused work. Let the launch dashboard, muted alerts, coffee, and the risk doc become quiet cues for clarity.
 
 ### Task visualization
-Let the first anchor appear: Finalize launch risk brief, the high-priority hour where the day begins to take shape. Imagine you are able to name the top unresolved launch risks, assign owners and decision points, and see the brief become meeting-ready enough to guide the review. What does prepared and uncluttered feel like in your body when the next decision is visible? Let the next anchor come into view: Draft meeting opening, a shorter, cleaner moment where you shape the first words into calm leadership. Then see yourself reviewing support escalation notes, catching what matters, and carrying only the useful signal forward; what changes in your attention when the risks are named clearly and owners are identified?
+This work serves leading with clarity and responsibility, helping the team move forward without becoming reactive. Let the first anchor appear: Finalize launch risk brief, the high-priority hour where the important risks become visible enough to act on. Imagine reaching the point where the brief is meeting-ready, with the top risks named, owners clear, and decisions easier to see. Let the next anchor come into view: Draft meeting opening, a shorter piece that lets calm leadership enter the room before the room gets noisy. Then picture Review support escalation notes, enough to notice what matters and bring useful context forward. What changes in your attention when the day feels organized, decisive, and uncluttered? What does prepared and accountable feel like in your body?
 
 ### Ending
-Return to the feeling of making things visible enough for the team to act. Let your breath stay steady, your hands ready, and your pace honest as the day moves toward the launch review. Progress today is not about carrying every task alone; it is about creating steadiness when the room gets noisy. Say quietly to yourself: I can be calm and clear, and make the next decision visible.
+Return to the simple shape of what matters: clear decisions without living in urgency. Your energy does not need to be extreme; it can be steady, honest, and useful as you move toward the next doable action. You are able to make progress by naming what is real and making the next decision visible. Say quietly to yourself: I can lead calmly and make the next decision clear.
 
-## full script (285 words)
+## full script (264 words)
 
-Feel your feet on the floor and your breath moving through your chest. Let your shoulders settle, notice the chair holding you, and hear the low office noise without needing to change anything. Your body has decent, steady energy today, supported by a full night of sleep, with enough capacity to focus without forcing intensity. Now let the scene form: calendar alerts muted, Slack in focus mode, the launch dashboard pinned, and the risk doc waiting in split view. In the background is your larger aim: lead with clarity and responsibility, helping the team move forward without becoming reactive.
+Feel your breath move through your chest and let your feet settle against the floor. Notice your shoulders, jaw, hands, the low sounds around you, and any thoughts already moving; nothing needs to be fixed before you begin. Your body has a solid base today, rested enough and moderately steady, with energy that can carry focused work. Let the launch dashboard, muted alerts, coffee, and the risk doc become quiet cues for clarity.
 
-Let the first anchor appear: Finalize launch risk brief, the high-priority hour where the day begins to take shape. Imagine you are able to name the top unresolved launch risks, assign owners and decision points, and see the brief become meeting-ready enough to guide the review. What does prepared and uncluttered feel like in your body when the next decision is visible? Let the next anchor come into view: Draft meeting opening, a shorter, cleaner moment where you shape the first words into calm leadership. Then see yourself reviewing support escalation notes, catching what matters, and carrying only the useful signal forward; what changes in your attention when the risks are named clearly and owners are identified?
+This work serves leading with clarity and responsibility, helping the team move forward without becoming reactive. Let the first anchor appear: Finalize launch risk brief, the high-priority hour where the important risks become visible enough to act on. Imagine reaching the point where the brief is meeting-ready, with the top risks named, owners clear, and decisions easier to see. Let the next anchor come into view: Draft meeting opening, a shorter piece that lets calm leadership enter the room before the room gets noisy. Then picture Review support escalation notes, enough to notice what matters and bring useful context forward. What changes in your attention when the day feels organized, decisive, and uncluttered? What does prepared and accountable feel like in your body?
 
-Return to the feeling of making things visible enough for the team to act. Let your breath stay steady, your hands ready, and your pace honest as the day moves toward the launch review. Progress today is not about carrying every task alone; it is about creating steadiness when the room gets noisy. Say quietly to yourself: I can be calm and clear, and make the next decision visible.
+Return to the simple shape of what matters: clear decisions without living in urgency. Your energy does not need to be extreme; it can be steady, honest, and useful as you move toward the next doable action. You are able to make progress by naming what is real and making the next decision visible. Say quietly to yourself: I can lead calmly and make the next decision clear.
 
 # jonah_task
 
 Models by arm: {"baseline":"gpt-5.5-2026-04-23","mind":"gpt-5.5-2026-04-23","body":"gpt-5.5-2026-04-23","soul":"gpt-5.5-2026-04-23","full":"gpt-5.5-2026-04-23"}
-Generation sources by arm: {"baseline":"openai.vanilla_baseline_prompt","mind":"backend.generate_ablation_rehearsal:rehearsal_system_prompt_draft.md","body":"backend.generate_ablation_rehearsal:rehearsal_system_prompt_draft.md","soul":"backend.generate_ablation_rehearsal:rehearsal_system_prompt_draft.md","full":"backend.generate_ablation_rehearsal:rehearsal_system_prompt_draft.md"}
-Word counts: {"baseline":220,"mind":237,"body":246,"soul":193,"full":268}
+Generation sources by arm: {"baseline":"openai.vanilla_baseline_prompt","mind":"backend.generate_ablation_rehearsal","body":"backend.generate_ablation_rehearsal","soul":"backend.generate_ablation_rehearsal","full":"backend.generate_ablation_rehearsal"}
+Word counts: {"baseline":252,"mind":251,"body":246,"soul":244,"full":265}
 
 ## baseline input
 
@@ -2010,17 +2012,17 @@ Word counts: {"baseline":220,"mind":237,"body":246,"soul":193,"full":268}
 ```
 
 
-## baseline script (220 words)
+## baseline script (252 words)
 
-Take a moment to prepare for the launch risk brief by reviewing the three visible tasks and the time set aside for each one. The preparation is straightforward: move through the work in order, giving each part a clear 20-minute block.
+Take a moment to prepare for the launch risk brief by reviewing the three visible tasks for this session: naming the top risks, assigning owners, and writing a meeting-ready summary. The aim is to move through each part in order, using the time available for each one and keeping the work focused on the brief.
 
-Begin with “Name top risks.” In this section, focus on identifying the main risks that should be included in the brief. Keep the scope practical and connected to the launch. Aim to capture the risks clearly enough that they can be discussed without needing extra explanation later.
+Begin with the first 20-minute block for naming the top risks. Use this time to identify the main risks that should be included in the launch risk brief. Keep the wording clear and practical, so each risk can be understood quickly by someone reading or discussing the brief. If several possible risks come to mind, capture them first, then narrow or refine them as needed within the time.
 
-Next, move to “Assign owners.” For each risk that has been named, identify who should be responsible for tracking or addressing it. Keep the assignments simple and meeting-ready, so the group can quickly understand who is connected to which item.
+Next, move to the 20-minute block for assigning owners. For each named risk, connect it with an appropriate owner. The goal is to make the brief more actionable by showing who is linked to each risk. Keep the entries consistent and easy to follow, so the ownership information is ready for discussion in a meeting.
 
-Finally, use the last 20 minutes to “Write meeting-ready summary.” Turn the risks and owners into a concise summary that can be shared or discussed in the meeting. The goal is to make the brief clear, organized, and easy to follow.
+Then use the final 20-minute block to write a meeting-ready summary. Bring together the top risks and owners in a concise format. Focus on clarity, completeness, and readability. The summary should help support a meeting conversation without needing extra explanation.
 
-Work steadily through each block, noticing when it is time to move from one task to the next. If a detail is not complete, mark it simply and continue. The purpose is to leave the preparation session with a usable launch risk brief that covers the top risks, owners, and summary.
+As you work, return to the visible structure if attention drifts: name the top risks, assign owners, write the summary. Move steadily through the three blocks and leave the brief in a usable form.
 
 ## mind input
 
@@ -2113,21 +2115,21 @@ Work steadily through each block, noticing when it is time to move from one task
 ## mind sections
 
 ### Introduction
-Feel the breath arrive and leave, and notice the contact of your body with the chair or the floor. Let the shoulders, jaw, and hands register how they are right now, without needing to change anything. Sounds, thoughts, and feelings are allowed to be here as I arrive. In the background is the intention to lead with clarity, helping the team move forward without becoming reactive.
+I feel my breath arrive and leave, and I notice the contact of my body with the chair or the floor. I let my shoulders, jaw, and hands register exactly how they are, without needing to fix anything first. I notice any sounds around me, any thoughts moving through, and the simple fact that I am here, preparing to lead with clarity.
 
 ### Task visualization
-I turn toward the task: finalizing the launch risk brief for the feature launch review. I let the first part come into view, naming the top unresolved launch risks; what does it feel like when three to five real risks are finally visible and no longer vague? Next, I imagine assigning owners and decision points, one by one, so responsibility has a place to land. What changes in my attention when each risk has an owner and a clear next decision? Then I write the meeting-ready summary, seeing the opening words become steady enough to guide the review. I can picture the brief ready before 3:00 PM, not perfect, but clear enough to surface risks early and help the team move.
+This work serves my larger aim: to lead product work with clarity and responsibility, helping the team move forward without becoming reactive. I let the task come into view: finalize the launch risk brief for the feature launch review, a high-priority hour of focused work. I imagine the brief becoming ready enough before 3:00 PM: the top unresolved launch risks are named, owners and decision points are clear, and the opening summary is meeting-ready. What does it feel like in my body when the risks are visible instead of vague? What changes in my attention when each risk has a responsible owner? Can I sense the steadiness of a brief that helps the review surface risks early?
 
 ### Ending
-Return to the reason this matters: clarity creates steadier decisions for the launch and for the people depending on this review. Let the body stay honest and present, with just enough steadiness for the next doable action. I do not need perfect certainty; I can make the next risk clear.
+I come back to what matters: clarity, responsibility, and decisions that help the team move forward. I do not need the brief to solve every launch question; I can make the most important risks easier to see. I let my body become as steady as it can be right now, and I begin with the next doable part. Say quietly to myself: I can lead with clarity by making the risks visible.
 
-## mind script (237 words)
+## mind script (251 words)
 
-Feel the breath arrive and leave, and notice the contact of your body with the chair or the floor. Let the shoulders, jaw, and hands register how they are right now, without needing to change anything. Sounds, thoughts, and feelings are allowed to be here as I arrive. In the background is the intention to lead with clarity, helping the team move forward without becoming reactive.
+I feel my breath arrive and leave, and I notice the contact of my body with the chair or the floor. I let my shoulders, jaw, and hands register exactly how they are, without needing to fix anything first. I notice any sounds around me, any thoughts moving through, and the simple fact that I am here, preparing to lead with clarity.
 
-I turn toward the task: finalizing the launch risk brief for the feature launch review. I let the first part come into view, naming the top unresolved launch risks; what does it feel like when three to five real risks are finally visible and no longer vague? Next, I imagine assigning owners and decision points, one by one, so responsibility has a place to land. What changes in my attention when each risk has an owner and a clear next decision? Then I write the meeting-ready summary, seeing the opening words become steady enough to guide the review. I can picture the brief ready before 3:00 PM, not perfect, but clear enough to surface risks early and help the team move.
+This work serves my larger aim: to lead product work with clarity and responsibility, helping the team move forward without becoming reactive. I let the task come into view: finalize the launch risk brief for the feature launch review, a high-priority hour of focused work. I imagine the brief becoming ready enough before 3:00 PM: the top unresolved launch risks are named, owners and decision points are clear, and the opening summary is meeting-ready. What does it feel like in my body when the risks are visible instead of vague? What changes in my attention when each risk has a responsible owner? Can I sense the steadiness of a brief that helps the review surface risks early?
 
-Return to the reason this matters: clarity creates steadier decisions for the launch and for the people depending on this review. Let the body stay honest and present, with just enough steadiness for the next doable action. I do not need perfect certainty; I can make the next risk clear.
+I come back to what matters: clarity, responsibility, and decisions that help the team move forward. I do not need the brief to solve every launch question; I can make the most important risks easier to see. I let my body become as steady as it can be right now, and I begin with the next doable part. Say quietly to myself: I can lead with clarity by making the risks visible.
 
 ## body input
 
@@ -2227,21 +2229,21 @@ Return to the reason this matters: clarity creates steadier decisions for the la
 ## body sections
 
 ### Introduction
-Feel your breath first, and let your feet meet the floor. Notice the chair, your shoulders, your jaw, the quiet around you, and any thoughts moving through without needing to change them. Your body has a solid base today: a little over seven hours of sleep, steady recovery signals, and enough energy to focus honestly. Now let the scene form: the quiet meeting room, notifications paused, coffee nearby, and the conference table holding what you need.
+I feel my breath moving in and out, and I notice the contact of my body with the chair and my feet with the floor. I let my shoulders, jaw, and hands register how they are right now, without needing to change anything. With solid sleep behind me and steady middle energy, I arrive honestly, clear enough to begin. I notice the quiet meeting room, the paused notifications, coffee nearby, and the risk brief outline already open.
 
 ### Task visualization
-I let the work in front of me come into view without needing the whole task to be named. The risk brief outline is open, the dashboard tab is pinned, the owner list sits beside the doc, and I feel my attention gather around the next useful move. What does it feel like in my body when the first piece starts to become clearer? I can imagine a credible success: the brief moves forward, the dashboard informs the next line, the owner list helps the work become more organized, and I reach a point that is done enough to count. What changes in my attention when the meeting invite stays minimized and the room stays quiet?
+I let the work in front of me become the center, even without needing to name the whole larger goal today. I imagine the task beginning to move: the outline has shape, the dashboard supports the picture, and the owner list helps the work become clearer. What does it feel like in my body when the most important part is done enough to count? What changes in my attention when the brief starts to feel organized and usable? I can picture a credible finished moment: not perfect, not overworked, but clear enough that the next person can understand what matters. With this steady energy, I move at a pace I can actually sustain.
 
 ### Ending
-Let your breath come back into the center of the body. There is no need to force high energy; this is enough steadiness to begin and continue at an honest pace. The next action can be simple, visible, and real. Say quietly to yourself: I can take the next useful step with steady attention.
+I return to the feeling of being seated, breathing, and ready to take the next doable action. My body does not need to feel electric; it can feel steady, awake, and present enough. I can trust this amount of energy and use it well. Say quietly to myself: I can begin clearly and move this forward.
 
 ## body script (246 words)
 
-Feel your breath first, and let your feet meet the floor. Notice the chair, your shoulders, your jaw, the quiet around you, and any thoughts moving through without needing to change them. Your body has a solid base today: a little over seven hours of sleep, steady recovery signals, and enough energy to focus honestly. Now let the scene form: the quiet meeting room, notifications paused, coffee nearby, and the conference table holding what you need.
+I feel my breath moving in and out, and I notice the contact of my body with the chair and my feet with the floor. I let my shoulders, jaw, and hands register how they are right now, without needing to change anything. With solid sleep behind me and steady middle energy, I arrive honestly, clear enough to begin. I notice the quiet meeting room, the paused notifications, coffee nearby, and the risk brief outline already open.
 
-I let the work in front of me come into view without needing the whole task to be named. The risk brief outline is open, the dashboard tab is pinned, the owner list sits beside the doc, and I feel my attention gather around the next useful move. What does it feel like in my body when the first piece starts to become clearer? I can imagine a credible success: the brief moves forward, the dashboard informs the next line, the owner list helps the work become more organized, and I reach a point that is done enough to count. What changes in my attention when the meeting invite stays minimized and the room stays quiet?
+I let the work in front of me become the center, even without needing to name the whole larger goal today. I imagine the task beginning to move: the outline has shape, the dashboard supports the picture, and the owner list helps the work become clearer. What does it feel like in my body when the most important part is done enough to count? What changes in my attention when the brief starts to feel organized and usable? I can picture a credible finished moment: not perfect, not overworked, but clear enough that the next person can understand what matters. With this steady energy, I move at a pace I can actually sustain.
 
-Let your breath come back into the center of the body. There is no need to force high energy; this is enough steadiness to begin and continue at an honest pace. The next action can be simple, visible, and real. Say quietly to yourself: I can take the next useful step with steady attention.
+I return to the feeling of being seated, breathing, and ready to take the next doable action. My body does not need to feel electric; it can feel steady, awake, and present enough. I can trust this amount of energy and use it well. Say quietly to myself: I can begin clearly and move this forward.
 
 ## soul input
 
@@ -2317,21 +2319,21 @@ Let your breath come back into the center of the body. There is no need to force
 ## soul sections
 
 ### Introduction
-Feel the breath arrive in your chest and belly, and notice the contact of your body with the chair or ground. Let the shoulders, jaw, and hands be exactly as they are while sounds and thoughts pass through the background. You do not need to force a different state; you are simply arriving here, inside this moment. Let Clarity, Responsibility, and Calm Leadership become quiet qualities in the room: organized, steady, useful.
+I feel the breath arrive and leave, and I notice the contact of my body with what is supporting me. I let my shoulders, jaw, and hands be exactly as they are, while sound and thought move through the background. I do not need to fix my state before I begin. I let clarity mean something simple now: making the next decision visible enough to act on.
 
 ### Task visualization
-I let the task appear without needing every detail to be solved at once. I imagine the next decision becoming visible enough for the team to act, and I notice what organized and uncluttered feels like in my body. What changes when I name the risk clearly without carrying every task alone? I picture myself creating a clear opening, steady and firm, so the work can move with fewer ambiguous asks and less urgency.
+This work serves a larger shape: helping teams make clear decisions without living in urgency. I let the task in front of me appear without forcing extra detail, because the specific task is not named here. I imagine a credible point of completion: priorities feel cleaner, ambiguous asks are fewer, risks are named clearly, and owners are easier to see. What does organized attention feel like in my body? What changes when I am decisive without rushing? Can I sense steadiness in the way I hold responsibility, owning the risk without carrying every task alone? I picture myself creating a clear opening, firm and useful, while the room feels a little less noisy.
 
 ### Ending
-Come back to the breath, and let the body hold a little more steadiness in the next small action. What matters is not doing everything; it is helping create clear decisions without living in urgency. I can be calm and responsible while making the next decision visible.
+I return to the kind of work life I am practicing: clear leadership, protected strategy time, and steadiness without urgency. My body does not have to feel perfect for me to take the next useful action. I can be calm, prepared, and uncluttered as I move one decision into view. Say quietly to myself: I can create steadiness by making the next decision visible.
 
-## soul script (193 words)
+## soul script (244 words)
 
-Feel the breath arrive in your chest and belly, and notice the contact of your body with the chair or ground. Let the shoulders, jaw, and hands be exactly as they are while sounds and thoughts pass through the background. You do not need to force a different state; you are simply arriving here, inside this moment. Let Clarity, Responsibility, and Calm Leadership become quiet qualities in the room: organized, steady, useful.
+I feel the breath arrive and leave, and I notice the contact of my body with what is supporting me. I let my shoulders, jaw, and hands be exactly as they are, while sound and thought move through the background. I do not need to fix my state before I begin. I let clarity mean something simple now: making the next decision visible enough to act on.
 
-I let the task appear without needing every detail to be solved at once. I imagine the next decision becoming visible enough for the team to act, and I notice what organized and uncluttered feels like in my body. What changes when I name the risk clearly without carrying every task alone? I picture myself creating a clear opening, steady and firm, so the work can move with fewer ambiguous asks and less urgency.
+This work serves a larger shape: helping teams make clear decisions without living in urgency. I let the task in front of me appear without forcing extra detail, because the specific task is not named here. I imagine a credible point of completion: priorities feel cleaner, ambiguous asks are fewer, risks are named clearly, and owners are easier to see. What does organized attention feel like in my body? What changes when I am decisive without rushing? Can I sense steadiness in the way I hold responsibility, owning the risk without carrying every task alone? I picture myself creating a clear opening, firm and useful, while the room feels a little less noisy.
 
-Come back to the breath, and let the body hold a little more steadiness in the next small action. What matters is not doing everything; it is helping create clear decisions without living in urgency. I can be calm and responsible while making the next decision visible.
+I return to the kind of work life I am practicing: clear leadership, protected strategy time, and steadiness without urgency. My body does not have to feel perfect for me to take the next useful action. I can be calm, prepared, and uncluttered as I move one decision into view. Say quietly to myself: I can create steadiness by making the next decision visible.
 
 ## full input
 
@@ -2564,27 +2566,27 @@ Come back to the breath, and let the body hold a little more steadiness in the n
 ## full sections
 
 ### Introduction
-Feel your breath settle into your chest and ribs, and notice the contact of your body with the chair and floor. Let your shoulders soften, your jaw loosen, and let the sounds around you be here without needing to push them away. Your body has real support today: solid sleep, steady recovery, and enough energy for focused, honest work. Now the scene begins to form: the quiet meeting room, notifications paused, the risk brief outline open, water nearby, and the larger intention of leading with clarity.
+I feel my breath settle into my ribs, my feet on the floor, and the support of the chair under me. I notice sound, light, jaw, shoulders, and any thoughts moving through, without needing to fix them. My body has enough steadiness for one focused hour: rested, not unlimited, ready to work at an honest pace. I let the risk brief outline, the quiet room, paused notifications, coffee, and water become simple cues for clarity.
 
 ### Task visualization
-I see the launch risk brief in front of me, and I begin with the first clear move: naming the top unresolved launch risks. What changes in my attention when the risks become visible instead of vague? I move into assigning owners and decision points, sensing Responsibility as prepared, steady, and accountable, owning the risk without carrying every task alone. Can I feel the work becoming more organized and uncluttered as each risk has a next decision? I write the meeting-ready summary, clear enough to open the review and useful enough to help the team act; what does Calm Leadership feel like in my body when the brief is ready before 3:00 PM?
+This work serves clear leadership: helping the team see risk early and make decisions without living in urgency. I let the launch risk brief come into view, and I imagine the point where the top unresolved launch risks are named clearly enough to discuss. I sense owners and decision points becoming visible, one risk at a time, without carrying every task alone. I picture the meeting-ready summary taking shape as a calm opening the room can use. What feels organized and uncluttered in my attention as this becomes done enough? What changes in my body when the brief is prepared, steady, and useful before the review? I am able to move this high-priority work forward.
 
 ### Ending
-Let your breath come back to the present, steady but not forced, with the body paced for the next focused hour. This work serves a way of leading where clear decisions replace urgency, and progress comes through the next visible decision. You are capable of making this brief meeting-ready, one section at a time. Say quietly to yourself: I can lead with clarity by making the next decision visible.
+I return to the reason this matters: leading product work with clarity and responsibility, making the next decision visible enough for the team to act. My body does not have to feel forced; it can feel steady, clear, and honestly paced. I can begin with the next visible part of the brief and let completion grow from there. Say quietly to myself: I can be calm and firm while I make the next decision visible.
 
-## full script (268 words)
+## full script (265 words)
 
-Feel your breath settle into your chest and ribs, and notice the contact of your body with the chair and floor. Let your shoulders soften, your jaw loosen, and let the sounds around you be here without needing to push them away. Your body has real support today: solid sleep, steady recovery, and enough energy for focused, honest work. Now the scene begins to form: the quiet meeting room, notifications paused, the risk brief outline open, water nearby, and the larger intention of leading with clarity.
+I feel my breath settle into my ribs, my feet on the floor, and the support of the chair under me. I notice sound, light, jaw, shoulders, and any thoughts moving through, without needing to fix them. My body has enough steadiness for one focused hour: rested, not unlimited, ready to work at an honest pace. I let the risk brief outline, the quiet room, paused notifications, coffee, and water become simple cues for clarity.
 
-I see the launch risk brief in front of me, and I begin with the first clear move: naming the top unresolved launch risks. What changes in my attention when the risks become visible instead of vague? I move into assigning owners and decision points, sensing Responsibility as prepared, steady, and accountable, owning the risk without carrying every task alone. Can I feel the work becoming more organized and uncluttered as each risk has a next decision? I write the meeting-ready summary, clear enough to open the review and useful enough to help the team act; what does Calm Leadership feel like in my body when the brief is ready before 3:00 PM?
+This work serves clear leadership: helping the team see risk early and make decisions without living in urgency. I let the launch risk brief come into view, and I imagine the point where the top unresolved launch risks are named clearly enough to discuss. I sense owners and decision points becoming visible, one risk at a time, without carrying every task alone. I picture the meeting-ready summary taking shape as a calm opening the room can use. What feels organized and uncluttered in my attention as this becomes done enough? What changes in my body when the brief is prepared, steady, and useful before the review? I am able to move this high-priority work forward.
 
-Let your breath come back to the present, steady but not forced, with the body paced for the next focused hour. This work serves a way of leading where clear decisions replace urgency, and progress comes through the next visible decision. You are capable of making this brief meeting-ready, one section at a time. Say quietly to yourself: I can lead with clarity by making the next decision visible.
+I return to the reason this matters: leading product work with clarity and responsibility, making the next decision visible enough for the team to act. My body does not have to feel forced; it can feel steady, clear, and honestly paced. I can begin with the next visible part of the brief and let completion grow from there. Say quietly to myself: I can be calm and firm while I make the next decision visible.
 
 # priya_daily
 
 Models by arm: {"baseline":"gpt-5.5-2026-04-23","mind":"gpt-5.5-2026-04-23","body":"gpt-5.5-2026-04-23","soul":"gpt-5.5-2026-04-23","full":"gpt-5.5-2026-04-23"}
-Generation sources by arm: {"baseline":"openai.vanilla_baseline_prompt","mind":"backend.generate_ablation_rehearsal:rehearsal_system_prompt_draft.md","body":"backend.generate_ablation_rehearsal:rehearsal_system_prompt_draft.md","soul":"backend.generate_ablation_rehearsal:rehearsal_system_prompt_draft.md","full":"backend.generate_ablation_rehearsal:rehearsal_system_prompt_draft.md"}
-Word counts: {"baseline":203,"mind":261,"body":236,"soul":206,"full":280}
+Generation sources by arm: {"baseline":"openai.vanilla_baseline_prompt","mind":"backend.generate_ablation_rehearsal","body":"backend.generate_ablation_rehearsal","soul":"backend.generate_ablation_rehearsal","full":"backend.generate_ablation_rehearsal"}
+Word counts: {"baseline":235,"mind":262,"body":276,"soul":252,"full":266}
 
 ## baseline input
 
@@ -2605,15 +2607,15 @@ Word counts: {"baseline":203,"mind":261,"body":236,"soul":206,"full":280}
 ```
 
 
-## baseline script (203 words)
+## baseline script (235 words)
 
-Today’s schedule can be approached one item at a time, using the listed times and durations as a simple guide. Begin by noting the 07:35–08:05 commute to campus and allow that first transition to set up the rest of the morning. After arriving, the 08:15–09:00 block is for reviewing cardiac medication flashcards. Keep attention on that task during its allotted 45 minutes, then shift to the next scheduled item.
+Today can be approached by moving through each scheduled item one at a time and keeping the full calendar visible as a simple guide. Begin with the 07:35–08:05 commute to campus, allowing enough attention for the transition and arrival. Once on campus, the first study block is 08:15–09:00 to review cardiac medication flashcards for 45 minutes. Use that time to work steadily through the material and stop when the block ends.
 
-From 09:15–10:05, attend the pharmacology lecture and follow along with the material for the full session. Afterward, use the 10:20–10:55 block to complete the clinical reflection note. Treat this as a separate task with a clear start and finish.
+At 09:15, shift into the 50-minute pharmacology lecture, staying with the lecture until 10:05. After that, the next scheduled task is 10:20–10:55, a 35-minute block to complete the clinical reflection note. Treat this as a focused writing or completion period and use the available time to make progress on the note.
 
-The 11:45–12:15 lunch and reset period is a scheduled break in the day. Use it to pause from the morning tasks before moving into the afternoon. At 12:30–12:45, pack materials for afternoon class, checking that the needed items are ready.
+There is a lunch and reset period from 11:45–12:15. Use this as a regular break in the day before the afternoon items begin. At 12:30–12:45, pack the materials needed for afternoon class, checking that the necessary items are ready before moving on.
 
-The 13:00–14:00 exam review group is the main scheduled activity after that. Attend to the group session and keep track of any relevant review points. Later, from 15:30–15:45, complete the clinical check-in message. Move through the day by following each visible calendar item in order, adjusting only as needed while staying oriented to the schedule.
+From 13:00–14:00, attend the exam review group for the full 60 minutes. Follow the group session as it unfolds and keep track of any information that needs later attention. The final visible item is the 15:30–15:45 clinical check-in message. When that time arrives, prepare and send the message during the 15-minute block. Move through the day by following the start and end times, using each scheduled period for its intended task.
 
 ## mind input
 
@@ -2754,21 +2756,21 @@ The 13:00–14:00 exam review group is the main scheduled activity after that. A
 ## mind sections
 
 ### Introduction
-Feel your breath moving in and out, and let your feet notice the ground beneath you. Let your shoulders soften a little, and notice any sounds, thoughts, or feelings that are already here without needing to change them. You are arriving in this day as Priya, with enough attention for the next thing in front of you. In the background is the larger direction: building calm clinical judgment, staying present under pressure, learning from practice, and offering steady care.
+Feel the breath moving in and out, and let your shoulders notice the support beneath you. You can hear what is around you, feel contact with the chair or the floor, and allow thoughts about the day to be present without needing to sort them yet. With no need to force energy or calm, you simply arrive. In the background is the wish to build calm clinical judgment and offer steady care.
 
 ### Task visualization
-Let the first anchor appear: Review cardiac medication flashcards. Imagine the forty-five minutes beginning to take shape, and see yourself moving through one focused cardiac medication set until it is reviewed enough to count. What does your attention feel like when the names, effects, and cautions become a little more familiar? Let the next anchor come into view: Complete clinical reflection note, a shorter stretch where you turn practice into learning and reach the point where the note is complete enough to submit. Then picture the final small anchor, Pack materials for afternoon class, and sense the relief of having what you need ready before moving on; you are able to accomplish the important work that supports Friday’s exam and today’s clinical learning.
+This work serves becoming a capable nurse who can stay present under pressure and keep learning from practice. Now let the first anchor appear: Review cardiac medication flashcards, a high-priority stretch of focused study. Imagine the moment when the cardiac medication set begins to feel more familiar; what changes in your attention when the names, actions, and cautions start to connect? Let the next anchor come into view: Complete clinical reflection note, done enough to count as one clear submitted note. What does it feel like to turn practice into learning? Later, the smaller anchor appears: Pack materials for afternoon class, brief and concrete, leaving you ready to move on. You are able to move these pieces forward today.
 
 ### Ending
-Return to the reason underneath the tasks: becoming a capable nurse who can stay present and keep learning. Let your body stay honest and steady, not forced, just ready for the next doable action. Today’s progress does not need to be dramatic to matter. Say quietly to yourself: I can take the next focused step toward calm clinical judgment.
+Return to what matters: steady care, present attention, and learning that becomes usable under pressure. You do not have to make the whole day perfect; you can take the next doable action toward Friday’s exam and today’s clinical notes. Let the body be as it is, and let the mind gather around one clear start. Say quietly to yourself: “I can move one focused unit forward in service of steady care.”
 
-## mind script (261 words)
+## mind script (262 words)
 
-Feel your breath moving in and out, and let your feet notice the ground beneath you. Let your shoulders soften a little, and notice any sounds, thoughts, or feelings that are already here without needing to change them. You are arriving in this day as Priya, with enough attention for the next thing in front of you. In the background is the larger direction: building calm clinical judgment, staying present under pressure, learning from practice, and offering steady care.
+Feel the breath moving in and out, and let your shoulders notice the support beneath you. You can hear what is around you, feel contact with the chair or the floor, and allow thoughts about the day to be present without needing to sort them yet. With no need to force energy or calm, you simply arrive. In the background is the wish to build calm clinical judgment and offer steady care.
 
-Let the first anchor appear: Review cardiac medication flashcards. Imagine the forty-five minutes beginning to take shape, and see yourself moving through one focused cardiac medication set until it is reviewed enough to count. What does your attention feel like when the names, effects, and cautions become a little more familiar? Let the next anchor come into view: Complete clinical reflection note, a shorter stretch where you turn practice into learning and reach the point where the note is complete enough to submit. Then picture the final small anchor, Pack materials for afternoon class, and sense the relief of having what you need ready before moving on; you are able to accomplish the important work that supports Friday’s exam and today’s clinical learning.
+This work serves becoming a capable nurse who can stay present under pressure and keep learning from practice. Now let the first anchor appear: Review cardiac medication flashcards, a high-priority stretch of focused study. Imagine the moment when the cardiac medication set begins to feel more familiar; what changes in your attention when the names, actions, and cautions start to connect? Let the next anchor come into view: Complete clinical reflection note, done enough to count as one clear submitted note. What does it feel like to turn practice into learning? Later, the smaller anchor appears: Pack materials for afternoon class, brief and concrete, leaving you ready to move on. You are able to move these pieces forward today.
 
-Return to the reason underneath the tasks: becoming a capable nurse who can stay present and keep learning. Let your body stay honest and steady, not forced, just ready for the next doable action. Today’s progress does not need to be dramatic to matter. Say quietly to yourself: I can take the next focused step toward calm clinical judgment.
+Return to what matters: steady care, present attention, and learning that becomes usable under pressure. You do not have to make the whole day perfect; you can take the next doable action toward Friday’s exam and today’s clinical notes. Let the body be as it is, and let the mind gather around one clear start. Say quietly to yourself: “I can move one focused unit forward in service of steady care.”
 
 ## body input
 
@@ -2876,21 +2878,21 @@ Return to the reason underneath the tasks: becoming a capable nurse who can stay
 ## body sections
 
 ### Introduction
-Feel your feet meeting the floor, heavy and real, and let your breath arrive without forcing it. Notice the chair, your shoulders, your jaw, the sounds of the quiet kitchen, and any thoughts passing through. Your energy is modest today, shaped by six hours of sleep, steady movement, and a body that may ask for an honest pace. After you land, let the tea, the water bottle nearby, and the phone on silent become simple cues that you are here.
+Feel your feet making contact with the floor, and let your breath arrive without forcing it. Notice the weight in your legs, the set of your shoulders, the quiet around you, and any thoughts moving through without needing to change them. Your energy is honest and moderate today, with some heaviness from the shift and enough steadiness to begin. Let the quiet kitchen, the tea, the silent phone, and the timer ready nearby become simple cues that you are here.
 
 ### Task visualization
-Let the first important anchor for today come into view, even if its title is not named here. Imagine beginning with the flashcards stacked by topic, the scrubs folded on the chair, and the timer ready to hold a short study interval. What does it feel like when the first piece starts to move, without needing the whole day to feel perfect? Let the timer chime mark progress, and picture yourself reaching a point where the work is done enough to count. Can you sense the steadiness in your body when your attention stays with one small section at a time?
+Without needing the whole day mapped out, let the most important work for today come into view. Imagine beginning in a way that matches your real energy: steady, contained, and doable. You do not have to picture every detail; just sense the first meaningful piece starting to move, then the next piece becoming clearer, then a final point where enough progress has been made to count. What does your body feel like when you are working at an honest pace rather than pushing? What changes in your attention when the timer chime marks one completed interval? Can you sense the small satisfaction of staying with the work long enough for it to matter? Imagine reaching the end of this work with your feet still grounded, your breath a little clearer, and your mind able to recognize: progress happened here.
 
 ### Ending
-Let your breath come back to your feet, your hands, and the contact beneath you. There is no need to force high energy; there is only the next honest action, taken with a steady body and a clear enough mind. Say quietly to yourself: I can move one real piece forward at my own pace.
+Let your body come back to this moment: feet heavy, breath present, shoulders softening just a little. Today does not need to feel effortless for you to move toward what matters; it only needs one doable beginning, followed by one honest stretch of attention. Say quietly to yourself: I can move steadily with the energy I have.
 
-## body script (236 words)
+## body script (276 words)
 
-Feel your feet meeting the floor, heavy and real, and let your breath arrive without forcing it. Notice the chair, your shoulders, your jaw, the sounds of the quiet kitchen, and any thoughts passing through. Your energy is modest today, shaped by six hours of sleep, steady movement, and a body that may ask for an honest pace. After you land, let the tea, the water bottle nearby, and the phone on silent become simple cues that you are here.
+Feel your feet making contact with the floor, and let your breath arrive without forcing it. Notice the weight in your legs, the set of your shoulders, the quiet around you, and any thoughts moving through without needing to change them. Your energy is honest and moderate today, with some heaviness from the shift and enough steadiness to begin. Let the quiet kitchen, the tea, the silent phone, and the timer ready nearby become simple cues that you are here.
 
-Let the first important anchor for today come into view, even if its title is not named here. Imagine beginning with the flashcards stacked by topic, the scrubs folded on the chair, and the timer ready to hold a short study interval. What does it feel like when the first piece starts to move, without needing the whole day to feel perfect? Let the timer chime mark progress, and picture yourself reaching a point where the work is done enough to count. Can you sense the steadiness in your body when your attention stays with one small section at a time?
+Without needing the whole day mapped out, let the most important work for today come into view. Imagine beginning in a way that matches your real energy: steady, contained, and doable. You do not have to picture every detail; just sense the first meaningful piece starting to move, then the next piece becoming clearer, then a final point where enough progress has been made to count. What does your body feel like when you are working at an honest pace rather than pushing? What changes in your attention when the timer chime marks one completed interval? Can you sense the small satisfaction of staying with the work long enough for it to matter? Imagine reaching the end of this work with your feet still grounded, your breath a little clearer, and your mind able to recognize: progress happened here.
 
-Let your breath come back to your feet, your hands, and the contact beneath you. There is no need to force high energy; there is only the next honest action, taken with a steady body and a clear enough mind. Say quietly to yourself: I can move one real piece forward at my own pace.
+Let your body come back to this moment: feet heavy, breath present, shoulders softening just a little. Today does not need to feel effortless for you to move toward what matters; it only needs one doable beginning, followed by one honest stretch of attention. Say quietly to yourself: I can move steadily with the energy I have.
 
 ## soul input
 
@@ -2964,21 +2966,21 @@ Let your breath come back to your feet, your hands, and the contact beneath you.
 ## soul sections
 
 ### Introduction
-Feel the breath enter and leave, and let your feet notice the ground beneath you. Let your shoulders, jaw, and hands be exactly as they are, while sounds and thoughts pass through the room around you. Notice the feeling of being here without needing to fix it. Today, Care can mean staying attentive to the person in front of you, with a steady presence that has room to keep learning.
+Feel the breath arrive, and notice where the body meets the chair or the ground. Let the shoulders, jaw, hands, and face be exactly as they are while sounds and thoughts pass through the room. Without needing to change your state, you make a little space for grounded, kind presence. Today can hold care: staying attentive to the person in front of you, one moment at a time.
 
 ### Task visualization
-Let the shape of today stay open, since the specific tasks are not named here. Imagine moving through the next meaningful piece of your day with grounded, kind attention. What does it feel like to slow down enough to notice? Can you sense Competence as something steady and practiced, not rushed? Picture one moment that counts: one concept mastered, one sequence practiced, one good question asked, or one place where you check understanding and feel yourself becoming more capable.
+This day serves a life where you offer skilled care while continuing to learn. Since the specific priorities are not named here, let the most important work of the day come into view as a few clear anchors: one place to slow down enough to notice, one place to build a skill you can trust, and one place to stay open and curious. Imagine reaching the point where the work is done enough to count. What does steadiness feel like in your body as you finish? What changes in your attention when you check understanding, practice the sequence, or ask one good question? You are able to make real progress today without needing the whole day to be perfect.
 
 ### Ending
-Return to the life you are building: offering skilled care while continuing to learn. Let your body move toward whatever steadiness is available right now, even if it is small. You do not need the whole day mapped out to take the next caring, capable step. Say quietly to yourself: I can be present and keep learning.
+Return to the simple shape of what matters: care that is attentive, competence that grows through practice, and learning that stays brave and open. Let the body find whatever version of steadier is available right now, even if it is small. The next doable action is enough to begin moving in that direction. Say quietly to yourself: I can be present and still keep learning.
 
-## soul script (206 words)
+## soul script (252 words)
 
-Feel the breath enter and leave, and let your feet notice the ground beneath you. Let your shoulders, jaw, and hands be exactly as they are, while sounds and thoughts pass through the room around you. Notice the feeling of being here without needing to fix it. Today, Care can mean staying attentive to the person in front of you, with a steady presence that has room to keep learning.
+Feel the breath arrive, and notice where the body meets the chair or the ground. Let the shoulders, jaw, hands, and face be exactly as they are while sounds and thoughts pass through the room. Without needing to change your state, you make a little space for grounded, kind presence. Today can hold care: staying attentive to the person in front of you, one moment at a time.
 
-Let the shape of today stay open, since the specific tasks are not named here. Imagine moving through the next meaningful piece of your day with grounded, kind attention. What does it feel like to slow down enough to notice? Can you sense Competence as something steady and practiced, not rushed? Picture one moment that counts: one concept mastered, one sequence practiced, one good question asked, or one place where you check understanding and feel yourself becoming more capable.
+This day serves a life where you offer skilled care while continuing to learn. Since the specific priorities are not named here, let the most important work of the day come into view as a few clear anchors: one place to slow down enough to notice, one place to build a skill you can trust, and one place to stay open and curious. Imagine reaching the point where the work is done enough to count. What does steadiness feel like in your body as you finish? What changes in your attention when you check understanding, practice the sequence, or ask one good question? You are able to make real progress today without needing the whole day to be perfect.
 
-Return to the life you are building: offering skilled care while continuing to learn. Let your body move toward whatever steadiness is available right now, even if it is small. You do not need the whole day mapped out to take the next caring, capable step. Say quietly to yourself: I can be present and keep learning.
+Return to the simple shape of what matters: care that is attentive, competence that grows through practice, and learning that stays brave and open. Let the body find whatever version of steadier is available right now, even if it is small. The next doable action is enough to begin moving in that direction. Say quietly to yourself: I can be present and still keep learning.
 
 ## full input
 
@@ -3267,27 +3269,27 @@ Return to the life you are building: offering skilled care while continuing to l
 ## full sections
 
 ### Introduction
-Feel your feet heavy on the floor, and let your breath meet the chair beneath you. Notice the quiet kitchen, the taste of tea, the water bottle nearby, and any thoughts about the day without needing to push them away. Your body is working with moderate energy after six hours of sleep, enough for a steady, honest pace. Let Care, Competence, and Learning sit in the background as a simple intention: skilled care, steady presence, and continuing to learn.
+Feel your feet make contact with the floor, heavy and real, and let your breath settle without forcing it. Notice the quiet around you, the taste or smell of tea, the shoulders, the jaw, and any thoughts already moving. Your body has done enough to feel a little tired this morning, with steady but modest energy. Let the flashcards stacked by topic, the folded scrubs, the silent phone, and the ready timer become simple cues for calm presence.
 
 ### Task visualization
-Let the first anchor appear: Review cardiac medication flashcards, the high-priority study block with flashcards stacked by topic and the timer ready. Imagine you are able to stay present through one focused medication set; what changes in your attention when one concept starts to feel more ready and capable? Let the next anchor come into view: Complete clinical reflection note, a shorter stretch where you slow down enough to notice what practice has taught you. Can you sense the grounded feeling of finishing one note that is done enough to count? Finally, picture Pack materials for afternoon class, a small clean close to the sequence, scrubs folded nearby and the essentials gathered before you leave. You can see yourself moving the day forward in service of becoming a nurse who stays present under pressure.
+This work serves your larger path: building calm clinical judgment, staying present under pressure, and offering skilled care while continuing to learn. Now let the first anchor appear: Review cardiac medication flashcards, a focused high-priority stretch where you can see one medication set becoming clearer. What does it feel like when one concept is more trustworthy in your mind? Let the next anchor come into view: Complete clinical reflection note, enough to capture what changed and what you are learning from practice. Can you sense steadiness and care in the moment the note is done enough to submit? Then imagine the lighter anchor, Pack materials for afternoon class, brief and practical, leaving you ready to move into the rest of the day. You are able to move these three things forward today.
 
 ### Ending
-Return to the body for one breath, letting your shoulders soften and your pace become clear. What matters today is not perfection; it is one medication unit, one reflection note, and the next small sign of clinical confidence. You are able to act from Care while building Competence and staying open to Learning. Say quietly to yourself: I can be steady and take the next clinical step.
+Return to what matters: staying attentive, building skills you can trust, and learning from the day as it happens. Let your body stay honestly paced, not rushed into false energy, just a little clearer and more ready for the next doable action. Say quietly to yourself: I can move steadily and build care I can trust.
 
-## full script (280 words)
+## full script (266 words)
 
-Feel your feet heavy on the floor, and let your breath meet the chair beneath you. Notice the quiet kitchen, the taste of tea, the water bottle nearby, and any thoughts about the day without needing to push them away. Your body is working with moderate energy after six hours of sleep, enough for a steady, honest pace. Let Care, Competence, and Learning sit in the background as a simple intention: skilled care, steady presence, and continuing to learn.
+Feel your feet make contact with the floor, heavy and real, and let your breath settle without forcing it. Notice the quiet around you, the taste or smell of tea, the shoulders, the jaw, and any thoughts already moving. Your body has done enough to feel a little tired this morning, with steady but modest energy. Let the flashcards stacked by topic, the folded scrubs, the silent phone, and the ready timer become simple cues for calm presence.
 
-Let the first anchor appear: Review cardiac medication flashcards, the high-priority study block with flashcards stacked by topic and the timer ready. Imagine you are able to stay present through one focused medication set; what changes in your attention when one concept starts to feel more ready and capable? Let the next anchor come into view: Complete clinical reflection note, a shorter stretch where you slow down enough to notice what practice has taught you. Can you sense the grounded feeling of finishing one note that is done enough to count? Finally, picture Pack materials for afternoon class, a small clean close to the sequence, scrubs folded nearby and the essentials gathered before you leave. You can see yourself moving the day forward in service of becoming a nurse who stays present under pressure.
+This work serves your larger path: building calm clinical judgment, staying present under pressure, and offering skilled care while continuing to learn. Now let the first anchor appear: Review cardiac medication flashcards, a focused high-priority stretch where you can see one medication set becoming clearer. What does it feel like when one concept is more trustworthy in your mind? Let the next anchor come into view: Complete clinical reflection note, enough to capture what changed and what you are learning from practice. Can you sense steadiness and care in the moment the note is done enough to submit? Then imagine the lighter anchor, Pack materials for afternoon class, brief and practical, leaving you ready to move into the rest of the day. You are able to move these three things forward today.
 
-Return to the body for one breath, letting your shoulders soften and your pace become clear. What matters today is not perfection; it is one medication unit, one reflection note, and the next small sign of clinical confidence. You are able to act from Care while building Competence and staying open to Learning. Say quietly to yourself: I can be steady and take the next clinical step.
+Return to what matters: staying attentive, building skills you can trust, and learning from the day as it happens. Let your body stay honestly paced, not rushed into false energy, just a little clearer and more ready for the next doable action. Say quietly to yourself: I can move steadily and build care I can trust.
 
 # priya_task
 
 Models by arm: {"baseline":"gpt-5.5-2026-04-23","mind":"gpt-5.5-2026-04-23","body":"gpt-5.5-2026-04-23","soul":"gpt-5.5-2026-04-23","full":"gpt-5.5-2026-04-23"}
-Generation sources by arm: {"baseline":"openai.vanilla_baseline_prompt","mind":"backend.generate_ablation_rehearsal:rehearsal_system_prompt_draft.md","body":"backend.generate_ablation_rehearsal:rehearsal_system_prompt_draft.md","soul":"backend.generate_ablation_rehearsal:rehearsal_system_prompt_draft.md","full":"backend.generate_ablation_rehearsal:rehearsal_system_prompt_draft.md"}
-Word counts: {"baseline":215,"mind":228,"body":229,"soul":213,"full":244}
+Generation sources by arm: {"baseline":"openai.vanilla_baseline_prompt","mind":"backend.generate_ablation_rehearsal","body":"backend.generate_ablation_rehearsal","soul":"backend.generate_ablation_rehearsal","full":"backend.generate_ablation_rehearsal"}
+Word counts: {"baseline":260,"mind":264,"body":269,"soul":254,"full":262}
 
 ## baseline input
 
@@ -3303,17 +3305,17 @@ Word counts: {"baseline":215,"mind":228,"body":229,"soul":213,"full":244}
 ```
 
 
-## baseline script (215 words)
+## baseline script (260 words)
 
-Take a moment to prepare for the simulation assessment practice by focusing on the three visible tasks in the plan. The aim is simply to move through the preparation in an organized way, using the time set aside for each item.
+This preparation time is for simulation assessment practice. The session can be approached as a simple sequence of three visible tasks: reviewing safety checks, walking through the sequence aloud, and marking one instructor question. Keep the focus on the task list as written, and move through it in order.
 
-Begin with the safety checks for 10 minutes. Review the relevant checks in a steady, practical manner. Keep attention on what needs to be confirmed, named, or noticed. If anything seems unclear, mark it as something to revisit rather than stopping the whole preparation process.
+Begin with the 10-minute review of safety checks. Use this time to look over the relevant checks in a steady, straightforward way. The aim is to refresh what needs to be checked and to make sure the items are familiar before moving on. If something seems unclear, note it briefly and continue through the review so the time stays contained.
 
-Next, spend 20 minutes walking through the sequence aloud. Move through the steps in order, speaking them clearly and at a comfortable pace. This is a chance to become familiar with the flow of the sequence and to notice any points where the wording or order may need a little more attention. If you lose your place, return to the last clear step and continue.
+Next, spend 20 minutes walking through the sequence aloud. Go step by step, saying the sequence in the order it should be performed. Keep the pace moderate and practical. If a step is missed or said out of order, simply return to the correct point and continue. The purpose of this section is to make the sequence easier to recall and to make the wording more comfortable before the assessment practice.
 
-Finally, use 10 minutes to mark one instructor question. Choose one question from the preparation material and note it clearly. Keep the focus on identifying the question and making it easy to find or raise later.
+Finally, use 10 minutes to mark one instructor question. Choose one question to identify or flag for follow-up, clarification, or review. Write it clearly enough that it will be useful later. This part does not need to cover every possible question; it is only for selecting one instructor question as planned.
 
-Proceed through the tasks one at a time. Use the listed times as a simple guide, and let the preparation end when the three items have been completed.
+When the preparation time is complete, pause briefly and note that the listed items have been addressed. Then transition to the next activity with the practice sequence freshly reviewed.
 
 ## mind input
 
@@ -3406,21 +3408,21 @@ Proceed through the tasks one at a time. Use the listed times as a simple guide,
 ## mind sections
 
 ### Introduction
-Feel the breath arrive and leave, and notice the contact beneath you. Let your shoulders, jaw, and hands be exactly as they are while sounds and thoughts pass through the background. There is no need to force a different state before beginning. Today’s scene is simple: I am preparing for simulation lab by giving myself one complete assessment sequence practice.
+Breath comes in, breath goes out, and I feel the contact of my body with what supports me. I notice my shoulders, my jaw, my hands, and the sounds around me without needing to change anything. I let my thoughts be present, and I arrive here as I am. In this quiet moment, I remember that this practice is part of building calm clinical judgment.
 
 ### Task visualization
-I let the task come into view: Practice assessment sequence, a focused forty-minute preparation for learning well in lab. I begin with the opening patient safety checks, seeing myself make one steady checklist pass; what changes in my attention when the first safety step is clear? Then I walk through the assessment sequence aloud, letting each part lead to the next until I can sense one full spoken rehearsal taking shape. What does it feel like in my body when I reach the end of the sequence prepared enough to learn from mistakes? I finish by marking one question to ask the instructor, and I notice that this is real progress toward calm clinical judgment.
+This work serves my larger aim: becoming a capable nurse who can stay present under pressure, keep learning from practice, and offer steady care. Now I let the task appear: practicing the assessment sequence for simulation lab preparation, one focused forty-minute effort that is high priority today. I imagine the opening patient safety checks becoming familiar enough to begin. I imagine the assessment sequence spoken aloud, not perfect, but complete enough to learn from. I imagine one clear question marked for my instructor, a question that helps me enter lab prepared to learn from mistakes. What does it feel like in my body when the walk-through is done enough to count? What changes in my attention when I know I have moved this forward?
 
 ### Ending
-Return to the reason this matters: becoming a capable nurse who can stay present under pressure, keep learning, and offer steady care to patients. Let the body be steady enough for the next doable action, without needing certainty. Say quietly to yourself: I can practice one sequence in service of calm clinical judgment.
+I come back to the reason this matters: steady care grows through practice, and learning becomes easier when I arrive prepared enough. I do not need to feel completely certain before I begin; I can take the next doable piece and let it teach me. My body can stay simple, my mind can stay present, and this practice can be enough for today. I say quietly to myself: I can begin prepared enough to learn.
 
-## mind script (228 words)
+## mind script (264 words)
 
-Feel the breath arrive and leave, and notice the contact beneath you. Let your shoulders, jaw, and hands be exactly as they are while sounds and thoughts pass through the background. There is no need to force a different state before beginning. Today’s scene is simple: I am preparing for simulation lab by giving myself one complete assessment sequence practice.
+Breath comes in, breath goes out, and I feel the contact of my body with what supports me. I notice my shoulders, my jaw, my hands, and the sounds around me without needing to change anything. I let my thoughts be present, and I arrive here as I am. In this quiet moment, I remember that this practice is part of building calm clinical judgment.
 
-I let the task come into view: Practice assessment sequence, a focused forty-minute preparation for learning well in lab. I begin with the opening patient safety checks, seeing myself make one steady checklist pass; what changes in my attention when the first safety step is clear? Then I walk through the assessment sequence aloud, letting each part lead to the next until I can sense one full spoken rehearsal taking shape. What does it feel like in my body when I reach the end of the sequence prepared enough to learn from mistakes? I finish by marking one question to ask the instructor, and I notice that this is real progress toward calm clinical judgment.
+This work serves my larger aim: becoming a capable nurse who can stay present under pressure, keep learning from practice, and offer steady care. Now I let the task appear: practicing the assessment sequence for simulation lab preparation, one focused forty-minute effort that is high priority today. I imagine the opening patient safety checks becoming familiar enough to begin. I imagine the assessment sequence spoken aloud, not perfect, but complete enough to learn from. I imagine one clear question marked for my instructor, a question that helps me enter lab prepared to learn from mistakes. What does it feel like in my body when the walk-through is done enough to count? What changes in my attention when I know I have moved this forward?
 
-Return to the reason this matters: becoming a capable nurse who can stay present under pressure, keep learning, and offer steady care to patients. Let the body be steady enough for the next doable action, without needing certainty. Say quietly to yourself: I can practice one sequence in service of calm clinical judgment.
+I come back to the reason this matters: steady care grows through practice, and learning becomes easier when I arrive prepared enough. I do not need to feel completely certain before I begin; I can take the next doable piece and let it teach me. My body can stay simple, my mind can stay present, and this practice can be enough for today. I say quietly to myself: I can begin prepared enough to learn.
 
 ## body input
 
@@ -3520,21 +3522,21 @@ Return to the reason this matters: becoming a capable nurse who can stay present
 ## body sections
 
 ### Introduction
-Feel your breath arrive in your chest and your feet meet the floor. Notice the contact of your body with the chair, the slight tension in your shoulders, and the simple taste of water. You do not need to change the thoughts that are here; you can hear the campus hallway noise and let your body settle around it. Your energy is moderate today, supported by a decent night of sleep, so this rehearsal asks for steady attention, not force.
+I feel my feet make contact with the ground, and I let my breath arrive without forcing it. I notice my shoulders, a little tense, my hands around the water bottle, the taste of water, and the sounds of the campus hallway around me. My energy is steady but not unlimited today, supported by decent sleep and a body that is asking for an honest pace. I let the printed skills checklist, the stethoscope in my bag, and the highlighted simulation notes become simple cues: I am here now.
 
 ### Task visualization
-I let the task come into view without needing to name every part of it. I see the skills checklist printed, the simulation notes highlighted, the stethoscope in the bag, and the phone timer ready, and I imagine myself beginning with one clear step. What changes in my body when the first part starts to move? I picture my hands around the water bottle, my shoulders softening a little, and the study partner message pinned nearby as I reach the point where this work is done enough to count. What does credible success feel like when my attention is steady and my pace is honest?
+Because no specific task is named, I let the work in front of me appear as the next important practice session. I imagine myself beginning with enough clarity to engage, not needing a perfect surge of energy. I can picture the task moving from vague to workable, one real piece becoming done enough to count. What does my body feel like when I am focused at this honest pace? What changes in my attention when I stop rushing and stay with the next useful part? I imagine reaching a natural stopping point where the important work has moved forward. What do I notice in my breath, my shoulders, or my thoughts when I recognize that progress is real?
 
 ### Ending
-Come back to the breath, the floor, and the next doable movement. The body does not have to feel perfect for the task to begin. Priya can move with enough steadiness for this moment. Say quietly to yourself: I can begin with steady attention.
+I return to the feeling of contact: feet grounded, breath present, shoulders allowed to soften. I do not need to feel fully charged to begin; I can work with the energy I actually have. I let the next doable action become clear and close enough to start. Say quietly to myself: I can move one real piece forward at an honest pace.
 
-## body script (229 words)
+## body script (269 words)
 
-Feel your breath arrive in your chest and your feet meet the floor. Notice the contact of your body with the chair, the slight tension in your shoulders, and the simple taste of water. You do not need to change the thoughts that are here; you can hear the campus hallway noise and let your body settle around it. Your energy is moderate today, supported by a decent night of sleep, so this rehearsal asks for steady attention, not force.
+I feel my feet make contact with the ground, and I let my breath arrive without forcing it. I notice my shoulders, a little tense, my hands around the water bottle, the taste of water, and the sounds of the campus hallway around me. My energy is steady but not unlimited today, supported by decent sleep and a body that is asking for an honest pace. I let the printed skills checklist, the stethoscope in my bag, and the highlighted simulation notes become simple cues: I am here now.
 
-I let the task come into view without needing to name every part of it. I see the skills checklist printed, the simulation notes highlighted, the stethoscope in the bag, and the phone timer ready, and I imagine myself beginning with one clear step. What changes in my body when the first part starts to move? I picture my hands around the water bottle, my shoulders softening a little, and the study partner message pinned nearby as I reach the point where this work is done enough to count. What does credible success feel like when my attention is steady and my pace is honest?
+Because no specific task is named, I let the work in front of me appear as the next important practice session. I imagine myself beginning with enough clarity to engage, not needing a perfect surge of energy. I can picture the task moving from vague to workable, one real piece becoming done enough to count. What does my body feel like when I am focused at this honest pace? What changes in my attention when I stop rushing and stay with the next useful part? I imagine reaching a natural stopping point where the important work has moved forward. What do I notice in my breath, my shoulders, or my thoughts when I recognize that progress is real?
 
-Come back to the breath, the floor, and the next doable movement. The body does not have to feel perfect for the task to begin. Priya can move with enough steadiness for this moment. Say quietly to yourself: I can begin with steady attention.
+I return to the feeling of contact: feet grounded, breath present, shoulders allowed to soften. I do not need to feel fully charged to begin; I can work with the energy I actually have. I let the next doable action become clear and close enough to start. Say quietly to myself: I can move one real piece forward at an honest pace.
 
 ## soul input
 
@@ -3610,21 +3612,21 @@ Come back to the breath, the floor, and the next doable movement. The body does 
 ## soul sections
 
 ### Introduction
-Feel your breath move in and out, and notice the places where your body meets support. Let your shoulders, jaw, and hands be exactly as they are for a moment. Hear whatever sound is around you, and let thoughts pass through without needing to organize them yet. In this grounded pause, Care can mean staying attentive to what is in front of you, and Competence can feel steady rather than forced.
+I feel the breath arrive and leave, and I notice the contact of my body with whatever is supporting me. I let my shoulders, jaw, and hands be exactly as they are, while sound, feeling, and thought pass through the background. I do not need to change my state to begin imagining. I let the qualities of care, steadiness, and curiosity come close: staying attentive, building skills I can trust, and remaining open as I learn.
 
 ### Task visualization
-I let the task come into view without needing every detail named in advance. I imagine beginning with a slower, kinder attention, checking understanding, and letting one next piece become clear. What does grounded feel like in my body as I stay present? Where do I sense readiness, capability, or curiosity as I practice the next step? I can picture a credible moment of progress: one concept is clearer, one sequence feels more familiar, and learning is information I can use.
+This work serves a life where I can offer skilled care while continuing to learn, even without needing to define every detail right now. I let the task in front of me take shape in my own mind, and I imagine reaching a point where it is done enough to count. What does steady competence feel like in my body as I practice? What changes in my attention when I slow down enough to notice, check understanding, or ask one good question? I imagine myself present with the work, capable without being rigid, brave enough to learn from what changes. I can sense a credible moment of completion: one piece understood, one sequence practiced, one clearer next step available.
 
 ### Ending
-Return to the reason this matters: a life where skilled care and continued learning can grow together. Let the body stay honest and supported, not pushed into a feeling it does not have. Capability is allowed to be quiet, built through one attentive next action. Say quietly to yourself: I can be steady and present while I learn the next piece.
+I come back to what matters: skilled care, steady presence, and learning that continues through practice. My body does not have to feel perfect for me to begin; I can move at an honest pace and let attention gather around the next doable piece. I carry one simple line into action: I can be present and still keep learning.
 
-## soul script (213 words)
+## soul script (254 words)
 
-Feel your breath move in and out, and notice the places where your body meets support. Let your shoulders, jaw, and hands be exactly as they are for a moment. Hear whatever sound is around you, and let thoughts pass through without needing to organize them yet. In this grounded pause, Care can mean staying attentive to what is in front of you, and Competence can feel steady rather than forced.
+I feel the breath arrive and leave, and I notice the contact of my body with whatever is supporting me. I let my shoulders, jaw, and hands be exactly as they are, while sound, feeling, and thought pass through the background. I do not need to change my state to begin imagining. I let the qualities of care, steadiness, and curiosity come close: staying attentive, building skills I can trust, and remaining open as I learn.
 
-I let the task come into view without needing every detail named in advance. I imagine beginning with a slower, kinder attention, checking understanding, and letting one next piece become clear. What does grounded feel like in my body as I stay present? Where do I sense readiness, capability, or curiosity as I practice the next step? I can picture a credible moment of progress: one concept is clearer, one sequence feels more familiar, and learning is information I can use.
+This work serves a life where I can offer skilled care while continuing to learn, even without needing to define every detail right now. I let the task in front of me take shape in my own mind, and I imagine reaching a point where it is done enough to count. What does steady competence feel like in my body as I practice? What changes in my attention when I slow down enough to notice, check understanding, or ask one good question? I imagine myself present with the work, capable without being rigid, brave enough to learn from what changes. I can sense a credible moment of completion: one piece understood, one sequence practiced, one clearer next step available.
 
-Return to the reason this matters: a life where skilled care and continued learning can grow together. Let the body stay honest and supported, not pushed into a feeling it does not have. Capability is allowed to be quiet, built through one attentive next action. Say quietly to yourself: I can be steady and present while I learn the next piece.
+I come back to what matters: skilled care, steady presence, and learning that continues through practice. My body does not have to feel perfect for me to begin; I can move at an honest pace and let attention gather around the next doable piece. I carry one simple line into action: I can be present and still keep learning.
 
 ## full input
 
@@ -3857,27 +3859,27 @@ Return to the reason this matters: a life where skilled care and continued learn
 ## full sections
 
 ### Introduction
-Feel your breath move in and out, and notice your feet making contact with the floor. Let your shoulders be exactly as they are, even if they are slightly tense, and feel your hands around the water bottle. I notice a middle level of energy today: enough to practice honestly, not needing to force intensity. The printed skills checklist, highlighted simulation notes, and the quiet readiness of the phone timer begin to form the scene of preparation.
+I feel my breath move in and out, and I let my feet find the floor. I notice the chair, my shoulders slightly tense, my hands around the water bottle, and the sounds around me, without needing to change any of it. My energy is moderate today: rested enough to practice, not needing to force intensity. I let the printed skills checklist, highlighted simulation notes, and stethoscope in my bag mark the scene of preparation.
 
 ### Task visualization
-I open the practice by reviewing the opening patient safety checks, letting each item become a calm first step into care. What does it feel like to slow down enough to notice, to stay attentive to the person in front of me? I move into the assessment sequence aloud, hearing my own voice find the order, the pauses, and the steady rhythm of one full walk-through. Can I sense competence building as something practical: one sequence practiced, one skill I can trust a little more under pressure? I finish by marking one clear question to ask my instructor, and I let curiosity make the practice feel open, brave, and useful.
+This practice serves my larger aim: building calm clinical judgment, becoming a nurse who stays present under pressure and keeps learning from practice. I let the task come into view: Practice assessment sequence, a focused forty-minute preparation for simulation lab. I can imagine the opening patient safety checks becoming familiar enough to begin with steadiness. I can sense the full assessment sequence spoken aloud, not perfect, but coherent enough to learn from. I can see one clear question marked for my instructor, a sign that I am curious and prepared. What does readiness feel like in my body as this comes together? What changes in my attention when I slow down enough to notice? Can I feel grounded, kind, present, and capable inside this practice?
 
 ### Ending
-Come back to the breath, the feet, and the steadier feeling of having moved this forward. This practice serves the larger aim of entering simulation lab prepared enough to learn from mistakes and offer skilled care while continuing to learn. I do not need perfect certainty; I can take the next steady step in care and learning.
+I return to what matters: skilled care, steady presence, and using practice as information. My body does not have to feel charged up; it can feel honestly paced, clearer, and ready for one complete walk-through. I am able to begin this next piece in service of becoming capable under pressure. Say quietly to myself: I can be steady and still keep learning.
 
-## full script (244 words)
+## full script (262 words)
 
-Feel your breath move in and out, and notice your feet making contact with the floor. Let your shoulders be exactly as they are, even if they are slightly tense, and feel your hands around the water bottle. I notice a middle level of energy today: enough to practice honestly, not needing to force intensity. The printed skills checklist, highlighted simulation notes, and the quiet readiness of the phone timer begin to form the scene of preparation.
+I feel my breath move in and out, and I let my feet find the floor. I notice the chair, my shoulders slightly tense, my hands around the water bottle, and the sounds around me, without needing to change any of it. My energy is moderate today: rested enough to practice, not needing to force intensity. I let the printed skills checklist, highlighted simulation notes, and stethoscope in my bag mark the scene of preparation.
 
-I open the practice by reviewing the opening patient safety checks, letting each item become a calm first step into care. What does it feel like to slow down enough to notice, to stay attentive to the person in front of me? I move into the assessment sequence aloud, hearing my own voice find the order, the pauses, and the steady rhythm of one full walk-through. Can I sense competence building as something practical: one sequence practiced, one skill I can trust a little more under pressure? I finish by marking one clear question to ask my instructor, and I let curiosity make the practice feel open, brave, and useful.
+This practice serves my larger aim: building calm clinical judgment, becoming a nurse who stays present under pressure and keeps learning from practice. I let the task come into view: Practice assessment sequence, a focused forty-minute preparation for simulation lab. I can imagine the opening patient safety checks becoming familiar enough to begin with steadiness. I can sense the full assessment sequence spoken aloud, not perfect, but coherent enough to learn from. I can see one clear question marked for my instructor, a sign that I am curious and prepared. What does readiness feel like in my body as this comes together? What changes in my attention when I slow down enough to notice? Can I feel grounded, kind, present, and capable inside this practice?
 
-Come back to the breath, the feet, and the steadier feeling of having moved this forward. This practice serves the larger aim of entering simulation lab prepared enough to learn from mistakes and offer skilled care while continuing to learn. I do not need perfect certainty; I can take the next steady step in care and learning.
+I return to what matters: skilled care, steady presence, and using practice as information. My body does not have to feel charged up; it can feel honestly paced, clearer, and ready for one complete walk-through. I am able to begin this next piece in service of becoming capable under pressure. Say quietly to myself: I can be steady and still keep learning.
 
 # alex_daily
 
 Models by arm: {"baseline":"gpt-5.5-2026-04-23","mind":"gpt-5.5-2026-04-23","body":"gpt-5.5-2026-04-23","soul":"gpt-5.5-2026-04-23","full":"gpt-5.5-2026-04-23"}
-Generation sources by arm: {"baseline":"openai.vanilla_baseline_prompt","mind":"backend.generate_ablation_rehearsal:rehearsal_system_prompt_draft.md","body":"backend.generate_ablation_rehearsal:rehearsal_system_prompt_draft.md","soul":"backend.generate_ablation_rehearsal:rehearsal_system_prompt_draft.md","full":"backend.generate_ablation_rehearsal:rehearsal_system_prompt_draft.md"}
-Word counts: {"baseline":212,"mind":292,"body":248,"soul":203,"full":272}
+Generation sources by arm: {"baseline":"openai.vanilla_baseline_prompt","mind":"backend.generate_ablation_rehearsal","body":"backend.generate_ablation_rehearsal","soul":"backend.generate_ablation_rehearsal","full":"backend.generate_ablation_rehearsal"}
+Word counts: {"baseline":250,"mind":267,"body":251,"soul":236,"full":266}
 
 ## baseline input
 
@@ -3898,13 +3900,15 @@ Word counts: {"baseline":212,"mind":292,"body":248,"soul":203,"full":272}
 ```
 
 
-## baseline script (212 words)
+## baseline script (250 words)
 
-Today’s schedule includes several work blocks and a lunch break, each with a specific start time and duration. Begin by looking over the full calendar so the sequence of items is clear. The day starts at 08:30 with 20 minutes for client inbox and file check. At 09:00, there is an 80-minute block to build the pitch deck narrative. At 10:30, 20 minutes are set aside to review client assets, followed by 35 minutes at 11:00 to export client-ready mockups.
+Take a few moments to review the day’s visible schedule as a simple sequence of tasks and time blocks. The calendar begins at 08:30 with 20 minutes for the client inbox and file check, followed by an 80-minute block at 09:00 to build the pitch deck narrative. After that, there is a 20-minute review of client assets at 10:30, then 35 minutes at 11:00 to export client-ready mockups.
 
-After the morning tasks, there is a 30-minute lunch break from 12:20 to 12:50. In the afternoon, prepare client call notes from 13:30 to 14:00. Later, at 14:40, spend 10 minutes sending the invoice reminder. The final scheduled item is the client call from 16:00 to 16:45.
+The middle of the day includes a 30-minute lunch break from 12:20 to 12:50. After lunch, the schedule continues at 13:30 with 30 minutes to prepare client call notes. Later, there is a short 10-minute block at 14:40 to send an invoice reminder. The final listed item is the client call from 16:00 to 16:45.
 
-Before starting, make sure any needed files, tools, notes, or calendar reminders are accessible. Move through the schedule one item at a time, using the listed time blocks as a guide. When a task ends, transition to the next scheduled item by checking what is coming up and opening the relevant materials. If there is time between items, use it to reset the workspace, save progress, or prepare for the next block. Follow the visible schedule as written and keep attention on the current task.
+As you prepare, simply note the start time, duration, and general purpose of each block. When one item begins, focus on that item for its scheduled time. When it ends, allow a clean transition to the next scheduled item or gap in the calendar. The open spaces between tasks can be used to reset, organize materials, or get ready for the next appointment without adding extra pressure to the schedule.
+
+Keep the plan straightforward: check what is needed for the current block, work through it within the allotted time, and then move on. If a task requires a file, note, draft, or message, have it ready when that block begins. Follow the calendar in order and treat each listed item as part of the day’s normal preparation.
 
 ## mind input
 
@@ -4045,21 +4049,21 @@ Before starting, make sure any needed files, tools, notes, or calendar reminders
 ## mind sections
 
 ### Introduction
-Feel your breath move in and out, and notice the contact of your body with the chair or the floor. Let your shoulders, jaw, and hands be as they are, while sounds and thoughts pass through the room around you. There is no need to force a state; simply arrive here, with today’s shape beginning to come into focus. In the background is the larger practice you are building: original work, reliable client work, and financial steadiness.
+Feel the breath arrive and leave, and let the chair or floor hold you for a moment. Notice the shoulders, the jaw, the hands, and any thoughts already moving through the morning, without needing to change them. Hear the day around you as it is. Today has a clear shape, with the client call later, and the larger practice in the background: original work, reliable client work, and financial steadiness.
 
 ### Task visualization
-Let the first anchor appear: Build pitch deck narrative, the high-priority stretch of attention that gives the deck its core story. Imagine the moment when the narrative starts to move, when one clear story arc is chosen and the strongest concept slides begin to line up into a flow; what does it feel like when this becomes coherent enough to carry into the client call? Let the next anchor come into view: Export client-ready mockups, a shorter, focused pass where the work becomes a final PDF and image files you can send. You can see yourself reaching the point where the deck is client-ready before 4:00 PM, and then moving through the small final anchor, Send invoice reminder, with enough steadiness to support the business side of the practice. Can you sense the accomplishment of one exported deck ready before the call, not perfect in every imagined way, but strong enough to count?
+This work serves building an independent creative practice, one that can carry both originality and steadiness. Now let the first anchor appear: Build pitch deck narrative, the longer, high-priority stretch where the core story begins to feel client-ready. Imagine you are able to reach the point where the narrative has a clear arc and the deck has a direction you can stand behind. Let the next anchor come into view: Export client-ready mockups, a shorter focused piece where the work becomes something sendable. What does it feel like when the files are ready enough to support the call? Finally, see the small anchor of Send invoice reminder: brief, clean, and complete. What changes in your attention when the important work is moving and the practical piece is handled?
 
 ### Ending
-Come back to the next doable action, the one that helps today’s creative practice become more real. You are able to move one clear piece forward at a time, from story to export to the client conversation. Let that feel reachable rather than dramatic. Say quietly to yourself: I can build the next clear piece in service of my independent creative practice.
+Return to the reason this day matters: one strong client-ready deck before the call, and one more step toward a steadier creative practice. Let the body stay simple and present, not forced, just ready for the next doable action. The day does not need to be perfect for meaningful progress to happen. Say quietly to yourself: I can move the next piece forward in service of my creative practice.
 
-## mind script (292 words)
+## mind script (267 words)
 
-Feel your breath move in and out, and notice the contact of your body with the chair or the floor. Let your shoulders, jaw, and hands be as they are, while sounds and thoughts pass through the room around you. There is no need to force a state; simply arrive here, with today’s shape beginning to come into focus. In the background is the larger practice you are building: original work, reliable client work, and financial steadiness.
+Feel the breath arrive and leave, and let the chair or floor hold you for a moment. Notice the shoulders, the jaw, the hands, and any thoughts already moving through the morning, without needing to change them. Hear the day around you as it is. Today has a clear shape, with the client call later, and the larger practice in the background: original work, reliable client work, and financial steadiness.
 
-Let the first anchor appear: Build pitch deck narrative, the high-priority stretch of attention that gives the deck its core story. Imagine the moment when the narrative starts to move, when one clear story arc is chosen and the strongest concept slides begin to line up into a flow; what does it feel like when this becomes coherent enough to carry into the client call? Let the next anchor come into view: Export client-ready mockups, a shorter, focused pass where the work becomes a final PDF and image files you can send. You can see yourself reaching the point where the deck is client-ready before 4:00 PM, and then moving through the small final anchor, Send invoice reminder, with enough steadiness to support the business side of the practice. Can you sense the accomplishment of one exported deck ready before the call, not perfect in every imagined way, but strong enough to count?
+This work serves building an independent creative practice, one that can carry both originality and steadiness. Now let the first anchor appear: Build pitch deck narrative, the longer, high-priority stretch where the core story begins to feel client-ready. Imagine you are able to reach the point where the narrative has a clear arc and the deck has a direction you can stand behind. Let the next anchor come into view: Export client-ready mockups, a shorter focused piece where the work becomes something sendable. What does it feel like when the files are ready enough to support the call? Finally, see the small anchor of Send invoice reminder: brief, clean, and complete. What changes in your attention when the important work is moving and the practical piece is handled?
 
-Come back to the next doable action, the one that helps today’s creative practice become more real. You are able to move one clear piece forward at a time, from story to export to the client conversation. Let that feel reachable rather than dramatic. Say quietly to yourself: I can build the next clear piece in service of my independent creative practice.
+Return to the reason this day matters: one strong client-ready deck before the call, and one more step toward a steadier creative practice. Let the body stay simple and present, not forced, just ready for the next doable action. The day does not need to be perfect for meaningful progress to happen. Say quietly to yourself: I can move the next piece forward in service of my creative practice.
 
 ## body input
 
@@ -4162,21 +4166,21 @@ Come back to the next doable action, the one that helps today’s creative pract
 ## body sections
 
 ### Introduction
-Feel your feet make contact, your breath moving in and out, and the chair holding you. Notice the sounds around you, the taste or smell of coffee if it is there, and any thoughts passing through without needing to change them. Your body has real support today: solid sleep, steady recovery signals, and enough energy to begin with clarity. Let the scene come into focus only now: the moodboard wall visible, the deck outline open, the tablet charged, and your feet tucked under the chair.
+Feel your breath arrive in your chest and belly, and notice the contact of your body with the chair. Your feet tuck under you, your shoulders soften, and the sounds around you can be there without needing anything from you. After solid sleep and steady recovery, your energy is present but not something to force. Let the moodboard wall, the open outline, the charged tablet, the coffee, and the ready playlist quietly shape the scene.
 
 ### Task visualization
-Let the first important anchor of the day appear, even if its title is not named here. Imagine the moment when this work starts to move: the stylus in your hand, the playlist ready, your attention gathering around the next visible piece. What does it feel like in your body when something becomes clear enough to continue? Let the next anchor come into view, then another, and picture each one reaching a point that feels done enough to count. Can you sense the calm steadiness of making progress without needing to force the whole day at once?
+Now let the important work of today come into view, even without naming every part of it. Imagine the first meaningful piece beginning to move, with your attention settling into one clear place. What does it feel like when the work starts to take shape? Let the next useful piece appear, and picture reaching the point where it is done enough to count. Your body does not need to rush; it can use today’s steadier energy with a calm, workable rhythm. Imagine a later moment when you notice real progress has happened. What changes in your breathing, your posture, or your thoughts when you can see that you have moved something forward?
 
 ### Ending
-Come back to your breath, your feet, and the supported weight of your body in the chair. The day does not need to be perfectly mapped for you to take the next honest step. You can trust the steadiness that is already here and let one visible cue lead you into action. Say quietly to yourself: I can begin with what is in front of me.
+Come back to the feeling of contact, breath, and the room around you. The day does not have to be solved all at once; the next doable action is enough to begin. Let your body stay steady, clear, and honestly paced as you move toward what matters. Say quietly to yourself: I can begin with one clear piece and let progress build from there.
 
-## body script (248 words)
+## body script (251 words)
 
-Feel your feet make contact, your breath moving in and out, and the chair holding you. Notice the sounds around you, the taste or smell of coffee if it is there, and any thoughts passing through without needing to change them. Your body has real support today: solid sleep, steady recovery signals, and enough energy to begin with clarity. Let the scene come into focus only now: the moodboard wall visible, the deck outline open, the tablet charged, and your feet tucked under the chair.
+Feel your breath arrive in your chest and belly, and notice the contact of your body with the chair. Your feet tuck under you, your shoulders soften, and the sounds around you can be there without needing anything from you. After solid sleep and steady recovery, your energy is present but not something to force. Let the moodboard wall, the open outline, the charged tablet, the coffee, and the ready playlist quietly shape the scene.
 
-Let the first important anchor of the day appear, even if its title is not named here. Imagine the moment when this work starts to move: the stylus in your hand, the playlist ready, your attention gathering around the next visible piece. What does it feel like in your body when something becomes clear enough to continue? Let the next anchor come into view, then another, and picture each one reaching a point that feels done enough to count. Can you sense the calm steadiness of making progress without needing to force the whole day at once?
+Now let the important work of today come into view, even without naming every part of it. Imagine the first meaningful piece beginning to move, with your attention settling into one clear place. What does it feel like when the work starts to take shape? Let the next useful piece appear, and picture reaching the point where it is done enough to count. Your body does not need to rush; it can use today’s steadier energy with a calm, workable rhythm. Imagine a later moment when you notice real progress has happened. What changes in your breathing, your posture, or your thoughts when you can see that you have moved something forward?
 
-Come back to your breath, your feet, and the supported weight of your body in the chair. The day does not need to be perfectly mapped for you to take the next honest step. You can trust the steadiness that is already here and let one visible cue lead you into action. Say quietly to yourself: I can begin with what is in front of me.
+Come back to the feeling of contact, breath, and the room around you. The day does not have to be solved all at once; the next doable action is enough to begin. Let your body stay steady, clear, and honestly paced as you move toward what matters. Say quietly to yourself: I can begin with one clear piece and let progress build from there.
 
 ## soul input
 
@@ -4250,21 +4254,21 @@ Come back to your breath, your feet, and the supported weight of your body in th
 ## soul sections
 
 ### Introduction
-Feel your breath arrive in your body, and notice the contact beneath you. Let your shoulders, jaw, and hands be exactly as they are while sound and thought pass through the room. Without needing to know the whole day yet, let the idea of Originality, Reliability, and Freedom come close. Today can belong to a life where creative work stays original and the studio stays sustainable.
+Feel the breath arrive and leave, and let the chair or floor hold you for a moment. Notice any sound in the room, any tightness in the jaw or shoulders, and whatever thoughts are already moving, without needing to fix them. As the scene opens, let the day have a simple direction: creative work that feels unmistakably yours, and a studio life that stays sustainable.
 
 ### Task visualization
-Let the shape of the important work appear without forcing it into a list. Imagine one moment where your work feels unmistakably yours: inventive, alive, and free. What does your body notice when one strong concept choice becomes clear? Let another moment come into view where trust is visible in how you deliver, clean and settled enough that someone knows what to expect. What changes inside you when admin or money tasks feel unblocked, and your practice feels a little more independent and sustainable?
+This day serves a life where original work and steady delivery can both belong. Without needing the exact tasks named here, let the most important work of today come into view on its own. Imagine one strong concept choice beginning to feel clear; what changes in your attention when the work starts to feel inventive, alive, and free? Let another useful anchor appear: trust made visible in how you deliver, perhaps through something clean, clear, or professional enough to count. What does solid feel like in your body? Finally, sense a small clearing of space around the practice itself, the kind of freedom that feels unblocked and self-directed. You are able to move something meaningful forward today.
 
 ### Ending
-Return to the feeling of a steadier body and a clearer direction. You do not need the whole day solved to move toward what matters. One original choice, one reliable delivery, or one freeing action can be enough to begin. Say quietly to yourself: I can make the next choice feel unmistakably mine.
+Return to what matters: making work that carries your own mark, while keeping the studio steady enough to keep going. Let the body settle into whatever version of ready is available now: softer shoulders, clearer breath, one doable movement toward the day. Say quietly to yourself: I can be original and still deliver steadily.
 
-## soul script (203 words)
+## soul script (236 words)
 
-Feel your breath arrive in your body, and notice the contact beneath you. Let your shoulders, jaw, and hands be exactly as they are while sound and thought pass through the room. Without needing to know the whole day yet, let the idea of Originality, Reliability, and Freedom come close. Today can belong to a life where creative work stays original and the studio stays sustainable.
+Feel the breath arrive and leave, and let the chair or floor hold you for a moment. Notice any sound in the room, any tightness in the jaw or shoulders, and whatever thoughts are already moving, without needing to fix them. As the scene opens, let the day have a simple direction: creative work that feels unmistakably yours, and a studio life that stays sustainable.
 
-Let the shape of the important work appear without forcing it into a list. Imagine one moment where your work feels unmistakably yours: inventive, alive, and free. What does your body notice when one strong concept choice becomes clear? Let another moment come into view where trust is visible in how you deliver, clean and settled enough that someone knows what to expect. What changes inside you when admin or money tasks feel unblocked, and your practice feels a little more independent and sustainable?
+This day serves a life where original work and steady delivery can both belong. Without needing the exact tasks named here, let the most important work of today come into view on its own. Imagine one strong concept choice beginning to feel clear; what changes in your attention when the work starts to feel inventive, alive, and free? Let another useful anchor appear: trust made visible in how you deliver, perhaps through something clean, clear, or professional enough to count. What does solid feel like in your body? Finally, sense a small clearing of space around the practice itself, the kind of freedom that feels unblocked and self-directed. You are able to move something meaningful forward today.
 
-Return to the feeling of a steadier body and a clearer direction. You do not need the whole day solved to move toward what matters. One original choice, one reliable delivery, or one freeing action can be enough to begin. Say quietly to yourself: I can make the next choice feel unmistakably mine.
+Return to what matters: making work that carries your own mark, while keeping the studio steady enough to keep going. Let the body settle into whatever version of ready is available now: softer shoulders, clearer breath, one doable movement toward the day. Say quietly to yourself: I can be original and still deliver steadily.
 
 ## full input
 
@@ -4548,27 +4552,27 @@ Return to the feeling of a steadier body and a clearer direction. You do not nee
 ## full sections
 
 ### Introduction
-Feel your feet and the chair holding you, and let one slow breath make your shoulders a little heavier. Notice the sound in the room, the taste of coffee, the contact of your body, and the thoughts already moving without needing to fix them. Your energy is clear enough to begin, supported by real rest, with a steady body that can work honestly. Now let the moodboard wall, the open deck outline, the charged tablet, and the ready playlist become quiet cues for a creative morning in service of an independent studio.
+Feel your feet make contact, your breath moving through your chest, and your shoulders settling into the chair. You notice the sound around you, the taste of coffee, the thoughts already moving, and you do not need to change them. Your body has a solid base today: real sleep, steady recovery, and enough energy to begin clearly. Let the moodboard, the open deck outline, the charged tablet, and the ready playlist become simple cues for arrival.
 
 ### Task visualization
-Let the first anchor appear: Build pitch deck narrative, the high-priority stretch where the core story starts to become visible. Imagine you are able to choose one strong concept direction, sequence the deck so it feels unmistakably yours, and reach the point where the client can follow the idea. What does inventive and alive feel like in your hands, your eyes, your attention? Let the next anchor come into view: Export client-ready mockups, clean files that make reliability visible and help the client know what to expect. Can you sense the settled feeling when the final PDF and images are ready, and then the lightness of sending the invoice reminder, clearing one small money task so the practice stays sustainable?
+This work serves an independent creative practice: original work, reliable client delivery, and financial steadiness. Now let the first anchor appear, Build pitch deck narrative, the longer high-focus piece where one strong story arc begins to feel client-ready and unmistakably yours. Imagine reaching the point where the deck has a clear flow, where the strongest concept slides sit in an order that makes sense. Let the next anchor come into view, Export client-ready mockups, and picture the clean moment when the files are ready enough to send trust visibly. Then see the small final anchor, Send invoice reminder, clearing a money task without heaviness. What does solid, alive, professional progress feel like in your body? What changes in your attention when the work is done enough to count?
 
 ### Ending
-Return to what matters: original work, reliable delivery, and a studio that can keep standing on its own. Let your body stay steady rather than rushed, with enough clarity for the next doable action. You are capable of moving the deck forward today in a way that counts. Say quietly to yourself: I can be inventive and still deliver cleanly.
+Come back to the breath and to the practice you are building: creative mornings, an independent studio, work that stays original and sustainable. You do not need the whole day to feel effortless; you can move with the energy you have and take the next clean action. Say quietly to yourself: I can make one strong choice and deliver it with care.
 
-## full script (272 words)
+## full script (266 words)
 
-Feel your feet and the chair holding you, and let one slow breath make your shoulders a little heavier. Notice the sound in the room, the taste of coffee, the contact of your body, and the thoughts already moving without needing to fix them. Your energy is clear enough to begin, supported by real rest, with a steady body that can work honestly. Now let the moodboard wall, the open deck outline, the charged tablet, and the ready playlist become quiet cues for a creative morning in service of an independent studio.
+Feel your feet make contact, your breath moving through your chest, and your shoulders settling into the chair. You notice the sound around you, the taste of coffee, the thoughts already moving, and you do not need to change them. Your body has a solid base today: real sleep, steady recovery, and enough energy to begin clearly. Let the moodboard, the open deck outline, the charged tablet, and the ready playlist become simple cues for arrival.
 
-Let the first anchor appear: Build pitch deck narrative, the high-priority stretch where the core story starts to become visible. Imagine you are able to choose one strong concept direction, sequence the deck so it feels unmistakably yours, and reach the point where the client can follow the idea. What does inventive and alive feel like in your hands, your eyes, your attention? Let the next anchor come into view: Export client-ready mockups, clean files that make reliability visible and help the client know what to expect. Can you sense the settled feeling when the final PDF and images are ready, and then the lightness of sending the invoice reminder, clearing one small money task so the practice stays sustainable?
+This work serves an independent creative practice: original work, reliable client delivery, and financial steadiness. Now let the first anchor appear, Build pitch deck narrative, the longer high-focus piece where one strong story arc begins to feel client-ready and unmistakably yours. Imagine reaching the point where the deck has a clear flow, where the strongest concept slides sit in an order that makes sense. Let the next anchor come into view, Export client-ready mockups, and picture the clean moment when the files are ready enough to send trust visibly. Then see the small final anchor, Send invoice reminder, clearing a money task without heaviness. What does solid, alive, professional progress feel like in your body? What changes in your attention when the work is done enough to count?
 
-Return to what matters: original work, reliable delivery, and a studio that can keep standing on its own. Let your body stay steady rather than rushed, with enough clarity for the next doable action. You are capable of moving the deck forward today in a way that counts. Say quietly to yourself: I can be inventive and still deliver cleanly.
+Come back to the breath and to the practice you are building: creative mornings, an independent studio, work that stays original and sustainable. You do not need the whole day to feel effortless; you can move with the energy you have and take the next clean action. Say quietly to yourself: I can make one strong choice and deliver it with care.
 
 # alex_task
 
 Models by arm: {"baseline":"gpt-5.5-2026-04-23","mind":"gpt-5.5-2026-04-23","body":"gpt-5.5-2026-04-23","soul":"gpt-5.5-2026-04-23","full":"gpt-5.5-2026-04-23"}
-Generation sources by arm: {"baseline":"openai.vanilla_baseline_prompt","mind":"backend.generate_ablation_rehearsal:rehearsal_system_prompt_draft.md","body":"backend.generate_ablation_rehearsal:rehearsal_system_prompt_draft.md","soul":"backend.generate_ablation_rehearsal:rehearsal_system_prompt_draft.md","full":"backend.generate_ablation_rehearsal:rehearsal_system_prompt_draft.md"}
-Word counts: {"baseline":218,"mind":251,"body":247,"soul":241,"full":236}
+Generation sources by arm: {"baseline":"openai.vanilla_baseline_prompt","mind":"backend.generate_ablation_rehearsal","body":"backend.generate_ablation_rehearsal","soul":"backend.generate_ablation_rehearsal","full":"backend.generate_ablation_rehearsal"}
+Word counts: {"baseline":274,"mind":251,"body":253,"soul":247,"full":272}
 
 ## baseline input
 
@@ -4584,15 +4588,17 @@ Word counts: {"baseline":218,"mind":251,"body":247,"soul":241,"full":236}
 ```
 
 
-## baseline script (218 words)
+## baseline script (274 words)
 
-Take a moment to prepare for the pitch deck narrative work in a simple, practical way. The session has three visible parts: choosing the core story arc, sequencing the concept slides, and writing transition notes. Keep the focus on moving through these tasks one at a time, using the time blocks as a guide.
+Take a few moments to settle into the task of preparing the pitch deck narrative. The work ahead is organized into three visible parts: choosing the core story arc, sequencing the concept slides, and writing transition notes. You can approach these as ordinary steps in building a clear, connected presentation.
 
-Begin with the first 20 minutes for choosing the core story arc. Use this time to look at the main message the pitch deck needs to communicate and decide on a clear overall direction. The aim is not to make every detail perfect, but to settle on a workable narrative path that can support the rest of the deck.
+Begin by orienting to the first task, choosing the core story arc for about 20 minutes. This is a chance to decide what the deck is generally trying to communicate from beginning to end. You might consider the main point, the order in which ideas should be introduced, and how the narrative can move in a simple, understandable direction. The aim is not to perfect every detail, but to define a usable structure that can guide the next steps.
 
-Then move into 35 minutes for sequencing the concept slides. Arrange the slide ideas so they follow the chosen story arc in a clear order. Consider what needs to come first for context, what should build the main argument, and what should appear later to support the conclusion. Keep the sequence practical and easy to follow.
+After that, shift to sequencing the concept slides for about 35 minutes. With the story arc in mind, consider how each slide can appear in an order that supports the overall narrative. This may involve grouping related ideas, placing setup information before conclusions, and checking whether the flow feels logical from one slide to the next. Work steadily through the sequence and make practical adjustments as needed.
 
-Use the final 25 minutes to write transition notes. These notes can briefly explain how one slide leads into the next and help smooth the flow between ideas. By the end, aim to have a coherent narrative structure, an ordered slide sequence, and basic transitions ready for further refinement.
+Then move into writing transition notes for about 25 minutes. These notes can help connect one slide or idea to the next, making the deck feel more continuous. Focus on short, useful phrases or prompts that clarify why the next point follows from the previous one.
+
+As you prepare, keep the process straightforward. Follow the visible sequence, give each part its allotted attention, and allow the final result to be a workable draft of the pitch deck narrative.
 
 ## mind input
 
@@ -4685,21 +4691,21 @@ Use the final 25 minutes to write transition notes. These notes can briefly expl
 ## mind sections
 
 ### Introduction
-Feel the breath arrive and leave, and notice where your body meets the chair or the ground. Let the shoulders settle, the jaw soften, and the sounds around you be present without needing to change them. Notice the thoughts that are already here, and let them become part of the room rather than something to push away. Today’s larger direction is building an independent creative practice that can hold originality, reliable client work, and financial steadiness.
+Breath moves in and out, and I let my shoulders notice gravity. I feel the contact beneath me, the small sounds around me, and the movement of thoughts without needing to fix any of it. I do not need to know exactly how my body is doing today; I simply arrive here, present enough to begin. In the background, this work supports my independent creative practice.
 
 ### Task visualization
-I turn toward the client brand pitch and let the task become clear: build the pitch deck narrative. I begin with the core story arc; what does it feel like when one narrative direction starts to make the whole deck easier to see? Then I sequence the strongest concept slides, giving this middle stretch real attention, and I can picture the flow becoming client-ready rather than merely assembled. I write the transition notes for the client call, and I notice the moment when the deck has enough shape, logic, and confidence to support the conversation. Can I sense the accomplishment of one strong pitch deck moving closer to export before 4:00 PM?
+This task matters because it helps me send one strong, client-ready pitch deck before the call, in service of originality, reliable client work, and financial steadiness. I let the focus task come into view: building the pitch deck narrative for the client brand pitch. I imagine the work moving toward a clear core story arc, a strong sequence of concept slides, and transition notes that help the client conversation feel prepared. What does it feel like when the narrative direction clicks into place? What changes in my attention when the deck flow starts to make sense? Near the end, can I sense the point where this is done enough to export and speak from confidently? I am able to move this forward.
 
 ### Ending
-Return to the reason this matters: one clear deck today supports the creative practice I am building. Let the body stay honest and steady, without needing to feel perfect before beginning. I can move through the next piece of this deck in service of stronger client work. Say quietly to yourself: I can begin with the story and let the deck take shape.
+I return to the larger aim: building a creative practice that can hold both originality and steady client work. I do not need a perfect burst of inspiration; I can take the next real action inside this pitch narrative. I let my breath steady, my attention narrow, and my belief become practical. Say quietly to myself: I can build the next clear piece.
 
 ## mind script (251 words)
 
-Feel the breath arrive and leave, and notice where your body meets the chair or the ground. Let the shoulders settle, the jaw soften, and the sounds around you be present without needing to change them. Notice the thoughts that are already here, and let them become part of the room rather than something to push away. Today’s larger direction is building an independent creative practice that can hold originality, reliable client work, and financial steadiness.
+Breath moves in and out, and I let my shoulders notice gravity. I feel the contact beneath me, the small sounds around me, and the movement of thoughts without needing to fix any of it. I do not need to know exactly how my body is doing today; I simply arrive here, present enough to begin. In the background, this work supports my independent creative practice.
 
-I turn toward the client brand pitch and let the task become clear: build the pitch deck narrative. I begin with the core story arc; what does it feel like when one narrative direction starts to make the whole deck easier to see? Then I sequence the strongest concept slides, giving this middle stretch real attention, and I can picture the flow becoming client-ready rather than merely assembled. I write the transition notes for the client call, and I notice the moment when the deck has enough shape, logic, and confidence to support the conversation. Can I sense the accomplishment of one strong pitch deck moving closer to export before 4:00 PM?
+This task matters because it helps me send one strong, client-ready pitch deck before the call, in service of originality, reliable client work, and financial steadiness. I let the focus task come into view: building the pitch deck narrative for the client brand pitch. I imagine the work moving toward a clear core story arc, a strong sequence of concept slides, and transition notes that help the client conversation feel prepared. What does it feel like when the narrative direction clicks into place? What changes in my attention when the deck flow starts to make sense? Near the end, can I sense the point where this is done enough to export and speak from confidently? I am able to move this forward.
 
-Return to the reason this matters: one clear deck today supports the creative practice I am building. Let the body stay honest and steady, without needing to feel perfect before beginning. I can move through the next piece of this deck in service of stronger client work. Say quietly to yourself: I can begin with the story and let the deck take shape.
+I return to the larger aim: building a creative practice that can hold both originality and steady client work. I do not need a perfect burst of inspiration; I can take the next real action inside this pitch narrative. I let my breath steady, my attention narrow, and my belief become practical. Say quietly to myself: I can build the next clear piece.
 
 ## body input
 
@@ -4801,21 +4807,21 @@ Return to the reason this matters: one clear deck today supports the creative pr
 ## body sections
 
 ### Introduction
-Feel your breath move in and out, and notice the contact of your body with the chair or ground. Let your shoulders, jaw, and hands register how they are right now, without needing to change anything. Your body has a steady base today: solid sleep, good recovery signals, and current energy that feels available but not rushed. Now let the scene form around you: the deck outline open, three concept thumbnails visible, the moodboard nearby, coffee present, and the playlist ready.
+My breath comes in, and I feel the contact of my body with the chair and the ground. I notice any sound, any tightness in my jaw or shoulders, and any thoughts passing through without needing to change them. My body has had solid sleep and feels reasonably ready, with clear energy available now. I let the coffee, the playlist, the stylus in my hand, and the warm tablet become simple cues that I am here.
 
 ### Task visualization
-I let my attention settle on the task in front of me, even without needing to name every step. I can feel the stylus in my hand and the tablet warm from charging, and I imagine the first mark, choice, or adjustment beginning to move the work forward. What does it feel like in my body when the deck starts to take shape? I picture the client notes minimized but available, close enough to support me, while my focus stays on the visible outline and thumbnails. What changes in my attention when I reach a point where this session has produced something real enough to count?
+I do not need the whole larger purpose named to enter this task; I can let the work itself come into view. The deck outline is open, three concept thumbnails are visible, and the moodboard is nearby, giving my attention enough shape to begin. I imagine a credible success: the task moves from vague to visible, and the most important part becomes done enough to count. What does that look like on the screen? What changes in my breathing when the idea starts to settle? How does my hand feel as I make clear choices with the stylus? I can sense my mind working steadily, not rushing, using today’s energy while it is available.
 
 ### Ending
-Let the breath come back into the body, steady and clear. I do not need to force the whole task at once; I can trust the next visible move. The body already knows the feel of the stylus, the screen, the coffee, and the room around this work. Say quietly to yourself: I can begin with the next real mark.
+I come back to the body: breath, chair, hand, screen, and the next mark I can make. Even without needing a perfect plan or a bigger story, I am able to move one important piece forward from here. My body can stay steady and clear enough for the next doable action. Say quietly to myself: I can begin with the next clear mark.
 
-## body script (247 words)
+## body script (253 words)
 
-Feel your breath move in and out, and notice the contact of your body with the chair or ground. Let your shoulders, jaw, and hands register how they are right now, without needing to change anything. Your body has a steady base today: solid sleep, good recovery signals, and current energy that feels available but not rushed. Now let the scene form around you: the deck outline open, three concept thumbnails visible, the moodboard nearby, coffee present, and the playlist ready.
+My breath comes in, and I feel the contact of my body with the chair and the ground. I notice any sound, any tightness in my jaw or shoulders, and any thoughts passing through without needing to change them. My body has had solid sleep and feels reasonably ready, with clear energy available now. I let the coffee, the playlist, the stylus in my hand, and the warm tablet become simple cues that I am here.
 
-I let my attention settle on the task in front of me, even without needing to name every step. I can feel the stylus in my hand and the tablet warm from charging, and I imagine the first mark, choice, or adjustment beginning to move the work forward. What does it feel like in my body when the deck starts to take shape? I picture the client notes minimized but available, close enough to support me, while my focus stays on the visible outline and thumbnails. What changes in my attention when I reach a point where this session has produced something real enough to count?
+I do not need the whole larger purpose named to enter this task; I can let the work itself come into view. The deck outline is open, three concept thumbnails are visible, and the moodboard is nearby, giving my attention enough shape to begin. I imagine a credible success: the task moves from vague to visible, and the most important part becomes done enough to count. What does that look like on the screen? What changes in my breathing when the idea starts to settle? How does my hand feel as I make clear choices with the stylus? I can sense my mind working steadily, not rushing, using today’s energy while it is available.
 
-Let the breath come back into the body, steady and clear. I do not need to force the whole task at once; I can trust the next visible move. The body already knows the feel of the stylus, the screen, the coffee, and the room around this work. Say quietly to yourself: I can begin with the next real mark.
+I come back to the body: breath, chair, hand, screen, and the next mark I can make. Even without needing a perfect plan or a bigger story, I am able to move one important piece forward from here. My body can stay steady and clear enough for the next doable action. Say quietly to myself: I can begin with the next clear mark.
 
 ## soul input
 
@@ -4891,21 +4897,21 @@ Let the breath come back into the body, steady and clear. I do not need to force
 ## soul sections
 
 ### Introduction
-Feel the breath arrive in your body, and notice where you are supported by the chair or the ground. Let your shoulders, jaw, and hands be exactly as they are, while sounds and thoughts pass through the background. Without needing to change your energy, sense what is here now. Let Originality, Reliability, and Freedom sit nearby as quiet qualities: work that feels unmistakably mine, trust made visible, and a practice that stays independent and sustainable.
+I feel the breath arrive, and I let my posture settle around it. I notice the contact beneath me, the sounds around me, and any thoughts already moving through my mind, without needing to fix them. I allow the scene to stay simple: I am here, present enough to begin. What matters is creative work that feels unmistakably mine, with a studio life that stays sustainable.
 
 ### Task visualization
-Now I let the task itself come into view, without forcing every detail to appear. I imagine the first clear moment when the work begins to move, and I sense what feels inventive, alive, or free inside that beginning. What changes in my attention when I make one strong concept choice, or let fresh visual language take shape? I can also feel the solid, settled part of completion: files clean, expectations clear, delivery that makes trust visible. What does my body know when this task is done enough to count, and the studio feels a little more sustainable?
+This task serves a larger shape: original work, delivered in a way that keeps trust visible and freedom possible. I let the task itself come into view without forcing details, and I imagine the moment when the important part is done enough to count. What does it feel like in my body when the work carries one strong concept choice or a fresh visual language? What changes in my attention when the result feels inventive, alive, and free? I also imagine the finish having a solid, professional quality, the kind where delivery feels clean and expectations feel clear. Can I sense the lightness of moving this forward in my own way?
 
 ### Ending
-Return to the larger shape: creative work staying original, and the studio staying sustainable. I do not need the whole path at once; I can take the next honest action in a way that feels mine and trustworthy. Let the body be steady enough, light enough, and ready enough for this next piece. Say quietly to yourself: I can make this unmistakably mine and deliver it with trust.
+I return to the feeling of making work I can stand behind, while keeping my practice independent and sustainable. I do not need the whole path to be visible right now; I only need to enter the next doable part with care. I let my body become a little steadier, my attention a little clearer. Say quietly to myself: I can make this unmistakably mine and deliver it with trust.
 
-## soul script (241 words)
+## soul script (247 words)
 
-Feel the breath arrive in your body, and notice where you are supported by the chair or the ground. Let your shoulders, jaw, and hands be exactly as they are, while sounds and thoughts pass through the background. Without needing to change your energy, sense what is here now. Let Originality, Reliability, and Freedom sit nearby as quiet qualities: work that feels unmistakably mine, trust made visible, and a practice that stays independent and sustainable.
+I feel the breath arrive, and I let my posture settle around it. I notice the contact beneath me, the sounds around me, and any thoughts already moving through my mind, without needing to fix them. I allow the scene to stay simple: I am here, present enough to begin. What matters is creative work that feels unmistakably mine, with a studio life that stays sustainable.
 
-Now I let the task itself come into view, without forcing every detail to appear. I imagine the first clear moment when the work begins to move, and I sense what feels inventive, alive, or free inside that beginning. What changes in my attention when I make one strong concept choice, or let fresh visual language take shape? I can also feel the solid, settled part of completion: files clean, expectations clear, delivery that makes trust visible. What does my body know when this task is done enough to count, and the studio feels a little more sustainable?
+This task serves a larger shape: original work, delivered in a way that keeps trust visible and freedom possible. I let the task itself come into view without forcing details, and I imagine the moment when the important part is done enough to count. What does it feel like in my body when the work carries one strong concept choice or a fresh visual language? What changes in my attention when the result feels inventive, alive, and free? I also imagine the finish having a solid, professional quality, the kind where delivery feels clean and expectations feel clear. Can I sense the lightness of moving this forward in my own way?
 
-Return to the larger shape: creative work staying original, and the studio staying sustainable. I do not need the whole path at once; I can take the next honest action in a way that feels mine and trustworthy. Let the body be steady enough, light enough, and ready enough for this next piece. Say quietly to yourself: I can make this unmistakably mine and deliver it with trust.
+I return to the feeling of making work I can stand behind, while keeping my practice independent and sustainable. I do not need the whole path to be visible right now; I only need to enter the next doable part with care. I let my body become a little steadier, my attention a little clearer. Say quietly to myself: I can make this unmistakably mine and deliver it with trust.
 
 ## full input
 
@@ -5140,27 +5146,27 @@ Return to the larger shape: creative work staying original, and the studio stayi
 ## full sections
 
 ### Introduction
-Feel your breath move through your chest and ribs, and let your feet know the floor beneath you. Notice your shoulders, jaw, hands, and the quiet movement of thoughts without needing to fix any of it. Your body has real fuel today: solid sleep, steady recovery, and enough energy to enter demanding creative work with attention. Now let the scene form: the deck outline open, three concept thumbnails visible, coffee nearby, playlist ready, stylus in hand.
+I feel my breath settle into my chest and belly, and I notice the contact of my body with the chair and the ground. I let sounds, thoughts, and any pressure be present without needing to push them away. My body has enough steadiness today: good sleep, decent recovery, and current energy that can support focused creative work. I picture the deck outline open, three concept thumbnails visible, coffee nearby, and the playlist ready as I arrive.
 
 ### Task visualization
-I begin the client brand pitch by choosing the core story arc, letting one narrative direction become clear enough to trust. What does it feel like when the work starts to feel unmistakably mine—inventive, alive, and free? I move into sequencing the strongest concept slides, seeing the deck gather shape and rhythm, one strong choice leading to the next. Can I sense the moment when the flow becomes solid and professional, when the client will know what to expect? I write the transition notes for the client call, and I can picture the deck becoming client-ready: clear story, strong visuals, steady delivery.
+This work serves my independent creative practice: original work, reliable client delivery, and a studio that stays sustainable. I let the task come into view: building the pitch deck narrative for the client brand pitch, with enough attention for about eighty minutes of high-energy work. I imagine choosing the core story arc until one narrative direction feels strong and unmistakably mine. I see the strongest concept slides finding a clear flow, and the transition notes becoming useful for the client call. What does it feel like in my body when the deck has a solid shape? Where do I sense something inventive, alive, and professional? I can picture a credible finish: the narrative holds, the client can follow it, and I am able to move this forward.
 
 ### Ending
-Let the breath come back into the body, and let the hands feel ready for the next real movement. This work serves an independent creative practice: original enough to feel alive, reliable enough to build trust, steady enough to sustain the studio. I do not need the whole future solved; I can make one strong concept choice now.
+I return to what matters: creative work that stays original, and delivery that makes trust visible. My body does not need to force anything; it can stay steady, clear, and honestly paced as I take the next doable action. I let my attention gather around one strong concept choice, one clear deck flow, one useful handoff. Say quietly to myself: I can be original and still deliver cleanly.
 
-## full script (236 words)
+## full script (272 words)
 
-Feel your breath move through your chest and ribs, and let your feet know the floor beneath you. Notice your shoulders, jaw, hands, and the quiet movement of thoughts without needing to fix any of it. Your body has real fuel today: solid sleep, steady recovery, and enough energy to enter demanding creative work with attention. Now let the scene form: the deck outline open, three concept thumbnails visible, coffee nearby, playlist ready, stylus in hand.
+I feel my breath settle into my chest and belly, and I notice the contact of my body with the chair and the ground. I let sounds, thoughts, and any pressure be present without needing to push them away. My body has enough steadiness today: good sleep, decent recovery, and current energy that can support focused creative work. I picture the deck outline open, three concept thumbnails visible, coffee nearby, and the playlist ready as I arrive.
 
-I begin the client brand pitch by choosing the core story arc, letting one narrative direction become clear enough to trust. What does it feel like when the work starts to feel unmistakably mine—inventive, alive, and free? I move into sequencing the strongest concept slides, seeing the deck gather shape and rhythm, one strong choice leading to the next. Can I sense the moment when the flow becomes solid and professional, when the client will know what to expect? I write the transition notes for the client call, and I can picture the deck becoming client-ready: clear story, strong visuals, steady delivery.
+This work serves my independent creative practice: original work, reliable client delivery, and a studio that stays sustainable. I let the task come into view: building the pitch deck narrative for the client brand pitch, with enough attention for about eighty minutes of high-energy work. I imagine choosing the core story arc until one narrative direction feels strong and unmistakably mine. I see the strongest concept slides finding a clear flow, and the transition notes becoming useful for the client call. What does it feel like in my body when the deck has a solid shape? Where do I sense something inventive, alive, and professional? I can picture a credible finish: the narrative holds, the client can follow it, and I am able to move this forward.
 
-Let the breath come back into the body, and let the hands feel ready for the next real movement. This work serves an independent creative practice: original enough to feel alive, reliable enough to build trust, steady enough to sustain the studio. I do not need the whole future solved; I can make one strong concept choice now.
+I return to what matters: creative work that stays original, and delivery that makes trust visible. My body does not need to force anything; it can stay steady, clear, and honestly paced as I take the next doable action. I let my attention gather around one strong concept choice, one clear deck flow, one useful handoff. Say quietly to myself: I can be original and still deliver cleanly.
 
 # serena_daily
 
 Models by arm: {"baseline":"gpt-5.5-2026-04-23","mind":"gpt-5.5-2026-04-23","body":"gpt-5.5-2026-04-23","soul":"gpt-5.5-2026-04-23","full":"gpt-5.5-2026-04-23"}
-Generation sources by arm: {"baseline":"openai.vanilla_baseline_prompt","mind":"backend.generate_ablation_rehearsal:rehearsal_system_prompt_draft.md","body":"backend.generate_ablation_rehearsal:rehearsal_system_prompt_draft.md","soul":"backend.generate_ablation_rehearsal:rehearsal_system_prompt_draft.md","full":"backend.generate_ablation_rehearsal:rehearsal_system_prompt_draft.md"}
-Word counts: {"baseline":197,"mind":283,"body":245,"soul":230,"full":275}
+Generation sources by arm: {"baseline":"openai.vanilla_baseline_prompt","mind":"backend.generate_ablation_rehearsal","body":"backend.generate_ablation_rehearsal","soul":"backend.generate_ablation_rehearsal","full":"backend.generate_ablation_rehearsal"}
+Word counts: {"baseline":234,"mind":252,"body":273,"soul":259,"full":255}
 
 ## baseline input
 
@@ -5181,13 +5187,13 @@ Word counts: {"baseline":197,"mind":283,"body":245,"soul":230,"full":275}
 ```
 
 
-## baseline script (197 words)
+## baseline script (234 words)
 
-Take a few moments to review the day’s calendar as a simple sequence of scheduled items. The first item is school drop-off from 07:15 to 07:50, lasting 35 minutes. After that, there is time before drafting the argument section from 08:30 to 09:55, an 85-minute work block. Notice the start and end times, and treat this as a defined period for that task.
+Take a moment to look over the day as a sequence of scheduled items, each with its own start time and duration. The morning begins with school drop-off from 07:15 to 07:50. After that, there is time before the 08:30 start of the draft argument section, which runs until 09:55. As you prepare, simply note the transition from one calendar item to the next and the amount of time available for each.
 
-Later in the morning, there is a 15-minute window from 10:15 to 10:30 to confirm pickup logistics. At 11:05, the schedule moves to sending a case update to co-counsel, ending at 11:30. At 12:00, there is a 30-minute client check-in, followed by a lunch break from 13:00 to 13:25.
+At 10:15, there is a short 15-minute block to confirm pickup logistics, ending at 10:30. Later in the morning, from 11:05 to 11:30, there is a 25-minute block to send a case update to co-counsel. Around midday, the client check-in is scheduled from 12:00 to 12:30. Then lunch break is set from 13:00 to 13:25, giving a clear pause before the afternoon items.
 
-In the afternoon, there is a filing window check from 14:30 to 14:50. The final listed item is afternoon pickup from 16:00 to 16:30. As you prepare, simply keep the order of the day in mind. Move from one scheduled item to the next, using the listed times and durations as the guide. If there is space between items, let it remain available for transition, setup, or ordinary adjustments. The goal is to follow the visible calendar steadily and complete each scheduled item in turn.
+In the afternoon, the filing window check is scheduled from 14:30 to 14:50. The final listed item is afternoon pickup from 16:00 to 16:30. As you prepare for the day, keep the calendar visible or accessible, and move through the items according to their listed times. When one item ends, allow yourself to shift attention to the next scheduled block. If there is space between items, use it to reset, gather materials, or get ready for the next start time. The day can be approached as a straightforward series of defined appointments and work periods, each handled in turn.
 
 ## mind input
 
@@ -5328,21 +5334,21 @@ In the afternoon, there is a filing window check from 14:30 to 14:50. The final 
 ## mind sections
 
 ### Introduction
-Feel your breath moving in and out, and let your feet notice the floor beneath you. Let your shoulders, jaw, and hands register how they are right now, without needing to change anything. Notice the sounds around you, the pace of your thoughts, and the simple fact that you are here at the beginning of this day. In the background, let the larger purpose appear: practicing humane advocacy, making complex systems more navigable while staying humane to yourself.
+Feel your breath arrive, and notice the contact of your feet with the floor or your body with the chair. Let your shoulders, jaw, and hands be as they are while sounds and thoughts move in the background. Without needing to measure your energy, simply notice what is here. Today opens around humane advocacy: doing rigorous public-interest work while staying humane to yourself and making the system more navigable for clients.
 
 ### Task visualization
-Let the first anchor come into view: Draft argument section, the high-priority stretch of focused work near the start of the day. Imagine you are able to review the outline, shape the strongest claim paragraph, and tie precedent back to client facts until one clear first draft is complete enough to count by noon; what does it feel like to see the argument draft become real? Let the next anchor appear briefly: Confirm pickup logistics, a smaller but meaningful point of steadiness in the day; can you sense the relief of that being handled? Then see yourself sending the case update to co-counsel, clear and useful enough to move the shared work forward, and notice that accomplishment can look like one rigorous draft, one confirmed detail, and one well-sent update.
+This work serves a clear aim: one complete first draft of the legal argument section by noon today. Now let the first anchor appear, Draft argument section, the high-priority stretch of focused work that carries the most weight. Imagine reaching the point where the argument is drafted enough to count: the outline has been honored, the strongest claim has shape, and precedent connects back to client facts. What does that completion feel like in your attention? Let the next anchor come into view, Confirm pickup logistics, brief and contained, a small piece of steadiness in the day. Then see Send case update to co-counsel, clear enough to keep the work moving. You are able to move the important work forward today.
 
 ### Ending
-Let your attention return to what matters: rigorous public-interest advocacy that remains humane in the way you practice it. You do not have to hold the whole system at once; you can move the next important piece into clearer form. Feel yourself a little more ready to begin with the first anchor and let the day build from there. Say quietly to yourself: I can do the next clear piece in service of humane advocacy.
+Return to what matters: rigorous advocacy that still leaves room for being humane to yourself. Let the next doable action feel reachable, not dramatic, just present and clear. The day includes other responsibilities, and still the central work can take its place. Say quietly to yourself: I can begin clearly and move this argument forward in service of humane advocacy.
 
-## mind script (283 words)
+## mind script (252 words)
 
-Feel your breath moving in and out, and let your feet notice the floor beneath you. Let your shoulders, jaw, and hands register how they are right now, without needing to change anything. Notice the sounds around you, the pace of your thoughts, and the simple fact that you are here at the beginning of this day. In the background, let the larger purpose appear: practicing humane advocacy, making complex systems more navigable while staying humane to yourself.
+Feel your breath arrive, and notice the contact of your feet with the floor or your body with the chair. Let your shoulders, jaw, and hands be as they are while sounds and thoughts move in the background. Without needing to measure your energy, simply notice what is here. Today opens around humane advocacy: doing rigorous public-interest work while staying humane to yourself and making the system more navigable for clients.
 
-Let the first anchor come into view: Draft argument section, the high-priority stretch of focused work near the start of the day. Imagine you are able to review the outline, shape the strongest claim paragraph, and tie precedent back to client facts until one clear first draft is complete enough to count by noon; what does it feel like to see the argument draft become real? Let the next anchor appear briefly: Confirm pickup logistics, a smaller but meaningful point of steadiness in the day; can you sense the relief of that being handled? Then see yourself sending the case update to co-counsel, clear and useful enough to move the shared work forward, and notice that accomplishment can look like one rigorous draft, one confirmed detail, and one well-sent update.
+This work serves a clear aim: one complete first draft of the legal argument section by noon today. Now let the first anchor appear, Draft argument section, the high-priority stretch of focused work that carries the most weight. Imagine reaching the point where the argument is drafted enough to count: the outline has been honored, the strongest claim has shape, and precedent connects back to client facts. What does that completion feel like in your attention? Let the next anchor come into view, Confirm pickup logistics, brief and contained, a small piece of steadiness in the day. Then see Send case update to co-counsel, clear enough to keep the work moving. You are able to move the important work forward today.
 
-Let your attention return to what matters: rigorous public-interest advocacy that remains humane in the way you practice it. You do not have to hold the whole system at once; you can move the next important piece into clearer form. Feel yourself a little more ready to begin with the first anchor and let the day build from there. Say quietly to yourself: I can do the next clear piece in service of humane advocacy.
+Return to what matters: rigorous advocacy that still leaves room for being humane to yourself. Let the next doable action feel reachable, not dramatic, just present and clear. The day includes other responsibilities, and still the central work can take its place. Say quietly to yourself: I can begin clearly and move this argument forward in service of humane advocacy.
 
 ## body input
 
@@ -5447,21 +5453,21 @@ Let your attention return to what matters: rigorous public-interest advocacy tha
 ## body sections
 
 ### Introduction
-Feel your breath first, and let your feet find the floor. Notice the chair supporting you, the set of your shoulders, the sound around you, and the thoughts passing through without needing to change them. Your body has slept almost six hours, not fully restored, and your energy is present but modest. After you land here, let the quiet apartment, the muted alerts, the warmth of the mug, and the taste of tea become simple cues that you are arriving.
+Feel the breath arrive in the body, and let the chair and floor take some of the weight. Notice the jaw, the shoulders, the hands, the sounds in the room, and any thoughts passing through without needing to fix them. Energy is present but limited today, shaped by a shorter night of sleep, so the body can move honestly rather than forcefully. The quiet apartment, muted alerts, warm mug, tea, and open outline become simple cues for arriving.
 
 ### Task visualization
-Since the specific priority anchors are not present, let the shape of important work appear without forcing details. Imagine you begin with one clear piece of work in front of you, supported by the case notes printed, the argument outline open, and the phone on do-not-disturb. What does it feel like when your attention gathers enough to move the first meaningful part forward? Let the success case be honest for today’s energy: steady, contained, and real. Can you sense the moment when the work is done enough to count, and your body knows you have made progress?
+Since the specific priorities are not named here, let the most important work of the day come into view as three clear anchors: the first thing that matters most, the next piece that deserves attention, and the final useful action that would make the day feel meaningfully moved forward. Imagine the first anchor beginning to shift from untouched to underway; what tells the body that progress is real? Let the next anchor appear, and picture it becoming done enough to count, without needing to be perfect. What changes in attention when the phone is quiet and the work has room? Now imagine the third anchor landing in a simple, credible way. With energy at a steady, modest level, what does successful pacing feel like in the chest, hands, eyes, and breath?
 
 ### Ending
-Come back to the breath, the chair, and the steady contact of your feet. You do not need to feel perfectly energized to begin; you can move at an honest pace and still make something real happen. Let the quiet, the tea, and the prepared materials remind you that the next action can be simple. Say quietly to yourself: I can begin steadily with the energy I have.
+Let the body remember that today does not require a rush to be real. A steadier pace can still carry important work across the line, one honest action at a time. Feel the contact with the chair again, the breath a little clearer, the hands ready enough. Say quietly to yourself: I do not need full energy; I can take the next useful step.
 
-## body script (245 words)
+## body script (273 words)
 
-Feel your breath first, and let your feet find the floor. Notice the chair supporting you, the set of your shoulders, the sound around you, and the thoughts passing through without needing to change them. Your body has slept almost six hours, not fully restored, and your energy is present but modest. After you land here, let the quiet apartment, the muted alerts, the warmth of the mug, and the taste of tea become simple cues that you are arriving.
+Feel the breath arrive in the body, and let the chair and floor take some of the weight. Notice the jaw, the shoulders, the hands, the sounds in the room, and any thoughts passing through without needing to fix them. Energy is present but limited today, shaped by a shorter night of sleep, so the body can move honestly rather than forcefully. The quiet apartment, muted alerts, warm mug, tea, and open outline become simple cues for arriving.
 
-Since the specific priority anchors are not present, let the shape of important work appear without forcing details. Imagine you begin with one clear piece of work in front of you, supported by the case notes printed, the argument outline open, and the phone on do-not-disturb. What does it feel like when your attention gathers enough to move the first meaningful part forward? Let the success case be honest for today’s energy: steady, contained, and real. Can you sense the moment when the work is done enough to count, and your body knows you have made progress?
+Since the specific priorities are not named here, let the most important work of the day come into view as three clear anchors: the first thing that matters most, the next piece that deserves attention, and the final useful action that would make the day feel meaningfully moved forward. Imagine the first anchor beginning to shift from untouched to underway; what tells the body that progress is real? Let the next anchor appear, and picture it becoming done enough to count, without needing to be perfect. What changes in attention when the phone is quiet and the work has room? Now imagine the third anchor landing in a simple, credible way. With energy at a steady, modest level, what does successful pacing feel like in the chest, hands, eyes, and breath?
 
-Come back to the breath, the chair, and the steady contact of your feet. You do not need to feel perfectly energized to begin; you can move at an honest pace and still make something real happen. Let the quiet, the tea, and the prepared materials remind you that the next action can be simple. Say quietly to yourself: I can begin steadily with the energy I have.
+Let the body remember that today does not require a rush to be real. A steadier pace can still carry important work across the line, one honest action at a time. Feel the contact with the chair again, the breath a little clearer, the hands ready enough. Say quietly to yourself: I do not need full energy; I can take the next useful step.
 
 ## soul input
 
@@ -5535,21 +5541,21 @@ Come back to the breath, the chair, and the steady contact of your feet. You do 
 ## soul sections
 
 ### Introduction
-Feel your breath arrive in your body, and notice the contact beneath you. Let your shoulders, jaw, and hands be exactly as they are while you hear the sounds around you and watch thoughts pass through. Without needing to change your energy, sense the person who is here today: someone drawn toward Justice, Care, and Diligence. Let the phrase “rigorous advocacy without losing my humanity” sit quietly in the background.
+Feel the breath arrive, and notice the contact of your body with whatever is supporting you. Let the shoulders, jaw, and hands be known as they are, without needing to fix them. You may hear sounds around you and notice thoughts moving through. Today, Serena, the scene opens around rigorous advocacy that stays human: clear, committed, steady, and grounded.
 
 ### Task visualization
-Because the specific tasks for today are not shown, let the important work appear as a simple field of legal advocacy in front of you. Imagine one moment where an argument becomes sharper; what does committed, clear, purposeful attention feel like in your body? Let another moment come into view where a human next step is made plain, or a client position feels protected; what changes when care is steady and practical? Now picture careful work becoming a little more complete, notes clearer, risk reduced, and preparation more grounded. You are able to move something that matters forward today, even without needing the whole day to become perfect.
+This work serves using legal skill to make unfair systems more answerable, while remembering the human stakes inside the legal work. Since today’s specific priorities are not present here, let the most important anchors of the day come into view without forcing their names. Imagine the first meaningful piece of work becoming sharper, the kind where an argument or position feels clearer than before. Let another anchor appear as client care: a plain-language next step, a steady check-in, a moment where the human being inside the matter is not lost. Let a third anchor take shape as careful preparation, notes updated or deadline risk reduced. What does committed feel like in your body when the work is done enough to count? What changes in your attention when you feel prepared and humane at the same time?
 
 ### Ending
-Return to what matters: using skill to make unfair systems more answerable while remembering the human stakes. Let your body take on whatever steadiness is available now, not forced, just present enough for the next doable action. Say quietly to yourself: I can be clear and humane in the next careful step.
+Return to the life you are shaping: rigorous advocacy without losing your humanity. You do not need to solve every unfair system today; you can make one piece more answerable, one client position more protected, one next step clearer. Let your body settle into whatever steadiness is available now. Say quietly to yourself: I can be clear and human in the next careful action.
 
-## soul script (230 words)
+## soul script (259 words)
 
-Feel your breath arrive in your body, and notice the contact beneath you. Let your shoulders, jaw, and hands be exactly as they are while you hear the sounds around you and watch thoughts pass through. Without needing to change your energy, sense the person who is here today: someone drawn toward Justice, Care, and Diligence. Let the phrase “rigorous advocacy without losing my humanity” sit quietly in the background.
+Feel the breath arrive, and notice the contact of your body with whatever is supporting you. Let the shoulders, jaw, and hands be known as they are, without needing to fix them. You may hear sounds around you and notice thoughts moving through. Today, Serena, the scene opens around rigorous advocacy that stays human: clear, committed, steady, and grounded.
 
-Because the specific tasks for today are not shown, let the important work appear as a simple field of legal advocacy in front of you. Imagine one moment where an argument becomes sharper; what does committed, clear, purposeful attention feel like in your body? Let another moment come into view where a human next step is made plain, or a client position feels protected; what changes when care is steady and practical? Now picture careful work becoming a little more complete, notes clearer, risk reduced, and preparation more grounded. You are able to move something that matters forward today, even without needing the whole day to become perfect.
+This work serves using legal skill to make unfair systems more answerable, while remembering the human stakes inside the legal work. Since today’s specific priorities are not present here, let the most important anchors of the day come into view without forcing their names. Imagine the first meaningful piece of work becoming sharper, the kind where an argument or position feels clearer than before. Let another anchor appear as client care: a plain-language next step, a steady check-in, a moment where the human being inside the matter is not lost. Let a third anchor take shape as careful preparation, notes updated or deadline risk reduced. What does committed feel like in your body when the work is done enough to count? What changes in your attention when you feel prepared and humane at the same time?
 
-Return to what matters: using skill to make unfair systems more answerable while remembering the human stakes. Let your body take on whatever steadiness is available now, not forced, just present enough for the next doable action. Say quietly to yourself: I can be clear and humane in the next careful step.
+Return to the life you are shaping: rigorous advocacy without losing your humanity. You do not need to solve every unfair system today; you can make one piece more answerable, one client position more protected, one next step clearer. Let your body settle into whatever steadiness is available now. Say quietly to yourself: I can be clear and human in the next careful action.
 
 ## full input
 
@@ -5835,27 +5841,27 @@ Return to what matters: using skill to make unfair systems more answerable while
 ## full sections
 
 ### Introduction
-Feel your breath move through your chest, and let your feet notice the floor beneath you. Your shoulders, jaw, and hands do not have to change; you simply notice what is here after a shorter night of sleep and a moderate, honest level of energy. The quiet apartment, the smell and taste of tea, and the chair pulled close to the desk begin to form the scene. Underneath the day is humane advocacy: rigorous work without losing your humanity.
+Feel your feet on the floor and the chair holding you as your breath settles into the room. Notice your jaw, shoulders, hands, and the quiet movement of thoughts without needing to fix them. Your energy is modest after a shorter night, with a little more steadiness available through the morning. The tea, the quiet apartment, the muted alerts, the open outline, and the visible pickup reminder help you arrive in humane advocacy.
 
 ### Task visualization
-Let the first anchor appear: Draft argument section, the high-priority stretch of the morning where the argument outline is open, case notes are printed, and alerts are muted. Imagine you are able to move through the strongest part of the draft, enough that one clear argument section starts to exist by noon; what does committed, clear, purposeful work feel like in your body when the client position is better protected? Let the next anchor come into view: Confirm pickup logistics, a brief, low-energy action that makes the day more navigable; can you feel the steadiness of one simple detail handled? Then see yourself sending the case update to co-counsel, plain enough to be useful and careful enough to reduce risk; what changes in your attention when the important work is done enough to count?
+This work serves rigorous public-interest advocacy that still leaves room for your humanity. Let the first anchor appear: Draft argument section, the high-priority stretch of the morning, long enough to let the argument become clearer and the client position more protected. Imagine you are able to reach a complete first draft that counts. What does committed and clear feel like in your body when the argument is sharper? Let the next anchor come into view: Confirm pickup logistics, brief and practical, a small act of care that makes the day more navigable. Then see the case update to co-counsel becoming clear enough to send. What changes in your attention when the legal work and the human stakes both have a place?
 
 ### Ending
-Let your body stay honest: not forced, not hurried, just steadier around the next doable action. Justice, Care, and Diligence are present in the way you make the argument sharper and the next step clearer. You are capable of moving today’s work forward in service of humane advocacy. Say quietly to yourself: I can be steady and make the next clear move.
+Return to what matters: using legal skill to make unfair systems more answerable, while staying kind, steady, and prepared inside a compressed day. You do not need excess energy to move the right work forward; you can work at an honest pace and still protect what matters. Say quietly to yourself: I can be humane and still make the argument sharper.
 
-## full script (275 words)
+## full script (255 words)
 
-Feel your breath move through your chest, and let your feet notice the floor beneath you. Your shoulders, jaw, and hands do not have to change; you simply notice what is here after a shorter night of sleep and a moderate, honest level of energy. The quiet apartment, the smell and taste of tea, and the chair pulled close to the desk begin to form the scene. Underneath the day is humane advocacy: rigorous work without losing your humanity.
+Feel your feet on the floor and the chair holding you as your breath settles into the room. Notice your jaw, shoulders, hands, and the quiet movement of thoughts without needing to fix them. Your energy is modest after a shorter night, with a little more steadiness available through the morning. The tea, the quiet apartment, the muted alerts, the open outline, and the visible pickup reminder help you arrive in humane advocacy.
 
-Let the first anchor appear: Draft argument section, the high-priority stretch of the morning where the argument outline is open, case notes are printed, and alerts are muted. Imagine you are able to move through the strongest part of the draft, enough that one clear argument section starts to exist by noon; what does committed, clear, purposeful work feel like in your body when the client position is better protected? Let the next anchor come into view: Confirm pickup logistics, a brief, low-energy action that makes the day more navigable; can you feel the steadiness of one simple detail handled? Then see yourself sending the case update to co-counsel, plain enough to be useful and careful enough to reduce risk; what changes in your attention when the important work is done enough to count?
+This work serves rigorous public-interest advocacy that still leaves room for your humanity. Let the first anchor appear: Draft argument section, the high-priority stretch of the morning, long enough to let the argument become clearer and the client position more protected. Imagine you are able to reach a complete first draft that counts. What does committed and clear feel like in your body when the argument is sharper? Let the next anchor come into view: Confirm pickup logistics, brief and practical, a small act of care that makes the day more navigable. Then see the case update to co-counsel becoming clear enough to send. What changes in your attention when the legal work and the human stakes both have a place?
 
-Let your body stay honest: not forced, not hurried, just steadier around the next doable action. Justice, Care, and Diligence are present in the way you make the argument sharper and the next step clearer. You are capable of moving today’s work forward in service of humane advocacy. Say quietly to yourself: I can be steady and make the next clear move.
+Return to what matters: using legal skill to make unfair systems more answerable, while staying kind, steady, and prepared inside a compressed day. You do not need excess energy to move the right work forward; you can work at an honest pace and still protect what matters. Say quietly to yourself: I can be humane and still make the argument sharper.
 
 # serena_task
 
 Models by arm: {"baseline":"gpt-5.5-2026-04-23","mind":"gpt-5.5-2026-04-23","body":"gpt-5.5-2026-04-23","soul":"gpt-5.5-2026-04-23","full":"gpt-5.5-2026-04-23"}
-Generation sources by arm: {"baseline":"openai.vanilla_baseline_prompt","mind":"backend.generate_ablation_rehearsal:rehearsal_system_prompt_draft.md","body":"backend.generate_ablation_rehearsal:rehearsal_system_prompt_draft.md","soul":"backend.generate_ablation_rehearsal:rehearsal_system_prompt_draft.md","full":"backend.generate_ablation_rehearsal:rehearsal_system_prompt_draft.md"}
-Word counts: {"baseline":219,"mind":241,"body":259,"soul":232,"full":239}
+Generation sources by arm: {"baseline":"openai.vanilla_baseline_prompt","mind":"backend.generate_ablation_rehearsal","body":"backend.generate_ablation_rehearsal","soul":"backend.generate_ablation_rehearsal","full":"backend.generate_ablation_rehearsal"}
+Word counts: {"baseline":249,"mind":273,"body":234,"soul":235,"full":251}
 
 ## baseline input
 
@@ -5871,15 +5877,17 @@ Word counts: {"baseline":219,"mind":241,"body":259,"soul":232,"full":239}
 ```
 
 
-## baseline script (219 words)
+## baseline script (249 words)
 
-Begin by setting up for the argument-section drafting session in a simple, practical way. Have the materials you need available, including the argument outline, any relevant notes, and the document where the draft will be written. The purpose of this preparation is to move through the listed tasks in order and give each one clear attention for its planned amount of time.
+Take a moment to prepare for the drafting session by reviewing the tasks that are listed. The focus of this session is the argument section, with three ordinary steps: reviewing the argument outline, drafting the strongest claim paragraph, and tying precedent to the client facts. The schedule gives a simple structure to follow, with time set aside for each part.
 
-Start with the 15-minute review of the argument outline. Use this time to re-read the structure, notice the main points that need to be covered, and check how the argument is expected to flow. The goal is not to perfect the outline, but to refresh your understanding of it so the drafting work has a clear starting point.
+Begin with the 15-minute review of the argument outline. Use this time to look over the structure, identify the main points already planned, and note what needs to be carried into the draft. The purpose of this step is not to complete the writing, but to make the next drafting step more organized.
 
-Next, move into the 35-minute block for drafting the strongest claim paragraph. Focus on getting a complete paragraph down that states the claim clearly and supports it in a direct, organized way. It can be revised later; for now, aim for a usable draft that captures the central reasoning.
+After that, move to the 35-minute block for drafting the strongest claim paragraph. During this block, concentrate on turning the selected claim into a clear paragraph. Work from the outline, keep the argument direct, and aim to produce usable draft text. If wording is not perfect, continue drafting so that the paragraph takes shape within the allotted time.
 
-Then use the next 35 minutes to tie precedent to the client facts. Work steadily through the connection between the legal authority and the facts, making the relationship as clear as possible. When the session ends, pause and note what has been completed and what may need further review later.
+Then proceed to the 35-minute block for tying precedent to the client facts. In this part, connect the relevant legal authority to the facts that matter for the client. Focus on making the relationship between the precedent and the factual situation understandable and useful for the argument section.
+
+Follow the order as written and use the time blocks as a guide. The goal is to move through the listed preparation and drafting tasks in a steady, practical way.
 
 ## mind input
 
@@ -5972,21 +5980,21 @@ Then use the next 35 minutes to tie precedent to the client facts. Work steadily
 ## mind sections
 
 ### Introduction
-Feel your breath arrive and leave, and notice the contact of your body with the chair or the floor. Let your shoulders, jaw, and hands register how they are right now, without needing to change anything. Sounds, thoughts, and feelings can be present while you arrive here. In the background, the purpose is simple and serious: practicing humane advocacy by making a complex system more navigable through one clear first draft.
+Breath comes in, breath goes out, and I feel the contact of my body with what supports me. I notice my shoulders, my jaw, my hands, and the sounds around me, without needing to change anything at once. I let my thoughts be present and begin to arrive here. I am preparing for work that asks for care, clarity, and sustained attention.
 
 ### Task visualization
-I turn toward the high-priority task: drafting the argument section for the public-interest case brief. First, I review the argument outline, one steady pass, and let the structure of the section come into view; what does it feel like when the shape of the argument starts to make sense? Then I draft the strongest claim paragraph, giving the central point enough clarity to stand on its own. I can imagine reaching the moment when that paragraph is complete enough to carry the draft forward. Next, I tie precedent back to client facts, and I notice the draft becoming more useful, more grounded, more navigable; what changes in my attention when the law and the client’s story begin to connect?
+This work serves humane advocacy: rigorous public-interest work that makes a complex system more navigable for clients while I stay humane to myself. I let the task come into view: drafting the argument section for the public-interest case brief, one clear first draft by noon today. I imagine reviewing the argument outline until the shape of the section is present enough to begin. I imagine the strongest claim paragraph reaching the page with enough clarity to carry the argument forward. I imagine precedent and client facts beginning to hold together, so the draft feels complete enough to count as one real argument-section draft. What does it feel like in my body when the central claim is clearer? What changes in my attention when the facts and law start to connect? Can I sense the steady satisfaction of moving this high-priority work forward?
 
 ### Ending
-Let the body stay as it is, with just enough steadiness for the next doable sentence. This work does not need to be final to matter; it needs to become a clear first draft by noon today. I am able to write the next grounded sentence in service of humane advocacy.
+I return to what matters: practicing advocacy that is both rigorous and humane. I do not need the final version right now; I am here to create the clear first draft that makes the next stage possible. I let my body settle toward a steadier readiness, and I trust the next doable piece. Say quietly to myself: I can be clear and humane as I draft the next part.
 
-## mind script (241 words)
+## mind script (273 words)
 
-Feel your breath arrive and leave, and notice the contact of your body with the chair or the floor. Let your shoulders, jaw, and hands register how they are right now, without needing to change anything. Sounds, thoughts, and feelings can be present while you arrive here. In the background, the purpose is simple and serious: practicing humane advocacy by making a complex system more navigable through one clear first draft.
+Breath comes in, breath goes out, and I feel the contact of my body with what supports me. I notice my shoulders, my jaw, my hands, and the sounds around me, without needing to change anything at once. I let my thoughts be present and begin to arrive here. I am preparing for work that asks for care, clarity, and sustained attention.
 
-I turn toward the high-priority task: drafting the argument section for the public-interest case brief. First, I review the argument outline, one steady pass, and let the structure of the section come into view; what does it feel like when the shape of the argument starts to make sense? Then I draft the strongest claim paragraph, giving the central point enough clarity to stand on its own. I can imagine reaching the moment when that paragraph is complete enough to carry the draft forward. Next, I tie precedent back to client facts, and I notice the draft becoming more useful, more grounded, more navigable; what changes in my attention when the law and the client’s story begin to connect?
+This work serves humane advocacy: rigorous public-interest work that makes a complex system more navigable for clients while I stay humane to myself. I let the task come into view: drafting the argument section for the public-interest case brief, one clear first draft by noon today. I imagine reviewing the argument outline until the shape of the section is present enough to begin. I imagine the strongest claim paragraph reaching the page with enough clarity to carry the argument forward. I imagine precedent and client facts beginning to hold together, so the draft feels complete enough to count as one real argument-section draft. What does it feel like in my body when the central claim is clearer? What changes in my attention when the facts and law start to connect? Can I sense the steady satisfaction of moving this high-priority work forward?
 
-Let the body stay as it is, with just enough steadiness for the next doable sentence. This work does not need to be final to matter; it needs to become a clear first draft by noon today. I am able to write the next grounded sentence in service of humane advocacy.
+I return to what matters: practicing advocacy that is both rigorous and humane. I do not need the final version right now; I am here to create the clear first draft that makes the next stage possible. I let my body settle toward a steadier readiness, and I trust the next doable piece. Say quietly to myself: I can be clear and humane as I draft the next part.
 
 ## body input
 
@@ -6093,21 +6101,21 @@ Let the body stay as it is, with just enough steadiness for the next doable sent
 ## body sections
 
 ### Introduction
-Feel your feet planted under the desk, and let one breath move through your shoulders and jaw. Notice the chair holding you, the mug warming your hands, the quiet apartment around you, and the thoughts that are already here without needing to fix them. Your energy is honest and moderate-low today, shaped by a shorter night of sleep, so the body does not have to perform intensity to begin. Let the smell and taste of tea, the muted alerts, and the phone on do-not-disturb become simple cues that I am arriving now.
+I feel my feet planted and the contact of the chair supporting me. I notice my breath, my shoulders, my jaw, and any thoughts already moving, without needing to change them. My energy is modest today, steady enough for honest focus after a shorter night of sleep. I let the quiet apartment, muted alerts, tea, warm mug, and the outline and notes nearby become simple cues that I am arriving.
 
 ### Task visualization
-I let the work in front of me come into view: the argument outline open, the printed case notes, the highlighted precedent beside the laptop. I imagine beginning with a steady enough focus, not a forced one, letting my hands, breath, and eyes find the next clear piece. What does it feel like when the first useful movement happens? I can see myself staying with the materials long enough for the work to become more organized, more real, and more done than when I started. What changes in my body when I reach the point where this session counts?
+This work matters even without naming the whole goal right now; it is the piece in front of me, and I can give it a real, measured effort. I imagine beginning the task with energy at a four out of ten: not rushed, not forced, just clear enough to move one important part forward. What does it feel like when my attention settles on the work? What changes in my body when I sense the task starting to take shape? I imagine reaching a credible stopping point, where something is clearer, more complete, or easier to return to. I can feel the quiet satisfaction of having stayed with it at an honest pace.
 
 ### Ending
-Let the breath come back to the feet, the chair, and the warm mug. I do not need high energy to make real progress; I can work at the pace this body has today. The quiet, the muted alerts, and the page in front of me are enough to mark the next doable action. Say quietly to yourself: I can begin steadily, one clear piece at a time.
+I return to my body for one more breath, letting my feet, hands, and face soften into readiness. I do not need high energy to make useful progress; I only need the next doable movement into the work. Say quietly to myself: I can work steadily with the energy I have.
 
-## body script (259 words)
+## body script (234 words)
 
-Feel your feet planted under the desk, and let one breath move through your shoulders and jaw. Notice the chair holding you, the mug warming your hands, the quiet apartment around you, and the thoughts that are already here without needing to fix them. Your energy is honest and moderate-low today, shaped by a shorter night of sleep, so the body does not have to perform intensity to begin. Let the smell and taste of tea, the muted alerts, and the phone on do-not-disturb become simple cues that I am arriving now.
+I feel my feet planted and the contact of the chair supporting me. I notice my breath, my shoulders, my jaw, and any thoughts already moving, without needing to change them. My energy is modest today, steady enough for honest focus after a shorter night of sleep. I let the quiet apartment, muted alerts, tea, warm mug, and the outline and notes nearby become simple cues that I am arriving.
 
-I let the work in front of me come into view: the argument outline open, the printed case notes, the highlighted precedent beside the laptop. I imagine beginning with a steady enough focus, not a forced one, letting my hands, breath, and eyes find the next clear piece. What does it feel like when the first useful movement happens? I can see myself staying with the materials long enough for the work to become more organized, more real, and more done than when I started. What changes in my body when I reach the point where this session counts?
+This work matters even without naming the whole goal right now; it is the piece in front of me, and I can give it a real, measured effort. I imagine beginning the task with energy at a four out of ten: not rushed, not forced, just clear enough to move one important part forward. What does it feel like when my attention settles on the work? What changes in my body when I sense the task starting to take shape? I imagine reaching a credible stopping point, where something is clearer, more complete, or easier to return to. I can feel the quiet satisfaction of having stayed with it at an honest pace.
 
-Let the breath come back to the feet, the chair, and the warm mug. I do not need high energy to make real progress; I can work at the pace this body has today. The quiet, the muted alerts, and the page in front of me are enough to mark the next doable action. Say quietly to yourself: I can begin steadily, one clear piece at a time.
+I return to my body for one more breath, letting my feet, hands, and face soften into readiness. I do not need high energy to make useful progress; I only need the next doable movement into the work. Say quietly to myself: I can work steadily with the energy I have.
 
 ## soul input
 
@@ -6183,21 +6191,21 @@ Let the breath come back to the feet, the chair, and the warm mug. I do not need
 ## soul sections
 
 ### Introduction
-Feel your breath arrive in your chest and belly, and notice the contact of your body with the chair or the floor. Let your shoulders, jaw, and hands be exactly as they are, without forcing them to soften. Notice any sound around you, any feeling moving through you, and any thoughts passing by. In this body, Serena, let the quality of rigorous advocacy without losing your humanity come close.
+I feel my breath come in and leave, and I let my posture arrive where I am. I notice the contact under me, the small sounds around me, and any thoughts moving through without needing to fix them. I do not need to force a certain energy; I simply make room for steadiness, care, and the part of me that wants rigorous advocacy without losing my humanity.
 
 ### Task visualization
-Now I let the task appear without needing to name every step yet. I imagine beginning in a way that feels committed, clear, and purposeful, using legal skill to make unfair systems more answerable. What does it feel like in my body when the argument becomes sharper, or the client position feels more protected? I let Care stay in the room too: human, steady, close enough to remember the stakes while I move the work forward. Can I sense the grounded feeling of Diligence as the careful part gets done, the notes become clearer, or the deadline risk feels reduced?
+This work serves the kind of legal practice I want to live inside: clear, humane, and answerable to real stakes. Because no specific task is named here, I let the task in front of me appear as one focused piece of advocacy, one place where legal skill can make something unfair more answerable. I imagine the work reaching a point that is done enough to protect the position, sharpen the argument, or make the next step plainer. What does committed and clear feel like in my body as the work takes shape? What changes in my attention when care stays present? Can I sense thoroughness without hardness, preparation without losing the human thread?
 
 ### Ending
-Return to the simple reason this work matters: humane advocacy, clear client care, and careful legal skill in the same breath. Let the body be honest, not perfect, and let the next doable action be enough to begin. There is capability here, in the steadiness of one focused move. Say quietly to yourself: I can be steady and still do the careful work.
+I return to the reason this matters: careful work can protect someone, clarify what is true, and reduce risk in a compressed day. I let my body become a little steadier, not perfect, just ready for the next doable movement. I can bring legal skill and human care to the piece in front of me.
 
-## soul script (232 words)
+## soul script (235 words)
 
-Feel your breath arrive in your chest and belly, and notice the contact of your body with the chair or the floor. Let your shoulders, jaw, and hands be exactly as they are, without forcing them to soften. Notice any sound around you, any feeling moving through you, and any thoughts passing by. In this body, Serena, let the quality of rigorous advocacy without losing your humanity come close.
+I feel my breath come in and leave, and I let my posture arrive where I am. I notice the contact under me, the small sounds around me, and any thoughts moving through without needing to fix them. I do not need to force a certain energy; I simply make room for steadiness, care, and the part of me that wants rigorous advocacy without losing my humanity.
 
-Now I let the task appear without needing to name every step yet. I imagine beginning in a way that feels committed, clear, and purposeful, using legal skill to make unfair systems more answerable. What does it feel like in my body when the argument becomes sharper, or the client position feels more protected? I let Care stay in the room too: human, steady, close enough to remember the stakes while I move the work forward. Can I sense the grounded feeling of Diligence as the careful part gets done, the notes become clearer, or the deadline risk feels reduced?
+This work serves the kind of legal practice I want to live inside: clear, humane, and answerable to real stakes. Because no specific task is named here, I let the task in front of me appear as one focused piece of advocacy, one place where legal skill can make something unfair more answerable. I imagine the work reaching a point that is done enough to protect the position, sharpen the argument, or make the next step plainer. What does committed and clear feel like in my body as the work takes shape? What changes in my attention when care stays present? Can I sense thoroughness without hardness, preparation without losing the human thread?
 
-Return to the simple reason this work matters: humane advocacy, clear client care, and careful legal skill in the same breath. Let the body be honest, not perfect, and let the next doable action be enough to begin. There is capability here, in the steadiness of one focused move. Say quietly to yourself: I can be steady and still do the careful work.
+I return to the reason this matters: careful work can protect someone, clarify what is true, and reduce risk in a compressed day. I let my body become a little steadier, not perfect, just ready for the next doable movement. I can bring legal skill and human care to the piece in front of me.
 
 ## full input
 
@@ -6437,18 +6445,18 @@ Return to the simple reason this work matters: humane advocacy, clear client car
 ## full sections
 
 ### Introduction
-Feel your feet planted under the desk, and let your breath arrive before the work does. Notice the chair holding you, the warmth of the mug in your hands, the quiet apartment, and the simple fact that email alerts are muted. Your energy is modest, not absent; after a shorter night, your body can still find a steady, honest pace. The outline, printed notes, highlighted precedent, and tea become cues for humane advocacy: rigorous work without losing your humanity.
+My feet settle under the desk, and I feel the chair holding my weight. I notice breath, shoulders, jaw, sound, and thought, without needing to change any of it. I am working with modest energy after a shorter night, so I let the morning’s steadier window be enough. The quiet apartment, muted alerts, warm mug, tea, open outline, printed notes, and highlighted precedent help me arrive in humane advocacy.
 
 ### Task visualization
-I let the first part of the task come into view: reviewing the argument outline, one clean pass that helps me see the shape of the section. What changes in my attention when the strongest claim paragraph begins to form, clear and purposeful, protecting the client position without forcing perfection? I imagine writing enough of that claim paragraph for the argument to have a real spine. Then I turn toward the precedent and client facts, sensing diligence as I connect the law back to the human stakes; what does it feel like in my body when the draft becomes complete enough to count by noon?
+This work serves rigorous public-interest advocacy while helping complex systems become more navigable for clients. I let Draft argument section come into view: one clear first draft by noon, done enough to move the case brief forward. I can sense the outline review giving the argument shape, the strongest claim paragraph becoming clear, and the precedent tying back to the client facts in a way that protects the client position. What does it feel like in my body when the argument becomes sharper? What happens to my attention when the human stakes stay present inside the legal work? Can I feel committed, clear, steady, and grounded as the draft reaches the point where it counts?
 
 ### Ending
-Let the breath soften again, and feel the steadiness that is already here, even with limited energy. This work matters because it makes an unfair system more answerable and gives the client a clearer path. I am able to take the next careful sentence in service of humane advocacy. Carry that line into the page.
+I return to the reason this matters: using legal skill to make unfair systems more answerable without losing my humanity. My body does not need to feel bright or forceful; it can be steady, paced, and ready for the next doable piece. I am capable of moving this argument section forward with care. Say quietly to myself: I can be humane and still do the careful work.
 
-## full script (239 words)
+## full script (251 words)
 
-Feel your feet planted under the desk, and let your breath arrive before the work does. Notice the chair holding you, the warmth of the mug in your hands, the quiet apartment, and the simple fact that email alerts are muted. Your energy is modest, not absent; after a shorter night, your body can still find a steady, honest pace. The outline, printed notes, highlighted precedent, and tea become cues for humane advocacy: rigorous work without losing your humanity.
+My feet settle under the desk, and I feel the chair holding my weight. I notice breath, shoulders, jaw, sound, and thought, without needing to change any of it. I am working with modest energy after a shorter night, so I let the morning’s steadier window be enough. The quiet apartment, muted alerts, warm mug, tea, open outline, printed notes, and highlighted precedent help me arrive in humane advocacy.
 
-I let the first part of the task come into view: reviewing the argument outline, one clean pass that helps me see the shape of the section. What changes in my attention when the strongest claim paragraph begins to form, clear and purposeful, protecting the client position without forcing perfection? I imagine writing enough of that claim paragraph for the argument to have a real spine. Then I turn toward the precedent and client facts, sensing diligence as I connect the law back to the human stakes; what does it feel like in my body when the draft becomes complete enough to count by noon?
+This work serves rigorous public-interest advocacy while helping complex systems become more navigable for clients. I let Draft argument section come into view: one clear first draft by noon, done enough to move the case brief forward. I can sense the outline review giving the argument shape, the strongest claim paragraph becoming clear, and the precedent tying back to the client facts in a way that protects the client position. What does it feel like in my body when the argument becomes sharper? What happens to my attention when the human stakes stay present inside the legal work? Can I feel committed, clear, steady, and grounded as the draft reaches the point where it counts?
 
-Let the breath soften again, and feel the steadiness that is already here, even with limited energy. This work matters because it makes an unfair system more answerable and gives the client a clearer path. I am able to take the next careful sentence in service of humane advocacy. Carry that line into the page.
+I return to the reason this matters: using legal skill to make unfair systems more answerable without losing my humanity. My body does not need to feel bright or forceful; it can be steady, paced, and ready for the next doable piece. I am capable of moving this argument section forward with care. Say quietly to myself: I can be humane and still do the careful work.
