@@ -1,0 +1,5 @@
+field,option,label,count,response_n,pct_of_respondents
+perspectivePreference,first_person,First person,31,49,0.6326530612244898
+perspectivePreference,second_person,Second person,20,49,0.40816326530612246
+perspectivePreference,third_person,Third person,4,49,0.08163265306122448
+perspectivePreference,no_preference,No preference,2,49,0.04081632653061224

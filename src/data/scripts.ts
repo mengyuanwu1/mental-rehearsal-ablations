@@ -83,9 +83,12 @@ export function scriptForCondition(scenario: Scenario, condition: ConditionId): 
   switch (condition) {
     case "baseline":
       return [
-        `Use the available schedule to help the user mentally prepare for the day. The listed items are: ${baselinePlan(scenario)}.`,
-        "A simple preparation plan is to check what materials are needed for each listed item, make sure those materials are easy to find, and reduce avoidable interruptions before the day begins. Each item can be handled as its own block, with a clear start, a simple stopping point, and a quick note about anything unfinished.",
-        "The user can keep the schedule visible, move through the listed items one at a time, and avoid reopening the whole plan after every block. At the end of each item, they can mark what was completed, note any follow-up, and continue to the next scheduled item.",
+        "Listed items:",
+        baselinePlan(scenario)
+          .split(", then ")
+          .map((item, index) => `${index + 1}. ${item}`)
+          .join("\n"),
+        "End of listed items.",
       ].join("\n\n");
 
     case "mind":

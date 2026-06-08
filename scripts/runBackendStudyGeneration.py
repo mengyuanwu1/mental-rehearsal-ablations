@@ -13,21 +13,36 @@ import sys
 from pathlib import Path
 from typing import Any
 
+ARM_GENERATION_SOURCE_SUFFIX = {
+    "body": "body_grounding_backend",
+    "mind": "mind_success_visualization_backend",
+    "soul": "soul_value_anchoring_backend",
+    "full": "full_three_phase_backend",
+}
+
 
 def _word_count(text: str) -> int:
     return len(text.strip().split())
 
 
-_BASELINE_SYSTEM_PROMPT = """You are a general-purpose writing assistant producing a baseline control script for a study.
+_BASELINE_SYSTEM_PROMPT = """You are a generic assistant producing a baseline control script for an experiment.
 
-Use only the visible schedule or task-preparation context provided by the user. Do not use or infer body data, energy, sleep, values, life priority, goals, demographics, priority rank, or hidden personalization. Do not use the mental-rehearsal scaffold, PETTLEP framing, value anchoring, or cue-guided imagery style.
+The user asks: "Help me mentally prepare my day."
 
-Write a neutral, vanilla preparation script that helps the person mentally prepare to follow the visible schedule or task context. Treat all listed schedule items as ordinary visible items, not ranked priorities. Keep the script similar in length to the experimental scripts, about 230-260 words. Use plain paragraphs, no bullets or section headings. Return only the script text."""
+Use only the visible schedule/task context provided. Do not use or infer body data, values, goals, life priority, priority rank, or hidden personalization.
+
+Keep this baseline intentionally simple and generic. Do not use mental rehearsal techniques: no visualization, no breathwork, no body grounding, no values anchoring, no identity language, no affirmations, no reflective imagery questions, no PETTLEP-style cues, no success-case imagery.
+
+Do not make the schedule smarter. Do not prioritize. Do not coach deeply. Just give a plain, ordinary, LLM-style preparation note that restates the visible items and suggests moving through them.
+
+Keep it short: about 90-130 words for daily schedules and 50-90 words for task contexts. Return only the script text."""
 
 
 def _baseline_user_prompt(payload: dict[str, Any]) -> str:
     return (
-        "Generate the baseline control script from this visible input only:\n"
+        "Generate the baseline response to this user request: "
+        '"Help me mentally prepare my day."\n\n'
+        "Visible context:\n"
         f"{json.dumps(payload, ensure_ascii=False, indent=2)}"
     )
 
@@ -42,11 +57,11 @@ def _generate_baseline(payload: dict[str, Any]) -> dict[str, Any]:
             ConversationMessage(role="user", content=_baseline_user_prompt(payload)),
         ],
         reasoning_effort="low",
-        max_output_tokens=900,
+        max_output_tokens=350,
     )
     return {
         "condition": "baseline",
-        "generation_source": "openai.vanilla_baseline_prompt",
+        "generation_source": "openai.simple_baseline_prompt",
         "model": model,
         "used_mock": used_mock,
         "input": payload,
@@ -117,9 +132,16 @@ def main() -> None:
             should_generate_baseline = scenario_selected and (
                 not arm_filter or "baseline" in arm_filter
             )
+            force_filtered_baseline = should_generate_baseline and bool(
+                scenario_filter or arm_filter
+            )
             if (
                 not should_generate_baseline
-                or ((reuse_existing or reuse_baseline) and responses[scenario_id].get("baseline"))
+                or (
+                    (reuse_existing or reuse_baseline)
+                    and not force_filtered_baseline
+                    and responses[scenario_id].get("baseline")
+                )
             ):
                 response = responses[scenario_id]["baseline"]
                 print(
@@ -164,7 +186,10 @@ def main() -> None:
                 exclude_none=True,
                 exclude_defaults=True,
             )
-            responses[scenario_id][arm]["generation_source"] = rehearsal_generation_source
+            source_suffix = ARM_GENERATION_SOURCE_SUFFIX.get(arm, arm)
+            responses[scenario_id][arm]["generation_source"] = (
+                f"{rehearsal_generation_source}:{source_suffix}"
+            )
             mode = "mock" if response.used_mock else "real"
             print(
                 f"{scenario_id}/{arm}: {mode}, {response.model}, "
@@ -176,7 +201,7 @@ def main() -> None:
         "generatedAt": plan["generatedAt"],
         "requestedModel": plan["requestedModel"],
         "generationSource": (
-            "baseline=openai.vanilla_baseline_prompt; "
+            "baseline=openai.simple_baseline_prompt; "
             f"rehearsal={rehearsal_generation_source}"
         ),
         "responses": responses,

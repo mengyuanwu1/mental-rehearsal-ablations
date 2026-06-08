@@ -1,0 +1,11 @@
+theme,mentions,text_n,pct_of_text_responses,recommendation
+Specific to real task/day,28,49,0.5714285714285714,"Tie rehearsal to the user's real schedule, priority task, and concrete first step."
+Calm emotional support,16,49,0.32653061224489793,Keep tone supportive and low-pressure; avoid hype that makes the day feel larger.
+Step-by-step structure,15,49,0.30612244897959184,"Use a predictable progression: check in, name priority, rehearse steps, close with next action."
+Grounding and breath/body,12,49,0.24489795918367346,"Start from current body/energy state, then return to a body cue after visualization."
+Audio/ambience,8,49,0.16326530612244897,Support spoken/text guidance with optional calm background audio.
+Visualization,8,49,0.16326530612244897,"Use imagery when it clarifies the user's next behavior, not as generic fantasy."
+Brevity and simplicity,7,49,0.14285714285714285,"Offer a short default with optional expansion; many users want guidance, not a long essay."
+Obstacle coping,6,49,0.12244897959183673,Include one likely obstacle and one realistic recovery move.
+Values/intention,5,49,0.10204081632653061,"Connect work to values briefly, then turn that value into visible action."
+Other / uncoded,4,49,0.08163265306122448,Review manually; this theme did not match the first-pass codebook.

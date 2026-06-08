@@ -1,0 +1,11 @@
+theme,mentions,text_n,pct_of_text_responses,recommendation
+Calm start / breathing,16,49,0.32653061224489793,Begin with calm check-in and breathing before task content.
+Step-by-step day planning,16,49,0.32653061224489793,Make the default flow feel like a concise guided plan for the day.
+Task focus / next action,13,49,0.2653061224489796,Name the most important task and close with the next concrete action.
+Emotional reassurance,10,49,0.20408163265306123,"Add reassurance, but keep it realistic and tied to effort or response."
+Audio/music/nature,8,49,0.16326530612244897,Offer audio and background sound as configurable layers.
+Brevity,7,49,0.14285714285714285,Keep the main script short by default.
+Prayer/meditation analogies,7,49,0.14285714285714285,Position rehearsal as compatible with existing morning rituals.
+Obstacle preparation,6,49,0.12244897959183673,Rehearse one bump and recovery plan.
+Other / uncoded,5,49,0.10204081632653061,Review manually; this theme did not match the first-pass codebook.
+Values/intention grounding,4,49,0.08163265306122448,"Include one values/intention line, then move back to action."

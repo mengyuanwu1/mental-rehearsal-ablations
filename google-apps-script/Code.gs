@@ -32,7 +32,7 @@ function appendTrialResponse_(payload) {
   var sheet = getOrCreateSheet_(TRIAL_SHEET_NAME);
   ensureHeaders_(sheet, TRIAL_HEADERS);
   var responseId = r.responseId || [r.participantId || "anonymous", valueOrBlank_(r.assignmentId), valueOrBlank_(r.trialIndex)].join(":");
-  var row = [new Date().toISOString(), payload.studyId || "", responseId, r.participantId || "", valueOrBlank_(r.assignmentId), valueOrBlank_(r.trialIndex), r.scenarioId || "", r.leftCondition || "", r.rightCondition || "", r.choice || "", valueOrBlank_(r.leftRating), valueOrBlank_(r.rightRating), r.improvement || r.reason || "", r.attentionCheckId || "", r.attentionCheckKind || "", r.attentionCheckPrompt || "", r.attentionCheckAnswer || "", r.attentionCheckCorrectAnswer || "", valueOrBlank_(r.attentionCheckPassed), r.startedAt || "", r.submittedAt || "", valueOrBlank_(r.elapsedMs), r.userAgent || ""];
+  var row = [new Date().toISOString(), payload.studyId || "", responseId, r.participantId || "", valueOrBlank_(r.assignmentId), valueOrBlank_(r.trialIndex), r.scenarioId || "", r.leftCondition || "", r.rightCondition || "", r.choice || "", valueOrBlank_(r.leftRating), valueOrBlank_(r.rightRating), r.improvement || r.improvements || r.reason || "", r.attentionCheckId || "", r.attentionCheckKind || "", r.attentionCheckPrompt || "", r.attentionCheckAnswer || "", r.attentionCheckCorrectAnswer || "", valueOrBlank_(r.attentionCheckPassed), r.startedAt || "", r.submittedAt || "", valueOrBlank_(r.elapsedMs), r.userAgent || ""];
   upsertRow_(sheet, TRIAL_HEADERS, responseId, row);
 }
 

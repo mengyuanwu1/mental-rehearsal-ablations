@@ -37,7 +37,7 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          VITE_RESPONSE_ENDPOINT: https://script.google.com/macros/s/AKfycbxNzvZtD_7w4Y46P1qSZ8Ufsio-62bA0G9LNfG1SpkLCEsxDQg2FLwHXZdftexyrqHqiw/exec
+          VITE_RESPONSE_ENDPOINT: https://script.google.com/macros/s/AKfycbz88gnCKToBD2MvEy1jSzx33OWg4wgeU3wQ2rOTsOkczzdxnuStpydgb3MRGXOgdfw/exec
           VITE_RESPONSE_SECRET: 6e5080ee019452f3275167dbd230593744baed57d6cea68b
           VITE_STUDY_ID: mental-rehearsal-ablation-v1
 

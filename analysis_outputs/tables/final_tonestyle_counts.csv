@@ -1,0 +1,5 @@
+field,option,label,count,response_n,pct_of_respondents
+toneStyle,calm_supportive,Calm/supportive,36,49,0.7346938775510204
+toneStyle,encouraging,Encouraging,21,49,0.42857142857142855
+toneStyle,practical_direct,Practical/direct,15,49,0.30612244897959184
+toneStyle,reflective,Reflective,8,49,0.16326530612244897

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1060" height="700" viewBox="0 0 1060 700">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="86.0" y="42.0" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700" text-anchor="start" fill="#1f2933">Bradley-Terry Odds vs Baseline</text>
+<text x="86.0" y="68.0" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#1f2933">Values below 1.0 mean lower odds of being chosen than baseline after accounting for pairings.</text>
+<text transform="rotate(-90 22 344.0)" x="22.0" y="344.0" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="400" text-anchor="middle" fill="#1f2933">Odds vs baseline</text>
+<line x1="86" y1="582.0" x2="1018" y2="582.0" stroke="#e6e9ee"/>
+<text x="76.0" y="586.0" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="400" text-anchor="end" fill="#1f2933">0.00</text>
+<line x1="86" y1="486.8" x2="1018" y2="486.8" stroke="#e6e9ee"/>
+<text x="76.0" y="490.8" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="400" text-anchor="end" fill="#1f2933">0.24</text>
+<line x1="86" y1="391.6" x2="1018" y2="391.6" stroke="#e6e9ee"/>
+<text x="76.0" y="395.6" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="400" text-anchor="end" fill="#1f2933">0.48</text>
+<line x1="86" y1="296.4" x2="1018" y2="296.4" stroke="#e6e9ee"/>
+<text x="76.0" y="300.4" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="400" text-anchor="end" fill="#1f2933">0.72</text>
+<line x1="86" y1="201.2" x2="1018" y2="201.2" stroke="#e6e9ee"/>
+<text x="76.0" y="205.2" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="400" text-anchor="end" fill="#1f2933">0.96</text>
+<line x1="86" y1="106.0" x2="1018" y2="106.0" stroke="#e6e9ee"/>
+<text x="76.0" y="110.0" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="400" text-anchor="end" fill="#1f2933">1.20</text>
+<text x="179.2" y="612.0" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" text-anchor="middle" fill="#1f2933">Baseline</text>
+<rect x="160.2" y="185.3" width="34.0" height="396.7" rx="3" fill="#5d8b45"/>
+<text x="177.2" y="177.3" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" text-anchor="middle" fill="#1f2933">1.00</text>
+<text x="365.6" y="612.0" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" text-anchor="middle" fill="#1f2933">Body</text>
+<rect x="346.6" y="425.9" width="34.0" height="156.1" rx="3" fill="#5d8b45"/>
+<text x="363.6" y="417.9" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" text-anchor="middle" fill="#1f2933">0.39</text>
+<line x1="363.6" y1="338.9" x2="363.6" y2="481.7" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="358.6" y1="338.9" x2="368.6" y2="338.9" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="358.6" y1="481.7" x2="368.6" y2="481.7" stroke="#1f2933" stroke-width="1.5"/>
+<text x="552.0" y="612.0" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" text-anchor="middle" fill="#1f2933">Mind</text>
+<rect x="533.0" y="277.3" width="34.0" height="304.7" rx="3" fill="#5d8b45"/>
+<text x="550.0" y="269.3" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" text-anchor="middle" fill="#1f2933">0.77</text>
+<line x1="550.0" y1="109.6" x2="550.0" y2="385.5" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="545.0" y1="109.6" x2="555.0" y2="109.6" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="545.0" y1="385.5" x2="555.0" y2="385.5" stroke="#1f2933" stroke-width="1.5"/>
+<text x="738.4" y="612.0" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" text-anchor="middle" fill="#1f2933">Soul</text>
+<rect x="719.4" y="423.6" width="34.0" height="158.4" rx="3" fill="#5d8b45"/>
+<text x="736.4" y="415.6" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" text-anchor="middle" fill="#1f2933">0.40</text>
+<line x1="736.4" y1="336.8" x2="736.4" y2="479.7" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="731.4" y1="336.8" x2="741.4" y2="336.8" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="731.4" y1="479.7" x2="741.4" y2="479.7" stroke="#1f2933" stroke-width="1.5"/>
+<text x="924.8" y="612.0" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" text-anchor="middle" fill="#1f2933">Full</text>
+<rect x="905.8" y="313.2" width="34.0" height="268.8" rx="3" fill="#5d8b45"/>
+<text x="922.8" y="305.2" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" text-anchor="middle" fill="#1f2933">0.68</text>
+<line x1="922.8" y1="164.8" x2="922.8" y2="408.9" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="917.8" y1="164.8" x2="927.8" y2="164.8" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="917.8" y1="408.9" x2="927.8" y2="408.9" stroke="#1f2933" stroke-width="1.5"/>
+<rect x="86" y="646" width="14" height="14" rx="2" fill="#5d8b45"/>
+<text x="108.0" y="658.0" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="400" text-anchor="start" fill="#1f2933">overall</text>
+</svg>

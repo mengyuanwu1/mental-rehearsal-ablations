@@ -263,7 +263,7 @@ function buildArtifact({ scenarios, requestPlan, backendResults }) {
     usedMock: false,
     generationSource:
       backendResults.generationSource
-      ?? "baseline=openai.vanilla_baseline_prompt; rehearsal=backend.generate_ablation_rehearsal",
+      ?? "baseline=openai.simple_baseline_prompt; rehearsal=backend.generate_ablation_rehearsal",
     scenarioMeta: {},
     inputsByScenarioArm: {},
     generationSourceByScenarioArm: {},
@@ -293,7 +293,7 @@ function buildArtifact({ scenarios, requestPlan, backendResults }) {
     }
     artifact.inputsByScenarioArm[scenarioId].baseline = baseline.input;
     artifact.generationSourceByScenarioArm[scenarioId].baseline =
-      baseline.generation_source ?? "openai.vanilla_baseline_prompt";
+      baseline.generation_source ?? "openai.simple_baseline_prompt";
     artifact.modelsByScenarioArm[scenarioId].baseline = baseline.model;
     artifact.wordCounts[scenarioId].baseline = wordCount(baseline.script);
     artifact.scripts[scenarioId].baseline = baseline.script;

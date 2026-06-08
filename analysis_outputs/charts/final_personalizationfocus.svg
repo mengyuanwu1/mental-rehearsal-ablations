@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="326" viewBox="0 0 1080 326">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="34.0" y="38.0" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700" text-anchor="start" fill="#1f2933">Personalization Focus</text>
+<text x="34.0" y="64.0" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#1f2933">Count and percent of final questionnaire respondents; multi-select items count independently.</text>
+<text x="286.0" y="108.0" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="400" text-anchor="end" fill="#1f2933">Day success visualization</text>
+<rect x="300" y="92" width="650.0" height="20" rx="3" fill="#2f6f9f"/>
+<text x="960.0" y="108.0" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="400" text-anchor="start" fill="#1f2933">49 (100%)</text>
+<text x="286.0" y="142.0" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="400" text-anchor="end" fill="#1f2933">Mind grounding</text>
+<rect x="300" y="126" width="650.0" height="20" rx="3" fill="#2f6f9f"/>
+<text x="960.0" y="142.0" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="400" text-anchor="start" fill="#1f2933">49 (100%)</text>
+<text x="286.0" y="176.0" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="400" text-anchor="end" fill="#1f2933">Task success visualization</text>
+<rect x="300" y="160" width="650.0" height="20" rx="3" fill="#2f6f9f"/>
+<text x="960.0" y="176.0" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="400" text-anchor="start" fill="#1f2933">49 (100%)</text>
+<text x="286.0" y="210.0" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="400" text-anchor="end" fill="#1f2933">Body grounding</text>
+<rect x="300" y="194" width="650.0" height="20" rx="3" fill="#2f6f9f"/>
+<text x="960.0" y="210.0" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="400" text-anchor="start" fill="#1f2933">49 (100%)</text>
+<text x="286.0" y="244.0" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="400" text-anchor="end" fill="#1f2933">Value grounding</text>
+<rect x="300" y="228" width="650.0" height="20" rx="3" fill="#2f6f9f"/>
+<text x="960.0" y="244.0" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="400" text-anchor="start" fill="#1f2933">49 (100%)</text>
+<text x="286.0" y="278.0" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="400" text-anchor="end" fill="#1f2933">Obstacle visualization</text>
+<rect x="300" y="262" width="650.0" height="20" rx="3" fill="#2f6f9f"/>
+<text x="960.0" y="278.0" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="400" text-anchor="start" fill="#1f2933">49 (100%)</text>
+</svg>

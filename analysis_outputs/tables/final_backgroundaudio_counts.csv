@@ -1,0 +1,6 @@
+field,option,label,count,response_n,pct_of_respondents
+backgroundAudio,nature,Nature,27,49,0.5510204081632653
+backgroundAudio,ambient,Ambient,18,49,0.3673469387755102
+backgroundAudio,piano_lofi,Piano/lo-fi,13,49,0.2653061224489796
+backgroundAudio,none,None,11,49,0.22448979591836735
+backgroundAudio,energizing,Energizing,3,49,0.061224489795918366
