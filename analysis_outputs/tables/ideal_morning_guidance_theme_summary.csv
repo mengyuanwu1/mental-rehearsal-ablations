@@ -1,0 +1,11 @@
+theme,theme_label,mentions,respondent_n,pct_of_responses,description
+structured_day_planning,Structured day planning,32,64,0.5,"Users want a concrete plan for the day: tasks, priorities, order, timing, and next steps."
+calm_grounding,Calm grounding,26,64,0.40625,"Users want breathing, body awareness, meditation, quiet, or relaxation before moving into action."
+encouragement_reassurance,Encouragement and reassurance,17,64,0.265625,"Users want warmth, validation, motivation, confidence, and positive emotional support."
+audio_ambience,"Audio, voice, and ambience",12,64,0.1875,"Users mention guided audio, voice, music, nature sounds, ambient noise, or a calming place."
+obstacle_coping,Obstacle coping,12,64,0.1875,"Users want to anticipate disruptions, low energy, hard moments, and recovery moves."
+brevity_adaptive_load,Brevity and adaptive load,10,64,0.15625,"Users prefer short, simple, punchy, or adjustable guidance that does not feel overwhelming."
+morning_ritual,Morning ritual integration,10,64,0.15625,"Users frame rehearsal alongside prayer, meditation, exercise, showering, coffee, reading, or routine."
+task_visualization,Task/success visualization,10,64,0.15625,"Users want to picture successful completion, actual tasks, or themselves moving through the day."
+values_purpose,"Values, purpose, and mantra",9,64,0.140625,"Users want connection to what matters, goals, strengths, accomplishments, or a closing mantra."
+low_information,Low-information / unclear,2,64,0.03125,Responses with no actionable design preference or broken/ambiguous content.

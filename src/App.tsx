@@ -1,6 +1,22 @@
-import { useEffect, useMemo, useRef, useState, type CSSProperties, type ChangeEvent, type FormEvent } from "react";
+import {
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type CSSProperties,
+  type ChangeEvent,
+  type FormEvent,
+  type SyntheticEvent,
+} from "react";
 import { getScenario, scenarios } from "./data/scenarios";
-import { scriptForCondition, scriptMetadataForCondition } from "./data/scripts";
+import {
+  audioSegmentsForCondition,
+  scriptForCondition,
+  scriptMetadataForCondition,
+  textSegmentsForCondition,
+  type AudioSegmentId,
+  type AudioSegmentMap,
+} from "./data/scripts";
 import { assignmentIdFromParams, assignmentSlotCount, buildAssignment, hashString } from "./lib/assignment";
 import {
   postQuestionnaire,
@@ -24,10 +40,11 @@ const returnUrl = params.get("return_url") ?? params.get("redirect_url") ?? "";
 const debugMode = params.get("debug") === "1";
 const ratingScale = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const minimumComparisonSeconds = 45;
+const minimumScenarioReviewSeconds = 15;
 const minimumImprovementWords = 3;
 const adminModePassword = "mrmrmr";
 const questionnaireVersion = "personalization-v3";
-const attentionCheckTrialIndexes = [1, 4];
+const attentionCheckTrialIndexes = [1];
 const attentionCheckTrialIndexSet = new Set(attentionCheckTrialIndexes);
 const attentionCheckKinds = ["task", "values", "energy"] as const;
 const lastAdminAssignmentStorageKey = "mra-last-admin-assignment-id";
@@ -45,6 +62,163 @@ type AttentionCheck = {
   prompt: string;
   options: AttentionCheckOption[];
   correctAnswer: string;
+};
+
+type AudioSide = "left" | "right";
+
+type AudioMetrics = {
+  playCount: number;
+  maxPositionSeconds: number;
+  ended: boolean;
+  segmentProgress: Record<AudioSegmentId, AudioSegmentMetrics>;
+};
+
+type AudioSegmentMetrics = {
+  playCount: number;
+  maxPositionSeconds: number;
+  ended: boolean;
+};
+
+type AudioMetricsBySide = Record<AudioSide, AudioMetrics>;
+
+type ScriptMeasureId = "bodyState" | "taskGoal" | "valueConnection" | "ease" | "overall";
+
+type ScriptMeasureRatings = Record<ScriptMeasureId, number | null>;
+
+type ScriptRatingsBySide = Record<AudioSide, ScriptMeasureRatings>;
+
+const audioSegmentOrder: AudioSegmentId[] = ["introduction", "middle", "ending", "complete"];
+const audioSegmentLabels: Record<AudioSegmentId, string> = {
+  introduction: "Introduction",
+  middle: "Middle",
+  ending: "Ending",
+  complete: "Complete script",
+};
+const middlePauseMs = 10000;
+
+const scriptMeasures: Array<{
+  id: ScriptMeasureId;
+  label: string;
+  lowAnchor: string;
+  highAnchor: string;
+}> = [
+  {
+    id: "bodyState",
+    label: "Bodily state",
+    lowAnchor: "Did not address their body or energy",
+    highAnchor: "Addressed their body and energy very well",
+  },
+  {
+    id: "taskGoal",
+    label: "Task or daily goal",
+    lowAnchor: "Did not address their goal",
+    highAnchor: "Addressed their goal very well",
+  },
+  {
+    id: "valueConnection",
+    label: "Value connection",
+    lowAnchor: "Did not connect to their values",
+    highAnchor: "Connected to their values very well",
+  },
+  {
+    id: "ease",
+    label: "Ease to talk through",
+    lowAnchor: "Very burdensome to talk through",
+    highAnchor: "Very easy to talk through",
+  },
+  {
+    id: "overall",
+    label: "Overall rating",
+    lowAnchor: "Not helpful",
+    highAnchor: "Very helpful",
+  },
+];
+
+const emptyScriptMeasureRatings = (): ScriptMeasureRatings => ({
+  bodyState: null,
+  taskGoal: null,
+  valueConnection: null,
+  ease: null,
+  overall: null,
+});
+
+const emptyScriptRatings = (): ScriptRatingsBySide => ({
+  left: emptyScriptMeasureRatings(),
+  right: emptyScriptMeasureRatings(),
+});
+
+const scriptRatingsComplete = (ratings: ScriptRatingsBySide) =>
+  Object.values(ratings).every((sideRatings) =>
+    scriptMeasures.every((measure) => sideRatings[measure.id] !== null),
+  );
+
+const requiredRating = (value: number | null) => {
+  if (value === null) throw new Error("Missing script rating.");
+  return value;
+};
+
+const scriptRatingsFromResponse = (response?: TrialResponse): ScriptRatingsBySide => ({
+  left: {
+    bodyState: response?.leftBodyStateRating ?? null,
+    taskGoal: response?.leftTaskGoalRating ?? null,
+    valueConnection: response?.leftValueConnectionRating ?? null,
+    ease: response?.leftEaseRating ?? null,
+    overall: response?.leftRating ?? null,
+  },
+  right: {
+    bodyState: response?.rightBodyStateRating ?? null,
+    taskGoal: response?.rightTaskGoalRating ?? null,
+    valueConnection: response?.rightValueConnectionRating ?? null,
+    ease: response?.rightEaseRating ?? null,
+    overall: response?.rightRating ?? null,
+  },
+});
+
+const emptySegmentProgress = (): Record<AudioSegmentId, AudioSegmentMetrics> => ({
+  introduction: { playCount: 0, maxPositionSeconds: 0, ended: false },
+  middle: { playCount: 0, maxPositionSeconds: 0, ended: false },
+  ending: { playCount: 0, maxPositionSeconds: 0, ended: false },
+  complete: { playCount: 0, maxPositionSeconds: 0, ended: false },
+});
+
+const emptyAudioMetrics = (): AudioMetricsBySide => ({
+  left: { playCount: 0, maxPositionSeconds: 0, ended: false, segmentProgress: emptySegmentProgress() },
+  right: { playCount: 0, maxPositionSeconds: 0, ended: false, segmentProgress: emptySegmentProgress() },
+});
+
+const parseSegmentProgress = (value?: string): Record<AudioSegmentId, AudioSegmentMetrics> => {
+  if (!value) return emptySegmentProgress();
+  try {
+    return { ...emptySegmentProgress(), ...(JSON.parse(value) as Record<AudioSegmentId, AudioSegmentMetrics>) };
+  } catch {
+    return emptySegmentProgress();
+  }
+};
+
+const audioMetricsFromResponse = (response?: TrialResponse): AudioMetricsBySide => ({
+  left: {
+    playCount: response?.leftAudioPlayCount ?? 0,
+    maxPositionSeconds: response?.leftAudioMaxPositionSeconds ?? 0,
+    ended: response?.leftAudioEnded ?? false,
+    segmentProgress: parseSegmentProgress(response?.leftAudioSegmentProgress),
+  },
+  right: {
+    playCount: response?.rightAudioPlayCount ?? 0,
+    maxPositionSeconds: response?.rightAudioMaxPositionSeconds ?? 0,
+    ended: response?.rightAudioEnded ?? false,
+    segmentProgress: parseSegmentProgress(response?.rightAudioSegmentProgress),
+  },
+});
+
+const roundedAudioSeconds = (value: number) => Math.round(Math.max(0, value) * 10) / 10;
+
+const orderedAudioSegments = (segments: AudioSegmentMap) =>
+  audioSegmentOrder.filter((segmentId) => Boolean(segments[segmentId]));
+
+const stepFromMetrics = (segmentIds: AudioSegmentId[], metrics: AudioMetrics) => {
+  const firstIncomplete = segmentIds.findIndex((segmentId) => !metrics.segmentProgress[segmentId]?.ended);
+  if (firstIncomplete >= 0) return firstIncomplete;
+  return Math.max(0, segmentIds.length - 1);
 };
 
 const seededOptions = (options: AttentionCheckOption[], seed: string) =>
@@ -606,9 +780,23 @@ export default function App() {
             <section>
               <h2>What is this study about?</h2>
               <p>
-                This study compares different styles of mental rehearsal guidance. You will read
-                six pairs of rehearsal scripts and choose which script would better help someone
-                prepare for their day or an important task.
+                This study compares different styles of mental rehearsal guidance. You will listen
+                to three pairs of rehearsal scripts and choose which script would better help
+                someone prepare for their day or an important task.
+              </p>
+            </section>
+
+            <section>
+              <h2>How does each comparison work?</h2>
+              <p>
+                Each script is played in three audio parts: introduction, middle, and ending. Listen
+                to the introduction first, then click Next part to continue. After the middle part,
+                there will be a short pause before the ending becomes available.
+              </p>
+              <p>
+                Please complete all three audio parts for Script A first. Script B will unlock after
+                Script A is complete. Once a script is fully complete, its full text will appear so
+                you can review it before choosing.
               </p>
             </section>
 
@@ -620,8 +808,9 @@ export default function App() {
                 answer a few questions about your own preferences for a rehearsal guide.
               </p>
               <p>
-                Each comparison has a 45-second review timer before you can continue, so please take
-                time to read both scripts before making your final choice.
+                Each comparison has a 45-second review timer and requires both audio sequences to be
+                completed before you can continue. Please take time to listen to both scripts before
+                making your final choice.
               </p>
             </section>
           </div>
@@ -689,17 +878,27 @@ function StudyTask({
   );
   const [trialIndex, setTrialIndex] = useState(() => Math.min(responses.length, assignment.trials.length));
   const [choice, setChoice] = useState<"left" | "right" | "">("");
-  const [leftRating, setLeftRating] = useState<number | null>(null);
-  const [rightRating, setRightRating] = useState<number | null>(null);
+  const [scriptRatings, setScriptRatings] = useState<ScriptRatingsBySide>(emptyScriptRatings);
   const [improvement, setImprovement] = useState("");
   const [attentionCheckAnswer, setAttentionCheckAnswer] = useState("");
+  const [audioMetrics, setAudioMetrics] = useState<AudioMetricsBySide>(emptyAudioMetrics);
+  const [audioStepBySide, setAudioStepBySide] = useState<Record<AudioSide, number>>({ left: 0, right: 0 });
+  const [middleWaitComplete, setMiddleWaitComplete] = useState<Record<AudioSide, boolean>>({
+    left: true,
+    right: true,
+  });
   const [startedAt, setStartedAt] = useState(() => new Date().toISOString());
   const [postingError, setPostingError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [readingSecondsRemaining, setReadingSecondsRemaining] = useState(
     adminMode ? 0 : minimumComparisonSeconds,
   );
+  const [scenarioReviewGate, setScenarioReviewGate] = useState(() => ({
+    trialIndex,
+    secondsRemaining: adminMode ? 0 : minimumScenarioReviewSeconds,
+  }));
   const submittingRef = useRef(false);
+  const middleWaitTimersRef = useRef<Record<AudioSide, number | null>>({ left: null, right: null });
 
   const comparisonComplete = trialIndex >= assignment.trials.length;
   const complete = questionnaire !== null;
@@ -709,20 +908,64 @@ function StudyTask({
   const rightScript = scriptForCondition(scenario, trial.rightCondition);
   const leftScriptMeta = scriptMetadataForCondition(scenario, trial.leftCondition);
   const rightScriptMeta = scriptMetadataForCondition(scenario, trial.rightCondition);
+  const leftAudioSegments = useMemo(
+    () => audioSegmentsForCondition(scenario, trial.leftCondition),
+    [scenario.id, trial.leftCondition],
+  );
+  const rightAudioSegments = useMemo(
+    () => audioSegmentsForCondition(scenario, trial.rightCondition),
+    [scenario.id, trial.rightCondition],
+  );
+  const leftAudioSegmentIds = useMemo(() => orderedAudioSegments(leftAudioSegments), [leftAudioSegments]);
+  const rightAudioSegmentIds = useMemo(() => orderedAudioSegments(rightAudioSegments), [rightAudioSegments]);
+  const leftTextSegments = useMemo(
+    () => textSegmentsForCondition(scenario, trial.leftCondition),
+    [scenario.id, trial.leftCondition],
+  );
+  const rightTextSegments = useMemo(
+    () => textSegmentsForCondition(scenario, trial.rightCondition),
+    [scenario.id, trial.rightCondition],
+  );
   const attentionCheck = attentionCheckForTrial(assignment.assignmentId, trialIndex, scenario);
   const progressPercent = Math.round(
     ((Math.min(trialIndex, assignment.trials.length - 1) + 1) / assignment.trials.length) * 100,
   );
   const currentTrialResponse = responses.find((response) => response.trialIndex === trialIndex);
+  const scenarioSecondsRemaining =
+    adminMode || currentTrialResponse
+      ? 0
+      : scenarioReviewGate.trialIndex === trialIndex
+        ? scenarioReviewGate.secondsRemaining
+        : minimumScenarioReviewSeconds;
+  const scenarioReviewComplete = scenarioSecondsRemaining <= 0;
   const readingComplete = readingSecondsRemaining <= 0;
+  const leftRating = scriptRatings.left.overall;
+  const rightRating = scriptRatings.right.overall;
+  const ratingsComplete = scriptRatingsComplete(scriptRatings);
   const chosenScriptLabel = choice === "left" ? "Script A" : choice === "right" ? "Script B" : "the chosen script";
   const improvementWordCount = wordCount(improvement);
   const improvementComplete = adminMode || improvementWordCount >= minimumImprovementWords;
+  const leftAudioComplete =
+    leftAudioSegmentIds.length === 0 ||
+    leftAudioSegmentIds.every((segmentId) => audioMetrics.left.segmentProgress[segmentId]?.ended);
+  const rightAudioComplete =
+    rightAudioSegmentIds.length === 0 ||
+    rightAudioSegmentIds.every((segmentId) => audioMetrics.right.segmentProgress[segmentId]?.ended);
+  const rightAudioLocked = !adminMode && !leftAudioComplete;
+  const missingAudioLabels = [
+    leftAudioSegmentIds.length > 0 && !leftAudioComplete ? "Script A" : "",
+    rightAudioSegmentIds.length > 0 && !rightAudioComplete ? "Script B" : "",
+  ].filter(Boolean);
+  const audioListeningComplete = adminMode || missingAudioLabels.length === 0;
+  const audioInstruction = adminMode
+    ? "Admin mode: audio completion is not required."
+    : "Complete Script A first. Script B unlocks after Script A is complete, and the full script text appears after each script finishes.";
   const canContinue = Boolean(
     choice &&
-      leftRating !== null &&
-      rightRating !== null &&
+      ratingsComplete &&
       improvementComplete &&
+      audioListeningComplete &&
+      scenarioReviewComplete &&
       readingComplete &&
       (!attentionCheck || attentionCheckAnswer) &&
       !isSubmitting,
@@ -731,38 +974,78 @@ function StudyTask({
   const footerStatus = postingError
     || (isSubmitting
       ? "Saving..."
-      : readingComplete
-        ? improvementComplete
-          ? "Response saves after each trial."
-          : `Please write at least ${minimumImprovementWords} words about how you would improve the chosen script.`
-        : `Please spend at least 45 seconds reviewing both scripts. Continue unlocks in ${formatCountdown(
-          readingSecondsRemaining,
-        )}.`);
+        : readingComplete
+          ? audioListeningComplete
+            ? improvementComplete
+              ? "Response saves after each trial."
+              : `Please write at least ${minimumImprovementWords} words about how you would improve the chosen script.`
+            : rightAudioLocked
+              ? "Please listen to Script A all the way through to unlock Script B."
+              : `Please listen to ${missingAudioLabels.join(" and ")} all the way through before continuing.`
+          : `Please spend at least 45 seconds reviewing both scripts. Continue unlocks in ${formatCountdown(
+            readingSecondsRemaining,
+          )}.`);
 
   useEffect(() => {
     if (trialIndex >= assignment.trials.length) return;
 
     if (currentTrialResponse) {
+      const restoredMetrics = audioMetricsFromResponse(currentTrialResponse);
       setChoice(currentTrialResponse.choice);
-      setLeftRating(currentTrialResponse.leftRating);
-      setRightRating(currentTrialResponse.rightRating);
+      setScriptRatings(scriptRatingsFromResponse(currentTrialResponse));
       setImprovement(currentTrialResponse.improvement);
       setAttentionCheckAnswer(currentTrialResponse.attentionCheckAnswer ?? "");
+      setAudioMetrics(restoredMetrics);
+      setAudioStepBySide({
+        left: stepFromMetrics(leftAudioSegmentIds, restoredMetrics.left),
+        right: stepFromMetrics(rightAudioSegmentIds, restoredMetrics.right),
+      });
+      setMiddleWaitComplete({ left: true, right: true });
       setStartedAt(currentTrialResponse.startedAt || new Date().toISOString());
     } else {
       setChoice("");
-      setLeftRating(null);
-      setRightRating(null);
+      setScriptRatings(emptyScriptRatings());
       setImprovement("");
       setAttentionCheckAnswer("");
+      setAudioMetrics(emptyAudioMetrics());
+      setAudioStepBySide({ left: 0, right: 0 });
+      setMiddleWaitComplete({ left: true, right: true });
       setStartedAt(new Date().toISOString());
     }
     setPostingError("");
-  }, [assignment.trials.length, currentTrialResponse, trialIndex]);
+  }, [assignment.trials.length, currentTrialResponse, leftAudioSegmentIds, rightAudioSegmentIds, trialIndex]);
+
+  useEffect(() => {
+    if (adminMode || trialIndex >= assignment.trials.length || currentTrialResponse) {
+      setScenarioReviewGate({ trialIndex, secondsRemaining: 0 });
+      return;
+    }
+
+    const unlockAt = Date.now() + minimumScenarioReviewSeconds * 1000;
+    setScenarioReviewGate({ trialIndex, secondsRemaining: minimumScenarioReviewSeconds });
+
+    const intervalId = window.setInterval(() => {
+      const secondsRemaining = Math.max(0, Math.ceil((unlockAt - Date.now()) / 1000));
+      setScenarioReviewGate((current) =>
+        current.trialIndex === trialIndex ? { ...current, secondsRemaining } : current,
+      );
+
+      if (secondsRemaining === 0) {
+        window.clearInterval(intervalId);
+      }
+    }, 250);
+
+    return () => window.clearInterval(intervalId);
+  }, [adminMode, assignment.trials.length, currentTrialResponse, trialIndex]);
 
   useEffect(() => {
     if (adminMode || trialIndex >= assignment.trials.length || currentTrialResponse) {
       setReadingSecondsRemaining(0);
+      return;
+    }
+
+    if (!scenarioReviewComplete) {
+      setReadingSecondsRemaining(minimumComparisonSeconds);
       return;
     }
 
@@ -779,7 +1062,7 @@ function StudyTask({
     }, 250);
 
     return () => window.clearInterval(intervalId);
-  }, [adminMode, assignment.trials.length, currentTrialResponse, trialIndex]);
+  }, [adminMode, assignment.trials.length, currentTrialResponse, scenarioReviewComplete, trialIndex]);
 
   useEffect(() => {
     if (!complete || !returnUrl) return;
@@ -790,8 +1073,223 @@ function StudyTask({
     return () => window.clearTimeout(timeoutId);
   }, [complete]);
 
+  function updateAudioMetrics(side: AudioSide, updater: (current: AudioMetrics) => AudioMetrics) {
+    setAudioMetrics((current) => ({ ...current, [side]: updater(current[side]) }));
+  }
+
+  function recordAudioPlay(side: AudioSide, segmentId: AudioSegmentId) {
+    updateAudioMetrics(side, (current) => {
+      const segment = current.segmentProgress[segmentId] ?? {
+        playCount: 0,
+        maxPositionSeconds: 0,
+        ended: false,
+      };
+      return {
+        ...current,
+        playCount: current.playCount + 1,
+        segmentProgress: {
+          ...current.segmentProgress,
+          [segmentId]: { ...segment, playCount: segment.playCount + 1 },
+        },
+      };
+    });
+  }
+
+  function recordAudioPosition(side: AudioSide, segmentId: AudioSegmentId, event: SyntheticEvent<HTMLAudioElement>) {
+    const currentTime = roundedAudioSeconds(event.currentTarget.currentTime);
+    updateAudioMetrics(side, (current) => {
+      const segment = current.segmentProgress[segmentId] ?? {
+        playCount: 0,
+        maxPositionSeconds: 0,
+        ended: false,
+      };
+      return {
+        ...current,
+        maxPositionSeconds: Math.max(current.maxPositionSeconds, currentTime),
+        segmentProgress: {
+          ...current.segmentProgress,
+          [segmentId]: {
+            ...segment,
+            maxPositionSeconds: Math.max(segment.maxPositionSeconds, currentTime),
+          },
+        },
+      };
+    });
+  }
+
+  function recordAudioEnded(side: AudioSide, segmentId: AudioSegmentId, event: SyntheticEvent<HTMLAudioElement>) {
+    const currentTime = roundedAudioSeconds(event.currentTarget.currentTime);
+    updateAudioMetrics(side, (current) => {
+      const segment = current.segmentProgress[segmentId] ?? {
+        playCount: 0,
+        maxPositionSeconds: 0,
+        ended: false,
+      };
+      return {
+        ...current,
+        ended: true,
+        maxPositionSeconds: Math.max(current.maxPositionSeconds, currentTime),
+        segmentProgress: {
+          ...current.segmentProgress,
+          [segmentId]: {
+            ...segment,
+            ended: true,
+            maxPositionSeconds: Math.max(segment.maxPositionSeconds, currentTime),
+          },
+        },
+      };
+    });
+
+    if (!adminMode && segmentId === "middle") {
+      setMiddleWaitComplete((current) => ({ ...current, [side]: false }));
+      if (middleWaitTimersRef.current[side]) window.clearTimeout(middleWaitTimersRef.current[side] ?? undefined);
+      middleWaitTimersRef.current[side] = window.setTimeout(() => {
+        setMiddleWaitComplete((current) => ({ ...current, [side]: true }));
+        middleWaitTimersRef.current[side] = null;
+      }, middlePauseMs);
+    }
+  }
+
+  function advanceAudioSegment(side: AudioSide, segmentIds: AudioSegmentId[]) {
+    setAudioStepBySide((current) => ({
+      ...current,
+      [side]: Math.min(current[side] + 1, Math.max(0, segmentIds.length - 1)),
+    }));
+  }
+
+  function renderScriptBody({
+    label,
+    script,
+    segmentIds,
+    segments,
+    side,
+    textSegments,
+  }: {
+    label: "Script A" | "Script B";
+    script: string;
+    segmentIds: AudioSegmentId[];
+    segments: AudioSegmentMap;
+    side: AudioSide;
+    textSegments: AudioSegmentMap;
+  }) {
+    const sideMetrics = audioMetrics[side];
+    const sideComplete =
+      segmentIds.length === 0 ||
+      segmentIds.every((segmentId) => sideMetrics.segmentProgress[segmentId]?.ended);
+
+    if (sideComplete) {
+      return <div className="script-copy">{script}</div>;
+    }
+
+    const stepIndex = Math.min(audioStepBySide[side], Math.max(0, segmentIds.length - 1));
+    const segmentId = segmentIds[stepIndex];
+    const audioPath = segments[segmentId] ?? "";
+    const segmentText = textSegments[segmentId] || script;
+    const segmentEnded = Boolean(sideMetrics.segmentProgress[segmentId]?.ended);
+    const isFinalSegment = stepIndex >= segmentIds.length - 1;
+    const middlePauseActive = !adminMode && segmentId === "middle" && segmentEnded && !middleWaitComplete[side];
+    const canAdvanceSegment = adminMode || (segmentEnded && !middlePauseActive);
+    const nextButtonText = middlePauseActive
+      ? "Pause before ending"
+      : isFinalSegment
+        ? "Complete script appears after this part"
+        : "Next part";
+
+    return (
+      <div className="script-audio-flow">
+        <div className="audio-step-header">
+          <span>{label}</span>
+          <strong>
+            Part {stepIndex + 1} of {segmentIds.length}: {audioSegmentLabels[segmentId]}
+          </strong>
+        </div>
+        <audio
+          aria-label={`Listen to ${label} ${audioSegmentLabels[segmentId]}`}
+          className="script-audio"
+          controls
+          key={`${trial.scenarioId}:${side}:${segmentId}:${audioPath}`}
+          onEnded={(event) => recordAudioEnded(side, segmentId, event)}
+          onPlay={() => recordAudioPlay(side, segmentId)}
+          onTimeUpdate={(event) => recordAudioPosition(side, segmentId, event)}
+          preload="none"
+          src={audioPath}
+        />
+        <div className="script-segment-copy">{segmentText}</div>
+        <p>
+          {isFinalSegment
+            ? "Listen to the final part all the way through. The complete script text will appear afterward."
+            : segmentId === "middle"
+              ? "After this middle part finishes, pause briefly before moving to the ending."
+              : "Listen to this part all the way through, then continue to the next part."}
+        </p>
+        {!isFinalSegment ? (
+          <button
+            className="secondary-button audio-next-button"
+            disabled={!canAdvanceSegment}
+            onClick={() => advanceAudioSegment(side, segmentIds)}
+            type="button"
+          >
+            {nextButtonText}
+          </button>
+        ) : null}
+      </div>
+    );
+  }
+
+  function renderLockedScriptBody(label: "Script B") {
+    return (
+      <div className="script-locked-body">
+        <div className="script-lock-icon" aria-hidden="true">
+          B
+        </div>
+        <h3>{label} locked</h3>
+        <p>Finish all Script A audio parts to unlock this audio set.</p>
+      </div>
+    );
+  }
+
+  function setScriptRating(side: AudioSide, measureId: ScriptMeasureId, rating: number) {
+    setScriptRatings((current) => ({
+      ...current,
+      [side]: {
+        ...current[side],
+        [measureId]: rating,
+      },
+    }));
+  }
+
+  function renderScriptRatings(side: AudioSide, label: "Script A" | "Script B") {
+    const sideRatings = scriptRatings[side];
+
+    return (
+      <div className="script-rating-card" aria-label={`Rate ${label}`}>
+        <h3>{label}</h3>
+        {scriptMeasures.map((measure) => (
+          <div className="rating-field" key={`${side}-${measure.id}`} role="group" aria-label={`${label} ${measure.label}`}>
+            <span>{measure.label}</span>
+            <div className="rating-buttons">
+              {ratingScale.map((rating) => (
+                <button
+                  key={rating}
+                  className={sideRatings[measure.id] === rating ? "rating-button selected" : "rating-button"}
+                  onClick={() => setScriptRating(side, measure.id, rating)}
+                  type="button"
+                >
+                  {rating}
+                </button>
+              ))}
+            </div>
+            <small>
+              1 = {measure.lowAnchor}; 10 = {measure.highAnchor}
+            </small>
+          </div>
+        ))}
+      </div>
+    );
+  }
+
   async function submit() {
-    if (submittingRef.current || !canContinue || leftRating === null || rightRating === null || !choice) return;
+    if (submittingRef.current || !canContinue || !ratingsComplete || !choice) return;
     submittingRef.current = true;
     setIsSubmitting(true);
     const now = new Date().toISOString();
@@ -803,9 +1301,29 @@ function StudyTask({
       scenarioId: scenario.id,
       leftCondition: trial.leftCondition,
       rightCondition: trial.rightCondition,
+      leftAudioAvailable: leftAudioSegmentIds.length > 0,
+      rightAudioAvailable: rightAudioSegmentIds.length > 0,
+      leftAudioPath: JSON.stringify(leftAudioSegments),
+      rightAudioPath: JSON.stringify(rightAudioSegments),
+      leftAudioPlayCount: audioMetrics.left.playCount,
+      rightAudioPlayCount: audioMetrics.right.playCount,
+      leftAudioMaxPositionSeconds: audioMetrics.left.maxPositionSeconds,
+      rightAudioMaxPositionSeconds: audioMetrics.right.maxPositionSeconds,
+      leftAudioEnded: leftAudioComplete,
+      rightAudioEnded: rightAudioComplete,
+      leftAudioSegmentProgress: JSON.stringify(audioMetrics.left.segmentProgress),
+      rightAudioSegmentProgress: JSON.stringify(audioMetrics.right.segmentProgress),
       choice,
-      leftRating,
-      rightRating,
+      leftBodyStateRating: requiredRating(scriptRatings.left.bodyState),
+      rightBodyStateRating: requiredRating(scriptRatings.right.bodyState),
+      leftTaskGoalRating: requiredRating(scriptRatings.left.taskGoal),
+      rightTaskGoalRating: requiredRating(scriptRatings.right.taskGoal),
+      leftValueConnectionRating: requiredRating(scriptRatings.left.valueConnection),
+      rightValueConnectionRating: requiredRating(scriptRatings.right.valueConnection),
+      leftEaseRating: requiredRating(scriptRatings.left.ease),
+      rightEaseRating: requiredRating(scriptRatings.right.ease),
+      leftRating: requiredRating(leftRating),
+      rightRating: requiredRating(rightRating),
       improvement,
       ...(attentionCheck
         ? {
@@ -839,10 +1357,10 @@ function StudyTask({
     }
 
     setChoice("");
-    setLeftRating(null);
-    setRightRating(null);
+    setScriptRatings(emptyScriptRatings());
     setImprovement("");
     setAttentionCheckAnswer("");
+    setAudioMetrics(emptyAudioMetrics());
     setStartedAt(new Date().toISOString());
     setTrialIndex((current) => Math.min(current + 1, assignment.trials.length));
   }
@@ -932,85 +1450,106 @@ function StudyTask({
             <span>Energy background</span>
             <p>{scenario.bodyState}</p>
           </div>
-          <ScenarioTaskSummary scenario={scenario} />
+          {scenario.scope === "task" ? (
+            <div className="task-context-row">
+              <ScenarioFocusCues scenario={scenario} />
+              <ScenarioTaskSummary scenario={scenario} />
+            </div>
+          ) : (
+            <>
+              <ScenarioFocusCues scenario={scenario} />
+              <ScenarioTaskSummary scenario={scenario} />
+            </>
+          )}
         </div>
       </section>
 
-      <section className="script-grid" aria-label="Script comparison">
-        <p className="script-choice-instruction">
-          Choose either Script A or Script B. You will still rate both scripts before continuing.
-        </p>
+      {!scenarioReviewComplete ? (
+        <section className="scenario-review-gate" aria-live="polite" aria-label="Scenario review timer">
+          <p className="overline">Review scenario</p>
+          <h2>Scripts unlock in {formatCountdown(scenarioSecondsRemaining)}.</h2>
+          <p>Take a moment to read the scenario before listening to the scripts.</p>
+        </section>
+      ) : (
+        <>
+          <section className="script-grid" aria-label="Script comparison">
+            <p className="script-choice-instruction">
+              Choose either Script A or Script B. You will still rate both scripts before continuing.
+            </p>
+            <p className="audio-requirement">{audioInstruction}</p>
 
-        <article className={`script-panel ${choice === "left" ? "selected" : ""}`}>
-          <div className="script-heading">
-            <h2>Script A</h2>
-            {debugMode ? (
-              <span title={`${leftScriptMeta.source} / ${leftScriptMeta.model}`}>
-                {trial.leftCondition}
-              </span>
-            ) : null}
-          </div>
-          <div className="script-copy">{leftScript}</div>
-          <button className="choice-button" onClick={() => setChoice("left")}>
-            Choose Script A
-          </button>
-        </article>
+            <article className={`script-panel ${choice === "left" ? "selected" : ""}`}>
+              <div className="script-heading">
+                <h2>Script A</h2>
+                {debugMode ? (
+                  <span title={`${leftScriptMeta.source} / ${leftScriptMeta.model}`}>
+                    {trial.leftCondition}
+                  </span>
+                ) : null}
+              </div>
+              {renderScriptBody({
+                label: "Script A",
+                script: leftScript,
+                segmentIds: leftAudioSegmentIds,
+                segments: leftAudioSegments,
+                side: "left",
+                textSegments: leftTextSegments,
+              })}
+              <button
+                className="choice-button"
+                disabled={!adminMode && !leftAudioComplete}
+                onClick={() => setChoice("left")}
+                type="button"
+              >
+                {leftAudioComplete || adminMode ? "Choose Script A" : "Finish Script A audio first"}
+              </button>
+            </article>
 
-        <article className={`script-panel ${choice === "right" ? "selected" : ""}`}>
-          <div className="script-heading">
-            <h2>Script B</h2>
-            {debugMode ? (
-              <span title={`${rightScriptMeta.source} / ${rightScriptMeta.model}`}>
-                {trial.rightCondition}
-              </span>
-            ) : null}
-          </div>
-          <div className="script-copy">{rightScript}</div>
-          <button className="choice-button" onClick={() => setChoice("right")}>
-            Choose Script B
-          </button>
-        </article>
-      </section>
+            <article
+              aria-disabled={rightAudioLocked}
+              className={`script-panel ${choice === "right" ? "selected" : ""} ${rightAudioLocked ? "locked" : ""}`}
+            >
+              <div className="script-heading">
+                <h2>Script B</h2>
+                {debugMode ? (
+                  <span title={`${rightScriptMeta.source} / ${rightScriptMeta.model}`}>
+                    {trial.rightCondition}
+                  </span>
+                ) : null}
+              </div>
+              {rightAudioLocked
+                ? renderLockedScriptBody("Script B")
+                : renderScriptBody({
+                    label: "Script B",
+                    script: rightScript,
+                    segmentIds: rightAudioSegmentIds,
+                    segments: rightAudioSegments,
+                    side: "right",
+                    textSegments: rightTextSegments,
+                  })}
+              <button
+                className="choice-button"
+                disabled={!adminMode && (rightAudioLocked || !rightAudioComplete)}
+                onClick={() => setChoice("right")}
+                type="button"
+              >
+                {rightAudioComplete || adminMode
+                  ? "Choose Script B"
+                  : rightAudioLocked
+                    ? "Finish Script A to unlock Script B"
+                    : "Finish Script B audio first"}
+              </button>
+            </article>
+          </section>
 
-      <section className="response-panel" aria-label="Response">
+          <section className="response-panel" aria-label="Response">
         <div className="question-block">
           <h2>Which script would better help this person prepare for the day?</h2>
-          <p>Choose either Script A or Script B, then rate both scripts before continuing.</p>
+          <p>Choose either Script A or Script B, then rate both scripts on each measure before continuing.</p>
         </div>
 
-        <div className="rating-field" role="group" aria-label="Rate Script A">
-          <span>Script A rating</span>
-          <div className="rating-buttons">
-            {ratingScale.map((rating) => (
-              <button
-                key={rating}
-                className={leftRating === rating ? "rating-button selected" : "rating-button"}
-                onClick={() => setLeftRating(rating)}
-                type="button"
-              >
-                {rating}
-              </button>
-            ))}
-          </div>
-          <small>1 = not helpful, 10 = very helpful</small>
-        </div>
-
-        <div className="rating-field" role="group" aria-label="Rate Script B">
-          <span>Script B rating</span>
-          <div className="rating-buttons">
-            {ratingScale.map((rating) => (
-              <button
-                key={rating}
-                className={rightRating === rating ? "rating-button selected" : "rating-button"}
-                onClick={() => setRightRating(rating)}
-                type="button"
-              >
-                {rating}
-              </button>
-            ))}
-          </div>
-          <small>1 = not helpful, 10 = very helpful</small>
-        </div>
+        {renderScriptRatings("left", "Script A")}
+        {renderScriptRatings("right", "Script B")}
 
         {attentionCheck ? (
           <fieldset className="attention-check">
@@ -1077,7 +1616,9 @@ function StudyTask({
             </button>
           </div>
         </div>
-      </section>
+          </section>
+        </>
+      )}
     </main>
   );
 }
@@ -1508,10 +2049,25 @@ function QuestionnaireForm({
   );
 }
 
+function ScenarioFocusCues({ scenario }: { scenario: Scenario }) {
+  if (!scenario.focusCues.length) return null;
+
+  return (
+    <div className={scenario.scope === "task" ? "focus-cues-card compact" : "focus-cues-card"}>
+      <span>Focus cues</span>
+      <ul className="focus-cue-list">
+        {scenario.focusCues.map((cue) => (
+          <li key={cue}>{cue}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 function ScenarioTaskSummary({ scenario }: { scenario: Scenario }) {
   if (scenario.scope === "task" && scenario.focusTask) {
     return (
-      <div>
+      <div className="focus-task-card">
         <span>Focus task</span>
         <p className="focus-task-title">
           {scenario.focusTask.title}{" "}

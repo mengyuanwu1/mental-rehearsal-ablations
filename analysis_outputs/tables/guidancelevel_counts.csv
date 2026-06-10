@@ -1,0 +1,5 @@
+field,option,label,count,respondent_n,pct_of_respondents
+guidanceLevel,light,Light cues,11,64,0.171875
+guidanceLevel,moderate,Moderate,26,64,0.40625
+guidanceLevel,step_by_step,Step by step,30,64,0.46875
+guidanceLevel,adaptive,Adaptive,17,64,0.265625

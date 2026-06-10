@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="445" viewBox="0 0 1100 445">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="34.0" y="42.0" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700" text-anchor="start" fill="#1f2933">Personalization Focus Average Rank</text>
+<text x="34.0" y="68.0" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#1f2933">Lower rank is better; bar length is inverted so longer means stronger preference.</text>
+<line x1="300.0" y1="84" x2="300.0" y2="387" stroke="#e6e9ee"/>
+<text x="300.0" y="411.0" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#1f2933">1</text>
+<line x1="424.0" y1="84" x2="424.0" y2="387" stroke="#e6e9ee"/>
+<text x="424.0" y="411.0" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#1f2933">2</text>
+<line x1="548.0" y1="84" x2="548.0" y2="387" stroke="#e6e9ee"/>
+<text x="548.0" y="411.0" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#1f2933">3</text>
+<line x1="672.0" y1="84" x2="672.0" y2="387" stroke="#e6e9ee"/>
+<text x="672.0" y="411.0" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#1f2933">4</text>
+<line x1="796.0" y1="84" x2="796.0" y2="387" stroke="#e6e9ee"/>
+<text x="796.0" y="411.0" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#1f2933">5</text>
+<line x1="920.0" y1="84" x2="920.0" y2="387" stroke="#e6e9ee"/>
+<text x="920.0" y="411.0" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#1f2933">6</text>
+<text x="610.0" y="433.0" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="400" text-anchor="middle" fill="#1f2933">Average rank</text>
+<text x="282.0" y="120.0" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" text-anchor="end" fill="#1f2933">Day success visualization</text>
+<rect x="300" y="100" width="461.1" height="24" rx="5" fill="#2f6f9f"/>
+<text x="773.1" y="119.0" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="400" text-anchor="start" fill="#1f2933">avg 2.28 | #1: 24 (38%)</text>
+<text x="282.0" y="170.0" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" text-anchor="end" fill="#1f2933">Task success visualization</text>
+<rect x="300" y="150" width="410.8" height="24" rx="5" fill="#2f6f9f"/>
+<text x="722.8" y="169.0" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="400" text-anchor="start" fill="#1f2933">avg 2.69 | #1: 11 (17%)</text>
+<text x="282.0" y="220.0" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" text-anchor="end" fill="#1f2933">Mind grounding</text>
+<rect x="300" y="200" width="403.0" height="24" rx="5" fill="#2f6f9f"/>
+<text x="715.0" y="219.0" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="400" text-anchor="start" fill="#1f2933">avg 2.75 | #1: 18 (28%)</text>
+<text x="282.0" y="270.0" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" text-anchor="end" fill="#1f2933">Body grounding</text>
+<rect x="300" y="250" width="209.2" height="24" rx="5" fill="#2f6f9f"/>
+<text x="521.2" y="269.0" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="400" text-anchor="start" fill="#1f2933">avg 4.31 | #1: 4 (6%)</text>
+<text x="282.0" y="320.0" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" text-anchor="end" fill="#1f2933">Value grounding</text>
+<rect x="300" y="300" width="207.3" height="24" rx="5" fill="#2f6f9f"/>
+<text x="519.3" y="319.0" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="400" text-anchor="start" fill="#1f2933">avg 4.33 | #1: 4 (6%)</text>
+<text x="282.0" y="370.0" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" text-anchor="end" fill="#1f2933">Obstacle visualization</text>
+<rect x="300" y="350" width="168.6" height="24" rx="5" fill="#2f6f9f"/>
+<text x="480.6" y="369.0" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="400" text-anchor="start" fill="#1f2933">avg 4.64 | #1: 3 (5%)</text>
+</svg>

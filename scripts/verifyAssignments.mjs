@@ -1,5 +1,5 @@
-const slotCount = 50;
-const trialsPerSlot = 6;
+const slotCount = 10;
+const trialsPerSlot = 3;
 const pairStep = 3;
 const conditions = ["baseline", "mind", "body", "soul", "full"];
 const scenarioCount = 10;
@@ -18,14 +18,13 @@ const duplicateSlots = [];
 const baselineCountsBySlot = [];
 
 for (let assignmentId = 0; assignmentId < slotCount; assignmentId += 1) {
-  const block = Math.floor(assignmentId / pairs.length);
   const offset = assignmentId % pairs.length;
   const seenScenarios = new Set();
   let baselineCount = 0;
 
   for (let trialIndex = 0; trialIndex < trialsPerSlot; trialIndex += 1) {
     const pairIndex = (offset + pairStep * trialIndex) % pairs.length;
-    const scenarioIndex = (trialIndex + 2 * block) % scenarioCount;
+    const scenarioIndex = (assignmentId * trialsPerSlot + trialIndex) % scenarioCount;
     const pair = pairs[pairIndex];
     if (pair.includes("baseline")) baselineCount += 1;
     pairCounts[pairIndex] += 1;
@@ -40,14 +39,24 @@ for (let assignmentId = 0; assignmentId < slotCount; assignmentId += 1) {
   baselineCountsBySlot.push(baselineCount);
 }
 
-const pairScenarioBalanced = pairScenarioCounts.every((row) => row.every((count) => count === 3));
-const pairBalanced = pairCounts.every((count) => count === 30);
-const scenarioBalanced = scenarioCounts.every((count) => count === 30);
+const repeatedPairScenarioCells = pairScenarioCounts
+  .flatMap((row, pairIndex) =>
+    row.map((count, scenarioIndex) => ({ count, pairIndex, scenarioIndex })),
+  )
+  .filter((cell) => cell.count > 1);
+const pairBalanced = pairCounts.every((count) => count === 3);
+const scenarioBalanced = scenarioCounts.every((count) => count === 3);
 const noDuplicates = duplicateSlots.length === 0;
 const baselinePresentEverySlot = baselineCountsBySlot.every((count) => count > 0);
 
-console.log({ pairCounts, scenarioCounts, pairScenarioBalanced, duplicateSlots, baselineCountsBySlot });
+console.log({ pairCounts, scenarioCounts, repeatedPairScenarioCells, duplicateSlots, baselineCountsBySlot });
 
-if (!pairBalanced || !scenarioBalanced || !pairScenarioBalanced || !noDuplicates || !baselinePresentEverySlot) {
+if (
+  !pairBalanced ||
+  !scenarioBalanced ||
+  repeatedPairScenarioCells.length > 0 ||
+  !noDuplicates ||
+  !baselinePresentEverySlot
+) {
   process.exitCode = 1;
 }

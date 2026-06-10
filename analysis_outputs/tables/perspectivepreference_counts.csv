@@ -1,0 +1,5 @@
+field,option,label,count,respondent_n,pct_of_respondents
+perspectivePreference,first_person,First person,42,64,0.65625
+perspectivePreference,second_person,Guide voice,26,64,0.40625
+perspectivePreference,third_person,Third person,6,64,0.09375
+perspectivePreference,no_preference,No preference,4,64,0.0625

@@ -1,0 +1,9 @@
+merged_theme,merged_theme_label,mentions,respondent_n,pct_of_responses,description
+concrete_day_task_rehearsal,Concrete day/task rehearsal,34,64,0.53125,"A practical walkthrough of the day or main task: priorities, order, timing, successful completion, and next action."
+calm_grounding_energy,Calm grounding and energy check-in,26,64,0.40625,"A quiet start that uses breath, body awareness, meditation, current energy, or sensory grounding before action."
+encouraging_support,Encouraging support,17,64,0.265625,"Warmth, reassurance, validation, confidence, motivation, and a supportive tone."
+obstacle_adaptive_coping,Obstacle and adaptive coping,12,64,0.1875,"Preparing for disruptions, hard moments, low energy, and recovery moves."
+audio_ambient_delivery,Audio and ambient delivery,12,64,0.1875,"Guided voice, spoken audio, music, nature sound, ambient background, or a calming physical setting."
+short_low_load,"Short, low-load format",10,64,0.15625,"Short, simple, punchy, adjustable guidance that avoids feeling overwhelming."
+ritual_values_anchor,"Ritual, values, and mantra anchor",19,64,0.296875,"Fitting rehearsal into prayer, meditation, exercise, coffee, reading, or closing with values, purpose, strengths, or a mantra."
+low_information,Low-information / unclear,2,64,0.03125,No actionable design preference or broken/ambiguous content.

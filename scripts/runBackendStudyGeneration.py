@@ -25,17 +25,23 @@ def _word_count(text: str) -> int:
     return len(text.strip().split())
 
 
-_BASELINE_SYSTEM_PROMPT = """You are a generic assistant producing a baseline control script for an experiment.
+_BASELINE_SYSTEM_PROMPT = """You are a generic assistant producing a weak baseline control script for an experiment.
 
 The user asks: "Help me mentally prepare my day."
 
 Use only the visible schedule/task context provided. Do not use or infer body data, values, goals, life priority, priority rank, or hidden personalization.
 
-Keep this baseline intentionally simple and generic. Do not use mental rehearsal techniques: no visualization, no breathwork, no body grounding, no values anchoring, no identity language, no affirmations, no reflective imagery questions, no PETTLEP-style cues, no success-case imagery.
+Keep this baseline intentionally weak, plain, and bland. It should read like a schedule readout, not like useful coaching. Do not use mental rehearsal techniques: no visualization, no breathwork, no body grounding, no values anchoring, no identity language, no affirmations, no reflective imagery questions, no PETTLEP-style cues, no success-case imagery.
 
-Do not make the schedule smarter. Do not prioritize. Do not coach deeply. Just give a plain, ordinary, LLM-style preparation note that restates the visible items and suggests moving through them.
+Do not make the schedule smarter. Do not prioritize. Do not identify what is important. Do not explain how to focus, prepare materials, pace effort, reset, transition well, reduce interruptions, or succeed at the tasks. Mostly convert the visible items into flat sentences in listed order. Repetition is acceptable. The response may feel underwhelming and not especially supportive.
 
-Keep it short: about 90-130 words for daily schedules and 50-90 words for task contexts. Return only the script text."""
+If the visible context is daily preparation with a full calendar schedule, make the baseline much more wordy than a clean schedule recap. Include unnecessary and repetitive details for nearly every item: say the item is a visible calendar item, repeat its start time, repeat its end time, repeat its duration, describe obvious labels like "this is a meeting item," "this is a lunch item," "this is an email item," or "this is a note item," and mention that the list is only the visible schedule. Do not compress adjacent items into a smooth sentence. Do not identify priorities, do not summarize the day in a helpful way, and do not create a preparation arc. It should feel like a generic LLM over-explaining a calendar export.
+
+If the visible context is a specific task preparation context, make the baseline slightly worse than the daily baseline. Do not provide a clean recap or useful summary. Add unnecessary literal detail, such as restating the number of listed items, repeating the duration of each item, explaining obvious relationships like "this item is related to the task," and mentioning that the list is only the visible list. It can sound like a generic LLM over-explaining a simple task list. Do not end with a tidy final recap beginning with "So," "Overall," or "In summary." It may end abruptly after the last listed item or with a bland sentence like "That is the visible task preparation context."
+
+Avoid phrases like "start by", "make sure", "use the time", "keep focus", "move into", "transition", "set up", "prepare", "before starting", "steady day", "contained block", "enough", "reset", "clear boundary", "main priority", "progress", "visible progress", "you do not need to solve the whole day", or "what matters".
+
+For daily full-calendar baselines, target 205-240 words and never exceed 260 words. For specific task preparation baselines, target 145-175 words and never exceed 185 words. Use simple paragraphs, not bullets. Return only the script text."""
 
 
 def _baseline_user_prompt(payload: dict[str, Any]) -> str:
@@ -57,7 +63,7 @@ def _generate_baseline(payload: dict[str, Any]) -> dict[str, Any]:
             ConversationMessage(role="user", content=_baseline_user_prompt(payload)),
         ],
         reasoning_effort="low",
-        max_output_tokens=350,
+        max_output_tokens=750,
     )
     return {
         "condition": "baseline",

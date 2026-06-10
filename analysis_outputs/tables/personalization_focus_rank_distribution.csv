@@ -1,0 +1,37 @@
+option,label,rank,count,respondent_n,pct_of_respondents
+mind_grounding,Mind grounding,1,18,64,0.28125
+mind_grounding,Mind grounding,2,16,64,0.25
+mind_grounding,Mind grounding,3,9,64,0.140625
+mind_grounding,Mind grounding,4,10,64,0.15625
+mind_grounding,Mind grounding,5,7,64,0.109375
+mind_grounding,Mind grounding,6,4,64,0.0625
+day_success_visualization,Day success visualization,1,24,64,0.375
+day_success_visualization,Day success visualization,2,14,64,0.21875
+day_success_visualization,Day success visualization,3,18,64,0.28125
+day_success_visualization,Day success visualization,4,3,64,0.046875
+day_success_visualization,Day success visualization,5,2,64,0.03125
+day_success_visualization,Day success visualization,6,3,64,0.046875
+task_success_visualization,Task success visualization,1,11,64,0.171875
+task_success_visualization,Task success visualization,2,19,64,0.296875
+task_success_visualization,Task success visualization,3,18,64,0.28125
+task_success_visualization,Task success visualization,4,12,64,0.1875
+task_success_visualization,Task success visualization,5,3,64,0.046875
+task_success_visualization,Task success visualization,6,1,64,0.015625
+body_grounding,Body grounding,1,4,64,0.0625
+body_grounding,Body grounding,2,5,64,0.078125
+body_grounding,Body grounding,3,6,64,0.09375
+body_grounding,Body grounding,4,15,64,0.234375
+body_grounding,Body grounding,5,20,64,0.3125
+body_grounding,Body grounding,6,14,64,0.21875
+value_grounding,Value grounding,1,4,64,0.0625
+value_grounding,Value grounding,2,5,64,0.078125
+value_grounding,Value grounding,3,6,64,0.09375
+value_grounding,Value grounding,4,16,64,0.25
+value_grounding,Value grounding,5,17,64,0.265625
+value_grounding,Value grounding,6,16,64,0.25
+potential_obstacle_visualization,Obstacle visualization,1,3,64,0.046875
+potential_obstacle_visualization,Obstacle visualization,2,5,64,0.078125
+potential_obstacle_visualization,Obstacle visualization,3,7,64,0.109375
+potential_obstacle_visualization,Obstacle visualization,4,8,64,0.125
+potential_obstacle_visualization,Obstacle visualization,5,15,64,0.234375
+potential_obstacle_visualization,Obstacle visualization,6,26,64,0.40625

@@ -13,8 +13,8 @@ export const conditionPairs: Array<[ConditionId, ConditionId]> = (() => {
   return pairs;
 })();
 
-export const assignmentSlotCount = 50;
-const TRIALS_PER_SLOT = 6;
+export const assignmentSlotCount = 10;
+const TRIALS_PER_SLOT = 3;
 const PAIR_STEP = 3;
 
 export function hashString(input: string): number {
@@ -32,13 +32,12 @@ function shouldSwapOrder(assignmentId: number, trialIndex: number): boolean {
 
 export function buildAssignment(assignmentId: number): Assignment {
   const normalizedId = ((assignmentId % assignmentSlotCount) + assignmentSlotCount) % assignmentSlotCount;
-  const block = Math.floor(normalizedId / conditionPairs.length);
   const offset = normalizedId % conditionPairs.length;
   const trials: TrialAssignment[] = [];
 
   for (let trialIndex = 0; trialIndex < TRIALS_PER_SLOT; trialIndex += 1) {
     const pairIndex = (offset + PAIR_STEP * trialIndex) % conditionPairs.length;
-    const scenarioIndex = (trialIndex + 2 * block) % scenarios.length;
+    const scenarioIndex = (normalizedId * TRIALS_PER_SLOT + trialIndex) % scenarios.length;
     const [firstCondition, secondCondition] = conditionPairs[pairIndex];
     const swap = shouldSwapOrder(normalizedId, trialIndex);
 

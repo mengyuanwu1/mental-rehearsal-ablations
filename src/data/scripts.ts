@@ -1,4 +1,5 @@
 import type { ConditionId, DayScheduleItem, PriorityTask, Scenario } from "../types";
+import audioManifest from "./audioManifest.json";
 import studyLlmArtifact from "./llmStudyScripts.json";
 
 const llmScriptOverrides = studyLlmArtifact.scripts as Record<
@@ -13,6 +14,27 @@ const llmSources = studyLlmArtifact.generationSourceByScenarioArm as Record<
   string,
   Partial<Record<ConditionId, string>>
 >;
+const llmSections = studyLlmArtifact.sectionsByScenarioArm as Record<
+  string,
+  Partial<
+    Record<
+      ConditionId,
+      | {
+          introduction?: string;
+          task_completion?: string;
+          ending?: string;
+        }
+      | null
+    >
+  >
+>;
+export type AudioSegmentId = "introduction" | "middle" | "ending" | "complete";
+export type AudioSegmentMap = Partial<Record<AudioSegmentId, string>>;
+const audioByScenarioArm = (
+  audioManifest as {
+    audioByScenarioArm?: Record<string, Partial<Record<ConditionId, string | AudioSegmentMap>>>;
+  }
+).audioByScenarioArm ?? {};
 
 const taskPhrase = (task: PriorityTask) => {
   const timeRange =
@@ -58,6 +80,31 @@ const baselinePlan = (scenario: Scenario) =>
       : taskList(scenario);
 
 const cueLine = (scenario: Scenario) => scenario.focusCues.slice(0, 4).join(", ");
+
+const splitTextIntoThree = (text: string): AudioSegmentMap => {
+  const paragraphs = text.split(/\n\s*\n/).map((item) => item.trim()).filter(Boolean);
+  if (paragraphs.length >= 3) {
+    return {
+      introduction: paragraphs[0],
+      middle: paragraphs.slice(1, -1).join("\n\n"),
+      ending: paragraphs[paragraphs.length - 1],
+    };
+  }
+
+  const sentences =
+    text
+      .replace(/\s+/g, " ")
+      .match(/[^.!?]+[.!?]+|[^.!?]+$/g)
+      ?.map((item) => item.trim())
+      .filter(Boolean) ?? [text.trim()];
+  const firstCut = Math.max(1, Math.ceil(sentences.length / 3));
+  const secondCut = Math.max(firstCut + 1, Math.ceil((sentences.length * 2) / 3));
+  return {
+    introduction: sentences.slice(0, firstCut).join(" "),
+    middle: sentences.slice(firstCut, secondCut).join(" "),
+    ending: sentences.slice(secondCut).join(" ") || sentences[sentences.length - 1],
+  };
+};
 
 const taskSequenceLine = (scenario: Scenario, tasks: PriorityTask[]) => {
   if (scenario.scope === "task" && scenario.focusTask) {
@@ -146,4 +193,29 @@ export function scriptMetadataForCondition(scenario: Scenario, condition: Condit
     model: llmModels[scenario.id]?.[condition] ?? "fallback-local",
     source: llmSources[scenario.id]?.[condition] ?? "fallback-local",
   };
+}
+
+export function audioForCondition(scenario: Scenario, condition: ConditionId): string {
+  const entry = audioByScenarioArm[scenario.id]?.[condition];
+  return typeof entry === "string" ? entry : "";
+}
+
+export function audioSegmentsForCondition(scenario: Scenario, condition: ConditionId): AudioSegmentMap {
+  const entry = audioByScenarioArm[scenario.id]?.[condition];
+  if (!entry) return {};
+  if (typeof entry === "string") return { complete: entry };
+  return entry;
+}
+
+export function textSegmentsForCondition(scenario: Scenario, condition: ConditionId): AudioSegmentMap {
+  const sections = llmSections[scenario.id]?.[condition];
+  if (sections) {
+    return {
+      introduction: sections.introduction ?? "",
+      middle: sections.task_completion ?? "",
+      ending: sections.ending ?? "",
+    };
+  }
+
+  return splitTextIntoThree(scriptForCondition(scenario, condition));
 }

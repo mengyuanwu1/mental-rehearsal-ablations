@@ -269,8 +269,8 @@ Critical ablation rule:
 - Do not import details from other conditions.
 
 Length target:
-- The script must be 200-260 words.
-- Do not produce a script under 190 words.
+- The script must be 145-175 words.
+- Do not produce a script under 140 words.
 - Use three paragraphs.
 
 Style for mind/body/soul/full:
@@ -403,14 +403,14 @@ async function generateArm({ arm, apiKey, baseUrl, model }) {
             schema,
           },
         },
-        max_output_tokens: 2048,
+        max_output_tokens: 900,
       },
     });
 
     const script = parseScript(raw);
     const count = wordCount(script);
     const leaks = findLeaks(arm, script);
-    const countIssue = count < 190 || count > 290 ? `word count ${count} is outside 190-290` : "";
+    const countIssue = count < 140 || count > 185 ? `word count ${count} is outside 140-185` : "";
 
     if (!countIssue && leaks.length === 0) {
       return {
@@ -423,7 +423,7 @@ async function generateArm({ arm, apiKey, baseUrl, model }) {
     lastIssue = [countIssue, leaks.length ? `possible leakage: ${leaks.join(", ")}` : ""]
       .filter(Boolean)
       .join("; ");
-    repairNote = `Previous attempt failed validation: ${lastIssue}. Regenerate the ${arm} script only. Keep 200-260 words and obey the ablation boundaries exactly.`;
+    repairNote = `Previous attempt failed validation: ${lastIssue}. Regenerate the ${arm} script only. Keep 145-175 words and obey the ablation boundaries exactly.`;
   }
 
   throw new Error(`Could not generate a valid ${arm} script after 3 attempts: ${lastIssue}`);

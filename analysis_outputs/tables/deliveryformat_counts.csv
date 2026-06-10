@@ -1,0 +1,5 @@
+field,option,label,count,respondent_n,pct_of_respondents
+deliveryFormat,readable_text,Readable text,27,64,0.421875
+deliveryFormat,spoken_audio,Spoken audio,25,64,0.390625
+deliveryFormat,text_and_audio,Text + audio,36,64,0.5625
+deliveryFormat,interactive_steps,Interactive steps,15,64,0.234375

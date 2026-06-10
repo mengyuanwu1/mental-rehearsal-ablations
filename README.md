@@ -7,23 +7,23 @@ Small static web UI for Prolific / Qualtrics pairwise comparison tasks.
 - 5 conditions: `baseline`, `mind`, `body`, `soul`, `full`
 - 10 condition pairs
 - 10 scenarios: 5 seed profiles x 2 scopes (`daily` + `task`)
-- 50 assignment slots
-- 6 trials per participant
+- 10 assignment slots for the pilot
+- 3 trials per participant
 - Each trial shows one scenario and two scripts from different conditions
 - Script order randomized per assignment slot / trial
-- Each participant sees 2-3 comparisons that include the `baseline` condition
+- Each participant sees 1-2 comparisons that include the `baseline` condition
 - After entering a Prolific ID, participants see a brief introduction to mental rehearsal and the study task
 - Each comparison requires a 45-second review period before the participant can continue
 - Participants must choose one script and rate both scripts before continuing
-- Comparisons 2 and 5 include short attention checks that rotate across scenario task,
+- Comparison 2 includes a short attention check that rotates across scenario task,
   values, and energy-state questions
-- After the 6 comparisons, participants complete a final personalization questionnaire
+- After the 3 comparisons, participants complete a final personalization questionnaire
 
-Across assignment ids `0` through `49`:
+Across assignment ids `0` through `9`:
 
-- each condition pair appears 30 times
-- each scenario appears 30 times
-- each pair x scenario cell appears 3 times
+- each condition pair appears 3 times
+- each scenario appears 3 times
+- no repeated pair x scenario cell appears in the pilot assignment table
 - no participant sees the same scenario twice
 
 ## Final personalization questionnaire
@@ -49,7 +49,7 @@ Preferred URL shape:
 https://YOUR_DEPLOYED_APP/?PROLIFIC_PID=${e://Field/PROLIFIC_PID}&assignment_id=${e://Field/assignment_id}&return_url=https%3A%2F%2FYOUR_QUALTRICS_RETURN_URL
 ```
 
-Best practice: assign `assignment_id` in Qualtrics from `0` to `49` as embedded data.
+Best practice: assign `assignment_id` in Qualtrics from `0` to `9` as embedded data.
 If `assignment_id` is absent, the app hashes `PROLIFIC_PID` into a slot. That is useful
 for pilots, but exact balancing depends on Qualtrics assigning slots.
 The app asks participants to enter their Prolific ID before the comparison UI appears.
@@ -92,10 +92,20 @@ Trial sheet columns:
 
 ```text
 receivedAt, studyId, responseId, participantId, assignmentId, trialIndex, scenarioId,
-leftCondition, rightCondition, choice, leftRating, rightRating, improvement,
+leftCondition, rightCondition,
+leftAudioAvailable, rightAudioAvailable, leftAudioPath, rightAudioPath,
+leftAudioPlayCount, rightAudioPlayCount,
+leftAudioMaxPositionSeconds, rightAudioMaxPositionSeconds,
+leftAudioEnded, rightAudioEnded,
+leftAudioSegmentProgress, rightAudioSegmentProgress,
+choice, leftRating, rightRating, improvement,
 attentionCheckId, attentionCheckKind, attentionCheckPrompt, attentionCheckAnswer,
 attentionCheckCorrectAnswer, attentionCheckPassed,
-startedAt, submittedAt, elapsedMs, userAgent
+startedAt, submittedAt, elapsedMs, userAgent,
+leftBodyStateRating, rightBodyStateRating,
+leftTaskGoalRating, rightTaskGoalRating,
+leftValueConnectionRating, rightValueConnectionRating,
+leftEaseRating, rightEaseRating
 ```
 
 Questionnaire sheet columns:
@@ -119,11 +129,36 @@ Scenario inputs live in `src/data/studyInputs.ts`. The UI derives its context ba
 from those inputs: daily scenarios show the full day schedule with event notes and
 rank badges for the top 3 priorities, and task scenarios show the focus task plus subtasks.
 
+## Audio
+
+Generated audio is served as static MP3 files from `public/audio/<scenario>/<condition>.mp3`.
+The UI reads `src/data/audioManifest.json`; audio players appear only for scripts present
+in that manifest.
+
+To generate audio with ElevenLabs:
+
+```bash
+ELEVENLABS_API_KEY=... npm run generate:audio
+```
+
+Optional env vars:
+
+```bash
+ELEVENLABS_VOICE_ID=21m00Tcm4TlvDq8ikWAM
+ELEVENLABS_MODEL_ID=eleven_multilingual_v2
+ELEVENLABS_OUTPUT_FORMAT=mp3_44100_128
+FORCE_AUDIO=1
+```
+
+The generator skips existing MP3s by default. Use `FORCE_AUDIO=1` only when you want
+to regenerate and spend credits again.
+
 ## Development
 
 ```bash
 npm install
 npm run verify:assignments
+npm run generate:audio
 npm run dev
 npm run build
 ```
