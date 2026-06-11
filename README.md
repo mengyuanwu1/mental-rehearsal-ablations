@@ -6,7 +6,7 @@ Small static web UI for Prolific / Qualtrics pairwise comparison tasks.
 
 - 5 conditions: `baseline`, `mind`, `body`, `soul`, `full`
 - 10 condition pairs
-- 10 scenarios: 5 seed profiles x 2 scopes (`daily` + `task`)
+- 5 scenarios: 5 seed profiles, daily scope only
 - 10 assignment slots for the pilot
 - 3 trials per participant
 - Each trial shows one scenario and two scripts from different conditions
@@ -15,14 +15,14 @@ Small static web UI for Prolific / Qualtrics pairwise comparison tasks.
 - After entering a Prolific ID, participants see a brief introduction to mental rehearsal and the study task
 - Each comparison requires a 45-second review period before the participant can continue
 - Participants must choose one script and rate both scripts before continuing
-- Comparison 2 includes a short attention check that rotates across scenario task,
+- Comparison 2 includes a short attention check that rotates across scenario focus,
   values, and energy-state questions
 - After the 3 comparisons, participants complete a final personalization questionnaire
 
 Across assignment ids `0` through `9`:
 
 - each condition pair appears 3 times
-- each scenario appears 3 times
+- each scenario appears 6 times
 - no repeated pair x scenario cell appears in the pilot assignment table
 - no participant sees the same scenario twice
 
@@ -144,7 +144,7 @@ ELEVENLABS_API_KEY=... npm run generate:audio
 Optional env vars:
 
 ```bash
-ELEVENLABS_VOICE_ID=21m00Tcm4TlvDq8ikWAM
+ELEVENLABS_VOICE_ID=jwjWpCFQUCpnHneBySsF
 ELEVENLABS_MODEL_ID=eleven_multilingual_v2
 ELEVENLABS_OUTPUT_FORMAT=mp3_44100_128
 FORCE_AUDIO=1

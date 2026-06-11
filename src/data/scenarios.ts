@@ -46,7 +46,7 @@ function daySchedule(input: StudyInputScenario): DayScheduleItem[] {
   );
 }
 
-export const scenarios: Scenario[] = studyInputScenarios.map((input) => {
+const allScenarios: Scenario[] = studyInputScenarios.map((input) => {
   const values = input.value.topValues.map((value) => value.name);
   const fallbackLinkedValue = values[0] ?? "Focus";
   const focusTask = input.mind.focusTask
@@ -106,6 +106,8 @@ export const scenarios: Scenario[] = studyInputScenarios.map((input) => {
     baselineItems: input.baselineInput.visibleItems,
   };
 });
+
+export const scenarios: Scenario[] = allScenarios.filter((scenario) => scenario.scope === "daily");
 
 export function getScenario(id: string): Scenario {
   const scenario = scenarios.find((item) => item.id === id);

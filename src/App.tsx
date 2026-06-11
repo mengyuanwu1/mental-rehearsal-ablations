@@ -110,9 +110,9 @@ const scriptMeasures: Array<{
   },
   {
     id: "taskGoal",
-    label: "Task or daily goal",
-    lowAnchor: "Did not address their goal",
-    highAnchor: "Addressed their goal very well",
+    label: "Daily priorities and goal",
+    lowAnchor: "Did not address their priorities or goal",
+    highAnchor: "Addressed their priorities and goal very well",
   },
   {
     id: "valueConnection",
@@ -122,9 +122,9 @@ const scriptMeasures: Array<{
   },
   {
     id: "ease",
-    label: "Ease to talk through",
-    lowAnchor: "Very burdensome to talk through",
-    highAnchor: "Very easy to talk through",
+    label: "Flow and fit",
+    lowAnchor: "Too short, too long, or awkward to rehearse",
+    highAnchor: "Smooth, well-paced, and easy to rehearse",
   },
   {
     id: "overall",
@@ -782,7 +782,7 @@ export default function App() {
               <p>
                 This study compares different styles of mental rehearsal guidance. You will listen
                 to three pairs of rehearsal scripts and choose which script would better help
-                someone prepare for their day or an important task.
+                someone prepare for their day.
               </p>
             </section>
 
@@ -1579,7 +1579,7 @@ function StudyTask({
         ) : null}
 
         <label className="improvement-field">
-          <span>If you could make {chosenScriptLabel} better, how would you improve it?</span>
+          <span>If you could make {chosenScriptLabel} better, how would you improve it? (Apart from the audio.)</span>
           <textarea
             aria-describedby="improvement-note-requirement"
             aria-required={!adminMode}

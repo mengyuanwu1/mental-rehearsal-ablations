@@ -37,8 +37,8 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          VITE_RESPONSE_ENDPOINT: https://script.google.com/macros/s/AKfycbz88gnCKToBD2MvEy1jSzx33OWg4wgeU3wQ2rOTsOkczzdxnuStpydgb3MRGXOgdfw/exec
-          VITE_RESPONSE_SECRET: 6e5080ee019452f3275167dbd230593744baed57d6cea68b
+          VITE_RESPONSE_ENDPOINT: https://script.google.com/macros/s/AKfycbyzubtQJynbAVZKcpYjuJX7WnL537ta1ZGN1P6-goFLQgXvmQDuEgP8MJq1EpI0zcHVcQ/exec
+          VITE_RESPONSE_SECRET: 0745883be03f97f21881350af135185b7cafd1f49320e3306e3727fc7c0bccc9
           VITE_STUDY_ID: mental-rehearsal-ablation-v1
 
       - name: Setup Pages

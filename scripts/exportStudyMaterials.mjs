@@ -12,15 +12,10 @@ const pairStep = 3;
 const conditions = ["baseline", "mind", "body", "soul", "full"];
 const scenarios = [
   "maya_daily",
-  "maya_task",
   "jonah_daily",
-  "jonah_task",
   "priya_daily",
-  "priya_task",
   "alex_daily",
-  "alex_task",
   "serena_daily",
-  "serena_task",
 ];
 
 const conditionPairs = [];

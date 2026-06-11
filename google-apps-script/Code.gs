@@ -1,7 +1,7 @@
 var SHEET_ID = "1eon1CqFnKt7IR2_SsDSI2GlojeLQIkdW_KPl7Dxox20";
 var TRIAL_SHEET_NAME = "responses";
 var QUESTIONNAIRE_SHEET_NAME = "questionnaire_responses";
-var RESPONSE_SECRET = "6e5080ee019452f3275167dbd230593744baed57d6cea68b";
+var RESPONSE_SECRET = "0745883be03f97f21881350af135185b7cafd1f49320e3306e3727fc7c0bccc9";
 
 var TRIAL_HEADERS = ["receivedAt", "studyId", "responseId", "participantId", "assignmentId", "trialIndex", "scenarioId", "leftCondition", "rightCondition", "leftAudioAvailable", "rightAudioAvailable", "leftAudioPath", "rightAudioPath", "leftAudioPlayCount", "rightAudioPlayCount", "leftAudioMaxPositionSeconds", "rightAudioMaxPositionSeconds", "leftAudioEnded", "rightAudioEnded", "leftAudioSegmentProgress", "rightAudioSegmentProgress", "choice", "leftRating", "rightRating", "improvement", "attentionCheckId", "attentionCheckKind", "attentionCheckPrompt", "attentionCheckAnswer", "attentionCheckCorrectAnswer", "attentionCheckPassed", "startedAt", "submittedAt", "elapsedMs", "userAgent", "leftBodyStateRating", "rightBodyStateRating", "leftTaskGoalRating", "rightTaskGoalRating", "leftValueConnectionRating", "rightValueConnectionRating", "leftEaseRating", "rightEaseRating"];
 var QUESTIONNAIRE_HEADERS = ["receivedAt", "studyId", "responseId", "participantId", "assignmentId", "questionnaireVersion", "perspectivePreference", "perspectivePreferenceOther", "guidanceLevel", "guidanceLevelOther", "backgroundAudio", "backgroundAudioOther", "scriptLength", "scriptLengthOther", "toneStyle", "toneStyleOther", "personalizationFocus", "personalizationFocusOther", "deliveryFormat", "deliveryFormatOther", "startedAt", "submittedAt", "elapsedMs", "userAgent", "idealMorningGuidance"];

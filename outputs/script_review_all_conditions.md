@@ -1,28 +1,22 @@
 # Script Review - All Conditions
 
-Generated at: 2026-06-10T21:52:28.498Z
+Generated at: 2026-06-11T01:51:01.125Z
 
 Any backend mock used: false
 
 ## maya_daily
 
-### baseline (202 words, gpt-5.5-2026-04-23)
+### baseline (157 words, gpt-5.5-2026-04-23)
 
-This is the visible schedule for the day, shown as calendar items with times and durations. The list begins with Review paper plan from 08:15 to 08:35. This visible calendar item starts at 08:15, ends at 08:35, and lasts 20 minutes. It is labeled as a review item.
+This is only the visible schedule for the day, listed with the times and durations shown.
 
-The next visible calendar item is Draft related work section from 09:00 to 10:30. This item starts at 09:00, ends at 10:30, and lasts 90 minutes. It is labeled as a drafting item.
+The day has an item from 08:15 to 08:35 called Review paper plan. It is 20 minutes. Later, from 09:00 to 10:30, there is Draft related work section. That one is 90 minutes.
 
-Then there is Lab standup from 10:45 to 11:15. This visible item starts at 10:45, ends at 11:15, and lasts 30 minutes. This is a meeting item.
+From 10:45 to 11:15, there is Lab standup. This is a meeting item, and it is 30 minutes. From 12:10 to 12:40, there is Lunch break. This is a lunch item, and it is also 30 minutes.
 
-Lunch break is listed from 12:10 to 12:40. It starts at 12:10, ends at 12:40, and lasts 30 minutes. This is a lunch item.
+At 13:00, there is Answer TA emails, ending at 13:20. This is an email item, and it lasts 20 minutes. From 14:00 to 14:45, there is Teaching support tasks, which is 45 minutes.
 
-Answer TA emails is listed from 13:00 to 13:20. It starts at 13:00, ends at 13:20, and lasts 20 minutes. This is an email item.
-
-Teaching support tasks appears from 14:00 to 14:45. It lasts 45 minutes.
-
-Prepare two reading group questions appears from 15:00 to 15:30. It lasts 30 minutes.
-
-Send advisor progress note appears from 16:15 to 16:35. It lasts 20 minutes. This is the visible schedule only.
+From 15:00 to 15:30, there is Prepare two reading group questions. It is 30 minutes. The last visible item is from 16:15 to 16:35, Send advisor progress note. This is a note item, and it lasts 20 minutes.
 
 ### body (177 words, gpt-5.5-2026-04-23)
 
@@ -40,37 +34,35 @@ Today’s top sequence is Draft related work section for 90 minutes, then Answer
 
 You close by seeing the work move forward through one doable next action: add the next paragraph, mark any unresolved citation, and keep the section becoming something that can be revised.
 
-### soul (133 words, gpt-5.5-2026-04-23)
+### soul (159 words, gpt-5.5-2026-04-23)
 
-Let what matters come into view as a life where you think and write from your own questions, not borrowed ones. Independent thinking feels mentally clear, self-trusting, and unboxed; it shows up as room to think and choices made from your own inner compass.
+Let what matters come into view: trusting your own questions before borrowing other people’s, staying curious about answers you did not expect, and feeling the quiet competence of finishing what matters without needing to shrink your thinking.
 
-Through this day, you move with curiosity toward answers you did not expect, allowing learning to feel supportive rather than distracting. You notice the quiet confidence of finishing what matters, not as pressure, but as the clean feeling of visible progress. What would it feel like to trust your own question first, then let openness widen the answer without taking the pen from your hand?
+As you move through this day, imagine carrying a little more mental clarity, self-trust, and room to think. Notice what it feels like to be unboxed: not rejecting every outside voice, not chasing every outside answer, simply letting your own questions have first place. You can stay open without becoming scattered; you can be curious and still feel supported by your own judgment. A life where you think and write on your own questions begins in this inner posture, in the way you meet uncertainty with attention rather than surrendering your compass.
 
-Carry this with you: you trust your own questions, stay curious about unexpected answers, and let what matters become visible in your own voice.
+Repeat this once, if it feels right: I do not have to borrow my direction; I stay curious, trust my questions, and move with the quiet competence of what matters.
 
-### full (169 words, gpt-5.5-2026-04-23)
+### full (185 words, gpt-5.5-2026-04-23)
 
-Breath is already here, and you feel the chair hold your posture while your feet meet the floor. With short sleep and low energy, your jaw can soften, your shoulders can notice what they carry, and the quiet apartment hum becomes a simple place to begin.
+Breath is already here; you notice one inhale, one longer exhale, and the chair holding your posture. Feet meet the floor, jaw softens, shoulders carry the short sleep and paper pressure honestly, while morning light and the quiet apartment hum give attention a place to land.
 
-Let the day aim for mental clarity and self-trust in service of becoming an independent researcher: first, Draft related work section for 90 minutes, then Answer TA emails for 20, then Prepare two reading group questions for 30. Imagine the related work draft moving from scattered notes into one coherent section, done enough to show visible progress toward a workshop paper you are proud to defend. What does that accomplishment feel like in your body and attention, and if focus dips, what helps you return to the next honest paragraph?
+The feeling to rehearse is mentally clear, self-trusting, and competent, in service of becoming an independent researcher: first Draft related work section for 90 minutes, then Answer TA emails for 20, then Prepare two reading group questions for 30. Imagine the related work section becoming done enough: one coherent draft that shows your own questions before borrowing other people’s, a real step toward the workshop paper. What does that visible progress feel like in your body, attention, and thoughts? If energy dips, what helps you return to the next honest paragraph?
 
-You can carry these three priorities through today, with the related work section as the main win. Low energy can still support clear thinking when you trust one honest paragraph at a time.
+You can move through these three priorities today, with the related work as the main win and the emails and questions as lighter completions. Start with the first paragraph in front of you. Repeat this once: Clear enough to begin is enough to write on your own questions.
 
 ## maya_task
 
-### baseline (160 words, gpt-5.5-2026-04-23)
+### baseline (163 words, gpt-5.5-2026-04-23)
 
-This is a specific task preparation context for the related work writing block. The visible list contains four listed items. The list is only the visible list, and it is about the related work writing block.
+This is the visible task preparation context for the related work writing block. The list has four visible items. The first item is “Draft related work section,” and it is listed as 90 minutes. This is the longest listed item, and it is related to the writing block.
 
-The first listed item is “Draft related work section - 90 min.” This item is related to drafting the related work section. It has a duration of 90 minutes.
+The second item is “Re-read anchor findings,” and it is listed as 15 minutes. This item is also related to the related work writing block. It appears as a shorter item in the visible list.
 
-The second listed item is “Re-read anchor findings - 15 min.” This item is related to re-reading anchor findings. It has a duration of 15 minutes.
+The third item is “Draft gap statement,” and it is listed as 20 minutes. This is another writing-related item. It is separate from the 90-minute related work section item, even though the wording is connected to the same area.
 
-The third listed item is “Draft gap statement - 20 min.” This item is related to drafting the gap statement. It has a duration of 20 minutes.
+The fourth item is “Connect related work to gap,” and it is listed as 25 minutes. This item mentions both related work and the gap. It is the last visible item in the list.
 
-The fourth listed item is “Connect related work to gap - 25 min.” This item is related to connecting the related work to the gap. It has a duration of 25 minutes.
-
-These are the visible items for this task preparation context.
+That is the visible task preparation context.
 
 ### body (158 words, gpt-5.5-2026-04-23)
 
@@ -88,41 +80,35 @@ I see myself begin by re-reading the three anchor papers’ findings sections, n
 
 I leave the session with the paper moved forward in a concrete way. The next doable work action is clear: keep building from this section into the full workshop draft.
 
-### soul (183 words, gpt-5.5-2026-04-23)
+### soul (162 words, gpt-5.5-2026-04-23)
 
-I let what matters come into view without forcing it into a plan: trusting my own questions before borrowing other people’s, staying curious about answers I did not expect, and feeling competent in the quiet sense of finishing what matters. I imagine the feeling of being mentally clear, self-trusting, unboxed, curious, supported, and accomplished, as if my inner compass has room to point in its own direction.
+I let what matters come into view: trusting my own questions before borrowing other people’s, finishing what matters in a way that feels competent, and staying curious about answers I did not expect.
 
-I carry this through an unspecified day as a way of being: I make space for my own questions, I notice what feels true before outside voices get too loud, and I stay open when an answer surprises me. I can recognize small signs of alignment: room to think, quicker decisions, learning something, visible progress, and the steady dignity of writing and thinking from my own center.
+I move through this day with room inside my mind, not needing every answer to arrive already approved by someone else. I can feel mentally clear, self-trusting, and unboxed, letting curiosity sit beside competence instead of replacing it. I notice the quiet signs of alignment: a little more room to think, a cleaner decision, a moment of learning, a sense that my own questions are allowed to lead. I let the life I want feel near, a life where I think and write from my own questions, not as a performance, but as a way of being honest with my mind.
 
-I return to a life where I think and write on my own questions, not by proving myself, but by trusting my compass, staying curious, and finishing what matters. My anchor is: I trust my own questions, stay open to the unexpected, and let clear progress become my proof.
+Repeat this once: I do not have to borrow certainty; I can move with my own questions, stay curious, and let what matters become clear from the inside.
 
-### full (189 words, gpt-5.5-2026-04-23)
+### full (179 words, gpt-5.5-2026-04-23)
 
-My breath is already here, uneven or steady, and I feel my feet on the floor, the chair holding my posture, my jaw softening, my shoulders noticing what they carry. With 5.5 hours of restless sleep and elevated stress, my energy is low, so success today is not force; it is one clear, honest pass. The quiet apartment hum, coffee, and the draft open nearby become simple cues to arrive.
+My breath is already here, moving in and out without needing to be forced. I feel the chair holding my posture, my feet on the floor, my jaw softening a little, and I notice this low, effortful energy after short sleep and elevated morning stress. The paper draft is open, the apartment hums quietly, and my attention has one place to land.
 
-I am practicing the research life I want: thinking and writing on my own questions, trusting my judgment before borrowing other people’s. In Draft related work section, I first re-read the three anchor papers’ findings with curiosity, letting the important patterns become mentally clear. Then I shape the gap statement into one paragraph an advisor can react to, focused and competent, and next I connect the related work back to that gap so the section begins to stand on its own. I can picture visible progress: not perfect prose, but a coherent path that moves the workshop paper forward.
+This work serves becoming an independent researcher: a life where I think and write on my own questions, with mental clarity, self-trust, curiosity, and visible progress. I am rehearsing Draft related work section: first I re-read the three anchor papers' findings sections, then I draft the gap statement, then I connect the related work back to that gap. As each step settles, I trust my own questions before borrowing other people's, and I can see the section becoming coherent enough for the workshop paper to move forward.
 
-I begin by re-reading the first anchor paper’s findings. Low energy, honest pass; my questions matter; clear enough to write.
+I begin with the next readable sentence, not the whole ninety minutes at once. Repeat this once: Even with low energy, one honest pass keeps faith with my own questions.
 
 ## jonah_daily
 
-### baseline (235 words, gpt-5.5-2026-04-23)
+### baseline (158 words, gpt-5.5-2026-04-23)
 
-This is only the visible schedule for the day. The first visible calendar item is Inbox triage. It starts at 08:45 and ends at 09:05. The listed duration is 20 minutes. This is an email-related item on the calendar.
+This is only the visible schedule for the day. It begins with Inbox triage from 08:45 to 09:05, which is 20 minutes. This is an email item.
 
-The next visible calendar item is Finalize launch risk brief. It starts at 09:30 and ends at 10:30. The listed duration is 60 minutes. This is a work item with a one-hour block on the calendar.
+The next visible item is Finalize launch risk brief from 09:30 to 10:30. That is listed as 60 minutes. After that, there is an Engineering check-in from 10:40 to 10:55, lasting 15 minutes. This is a meeting item.
 
-The next visible calendar item is Engineering check-in. It starts at 10:40 and ends at 10:55. The listed duration is 15 minutes. This is a meeting item on the schedule.
+At 11:00, there is Review support escalation notes until 11:30. That is 30 minutes, and it is a notes review item. Then there is Lunch break from 12:15 to 12:45, also 30 minutes. This is a lunch item.
 
-The next visible calendar item is Review support escalation notes. It starts at 11:00 and ends at 11:30. The listed duration is 30 minutes. This is a notes review item.
+In the afternoon, there is Stakeholder sync from 13:00 to 13:30, which is 30 minutes. Then Draft meeting opening is listed from 14:10 to 14:30, lasting 20 minutes.
 
-The next visible calendar item is Lunch break. It starts at 12:15 and ends at 12:45. The listed duration is 30 minutes. This is a lunch item.
-
-The next visible calendar item is Stakeholder sync. It starts at 13:00 and ends at 13:30. The listed duration is 30 minutes. This is another meeting item.
-
-The next visible calendar item is Draft meeting opening. It starts at 14:10 and ends at 14:30. The listed duration is 20 minutes.
-
-The final visible calendar item is Launch review meeting. It starts at 15:00 and ends at 16:00. The listed duration is 60 minutes.
+The last visible item is Launch review meeting from 15:00 to 16:00. It is 60 minutes and is another meeting item. That is the visible calendar schedule.
 
 ### body (165 words, gpt-5.5-2026-04-23)
 
@@ -158,17 +144,17 @@ You can carry these three priorities through today: the brief as the main win, t
 
 ## jonah_task
 
-### baseline (156 words, gpt-5.5-2026-04-23)
+### baseline (165 words, gpt-5.5-2026-04-23)
 
-This is a specific task preparation context for the launch risk brief. The visible list has three items. The list is only the visible list.
+This is the visible task context for the launch risk brief. The list has three items, and each item is shown as 20 minutes. The items are written as short task labels with a duration after each one.
 
-The first item is “Name top risks,” and it is listed as 20 minutes. This item is related to the launch risk brief because it names the risks that are part of the brief.
+The first listed item is “Name top risks - 20 min.” This item is related to the launch risk brief because it names risks. The duration shown for this item is 20 minutes. It is the first item in the visible list.
 
-The second item is “Assign owners,” and it is also listed as 20 minutes. This item is related to the launch risk brief because it connects owners to the risks.
+The second listed item is “Assign owners - 20 min.” This item is also related to the launch risk brief. It has the same listed duration, 20 minutes. It appears after the risk-naming item.
 
-The third item is “Write meeting-ready summary,” and it is also listed as 20 minutes. This item is related to the launch risk brief because it produces a summary for a meeting.
+The third listed item is “Write meeting-ready summary - 20 min.” This is a summary item. It is also listed as 20 minutes. It appears after the owner assignment item.
 
-There are three listed items, and each one is 20 minutes. The visible task preparation context is the launch risk brief. The visible sequence is naming top risks, assigning owners, and writing a meeting-ready summary.
+There are three visible items total. The visible durations add up to 60 minutes. That is the visible task preparation context.
 
 ### body (184 words, gpt-5.5-2026-04-23)
 
@@ -204,25 +190,17 @@ I start with the first unresolved risk. Steady is enough; make the next decision
 
 ## priya_daily
 
-### baseline (237 words, gpt-5.5-2026-04-23)
+### baseline (167 words, gpt-5.5-2026-04-23)
 
-This is only the visible calendar schedule for the day, listed in the order shown.
+This is the visible schedule for the day, listed in order with the times and durations shown.
 
-There is a visible calendar item from 07:35 to 08:05 called “Commute to campus.” It starts at 07:35, ends at 08:05, and has a duration of 30 minutes. This is a commute item.
+From 07:35 to 08:05, there is a commute to campus. This is a 30 minute item. After that, from 08:15 to 09:00, there is review of cardiac medication flashcards. That item is 45 minutes long.
 
-There is a visible calendar item from 08:15 to 09:00 called “Review cardiac medication flashcards.” It starts at 08:15, ends at 09:00, and has a duration of 45 minutes. This is a review item.
+From 09:15 to 10:05, there is a pharmacology lecture. This is a lecture item and it lasts 50 minutes. From 10:20 to 10:55, there is time for completing a clinical reflection note. This is a note item, and the listed duration is 35 minutes.
 
-There is a visible calendar item from 09:15 to 10:05 called “Pharmacology lecture.” It starts at 09:15, ends at 10:05, and has a duration of 50 minutes. This is a lecture item.
+Later, from 11:45 to 12:15, there is lunch and reset. This is a lunch item and it is 30 minutes. From 12:30 to 12:45, there is packing materials for afternoon class, listed as 15 minutes.
 
-There is a visible calendar item from 10:20 to 10:55 called “Complete clinical reflection note.” It starts at 10:20, ends at 10:55, and has a duration of 35 minutes. This is a note item.
-
-There is a visible calendar item from 11:45 to 12:15 called “Lunch and reset.” It starts at 11:45, ends at 12:15, and has a duration of 30 minutes. This is a lunch item.
-
-There is a visible calendar item from 12:30 to 12:45 called “Pack materials for afternoon class.” It lasts 15 minutes.
-
-There is a visible calendar item from 13:00 to 14:00 called “Exam review group.” It lasts 60 minutes.
-
-There is a visible calendar item from 15:30 to 15:45 called “Clinical check-in message.” It lasts 15 minutes.
+From 13:00 to 14:00, there is an exam review group. This is a group item and it lasts 60 minutes. The last visible item is from 15:30 to 15:45, a clinical check-in message for 15 minutes.
 
 ### body (177 words, gpt-5.5-2026-04-23)
 
@@ -258,15 +236,15 @@ You can carry these three priorities today: flashcards as the main win, note and
 
 ## priya_task
 
-### baseline (167 words, gpt-5.5-2026-04-23)
+### baseline (165 words, gpt-5.5-2026-04-23)
 
-This is a specific task preparation context for simulation assessment practice. The visible list has three listed items. The list is only the visible list, so this response is just based on those three items.
+This is only the visible task preparation context for simulation assessment practice. There are three listed items in the visible list. The items are written as short task labels with durations attached to them.
 
-The first visible item is “Review safety checks - 10 min.” This is a 10 minute item. It is related to simulation assessment practice because safety checks are part of the listed task preparation context. The item says to review safety checks.
+The first visible item is “Review safety checks - 10 min.” This item is related to reviewing safety checks. The listed duration is 10 minutes. It is one of the task items connected to the simulation assessment practice.
 
-The second visible item is “Walk through sequence aloud - 20 min.” This is a 20 minute item. It is also related to the same simulation assessment practice context. The item says to walk through the sequence aloud, and the duration shown is 20 minutes.
+The second visible item is “Walk through sequence aloud - 20 min.” This item is related to walking through the sequence aloud. The listed duration is 20 minutes. It is another task item in the same visible list, and it has the longest duration among the three visible entries.
 
-The third visible item is “Mark one instructor question - 10 min.” This is another 10 minute item. It is listed after the walk-through item. It is about one instructor question, and the visible duration is 10 minutes.
+The third visible item is “Mark one instructor question - 10 min.” This item is related to one instructor question. The listed duration is 10 minutes. It is the final visible item in the provided task context.
 
 That is the visible task preparation context.
 
@@ -304,25 +282,19 @@ I start with the safety checks. Steady is enough; care stays present; practice b
 
 ## alex_daily
 
-### baseline (260 words, gpt-5.5-2026-04-23)
+### baseline (150 words, gpt-5.5-2026-04-23)
 
-This is only the visible calendar schedule for the day, shown in listed order, without any priority ranking.
+This is only the visible schedule for the day, shown with times and durations.
 
-There is a visible calendar item from 08:30 to 08:50 called Client inbox and file check. Its start time is 08:30, its end time is 08:50, and its duration is 20 minutes. This is an inbox and file check item.
+The first visible item is 08:30-08:50, Client inbox and file check, for 20 minutes. Then there is 09:00-10:20, Build pitch deck narrative, for 80 minutes. That is a longer calendar item compared with some of the others.
 
-There is a visible calendar item from 09:00 to 10:20 called Build pitch deck narrative. Its start time is 09:00, its end time is 10:20, and its duration is 80 minutes. This is a pitch deck narrative item.
+After that, 10:30-10:50 is Review client assets, for 20 minutes. Then 11:00-11:35 is Export client-ready mockups, for 35 minutes. This is another client-related work item on the visible list.
 
-There is a visible calendar item from 10:30 to 10:50 called Review client assets. Its start time is 10:30, its end time is 10:50, and its duration is 20 minutes. This is a client asset review item.
+At 12:20-12:50, there is Lunch break, for 30 minutes. This is the lunch item on the schedule.
 
-There is a visible calendar item from 11:00 to 11:35 called Export client-ready mockups. Its start time is 11:00, its end time is 11:35, and its duration is 35 minutes. This is a mockup export item.
+Later, 13:30-14:00 is Prepare client call notes, for 30 minutes. This is a note item. Then 14:40-14:50 is Send invoice reminder, for 10 minutes. This is an email or message-type item.
 
-There is a visible calendar item from 12:20 to 12:50 called Lunch break. Its start time is 12:20, its end time is 12:50, and its duration is 30 minutes. This is a lunch item.
-
-There is a visible calendar item from 13:30 to 14:00 called Prepare client call notes. Its duration is 30 minutes.
-
-There is a visible calendar item from 14:40 to 14:50 called Send invoice reminder. Its duration is 10 minutes.
-
-There is a visible calendar item from 16:00 to 16:45 called Client call. Its duration is 45 minutes.
+The last visible item is 16:00-16:45, Client call, for 45 minutes. This is a meeting item. That is the visible calendar schedule.
 
 ### body (156 words, gpt-5.5-2026-04-23)
 
@@ -358,17 +330,17 @@ You can carry these three priorities through today, with the narrative as the wi
 
 ## alex_task
 
-### baseline (152 words, gpt-5.5-2026-04-23)
+### baseline (164 words, gpt-5.5-2026-04-23)
 
-This is the visible task context for building the pitch deck narrative. There are three listed items. The list only shows these three items, and each item has a duration attached to it.
+This is the visible task context for building the pitch deck narrative. The list has three visible items. The items are shown with durations, and the durations are part of the listed task information.
 
-The first item is “Choose core story arc,” and it is listed as 20 minutes. This item is related to the pitch deck narrative because it names the story arc. It comes first in the visible order.
+The first visible item is “Choose core story arc - 20 min.” This item is related to the pitch deck narrative. It has a listed duration of 20 minutes. It is the first item in the visible list.
 
-The second item is “Sequence concept slides,” and it is listed as 35 minutes. This item is also related to the pitch deck narrative because it refers to the concept slides and their sequence. It comes after the 20-minute item.
+The second visible item is “Sequence concept slides - 35 min.” This item is also related to the pitch deck narrative. It has a listed duration of 35 minutes. It appears after the core story arc item in the visible list.
 
-The third item is “Write transition notes,” and it is listed as 25 minutes. This item is related to the pitch deck narrative because it names notes between parts. It comes after the 35-minute item.
+The third visible item is “Write transition notes - 25 min.” This item is another part of the same visible task context. It has a listed duration of 25 minutes. It appears after the concept slide sequencing item.
 
-That is the visible task preparation context.
+That is the visible task preparation context for building the pitch deck narrative.
 
 ### body (172 words, gpt-5.5-2026-04-23)
 
@@ -404,23 +376,25 @@ I begin with the core story arc. Rested energy, one clear choice; original work,
 
 ## serena_daily
 
-### baseline (245 words, gpt-5.5-2026-04-23)
+### baseline (163 words, gpt-5.5-2026-04-23)
 
-This is only the visible schedule for the day. The first visible calendar item is School drop-off. It starts at 07:15 and ends at 07:50. The listed duration is 35 minutes. This is a drop-off item on the visible calendar.
+This is only the visible schedule for the day, shown in the listed order with the times and durations.
 
-The next visible calendar item is Draft argument section. It starts at 08:30 and ends at 09:55. The listed duration is 85 minutes. This is a work item on the visible calendar, and the label says Draft argument section.
+07:15 to 07:50 is School drop-off. That is a 35 minute calendar item in the morning. After that, there is a gap until 08:30.
 
-The next visible calendar item is Confirm pickup logistics. It starts at 10:15 and ends at 10:30. The listed duration is 15 minutes. This is a logistics item on the visible calendar.
+08:30 to 09:55 is Draft argument section. This is an 85 minute work item. The start time is 08:30 and the end time is 09:55.
 
-The next visible calendar item is Send case update to co-counsel. It starts at 11:05 and ends at 11:30. The listed duration is 25 minutes. This is an update item on the visible calendar.
+10:15 to 10:30 is Confirm pickup logistics. This is a 15 minute item. It is listed after the drafting block.
 
-The next visible calendar item is Client check-in. It starts at 12:00 and ends at 12:30. The listed duration is 30 minutes. This is a check-in meeting item.
+11:05 to 11:30 is Send case update to co-counsel. This is an email or update item, and it lasts 25 minutes.
 
-The next visible calendar item is Lunch break. It starts at 13:00 and ends at 13:25. The listed duration is 25 minutes. This is a lunch item.
+12:00 to 12:30 is Client check-in. This is a meeting item for 30 minutes.
 
-The next visible calendar item is Filing window check. It starts at 14:30 and ends at 14:50. The listed duration is 20 minutes.
+13:00 to 13:25 is Lunch break. This is a lunch item, and it is 25 minutes long.
 
-The last visible calendar item is Afternoon pickup. It starts at 16:00 and ends at 16:30. The listed duration is 30 minutes.
+14:30 to 14:50 is Filing window check. This is a 20 minute calendar item.
+
+16:00 to 16:30 is Afternoon pickup, lasting 30 minutes.
 
 ### body (178 words, gpt-5.5-2026-04-23)
 
@@ -456,15 +430,17 @@ You can carry these three priorities through today: the draft as the win, logist
 
 ## serena_task
 
-### baseline (168 words, gpt-5.5-2026-04-23)
+### baseline (172 words, gpt-5.5-2026-04-23)
 
-This is the visible task preparation context for drafting the argument section. There are three listed items in the visible list. The first listed item is “Review argument outline,” and it is listed for 15 minutes. This item is related to the argument section because it involves looking at the argument outline.
+This is the visible list for the specific task context of drafting the argument section. There are three listed items. The list only includes the visible items, and it does not include anything outside those items.
 
-The second listed item is “Draft strongest claim paragraph,” and it is listed for 35 minutes. This item is also related to the argument section because it involves drafting a paragraph for the strongest claim. It is the second of the three visible items.
+The first item is “Review argument outline,” and it is listed as 15 minutes. This item is related to the argument section because it refers to the argument outline. The duration shown for this item is 15 minutes.
 
-The third listed item is “Tie precedent to client facts,” and it is listed for 35 minutes. This item is related to the argument section because it connects precedent with the client facts. It is the last item in the visible list.
+The second item is “Draft strongest claim paragraph,” and it is listed as 35 minutes. This item is also related to the argument section because it refers to drafting a paragraph. The duration shown for this item is 35 minutes.
 
-The visible sequence is 15 minutes, then 35 minutes, then 35 minutes. These are the listed task items for drafting the argument section. That is the visible task preparation context.
+The third item is “Tie precedent to client facts,” and it is listed as 35 minutes. This item is related to connecting precedent and client facts. The duration shown for this item is 35 minutes.
+
+The visible sequence is review outline, draft strongest claim paragraph, and tie precedent to client facts. That is the visible task preparation context.
 
 ### body (165 words, gpt-5.5-2026-04-23)
 

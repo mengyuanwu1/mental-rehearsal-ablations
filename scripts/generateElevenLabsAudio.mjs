@@ -49,6 +49,15 @@ function wordCount(text) {
   return text.trim().split(/\s+/).filter(Boolean).length;
 }
 
+function envFilterSet(value) {
+  return new Set(
+    String(value || "")
+      .split(",")
+      .map((item) => item.trim())
+      .filter(Boolean),
+  );
+}
+
 function splitTextIntoThree(text) {
   const paragraphs = text.split(/\n\s*\n/).map((item) => item.trim()).filter(Boolean);
   if (paragraphs.length >= 3) {
@@ -137,7 +146,7 @@ async function main() {
     );
   }
 
-  const voiceId = env.ELEVENLABS_VOICE_ID || "ZqvIIuD5aI9JFejebHiH";
+  const voiceId = env.ELEVENLABS_VOICE_ID || "jwjWpCFQUCpnHneBySsF";
   const modelId = env.ELEVENLABS_MODEL_ID || "eleven_multilingual_v2";
   const outputFormat = env.ELEVENLABS_OUTPUT_FORMAT || "mp3_44100_128";
   const speed = Number(env.ELEVENLABS_SPEED || "0.8");
@@ -145,6 +154,8 @@ async function main() {
     throw new Error("ELEVENLABS_SPEED must be a positive number.");
   }
   const force = env.FORCE_AUDIO === "1" || process.argv.includes("--force");
+  const scenarioFilter = envFilterSet(env.SCENARIO_FILTER);
+  const conditionFilter = envFilterSet(env.ARM_FILTER || env.CONDITION_FILTER);
   const artifact = JSON.parse(await readFile(artifactPath, "utf8"));
   const audioByScenarioArm = {};
   const files = [];
@@ -153,11 +164,13 @@ async function main() {
   await mkdir(path.dirname(outputManifestPath), { recursive: true });
 
   for (const scenarioId of Object.keys(artifact.scripts ?? {})) {
+    if (scenarioFilter.size > 0 && !scenarioFilter.has(scenarioId)) continue;
     audioByScenarioArm[scenarioId] = {};
     const scenarioDir = path.join(publicAudioDir, scenarioId);
     await mkdir(scenarioDir, { recursive: true });
 
     for (const condition of conditions) {
+      if (conditionFilter.size > 0 && !conditionFilter.has(condition)) continue;
       const script = artifact.scripts?.[scenarioId]?.[condition];
       if (!script) continue;
 

@@ -2,7 +2,7 @@ const slotCount = 10;
 const trialsPerSlot = 3;
 const pairStep = 3;
 const conditions = ["baseline", "mind", "body", "soul", "full"];
-const scenarioCount = 10;
+const scenarioCount = 5;
 
 const pairs = [];
 for (let i = 0; i < conditions.length; i += 1) {
@@ -44,8 +44,10 @@ const repeatedPairScenarioCells = pairScenarioCounts
     row.map((count, scenarioIndex) => ({ count, pairIndex, scenarioIndex })),
   )
   .filter((cell) => cell.count > 1);
-const pairBalanced = pairCounts.every((count) => count === 3);
-const scenarioBalanced = scenarioCounts.every((count) => count === 3);
+const expectedPairCount = (slotCount * trialsPerSlot) / pairs.length;
+const expectedScenarioCount = (slotCount * trialsPerSlot) / scenarioCount;
+const pairBalanced = pairCounts.every((count) => count === expectedPairCount);
+const scenarioBalanced = scenarioCounts.every((count) => count === expectedScenarioCount);
 const noDuplicates = duplicateSlots.length === 0;
 const baselinePresentEverySlot = baselineCountsBySlot.every((count) => count > 0);
 

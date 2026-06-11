@@ -693,7 +693,7 @@ small {
 
 .response-panel {
   display: grid;
-  grid-template-columns: minmax(220px, 0.9fr) repeat(2, minmax(220px, 1fr));
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
   gap: 20px;
   margin-top: 18px;
   padding: 20px;
@@ -1083,6 +1083,10 @@ small {
 .questionnaire-panel > .footer-actions {
   border-top: 0;
   padding: 18px 22px 22px;
+}
+
+.question-block {
+  grid-column: 1 / -1;
 }
 
 .question-block h2 {
