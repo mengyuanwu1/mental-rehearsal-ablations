@@ -15,8 +15,8 @@ Small static web UI for Prolific / Qualtrics pairwise comparison tasks.
 - After entering a Prolific ID, participants see a brief introduction to mental rehearsal and the study task
 - Each comparison requires a 45-second review period before the participant can continue
 - Participants must choose one script and rate both scripts before continuing
-- Comparison 2 includes a short attention check that rotates across scenario focus,
-  values, and energy-state questions
+- Comparison 2 includes a short inference-based attention check that rotates across
+  scenario focus, values, and energy-state questions
 - After the 3 comparisons, participants complete a final personalization questionnaire
 
 Across assignment ids `0` through `9`:

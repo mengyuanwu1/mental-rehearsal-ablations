@@ -40,7 +40,7 @@ const returnUrl = params.get("return_url") ?? params.get("redirect_url") ?? "";
 const debugMode = params.get("debug") === "1";
 const ratingScale = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const minimumComparisonSeconds = 45;
-const minimumScenarioReviewSeconds = 15;
+const minimumScenarioReviewSeconds = 10;
 const minimumImprovementWords = 3;
 const adminModePassword = "mrmrmr";
 const questionnaireVersion = "personalization-v3";
@@ -62,6 +62,12 @@ type AttentionCheck = {
   prompt: string;
   options: AttentionCheckOption[];
   correctAnswer: string;
+};
+
+type AttentionCheckDefinition = {
+  prompt: string;
+  correctAnswer: string;
+  distractors: string[];
 };
 
 type AudioSide = "left" | "right";
@@ -94,7 +100,6 @@ const audioSegmentLabels: Record<AudioSegmentId, string> = {
   ending: "Ending",
   complete: "Complete script",
 };
-const middlePauseMs = 10000;
 
 const scriptMeasures: Array<{
   id: ScriptMeasureId;
@@ -228,25 +233,189 @@ const seededOptions = (options: AttentionCheckOption[], seed: string) =>
     return firstHash - secondHash || first.label.localeCompare(second.label);
   });
 
-const attentionCheckLabel = (scenario: Scenario, kind: AttentionCheckKind) => {
-  switch (kind) {
-    case "task":
-      return scenario.contextTitle;
-    case "values":
-      return scenario.values.slice(0, 3).join(", ");
-    case "energy":
-      return scenario.bodyState;
-  }
+const attentionCheckBank: Record<string, Record<AttentionCheckKind, AttentionCheckDefinition>> = {
+  maya_daily: {
+    task: {
+      prompt: "Quick check: which plan best fits what this person needs to protect today?",
+      correctAnswer: "Use the morning for one meaningful research-writing win, then handle smaller academic tasks.",
+      distractors: [
+        "Save writing for later and spend the morning mostly clearing coordination work.",
+        "Treat the day mainly as a recovery day with no concrete work target.",
+        "Focus first on preparing a legal argument before client logistics.",
+      ],
+    },
+    values: {
+      prompt: "Quick check: which motivation best fits this person?",
+      correctAnswer: "Trusting her own questions while making visible progress on independent research.",
+      distractors: [
+        "Making fast team decisions for a product launch review.",
+        "Offering calm advocacy for a client in a legal system.",
+        "Keeping clinical care knowledge organized for an exam and class.",
+      ],
+    },
+    energy: {
+      prompt: "Quick check: what pacing best fits this person's energy?",
+      correctAnswer: "Start gently and aim for good-enough progress because energy is low.",
+      distractors: [
+        "Use a high-intensity sprint because sleep and recovery are strong.",
+        "Skip grounding and add extra tasks to fill the open time.",
+        "Treat the morning as mostly social coordination.",
+      ],
+    },
+  },
+  jonah_daily: {
+    task: {
+      prompt: "Quick check: which plan best fits what this person needs to protect today?",
+      correctAnswer: "Prepare the launch review by turning risks into clear owners and decisions before the meeting.",
+      distractors: [
+        "Spend the main block drafting a workshop-paper related work section.",
+        "Prioritize medication flashcards before afternoon class.",
+        "Use the morning mostly for legal drafting and client logistics.",
+      ],
+    },
+    values: {
+      prompt: "Quick check: which motivation best fits this person?",
+      correctAnswer: "Lead responsibly by making the team's next decisions clearer and less reactive.",
+      distractors: [
+        "Trust personal research questions before borrowing outside answers.",
+        "Build independent creative confidence through a client pitch.",
+        "Turn care and justice into a clearer legal argument.",
+      ],
+    },
+    energy: {
+      prompt: "Quick check: what pacing best fits this person's energy?",
+      correctAnswer: "Use steady but limited energy for calm preparation rather than urgency.",
+      distractors: [
+        "Move slowly because the person barely slept and cannot do focused work.",
+        "Avoid structure because the day is almost entirely open-ended.",
+        "Treat the day as a rest day with no meeting pressure.",
+      ],
+    },
+  },
+  priya_daily: {
+    task: {
+      prompt: "Quick check: which plan best fits what this person needs to protect today?",
+      correctAnswer: "Study the most important medication material first, then complete smaller class-readiness tasks.",
+      distractors: [
+        "Finalize a launch risk brief before a product meeting.",
+        "Shape a client pitch narrative before exporting mockups.",
+        "Start with a legal argument draft and then update co-counsel.",
+      ],
+    },
+    values: {
+      prompt: "Quick check: which motivation best fits this person?",
+      correctAnswer: "Build calm clinical judgment by learning carefully without being harsh on herself.",
+      distractors: [
+        "Make visible progress on independent research questions.",
+        "Lead a product team toward clear launch decisions.",
+        "Keep an independent creative studio feeling self-directed.",
+      ],
+    },
+    energy: {
+      prompt: "Quick check: what pacing best fits this person's energy?",
+      correctAnswer: "Work with low but usable energy by using structure and one item at a time.",
+      distractors: [
+        "Push at maximum intensity because the person is fully rested.",
+        "Ignore the schedule because nothing important is time-bound.",
+        "Spend the day mostly on client-facing creative decisions.",
+      ],
+    },
+  },
+  alex_daily: {
+    task: {
+      prompt: "Quick check: which plan best fits what this person needs to protect today?",
+      correctAnswer: "Shape the client pitch narrative first, then finish exports and a small admin reminder.",
+      distractors: [
+        "Use the morning for exam flashcards and a clinical reflection note.",
+        "Prepare a launch risk brief before a team review.",
+        "Draft a research-paper related work section before academic admin.",
+      ],
+    },
+    values: {
+      prompt: "Quick check: which motivation best fits this person?",
+      correctAnswer: "Make self-directed creative choices that still become client-ready work.",
+      distractors: [
+        "Build calm clinical judgment for patient care.",
+        "Make unfair systems more answerable through legal advocacy.",
+        "Become an independent researcher through academic writing.",
+      ],
+    },
+    energy: {
+      prompt: "Quick check: what pacing best fits this person's energy?",
+      correctAnswer: "Use rested, steady energy while keeping delivery pressure from taking over.",
+      distractors: [
+        "Scale the day down heavily because recovery is very low.",
+        "Start with medical studying because an exam is the main pressure.",
+        "Avoid creative work because the environment is too chaotic to begin.",
+      ],
+    },
+  },
+  serena_daily: {
+    task: {
+      prompt: "Quick check: which plan best fits what this person needs to protect today?",
+      correctAnswer: "Protect the argument-drafting block first, then handle logistics and co-counsel communication.",
+      distractors: [
+        "Build a client pitch deck before a late-afternoon creative call.",
+        "Review cardiac medication material before class.",
+        "Turn launch risks into owners and decisions before a product meeting.",
+      ],
+    },
+    values: {
+      prompt: "Quick check: which motivation best fits this person?",
+      correctAnswer: "Turn care and justice into a clearer, more usable legal argument.",
+      distractors: [
+        "Trust personal research questions while drafting a workshop paper.",
+        "Lead a product team with less reactive decision-making.",
+        "Make creative choices that keep a studio self-directed.",
+      ],
+    },
+    energy: {
+      prompt: "Quick check: what pacing best fits this person's energy?",
+      correctAnswer: "Keep a contained, steady pace because sleep was interrupted and stress is moderate.",
+      distractors: [
+        "Use a fast sprint because the person is fully rested and unstressed.",
+        "Avoid focused drafting because the day has no protected work block.",
+        "Treat the main challenge as exam anxiety before class.",
+      ],
+    },
+  },
 };
 
-const attentionCheckPrompt = (kind: AttentionCheckKind) => {
+const fallbackAttentionCheck = (
+  scenario: Scenario,
+  kind: AttentionCheckKind,
+): AttentionCheckDefinition => {
   switch (kind) {
     case "task":
-      return "Quick check: what was the scenario mainly about?";
+      return {
+        prompt: "Quick check: which plan best fits what this person needs to protect today?",
+        correctAnswer: `Protect the main work first, especially ${scenario.topTasks[0]?.title ?? "the first priority"}.`,
+        distractors: [
+          "Ignore the priority order and start with the easiest minor task.",
+          "Treat the day as recovery-only with no concrete work target.",
+          "Focus on a completely different person's schedule.",
+        ],
+      };
     case "values":
-      return "Quick check: which values were listed for this person?";
+      return {
+        prompt: "Quick check: which motivation best fits this person?",
+        correctAnswer: `Move the day forward in a way that supports ${scenario.lifePriority.toLowerCase()}`,
+        distractors: [
+          "Win approval by copying someone else's priorities exactly.",
+          "Avoid the larger purpose and focus only on busywork.",
+          "Switch to a goal from a different profession.",
+        ],
+      };
     case "energy":
-      return "Quick check: which energy background was described for this person?";
+      return {
+        prompt: "Quick check: what pacing best fits this person's energy?",
+        correctAnswer: "Match the pace to the stated energy instead of forcing or ignoring it.",
+        distractors: [
+          "Assume unlimited energy and add extra work.",
+          "Ignore the body state entirely.",
+          "Cancel all tasks even when some progress is possible.",
+        ],
+      };
   }
 };
 
@@ -259,29 +428,23 @@ function attentionCheckForTrial(
 
   const checkIndex = attentionCheckTrialIndexes.indexOf(trialIndex);
   const kind = attentionCheckKinds[(assignmentId + checkIndex) % attentionCheckKinds.length];
-  const correctAnswer = attentionCheckLabel(scenario, kind);
+  const definition = attentionCheckBank[scenario.id]?.[kind] ?? fallbackAttentionCheck(scenario, kind);
+  const correctAnswer = definition.correctAnswer;
   const correctOption = { id: `${scenario.id}:${kind}`, label: correctAnswer };
   const seenLabels = new Set([correctAnswer]);
-  const candidateDistractors = seededOptions(
-    scenarios.map((item) => ({
-      id: `${item.id}:${kind}`,
-      label: attentionCheckLabel(item, kind),
-    })),
-    `${assignmentId}:${trialIndex}:${kind}:attention-distractors`,
-  );
   const distractors: AttentionCheckOption[] = [];
 
-  for (const option of candidateDistractors) {
-    if (seenLabels.has(option.label)) continue;
-    seenLabels.add(option.label);
-    distractors.push(option);
+  for (const [index, label] of definition.distractors.entries()) {
+    if (seenLabels.has(label)) continue;
+    seenLabels.add(label);
+    distractors.push({ id: `${scenario.id}:${kind}:distractor-${index}`, label });
     if (distractors.length === 3) break;
   }
 
   return {
     id: `scenario-${kind}-${trialIndex + 1}`,
     kind,
-    prompt: attentionCheckPrompt(kind),
+    prompt: definition.prompt,
     options: seededOptions([correctOption, ...distractors], `${assignmentId}:${trialIndex}:${kind}:attention-options`),
     correctAnswer,
   };
@@ -790,8 +953,7 @@ export default function App() {
               <h2>How does each comparison work?</h2>
               <p>
                 Each script is played in three audio parts: introduction, middle, and ending. Listen
-                to the introduction first, then click Next part to continue. After the middle part,
-                there will be a short pause before the ending becomes available.
+                to each part all the way through, then click Next part to continue.
               </p>
               <p>
                 Please complete all three audio parts for Script A first. Script B will unlock after
@@ -883,10 +1045,6 @@ function StudyTask({
   const [attentionCheckAnswer, setAttentionCheckAnswer] = useState("");
   const [audioMetrics, setAudioMetrics] = useState<AudioMetricsBySide>(emptyAudioMetrics);
   const [audioStepBySide, setAudioStepBySide] = useState<Record<AudioSide, number>>({ left: 0, right: 0 });
-  const [middleWaitComplete, setMiddleWaitComplete] = useState<Record<AudioSide, boolean>>({
-    left: true,
-    right: true,
-  });
   const [startedAt, setStartedAt] = useState(() => new Date().toISOString());
   const [postingError, setPostingError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -898,7 +1056,6 @@ function StudyTask({
     secondsRemaining: adminMode ? 0 : minimumScenarioReviewSeconds,
   }));
   const submittingRef = useRef(false);
-  const middleWaitTimersRef = useRef<Record<AudioSide, number | null>>({ left: null, right: null });
 
   const comparisonComplete = trialIndex >= assignment.trials.length;
   const complete = questionnaire !== null;
@@ -1000,7 +1157,6 @@ function StudyTask({
         left: stepFromMetrics(leftAudioSegmentIds, restoredMetrics.left),
         right: stepFromMetrics(rightAudioSegmentIds, restoredMetrics.right),
       });
-      setMiddleWaitComplete({ left: true, right: true });
       setStartedAt(currentTrialResponse.startedAt || new Date().toISOString());
     } else {
       setChoice("");
@@ -1009,7 +1165,6 @@ function StudyTask({
       setAttentionCheckAnswer("");
       setAudioMetrics(emptyAudioMetrics());
       setAudioStepBySide({ left: 0, right: 0 });
-      setMiddleWaitComplete({ left: true, right: true });
       setStartedAt(new Date().toISOString());
     }
     setPostingError("");
@@ -1140,14 +1295,6 @@ function StudyTask({
       };
     });
 
-    if (!adminMode && segmentId === "middle") {
-      setMiddleWaitComplete((current) => ({ ...current, [side]: false }));
-      if (middleWaitTimersRef.current[side]) window.clearTimeout(middleWaitTimersRef.current[side] ?? undefined);
-      middleWaitTimersRef.current[side] = window.setTimeout(() => {
-        setMiddleWaitComplete((current) => ({ ...current, [side]: true }));
-        middleWaitTimersRef.current[side] = null;
-      }, middlePauseMs);
-    }
   }
 
   function advanceAudioSegment(side: AudioSide, segmentIds: AudioSegmentId[]) {
@@ -1187,13 +1334,8 @@ function StudyTask({
     const segmentText = textSegments[segmentId] || script;
     const segmentEnded = Boolean(sideMetrics.segmentProgress[segmentId]?.ended);
     const isFinalSegment = stepIndex >= segmentIds.length - 1;
-    const middlePauseActive = !adminMode && segmentId === "middle" && segmentEnded && !middleWaitComplete[side];
-    const canAdvanceSegment = adminMode || (segmentEnded && !middlePauseActive);
-    const nextButtonText = middlePauseActive
-      ? "Pause before ending"
-      : isFinalSegment
-        ? "Complete script appears after this part"
-        : "Next part";
+    const canAdvanceSegment = adminMode || segmentEnded;
+    const nextButtonText = isFinalSegment ? "Complete script appears after this part" : "Next part";
 
     return (
       <div className="script-audio-flow">
@@ -1218,9 +1360,7 @@ function StudyTask({
         <p>
           {isFinalSegment
             ? "Listen to the final part all the way through. The complete script text will appear afterward."
-            : segmentId === "middle"
-              ? "After this middle part finishes, pause briefly before moving to the ending."
-              : "Listen to this part all the way through, then continue to the next part."}
+            : "Listen to this part all the way through, then continue to the next part."}
         </p>
         {!isFinalSegment ? (
           <button
