@@ -41,7 +41,6 @@ const debugMode = params.get("debug") === "1";
 const ratingScale = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const minimumComparisonSeconds = 45;
 const minimumScenarioReviewSeconds = 10;
-const minimumImprovementWords = 3;
 const adminModePassword = "mrmrmr";
 const questionnaireVersion = "personalization-v3";
 const attentionCheckTrialIndexes = [1];
@@ -695,8 +694,6 @@ const rankingValuesForQuestion = (question: QuestionnaireQuestion, answer: strin
   return [...rankedValues, ...missingValues];
 };
 
-const wordCount = (text: string) => text.trim().split(/\s+/).filter(Boolean).length;
-
 const clampScriptLengthMinutes = (minutes: number) =>
   Number.isFinite(minutes) ? Math.min(scriptLengthMax, Math.max(scriptLengthMin, minutes)) : scriptLengthMin;
 
@@ -1041,7 +1038,6 @@ function StudyTask({
   const [trialIndex, setTrialIndex] = useState(() => Math.min(responses.length, assignment.trials.length));
   const [choice, setChoice] = useState<"left" | "right" | "">("");
   const [scriptRatings, setScriptRatings] = useState<ScriptRatingsBySide>(emptyScriptRatings);
-  const [improvement, setImprovement] = useState("");
   const [attentionCheckAnswer, setAttentionCheckAnswer] = useState("");
   const [audioMetrics, setAudioMetrics] = useState<AudioMetricsBySide>(emptyAudioMetrics);
   const [audioStepBySide, setAudioStepBySide] = useState<Record<AudioSide, number>>({ left: 0, right: 0 });
@@ -1099,9 +1095,6 @@ function StudyTask({
   const leftRating = scriptRatings.left.overall;
   const rightRating = scriptRatings.right.overall;
   const ratingsComplete = scriptRatingsComplete(scriptRatings);
-  const chosenScriptLabel = choice === "left" ? "Script A" : choice === "right" ? "Script B" : "the chosen script";
-  const improvementWordCount = wordCount(improvement);
-  const improvementComplete = adminMode || improvementWordCount >= minimumImprovementWords;
   const leftAudioComplete =
     leftAudioSegmentIds.length === 0 ||
     leftAudioSegmentIds.every((segmentId) => audioMetrics.left.segmentProgress[segmentId]?.ended);
@@ -1120,7 +1113,6 @@ function StudyTask({
   const canContinue = Boolean(
     choice &&
       ratingsComplete &&
-      improvementComplete &&
       audioListeningComplete &&
       scenarioReviewComplete &&
       readingComplete &&
@@ -1133,9 +1125,7 @@ function StudyTask({
       ? "Saving..."
         : readingComplete
           ? audioListeningComplete
-            ? improvementComplete
-              ? "Response saves after each trial."
-              : `Please write at least ${minimumImprovementWords} words about how you would improve the chosen script.`
+            ? "Response saves after each trial."
             : rightAudioLocked
               ? "Please listen to Script A all the way through to unlock Script B."
               : `Please listen to ${missingAudioLabels.join(" and ")} all the way through before continuing.`
@@ -1150,7 +1140,6 @@ function StudyTask({
       const restoredMetrics = audioMetricsFromResponse(currentTrialResponse);
       setChoice(currentTrialResponse.choice);
       setScriptRatings(scriptRatingsFromResponse(currentTrialResponse));
-      setImprovement(currentTrialResponse.improvement);
       setAttentionCheckAnswer(currentTrialResponse.attentionCheckAnswer ?? "");
       setAudioMetrics(restoredMetrics);
       setAudioStepBySide({
@@ -1161,7 +1150,6 @@ function StudyTask({
     } else {
       setChoice("");
       setScriptRatings(emptyScriptRatings());
-      setImprovement("");
       setAttentionCheckAnswer("");
       setAudioMetrics(emptyAudioMetrics());
       setAudioStepBySide({ left: 0, right: 0 });
@@ -1464,7 +1452,7 @@ function StudyTask({
       rightEaseRating: requiredRating(scriptRatings.right.ease),
       leftRating: requiredRating(leftRating),
       rightRating: requiredRating(rightRating),
-      improvement,
+      improvement: "",
       ...(attentionCheck
         ? {
             attentionCheckId: attentionCheck.id,
@@ -1498,7 +1486,6 @@ function StudyTask({
 
     setChoice("");
     setScriptRatings(emptyScriptRatings());
-    setImprovement("");
     setAttentionCheckAnswer("");
     setAudioMetrics(emptyAudioMetrics());
     setStartedAt(new Date().toISOString());
@@ -1717,22 +1704,6 @@ function StudyTask({
             </div>
           </fieldset>
         ) : null}
-
-        <label className="improvement-field">
-          <span>If you could make {chosenScriptLabel} better, how would you improve it? (Apart from the audio.)</span>
-          <textarea
-            aria-describedby="improvement-note-requirement"
-            aria-required={!adminMode}
-            value={improvement}
-            onChange={(event) => setImprovement(event.target.value)}
-            rows={3}
-          />
-          <small id="improvement-note-requirement">
-            {adminMode
-              ? "Admin mode: no word minimum"
-              : `${Math.min(improvementWordCount, minimumImprovementWords)} / ${minimumImprovementWords} words minimum`}
-          </small>
-        </label>
 
         <div className="footer-actions">
           <p className={readingComplete || postingError || isSubmitting ? "" : "reading-gate"}>

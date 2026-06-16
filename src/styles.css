@@ -425,7 +425,6 @@ li {
 }
 
 .context-grid span,
-.improvement-field span,
 .rating-field span {
   display: block;
   margin-bottom: 6px;
@@ -1207,25 +1206,6 @@ small {
   font-size: 14px;
   font-weight: 700;
   line-height: 1.35;
-}
-
-.improvement-field textarea {
-  width: 100%;
-  resize: vertical;
-  border: 1px solid #cfd9de;
-  border-radius: 8px;
-  padding: 10px 12px;
-  color: #22313d;
-}
-
-.improvement-field small {
-  display: block;
-  margin-top: 6px;
-  white-space: normal;
-}
-
-.improvement-field {
-  grid-column: 1 / -1;
 }
 
 .footer-actions {
