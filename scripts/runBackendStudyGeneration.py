@@ -25,23 +25,27 @@ def _word_count(text: str) -> int:
     return len(text.strip().split())
 
 
-_BASELINE_SYSTEM_PROMPT = """You are a generic assistant producing a weak baseline control script for an experiment.
+_BASELINE_SYSTEM_PROMPT = """You are a generic assistant producing the baseline control script for an experiment.
 
 The user asks: "Help me mentally prepare my day."
 
-Use only the visible schedule/task context provided. Do not use or infer body data, values, goals, life priority, priority rank, or hidden personalization.
+Use only the visible schedule/task preparation context. Do not use or infer body data, sleep, energy, stress, focus cues, values, desired feelings, ideal life, goals, life priority, priority rank, hidden personalization, or retrieved practice-bank material.
 
-Keep this baseline intentionally weak, plain, and bland. It should read like a schedule readout, not like useful coaching. Do not use mental rehearsal techniques: no visualization, no breathwork, no body grounding, no values anchoring, no identity language, no affirmations, no reflective imagery questions, no PETTLEP-style cues, no success-case imagery.
+Make this baseline extremely generic, flat, and redundant. It should sound like a generic LLM reading or paraphrasing the visible schedule, not like a helpful coach and not like mental rehearsal.
 
-Do not make the schedule smarter. Do not prioritize. Do not identify what is important. Do not explain how to focus, prepare materials, pace effort, reset, transition well, reduce interruptions, or succeed at the tasks. Mostly convert the visible items into flat sentences in listed order. Repetition is acceptable. The response may feel underwhelming and not especially supportive.
+Do not use mental rehearsal techniques: no breathwork, no body grounding, no sensory imagery, no values anchoring, no motivational speech, no success visualization, no reflection questions, no mantra, no confidence-building, no "what matters", no "done enough", no adaptive pacing, and no next-action coaching.
 
-If the visible context is daily preparation with a full calendar schedule, keep the baseline similar in length to the other conditions while still weak. Include some unnecessary and repetitive detail, but not for every item: say the list is only the visible schedule, repeat several start/end times and durations, and describe a few obvious labels like "this is a meeting item," "this is a lunch item," "this is an email item," or "this is a note item." Do not identify priorities, do not summarize the day in a helpful way, and do not create a preparation arc. It should feel like a generic LLM over-explaining a calendar export, but within the same word-count band as the other scripts.
+Do not tell the user to tap, click, continue, pause, breathe, imagine, notice, rehearse, reset, focus, begin, or prepare in a useful way. Do not refer to the UI or audio flow.
 
-If the visible context is a specific task preparation context, make the baseline slightly worse than the daily baseline. Do not provide a clean recap or useful summary. Add unnecessary literal detail, such as restating the number of listed items, repeating the duration of each item, explaining obvious relationships like "this item is related to the task," and mentioning that the list is only the visible list. It can sound like a generic LLM over-explaining a simple task list. Do not end with a tidy final recap beginning with "So," "Overall," or "In summary." It may end abruptly after the last listed item or with a bland sentence like "That is the visible task preparation context."
+For daily full-calendar baselines, mostly restate the visible schedule in order. It is okay to repeat obvious information such as "this item is listed," "the duration is shown," "this is another calendar item," or "the next visible item is..." Include some start and end times and durations. Do not summarize the day helpfully. Do not identify priorities. Do not group the schedule into an elegant plan. Redundancy is acceptable and preferred.
 
-Avoid phrases like "start by", "make sure", "use the time", "keep focus", "move into", "transition", "set up", "prepare", "before starting", "steady day", "contained block", "enough", "reset", "clear boundary", "main priority", "progress", "visible progress", "you do not need to solve the whole day", or "what matters".
+For specific task preparation baselines, mostly restate the visible task items and durations. Add redundant phrases like "this is part of the visible task preparation context" or "this item is also listed." Do not infer project meaning or give a clean strategy.
 
-For daily full-calendar baselines, target 160-185 words, never return under 155 words, and never exceed 195 words. For specific task preparation baselines, target 150-180 words, never return under 145 words, and never exceed 190 words. Use simple paragraphs, not bullets. Return only the script text."""
+Write 4-6 plain paragraphs. The paragraphs can be uneven and repetitive. Do not use bullets. Do not add section headers.
+
+Avoid polished closing language. The ending can be bland, such as "That is the visible schedule information for the day." Do not make it warm or inspiring.
+
+Target 170-210 words, never under 155 words and never over 220 words. Return only the script text."""
 
 
 def _baseline_user_prompt(payload: dict[str, Any]) -> str:
@@ -132,6 +136,8 @@ def main() -> None:
         scenario_id = scenario["id"]
         responses[scenario_id] = dict(existing_responses.get(scenario_id, {}))
         scenario_selected = not scenario_filter or scenario_id in scenario_filter
+        if not scenario_selected:
+            continue
 
         baseline_payload = scenario.get("baseline")
         if baseline_payload is not None:
@@ -141,7 +147,9 @@ def main() -> None:
             force_filtered_baseline = should_generate_baseline and bool(
                 scenario_filter or arm_filter
             )
-            if (
+            if not should_generate_baseline and not responses[scenario_id].get("baseline"):
+                pass
+            elif (
                 not should_generate_baseline
                 or (
                     (reuse_existing or reuse_baseline)
@@ -172,6 +180,8 @@ def main() -> None:
             force_filtered_generation = should_generate_arm and bool(
                 scenario_filter or arm_filter
             )
+            if not should_generate_arm and not responses[scenario_id].get(arm):
+                continue
             if not should_generate_arm or (
                 reuse_existing
                 and not force_filtered_generation

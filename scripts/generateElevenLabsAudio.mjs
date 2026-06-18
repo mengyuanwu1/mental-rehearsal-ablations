@@ -156,6 +156,7 @@ async function main() {
   const force = env.FORCE_AUDIO === "1" || process.argv.includes("--force");
   const scenarioFilter = envFilterSet(env.SCENARIO_FILTER);
   const conditionFilter = envFilterSet(env.ARM_FILTER || env.CONDITION_FILTER);
+  const segmentFilter = envFilterSet(env.SEGMENT_FILTER);
   const artifact = JSON.parse(await readFile(artifactPath, "utf8"));
   const audioByScenarioArm = {};
   const files = [];
@@ -187,7 +188,9 @@ async function main() {
         const absolutePath = path.join(conditionDir, `${segmentId}.mp3`);
         const existingSize = await fileSize(absolutePath);
 
-        if (existingSize > 0 && !force) {
+        const forceSegment = force && (segmentFilter.size === 0 || segmentFilter.has(segmentId));
+
+        if (existingSize > 0 && !forceSegment) {
           audioByScenarioArm[scenarioId][condition][segmentId] = relativePath;
           files.push({
             scenarioId,

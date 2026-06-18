@@ -950,7 +950,7 @@ export default function App() {
               <h2>How does each comparison work?</h2>
               <p>
                 Each script is played in three audio parts: introduction, middle, and ending. Listen
-                to each part all the way through, then click Next part to continue.
+                to each part all the way through, then tap Continue to move to the next part.
               </p>
               <p>
                 Please complete all three audio parts for Script A first. Script B will unlock after
@@ -1323,7 +1323,7 @@ function StudyTask({
     const segmentEnded = Boolean(sideMetrics.segmentProgress[segmentId]?.ended);
     const isFinalSegment = stepIndex >= segmentIds.length - 1;
     const canAdvanceSegment = adminMode || segmentEnded;
-    const nextButtonText = isFinalSegment ? "Complete script appears after this part" : "Next part";
+    const nextButtonText = isFinalSegment ? "Complete script appears after this part" : "Continue";
 
     return (
       <div className="script-audio-flow">
@@ -1348,7 +1348,7 @@ function StudyTask({
         <p>
           {isFinalSegment
             ? "Listen to the final part all the way through. The complete script text will appear afterward."
-            : "Listen to this part all the way through, then continue to the next part."}
+            : "Listen to this part all the way through. When you feel ready, tap Continue."}
         </p>
         {!isFinalSegment ? (
           <button

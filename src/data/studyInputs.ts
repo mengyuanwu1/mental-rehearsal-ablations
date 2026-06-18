@@ -164,7 +164,7 @@ export type StudyInputScenario = {
 
 export const conditionInputRules: Record<StudyCondition, string> = {
   baseline:
-    "Use only the visible schedule/task preparation context. Do not use body energy, life priority, ideal life, or value definitions.",
+    "Use only the visible schedule/task preparation context. Do not use retrieval banks, body energy, life priority, ideal life, goals, priority rank, focus cues, value definitions, grounding, visualization, or mantra guidance.",
   mind:
     "Use only MIND fields: user_goal plus full calendar events with notes for daily rehearsal, or focusTask/focusSubtasks for task scope. Do not verbalize linked value tags.",
   body:
