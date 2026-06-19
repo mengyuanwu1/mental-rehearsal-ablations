@@ -8,7 +8,6 @@ const generatedScriptsPath = path.resolve("src/data/llmStudyScripts.json");
 
 const slotCount = 10;
 const trialsPerSlot = 3;
-const pairStep = 3;
 const conditions = ["baseline", "mind", "body", "soul", "full"];
 const scenarios = [
   "maya_daily",
@@ -24,6 +23,19 @@ for (let i = 0; i < conditions.length; i += 1) {
     conditionPairs.push([conditions[i], conditions[j]]);
   }
 }
+
+const pairScheduleByAssignment = [
+  [3, 6, 4],
+  [9, 8, 0],
+  [3, 8, 5],
+  [6, 9, 1],
+  [3, 7, 9],
+  [8, 2, 6],
+  [3, 4, 6],
+  [9, 0, 8],
+  [3, 7, 8],
+  [9, 6, 1],
+];
 
 function hashString(input) {
   let hash = 2166136261;
@@ -55,10 +67,10 @@ function exportAssignments() {
   ];
 
   for (let assignmentId = 0; assignmentId < slotCount; assignmentId += 1) {
-    const offset = assignmentId % conditionPairs.length;
+    const pairSchedule = pairScheduleByAssignment[assignmentId];
 
     for (let trialIndex = 0; trialIndex < trialsPerSlot; trialIndex += 1) {
-      const pairIndex = (offset + pairStep * trialIndex) % conditionPairs.length;
+      const pairIndex = pairSchedule[trialIndex];
       const scenarioIndex = (assignmentId * trialsPerSlot + trialIndex) % scenarios.length;
       const [firstCondition, secondCondition] = conditionPairs[pairIndex];
       const swap = shouldSwapOrder(assignmentId, trialIndex);

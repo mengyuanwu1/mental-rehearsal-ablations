@@ -819,8 +819,8 @@ export default function App() {
   function beginStudy(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const trimmed = participantInput.trim();
-    if (!trimmed) return;
-    setParticipantId(trimmed);
+    if (!trimmed && !adminMode) return;
+    setParticipantId(trimmed || adminParticipantId || "admin");
     setIntroAccepted(false);
   }
 
@@ -911,7 +911,7 @@ export default function App() {
               </label>
             ) : null}
             {adminModeError ? <p className="admin-mode-error">{adminModeError}</p> : null}
-            <button className="primary-button" disabled={!participantInput.trim()} type="submit">
+            <button className="primary-button" disabled={!adminMode && !participantInput.trim()} type="submit">
               Continue
             </button>
           </form>
@@ -1110,19 +1110,23 @@ function StudyTask({
   const audioInstruction = adminMode
     ? "Admin mode: audio completion is not required."
     : "Complete Script A first. Script B unlocks after Script A is complete, and the full script text appears after each script finishes.";
-  const canContinue = Boolean(
-    choice &&
-      ratingsComplete &&
-      audioListeningComplete &&
-      scenarioReviewComplete &&
-      readingComplete &&
-      (!attentionCheck || attentionCheckAnswer) &&
-      !isSubmitting,
-  );
+  const canContinue = adminMode
+    ? !isSubmitting
+    : Boolean(
+        choice &&
+          ratingsComplete &&
+          audioListeningComplete &&
+          scenarioReviewComplete &&
+          readingComplete &&
+          (!attentionCheck || attentionCheckAnswer) &&
+          !isSubmitting,
+      );
   const canGoBack = trialIndex > 0 && !isSubmitting;
   const footerStatus = postingError
     || (isSubmitting
       ? "Saving..."
+      : adminMode
+        ? "Admin mode: Continue can advance without saving incomplete responses."
         : readingComplete
           ? audioListeningComplete
             ? "Response saves after each trial."
@@ -1416,8 +1420,24 @@ function StudyTask({
     );
   }
 
+  function resetTrialStateAndAdvance() {
+    setChoice("");
+    setScriptRatings(emptyScriptRatings());
+    setAttentionCheckAnswer("");
+    setAudioMetrics(emptyAudioMetrics());
+    setStartedAt(new Date().toISOString());
+    setTrialIndex((current) => Math.min(current + 1, assignment.trials.length));
+  }
+
   async function submit() {
-    if (submittingRef.current || !canContinue || !ratingsComplete || !choice) return;
+    if (submittingRef.current || !canContinue) return;
+    if (adminMode && (!choice || !ratingsComplete || (attentionCheck && !attentionCheckAnswer))) {
+      setPostingError("");
+      resetTrialStateAndAdvance();
+      return;
+    }
+    if (!ratingsComplete || !choice) return;
+
     submittingRef.current = true;
     setIsSubmitting(true);
     const now = new Date().toISOString();
@@ -1484,12 +1504,7 @@ function StudyTask({
       setIsSubmitting(false);
     }
 
-    setChoice("");
-    setScriptRatings(emptyScriptRatings());
-    setAttentionCheckAnswer("");
-    setAudioMetrics(emptyAudioMetrics());
-    setStartedAt(new Date().toISOString());
-    setTrialIndex((current) => Math.min(current + 1, assignment.trials.length));
+    resetTrialStateAndAdvance();
   }
 
   function goBack() {
@@ -1505,6 +1520,7 @@ function StudyTask({
   if (comparisonComplete && !questionnaire) {
     return (
       <QuestionnaireForm
+        adminMode={adminMode}
         assignmentId={assignment.assignmentId}
         initialAnswers={questionnaireDraft}
         onBack={() => setTrialIndex(assignment.trials.length - 1)}
@@ -1735,6 +1751,7 @@ function StudyTask({
 }
 
 function QuestionnaireForm({
+  adminMode,
   assignmentId,
   initialAnswers,
   onBack,
@@ -1742,6 +1759,7 @@ function QuestionnaireForm({
   participantId,
   onSubmitted,
 }: {
+  adminMode: boolean;
   assignmentId: number;
   initialAnswers: QuestionnaireAnswers;
   onBack: () => void;
@@ -1776,10 +1794,10 @@ function QuestionnaireForm({
     return Boolean(selected) && (selected !== "other" || Boolean(answers[question.otherId].trim()));
   }
 
-  const canSubmit =
+  const questionnaireComplete =
     questionnaireQuestions.every(isQuestionAnswered) &&
-    Boolean(answers.idealMorningGuidance.trim()) &&
-    !isSubmitting;
+    Boolean(answers.idealMorningGuidance.trim());
+  const canSubmit = (adminMode || questionnaireComplete) && !isSubmitting;
 
   useEffect(() => {
     onDraftChange(answers);
@@ -1876,8 +1894,6 @@ function QuestionnaireForm({
     event.preventDefault();
     if (!canSubmit || submittingRef.current) return;
 
-    submittingRef.current = true;
-    setIsSubmitting(true);
     const now = new Date().toISOString();
     const personalizationFocusQuestion = questionnaireQuestions.find((question) => question.id === "personalizationFocus");
     const response: QuestionnaireResponse = {
@@ -1904,6 +1920,14 @@ function QuestionnaireForm({
       userAgent: navigator.userAgent,
     };
 
+    if (adminMode && !questionnaireComplete) {
+      setPostingError("");
+      onSubmitted(response);
+      return;
+    }
+
+    submittingRef.current = true;
+    setIsSubmitting(true);
     storeQuestionnaire(response);
 
     try {
@@ -2167,8 +2191,8 @@ function ScenarioFocusCues({ scenario }: { scenario: Scenario }) {
     <div className={scenario.scope === "task" ? "focus-cues-card compact" : "focus-cues-card"}>
       <span>Focus cues</span>
       <ul className="focus-cue-list">
-        {scenario.focusCues.map((cue) => (
-          <li key={cue}>{cue}</li>
+        {scenario.focusCues.map((cue, index) => (
+          <li key={`${cue}-${index}`}>{cue}</li>
         ))}
       </ul>
     </div>

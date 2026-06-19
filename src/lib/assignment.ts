@@ -15,7 +15,19 @@ export const conditionPairs: Array<[ConditionId, ConditionId]> = (() => {
 
 export const assignmentSlotCount = 10;
 const TRIALS_PER_SLOT = 3;
-const PAIR_STEP = 3;
+
+const pairScheduleByAssignment: number[][] = [
+  [3, 6, 4],
+  [9, 8, 0],
+  [3, 8, 5],
+  [6, 9, 1],
+  [3, 7, 9],
+  [8, 2, 6],
+  [3, 4, 6],
+  [9, 0, 8],
+  [3, 7, 8],
+  [9, 6, 1],
+];
 
 export function hashString(input: string): number {
   let hash = 2166136261;
@@ -32,11 +44,11 @@ function shouldSwapOrder(assignmentId: number, trialIndex: number): boolean {
 
 export function buildAssignment(assignmentId: number): Assignment {
   const normalizedId = ((assignmentId % assignmentSlotCount) + assignmentSlotCount) % assignmentSlotCount;
-  const offset = normalizedId % conditionPairs.length;
+  const pairSchedule = pairScheduleByAssignment[normalizedId];
   const trials: TrialAssignment[] = [];
 
   for (let trialIndex = 0; trialIndex < TRIALS_PER_SLOT; trialIndex += 1) {
-    const pairIndex = (offset + PAIR_STEP * trialIndex) % conditionPairs.length;
+    const pairIndex = pairSchedule[trialIndex];
     const scenarioIndex = (normalizedId * TRIALS_PER_SLOT + trialIndex) % scenarios.length;
     const [firstCondition, secondCondition] = conditionPairs[pairIndex];
     const swap = shouldSwapOrder(normalizedId, trialIndex);
@@ -86,6 +98,7 @@ export function verifyAssignmentBalance(): {
   pairScenarioCounts: number[][];
   duplicateScenarioSlots: number[];
   baselineCountsBySlot: number[];
+  fullCountsBySlot: number[];
 } {
   const pairCounts = Array(conditionPairs.length).fill(0);
   const scenarioCounts = Array(scenarios.length).fill(0);
@@ -94,14 +107,17 @@ export function verifyAssignmentBalance(): {
   );
   const duplicateScenarioSlots: number[] = [];
   const baselineCountsBySlot: number[] = [];
+  const fullCountsBySlot: number[] = [];
 
   for (let assignmentId = 0; assignmentId < assignmentSlotCount; assignmentId += 1) {
     const assignment = buildAssignment(assignmentId);
     const seen = new Set<string>();
     let baselineCount = 0;
+    let fullCount = 0;
     for (const trial of assignment.trials) {
       const scenarioIndex = scenarios.findIndex((scenario) => scenario.id === trial.scenarioId);
       if (trial.leftCondition === "baseline" || trial.rightCondition === "baseline") baselineCount += 1;
+      if (trial.leftCondition === "full" || trial.rightCondition === "full") fullCount += 1;
       pairCounts[trial.pairIndex] += 1;
       scenarioCounts[scenarioIndex] += 1;
       pairScenarioCounts[trial.pairIndex][scenarioIndex] += 1;
@@ -111,7 +127,8 @@ export function verifyAssignmentBalance(): {
       duplicateScenarioSlots.push(assignmentId);
     }
     baselineCountsBySlot.push(baselineCount);
+    fullCountsBySlot.push(fullCount);
   }
 
-  return { pairCounts, scenarioCounts, pairScenarioCounts, duplicateScenarioSlots, baselineCountsBySlot };
+  return { pairCounts, scenarioCounts, pairScenarioCounts, duplicateScenarioSlots, baselineCountsBySlot, fullCountsBySlot };
 }
