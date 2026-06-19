@@ -658,6 +658,7 @@ small {
 }
 
 .audio-next-button {
+  margin-top: 8px;
   min-height: 38px;
   padding: 0 14px;
 }

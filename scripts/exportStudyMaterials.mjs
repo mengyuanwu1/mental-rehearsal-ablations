@@ -7,7 +7,7 @@ const previewPath = path.join(outputDir, "maya_daily_scripts.md");
 const generatedScriptsPath = path.resolve("src/data/llmStudyScripts.json");
 
 const slotCount = 10;
-const trialsPerSlot = 3;
+const trialsPerSlot = 2;
 const conditions = ["baseline", "mind", "body", "soul", "full"];
 const scenarios = [
   "maya_daily",
@@ -25,16 +25,16 @@ for (let i = 0; i < conditions.length; i += 1) {
 }
 
 const pairScheduleByAssignment = [
-  [3, 6, 4],
-  [9, 8, 0],
-  [3, 8, 5],
-  [6, 9, 1],
-  [3, 7, 9],
-  [8, 2, 6],
-  [3, 4, 6],
-  [9, 0, 8],
-  [3, 7, 8],
-  [9, 6, 1],
+  [0, 3],
+  [0, 6],
+  [1, 3],
+  [2, 6],
+  [0, 8],
+  [9, 1],
+  [3, 2],
+  [6, 1],
+  [8, 2],
+  [9, 0],
 ];
 
 function hashString(input) {

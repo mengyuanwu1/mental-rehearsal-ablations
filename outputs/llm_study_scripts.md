@@ -1,6 +1,6 @@
 # Backend Mental Rehearsal Study Scripts
 
-Generated at: 2026-06-18T17:23:37.321Z
+Generated at: 2026-06-19T16:44:29.256Z
 Requested model: gpt-4.1
 Generation source: baseline=openai.simple_baseline_prompt; rehearsal=backend.generate_ablation_rehearsal
 Any backend mock used: false
@@ -9,7 +9,7 @@ Any backend mock used: false
 
 Models by arm: {"baseline":"gpt-4.1-2025-04-14","mind":"gpt-4.1-2025-04-14","body":"gpt-4.1-2025-04-14","soul":"gpt-4.1-2025-04-14","full":"gpt-4.1-2025-04-14"}
 Generation sources by arm: {"baseline":"openai.simple_baseline_prompt","mind":"backend.generate_ablation_rehearsal:mind_success_visualization_backend","body":"backend.generate_ablation_rehearsal:body_grounding_backend","soul":"backend.generate_ablation_rehearsal:soul_value_anchoring_backend","full":"backend.generate_ablation_rehearsal:full_three_phase_backend"}
-Word counts: {"baseline":243,"mind":220,"body":214,"soul":220,"full":285}
+Word counts: {"baseline":243,"mind":220,"body":214,"soul":220,"full":225}
 
 ## baseline input
 
@@ -578,27 +578,31 @@ I trust my own questions and let my progress be enough for me. Say it again: I t
 ## full sections
 
 ### Introduction
-Notice one natural breath. Feel your chair supporting you, your feet connecting with the floor, and your hands resting where they are. Let your jaw or shoulders release just a bit. Your energy is gentle today after short sleep, so let the morning cues—the warmth from your coffee, the quiet apartment hum, and the open laptop—anchor you here. Take a moment to settle in; tap continue when you’re ready for the next part.
+Notice one natural breath as you settle into your chair. Let your feet meet the floor and your hands rest, then release your jaw gently. Even with short sleep and tiredness, allow this low energy to simply be here. Let the morning light, the quiet hum, and your coffee be grounding anchors now. When you feel present, tap continue.
 
 ### Task visualization
-You are on track toward building a life as an independent researcher, and today you will achieve real progress toward submitting a strong workshop paper this month. Today's top priorities are: Draft related work section from 9:00 AM to 10:30 AM for 90 minutes, Answer TA emails at 1:00 PM for 20 minutes, and Prepare two reading group questions at 3:00 PM for 30 minutes. Imagine how you would complete these tasks one by one today, guided by the feeling of mental clarity, self-trust, and curiosity. How does it feel in your body as you work through each anchor? What happens in your mind as you bring focus to each task? What thoughts appear, and what do your senses notice as you make steady progress? You can trust that each honest pass, at your own pace, is enough to complete what matters today. Take your time picturing this, then tap continue when you’re ready.
+You are on track toward becoming an independent researcher, and today you will achieve real progress toward submitting one strong workshop paper this month. Today's top priorities are: Draft related work section from 9:00 AM to 10:30 AM for 90 minutes, Answer TA emails at 1:00 PM for 20 minutes, and Prepare two reading group questions at 3:00 PM for 30 minutes. Imagine completing these one by one, guided by mental clarity, self-trust, and curiosity. <pause 5 sec> As you picture completing them, what feels steady in your body and attention? <pause 5 sec> What tells you the work is becoming complete enough today? <pause 5 sec>
+
+You will be able to complete these priorities today at a pace your energy can hold. Take time with the image, and tap continue when ready.
 
 ### Ending
-Return to what matters most: being able to trust your own questions and let real progress count, even when energy is low. I am becoming someone who moves with care and independence, one gentle step at a time. Say it slowly: One honest pass, guided by my own questions, is enough to move the work I believe in.
+Return to what matters: clarity, curiosity, and trusting your own questions. I am becoming someone who keeps faith with independent thinking, even on low energy days. Say it slowly: I can move gently and let my own questions lead me forward today.
 
-## full script (285 words)
+## full script (225 words)
 
-Notice one natural breath. Feel your chair supporting you, your feet connecting with the floor, and your hands resting where they are. Let your jaw or shoulders release just a bit. Your energy is gentle today after short sleep, so let the morning cues—the warmth from your coffee, the quiet apartment hum, and the open laptop—anchor you here. Take a moment to settle in; tap continue when you’re ready for the next part.
+Notice one natural breath as you settle into your chair. Let your feet meet the floor and your hands rest, then release your jaw gently. Even with short sleep and tiredness, allow this low energy to simply be here. Let the morning light, the quiet hum, and your coffee be grounding anchors now. When you feel present, tap continue.
 
-You are on track toward building a life as an independent researcher, and today you will achieve real progress toward submitting a strong workshop paper this month. Today's top priorities are: Draft related work section from 9:00 AM to 10:30 AM for 90 minutes, Answer TA emails at 1:00 PM for 20 minutes, and Prepare two reading group questions at 3:00 PM for 30 minutes. Imagine how you would complete these tasks one by one today, guided by the feeling of mental clarity, self-trust, and curiosity. How does it feel in your body as you work through each anchor? What happens in your mind as you bring focus to each task? What thoughts appear, and what do your senses notice as you make steady progress? You can trust that each honest pass, at your own pace, is enough to complete what matters today. Take your time picturing this, then tap continue when you’re ready.
+You are on track toward becoming an independent researcher, and today you will achieve real progress toward submitting one strong workshop paper this month. Today's top priorities are: Draft related work section from 9:00 AM to 10:30 AM for 90 minutes, Answer TA emails at 1:00 PM for 20 minutes, and Prepare two reading group questions at 3:00 PM for 30 minutes. Imagine completing these one by one, guided by mental clarity, self-trust, and curiosity. <pause 5 sec> As you picture completing them, what feels steady in your body and attention? <pause 5 sec> What tells you the work is becoming complete enough today? <pause 5 sec>
 
-Return to what matters most: being able to trust your own questions and let real progress count, even when energy is low. I am becoming someone who moves with care and independence, one gentle step at a time. Say it slowly: One honest pass, guided by my own questions, is enough to move the work I believe in.
+You will be able to complete these priorities today at a pace your energy can hold. Take time with the image, and tap continue when ready.
+
+Return to what matters: clarity, curiosity, and trusting your own questions. I am becoming someone who keeps faith with independent thinking, even on low energy days. Say it slowly: I can move gently and let my own questions lead me forward today.
 
 # maya_task
 
 Models by arm: {"baseline":"gpt-5.5-2026-04-23","mind":"gpt-5.5-2026-04-23","body":"gpt-5.5-2026-04-23","soul":"gpt-5.5-2026-04-23","full":"gpt-5.5-2026-04-23"}
 Generation sources by arm: {"baseline":"openai.simple_baseline_prompt","mind":"backend.generate_ablation_rehearsal:mind_success_visualization_backend","body":"backend.generate_ablation_rehearsal:body_grounding_backend","soul":"backend.generate_ablation_rehearsal:soul_value_anchoring_backend","full":"backend.generate_ablation_rehearsal:full_three_phase_backend"}
-Word counts: {"baseline":163,"mind":166,"body":158,"soul":162,"full":179}
+Word counts: {"baseline":163,"mind":166,"body":158,"soul":162,"full":196}
 
 ## baseline input
 
@@ -1078,16 +1082,20 @@ Repeat this once: I do not have to borrow certainty; I can move with my own ques
 My breath is already here, moving in and out without needing to be forced. I feel the chair holding my posture, my feet on the floor, my jaw softening a little, and I notice this low, effortful energy after short sleep and elevated morning stress. The paper draft is open, the apartment hums quietly, and my attention has one place to land.
 
 ### Task visualization
-This work serves becoming an independent researcher: a life where I think and write on my own questions, with mental clarity, self-trust, curiosity, and visible progress. I am rehearsing Draft related work section: first I re-read the three anchor papers' findings sections, then I draft the gap statement, then I connect the related work back to that gap. As each step settles, I trust my own questions before borrowing other people's, and I can see the section becoming coherent enough for the workshop paper to move forward.
+This work serves becoming an independent researcher: a life where I think and write on my own questions with mental clarity, self-trust, curiosity, and visible progress. I am rehearsing Draft related work section: re-reading the three anchor papers' findings sections, drafting the gap statement, and connecting the related work back to that gap. Imagine completing these steps one by one, guided by clear, self-trusting attention. <pause 5 sec> As I picture the section becoming coherent enough, what feels steady in my body and attention? <pause 5 sec> What tells me this draft has moved forward enough for now? <pause 5 sec>
+
+I am able to move this draft forward with one clear pass.
 
 ### Ending
 I begin with the next readable sentence, not the whole ninety minutes at once. Repeat this once: Even with low energy, one honest pass keeps faith with my own questions.
 
-## full script (179 words)
+## full script (196 words)
 
 My breath is already here, moving in and out without needing to be forced. I feel the chair holding my posture, my feet on the floor, my jaw softening a little, and I notice this low, effortful energy after short sleep and elevated morning stress. The paper draft is open, the apartment hums quietly, and my attention has one place to land.
 
-This work serves becoming an independent researcher: a life where I think and write on my own questions, with mental clarity, self-trust, curiosity, and visible progress. I am rehearsing Draft related work section: first I re-read the three anchor papers' findings sections, then I draft the gap statement, then I connect the related work back to that gap. As each step settles, I trust my own questions before borrowing other people's, and I can see the section becoming coherent enough for the workshop paper to move forward.
+This work serves becoming an independent researcher: a life where I think and write on my own questions with mental clarity, self-trust, curiosity, and visible progress. I am rehearsing Draft related work section: re-reading the three anchor papers' findings sections, drafting the gap statement, and connecting the related work back to that gap. Imagine completing these steps one by one, guided by clear, self-trusting attention. <pause 5 sec> As I picture the section becoming coherent enough, what feels steady in my body and attention? <pause 5 sec> What tells me this draft has moved forward enough for now? <pause 5 sec>
+
+I am able to move this draft forward with one clear pass.
 
 I begin with the next readable sentence, not the whole ninety minutes at once. Repeat this once: Even with low energy, one honest pass keeps faith with my own questions.
 
@@ -1095,7 +1103,7 @@ I begin with the next readable sentence, not the whole ninety minutes at once. R
 
 Models by arm: {"baseline":"gpt-4.1-2025-04-14","mind":"gpt-4.1-2025-04-14","body":"gpt-4.1-2025-04-14","soul":"gpt-4.1-2025-04-14","full":"gpt-4.1-2025-04-14"}
 Generation sources by arm: {"baseline":"openai.simple_baseline_prompt","mind":"backend.generate_ablation_rehearsal:mind_success_visualization_backend","body":"backend.generate_ablation_rehearsal:body_grounding_backend","soul":"backend.generate_ablation_rehearsal:soul_value_anchoring_backend","full":"backend.generate_ablation_rehearsal:full_three_phase_backend"}
-Word counts: {"baseline":234,"mind":209,"body":229,"soul":236,"full":283}
+Word counts: {"baseline":234,"mind":209,"body":229,"soul":236,"full":248}
 
 ## baseline input
 
@@ -1664,27 +1672,31 @@ Let me be guided by clarity and steadiness, shaping each day without urgency. Sa
 ## full sections
 
 ### Introduction
-Notice one natural breath as it comes in and goes out. Feel three solid contact points: your feet on the floor, the chair holding your posture, and your hands meeting the keyboard. Let your jaw and shoulders soften just a little. Your sleep was steady, energy is good enough for focused work, and stress is present but manageable. Let the quiet room, muted alerts, and steady hands become simple anchors. Pause here and tap continue when you feel grounded.
+Notice one natural breath in and out. Feel three points of contact: feet grounded on the floor, your back held by the chair, and hands resting lightly nearby. Let your jaw and shoulders soften as stress eases just a bit. After good sleep and with steady energy, bring attention to the launch dashboard, calendar alerts muted, and the weight of your water bottle as gentle anchors. Take your time and tap continue when you’re ready for the next part.
 
 ### Task visualization
-You are on track toward leading with clarity, and today you will achieve real progress by preparing one meeting-ready launch risk brief before 3:00 PM. Today's top priorities are: Finalize launch risk brief from 9:30 to 10:30 AM for 60 minutes, Draft meeting opening from 2:10 to 2:30 PM for 20 minutes, and Review support escalation notes from 11:00 to 11:30 AM for 30 minutes. Imagine how you would complete these tasks one by one today, guided by a feeling of being organized, decisive, and calm. How do you sense accomplishment in your body as you finish each one? What changes in your attention or the way you focus? What thoughts or sounds make the work feel finished? What do your senses notice as you move through steady, clear action? You will be able to complete these today, one anchor at a time, moving forward with clarity. Let the image build and tap continue when ready.
+You are on track toward leading with clarity and responsibility, and today you will achieve real progress by preparing one meeting-ready launch risk brief before the afternoon review. Today's top priorities are: Finalize launch risk brief from 9:30 to 10:30 AM for 60 minutes, Review support escalation notes from 11:00 to 11:30 AM for 30 minutes, and Draft meeting opening from 2:10 to 2:30 PM for 20 minutes. Imagine completing these one by one, guided by organized, decisive, and calm action. <pause 5 sec> As you picture completing them, what feels steady in your body and attention? <pause 5 sec> What tells you the day is ready enough for the review? <pause 5 sec>
+
+You will be able to complete these priorities today with clear, calm pacing. Take time with the image, and tap continue when ready.
 
 ### Ending
-Return now to the feeling of clarity and steady leadership that matter most. I am becoming someone who leads with responsibility and calm, even when the day is under pressure. Say it slowly: I can let clarity set the pace, and my steady choices move the work forward.
+Return to the feeling at the heart of today: clarity and steady presence. I am becoming someone who leads with responsibility, even when pace or pressure rises. Say it slowly: One calm decision at a time is enough to lead well.
 
-## full script (283 words)
+## full script (248 words)
 
-Notice one natural breath as it comes in and goes out. Feel three solid contact points: your feet on the floor, the chair holding your posture, and your hands meeting the keyboard. Let your jaw and shoulders soften just a little. Your sleep was steady, energy is good enough for focused work, and stress is present but manageable. Let the quiet room, muted alerts, and steady hands become simple anchors. Pause here and tap continue when you feel grounded.
+Notice one natural breath in and out. Feel three points of contact: feet grounded on the floor, your back held by the chair, and hands resting lightly nearby. Let your jaw and shoulders soften as stress eases just a bit. After good sleep and with steady energy, bring attention to the launch dashboard, calendar alerts muted, and the weight of your water bottle as gentle anchors. Take your time and tap continue when you’re ready for the next part.
 
-You are on track toward leading with clarity, and today you will achieve real progress by preparing one meeting-ready launch risk brief before 3:00 PM. Today's top priorities are: Finalize launch risk brief from 9:30 to 10:30 AM for 60 minutes, Draft meeting opening from 2:10 to 2:30 PM for 20 minutes, and Review support escalation notes from 11:00 to 11:30 AM for 30 minutes. Imagine how you would complete these tasks one by one today, guided by a feeling of being organized, decisive, and calm. How do you sense accomplishment in your body as you finish each one? What changes in your attention or the way you focus? What thoughts or sounds make the work feel finished? What do your senses notice as you move through steady, clear action? You will be able to complete these today, one anchor at a time, moving forward with clarity. Let the image build and tap continue when ready.
+You are on track toward leading with clarity and responsibility, and today you will achieve real progress by preparing one meeting-ready launch risk brief before the afternoon review. Today's top priorities are: Finalize launch risk brief from 9:30 to 10:30 AM for 60 minutes, Review support escalation notes from 11:00 to 11:30 AM for 30 minutes, and Draft meeting opening from 2:10 to 2:30 PM for 20 minutes. Imagine completing these one by one, guided by organized, decisive, and calm action. <pause 5 sec> As you picture completing them, what feels steady in your body and attention? <pause 5 sec> What tells you the day is ready enough for the review? <pause 5 sec>
 
-Return now to the feeling of clarity and steady leadership that matter most. I am becoming someone who leads with responsibility and calm, even when the day is under pressure. Say it slowly: I can let clarity set the pace, and my steady choices move the work forward.
+You will be able to complete these priorities today with clear, calm pacing. Take time with the image, and tap continue when ready.
+
+Return to the feeling at the heart of today: clarity and steady presence. I am becoming someone who leads with responsibility, even when pace or pressure rises. Say it slowly: One calm decision at a time is enough to lead well.
 
 # jonah_task
 
 Models by arm: {"baseline":"gpt-5.5-2026-04-23","mind":"gpt-5.5-2026-04-23","body":"gpt-5.5-2026-04-23","soul":"gpt-5.5-2026-04-23","full":"gpt-5.5-2026-04-23"}
 Generation sources by arm: {"baseline":"openai.simple_baseline_prompt","mind":"backend.generate_ablation_rehearsal:mind_success_visualization_backend","body":"backend.generate_ablation_rehearsal:body_grounding_backend","soul":"backend.generate_ablation_rehearsal:soul_value_anchoring_backend","full":"backend.generate_ablation_rehearsal:full_three_phase_backend"}
-Word counts: {"baseline":165,"mind":143,"body":184,"soul":163,"full":178}
+Word counts: {"baseline":165,"mind":143,"body":184,"soul":163,"full":176}
 
 ## baseline input
 
@@ -2163,16 +2175,20 @@ When the room gets noisy, I make the next decision visible, hold the risk with s
 My breath is already here, moving in and out without force. I feel the chair hold my posture, my feet meet the floor, my jaw loosen, and my shoulders notice the moderate pressure of ownership and deadline. With steady morning energy, I let the quiet room, paused notifications, and coffee mark the start of focused planning.
 
 ### Task visualization
-I am practicing calm, useful clarity in service of leading product work with responsibility, so the team can make decisions without living in urgency. I begin Finalize launch risk brief by naming the top unresolved launch risks, seeing three to five real issues become visible enough to act on. Then I assign owners and decision points, owning the risk without carrying every task alone, and I finish by writing a meeting-ready opening summary that feels organized, decisive, and uncluttered. By the end, the brief is ready before the review, and I can sense prepared steadiness in my body and cleaner priorities in my attention.
+The feeling I rehearse is organized, decisive, and calm. I am rehearsing Finalize launch risk brief in service of leading product work with responsibility, so the team can make decisions without living in urgency. I picture naming the top unresolved launch risks, assigning owners and decision points, and shaping a meeting-ready opening summary. Imagine completing these steps one by one with useful clarity. <pause 5 sec> As I picture the brief becoming ready for review, what feels steady in my body and attention? <pause 5 sec> What tells me the team has enough clarity to decide? <pause 5 sec>
+
+I am able to lead this work forward with calm, clear decisions.
 
 ### Ending
 I start with the first unresolved risk. Steady is enough; make the next decision visible; lead without urgency.
 
-## full script (178 words)
+## full script (176 words)
 
 My breath is already here, moving in and out without force. I feel the chair hold my posture, my feet meet the floor, my jaw loosen, and my shoulders notice the moderate pressure of ownership and deadline. With steady morning energy, I let the quiet room, paused notifications, and coffee mark the start of focused planning.
 
-I am practicing calm, useful clarity in service of leading product work with responsibility, so the team can make decisions without living in urgency. I begin Finalize launch risk brief by naming the top unresolved launch risks, seeing three to five real issues become visible enough to act on. Then I assign owners and decision points, owning the risk without carrying every task alone, and I finish by writing a meeting-ready opening summary that feels organized, decisive, and uncluttered. By the end, the brief is ready before the review, and I can sense prepared steadiness in my body and cleaner priorities in my attention.
+The feeling I rehearse is organized, decisive, and calm. I am rehearsing Finalize launch risk brief in service of leading product work with responsibility, so the team can make decisions without living in urgency. I picture naming the top unresolved launch risks, assigning owners and decision points, and shaping a meeting-ready opening summary. Imagine completing these steps one by one with useful clarity. <pause 5 sec> As I picture the brief becoming ready for review, what feels steady in my body and attention? <pause 5 sec> What tells me the team has enough clarity to decide? <pause 5 sec>
+
+I am able to lead this work forward with calm, clear decisions.
 
 I start with the first unresolved risk. Steady is enough; make the next decision visible; lead without urgency.
 
@@ -2180,7 +2196,7 @@ I start with the first unresolved risk. Steady is enough; make the next decision
 
 Models by arm: {"baseline":"gpt-4.1-2025-04-14","mind":"gpt-4.1-2025-04-14","body":"gpt-4.1-2025-04-14","soul":"gpt-4.1-2025-04-14","full":"gpt-4.1-2025-04-14"}
 Generation sources by arm: {"baseline":"openai.simple_baseline_prompt","mind":"backend.generate_ablation_rehearsal:mind_success_visualization_backend","body":"backend.generate_ablation_rehearsal:body_grounding_backend","soul":"backend.generate_ablation_rehearsal:soul_value_anchoring_backend","full":"backend.generate_ablation_rehearsal:full_three_phase_backend"}
-Word counts: {"baseline":285,"mind":204,"body":233,"soul":232,"full":280}
+Word counts: {"baseline":285,"mind":204,"body":233,"soul":232,"full":265}
 
 ## baseline input
 
@@ -2755,27 +2771,31 @@ Grounded care and steady confidence are not things to prove; they are a way I mo
 ## full sections
 
 ### Introduction
-Begin with one natural breath, letting it settle in your chest. Feel the chair beneath you, feet meeting the floor, and hands resting quietly. Let your jaw and shoulders relax, noticing the honest tiredness after a long shift and naming the lower energy that is here today. Let the sight of flashcards, folded scrubs, and the quiet kitchen become simple grounding anchors. Settle into this moment; take your time and tap continue when ready.
+Notice one natural breath as it moves in and out. Feel the chair supporting your body, your feet meeting the floor, and your hands resting gently. Let your jaw soften. Settle into the body you have after six hours of sleep and a long shift—working with the energy that's here is enough. Let the quiet kitchen, the heaviness in your feet, and the sight of flashcards on the table become simple grounding anchors. Take your time here, and tap continue when ready for the next part.
 
 ### Task visualization
-You are on track toward building calm clinical judgment, and today you will achieve real progress toward preparing for Friday’s pharmacology exam and staying current with clinical notes. Today's top priorities are: Review cardiac medication flashcards at 8:15 AM for 45 minutes, Complete clinical reflection note at 10:20 AM for 35 minutes, and Pack materials for afternoon class at 12:30 PM for 15 minutes. Imagine how you would complete these tasks one by one today, guided by a feeling of care, steady competence, and openness to learning. What does it feel like in your body as you move through these anchors? What shifts in your attention from one task to the next? What thoughts are present, and what do your senses notice as you finish each? Even with limited energy, you will be able to complete what matters most today, one mindful step at a time. Take your time with this image, and tap continue when ready.
+You are on track toward building calm clinical judgment, and today you will achieve real progress toward preparing for Friday's pharmacology exam while keeping up with clinical notes. Today's top priorities are: Review cardiac medication flashcards from 8:15 to 9:00 AM for 45 minutes, Complete clinical reflection note from 10:20 to 10:55 AM for 35 minutes, and Pack materials for afternoon class from 12:30 to 12:45 PM for 15 minutes. Imagine completing these one by one, guided by steady care, competence, and openness to learning. <pause 5 sec> As you picture completing them, what feels steady in your body and attention? <pause 5 sec> What tells you the practice and notes are complete enough for today? <pause 5 sec>
+
+You will be able to complete these priorities today at an honest pace. Take time with the image, and tap continue when ready.
 
 ### Ending
-Let care and presence guide each step, just as steady learning shapes who you are. I am becoming someone who can hold gentle attention and build trust in my skills, even on low energy days. Say it slowly: My care and competence deserve one real step at a time.
+Return to the feeling of steady care and the realness of learning as you go. I am becoming someone who honors what matters even when energy is low. Say it slowly: My care deserves my best attention; one steady pass is enough to move forward today.
 
-## full script (280 words)
+## full script (265 words)
 
-Begin with one natural breath, letting it settle in your chest. Feel the chair beneath you, feet meeting the floor, and hands resting quietly. Let your jaw and shoulders relax, noticing the honest tiredness after a long shift and naming the lower energy that is here today. Let the sight of flashcards, folded scrubs, and the quiet kitchen become simple grounding anchors. Settle into this moment; take your time and tap continue when ready.
+Notice one natural breath as it moves in and out. Feel the chair supporting your body, your feet meeting the floor, and your hands resting gently. Let your jaw soften. Settle into the body you have after six hours of sleep and a long shift—working with the energy that's here is enough. Let the quiet kitchen, the heaviness in your feet, and the sight of flashcards on the table become simple grounding anchors. Take your time here, and tap continue when ready for the next part.
 
-You are on track toward building calm clinical judgment, and today you will achieve real progress toward preparing for Friday’s pharmacology exam and staying current with clinical notes. Today's top priorities are: Review cardiac medication flashcards at 8:15 AM for 45 minutes, Complete clinical reflection note at 10:20 AM for 35 minutes, and Pack materials for afternoon class at 12:30 PM for 15 minutes. Imagine how you would complete these tasks one by one today, guided by a feeling of care, steady competence, and openness to learning. What does it feel like in your body as you move through these anchors? What shifts in your attention from one task to the next? What thoughts are present, and what do your senses notice as you finish each? Even with limited energy, you will be able to complete what matters most today, one mindful step at a time. Take your time with this image, and tap continue when ready.
+You are on track toward building calm clinical judgment, and today you will achieve real progress toward preparing for Friday's pharmacology exam while keeping up with clinical notes. Today's top priorities are: Review cardiac medication flashcards from 8:15 to 9:00 AM for 45 minutes, Complete clinical reflection note from 10:20 to 10:55 AM for 35 minutes, and Pack materials for afternoon class from 12:30 to 12:45 PM for 15 minutes. Imagine completing these one by one, guided by steady care, competence, and openness to learning. <pause 5 sec> As you picture completing them, what feels steady in your body and attention? <pause 5 sec> What tells you the practice and notes are complete enough for today? <pause 5 sec>
 
-Let care and presence guide each step, just as steady learning shapes who you are. I am becoming someone who can hold gentle attention and build trust in my skills, even on low energy days. Say it slowly: My care and competence deserve one real step at a time.
+You will be able to complete these priorities today at an honest pace. Take time with the image, and tap continue when ready.
+
+Return to the feeling of steady care and the realness of learning as you go. I am becoming someone who honors what matters even when energy is low. Say it slowly: My care deserves my best attention; one steady pass is enough to move forward today.
 
 # priya_task
 
 Models by arm: {"baseline":"gpt-5.5-2026-04-23","mind":"gpt-5.5-2026-04-23","body":"gpt-5.5-2026-04-23","soul":"gpt-5.5-2026-04-23","full":"gpt-5.5-2026-04-23"}
 Generation sources by arm: {"baseline":"openai.simple_baseline_prompt","mind":"backend.generate_ablation_rehearsal:mind_success_visualization_backend","body":"backend.generate_ablation_rehearsal:body_grounding_backend","soul":"backend.generate_ablation_rehearsal:soul_value_anchoring_backend","full":"backend.generate_ablation_rehearsal:full_three_phase_backend"}
-Word counts: {"baseline":165,"mind":153,"body":172,"soul":151,"full":169}
+Word counts: {"baseline":165,"mind":153,"body":172,"soul":151,"full":174}
 
 ## baseline input
 
@@ -3254,16 +3274,20 @@ I carry this with me: skilled care grows through steady presence, honest practic
 My breath is already here, moving in and out without force. I feel the chair holding my posture, my feet meeting the floor, my jaw softening, and my shoulders noticing the moderate pre-simulation tension without fighting it. With 6.7 hours of sleep and light morning movement, I let this be steady, not rushed; the highlighted notes and water nearby simply mark the scene.
 
 ### Task visualization
-This work serves my goal to build calm clinical judgment: capable enough to stay present, keep learning, and offer steady care. I begin Practice assessment sequence by reviewing the opening patient safety checks, feeling grounded and kind as I slow down enough to notice what matters. Then I walk through the assessment sequence aloud, one complete spoken pass, letting competence feel steady rather than perfect. I finish by marking one good question for the instructor, curious and brave, using practice as information and seeing myself prepared enough to learn in lab.
+This work serves calm clinical judgment: staying present, learning steadily, and offering careful support. I am rehearsing Practice assessment sequence by reviewing opening patient safety checks, walking through one complete assessment sequence aloud, and marking one good question for the instructor. Imagine completing these steps one by one, guided by care, competence, and openness to learning. <pause 5 sec> As I picture the sequence becoming practiced enough, what feels steady in my body and attention? <pause 5 sec> What tells me this practice has become useful enough for lab? <pause 5 sec>
+
+I am able to practice with patience and build trust in my skills.
 
 ### Ending
 I start with the safety checks. Steady is enough; care stays present; practice builds trust.
 
-## full script (169 words)
+## full script (174 words)
 
 My breath is already here, moving in and out without force. I feel the chair holding my posture, my feet meeting the floor, my jaw softening, and my shoulders noticing the moderate pre-simulation tension without fighting it. With 6.7 hours of sleep and light morning movement, I let this be steady, not rushed; the highlighted notes and water nearby simply mark the scene.
 
-This work serves my goal to build calm clinical judgment: capable enough to stay present, keep learning, and offer steady care. I begin Practice assessment sequence by reviewing the opening patient safety checks, feeling grounded and kind as I slow down enough to notice what matters. Then I walk through the assessment sequence aloud, one complete spoken pass, letting competence feel steady rather than perfect. I finish by marking one good question for the instructor, curious and brave, using practice as information and seeing myself prepared enough to learn in lab.
+This work serves calm clinical judgment: staying present, learning steadily, and offering careful support. I am rehearsing Practice assessment sequence by reviewing opening patient safety checks, walking through one complete assessment sequence aloud, and marking one good question for the instructor. Imagine completing these steps one by one, guided by care, competence, and openness to learning. <pause 5 sec> As I picture the sequence becoming practiced enough, what feels steady in my body and attention? <pause 5 sec> What tells me this practice has become useful enough for lab? <pause 5 sec>
+
+I am able to practice with patience and build trust in my skills.
 
 I start with the safety checks. Steady is enough; care stays present; practice builds trust.
 
@@ -3271,7 +3295,7 @@ I start with the safety checks. Steady is enough; care stays present; practice b
 
 Models by arm: {"baseline":"gpt-4.1-2025-04-14","mind":"gpt-4.1-2025-04-14","body":"gpt-4.1-2025-04-14","soul":"gpt-4.1-2025-04-14","full":"gpt-4.1-2025-04-14"}
 Generation sources by arm: {"baseline":"openai.simple_baseline_prompt","mind":"backend.generate_ablation_rehearsal:mind_success_visualization_backend","body":"backend.generate_ablation_rehearsal:body_grounding_backend","soul":"backend.generate_ablation_rehearsal:soul_value_anchoring_backend","full":"backend.generate_ablation_rehearsal:full_three_phase_backend"}
-Word counts: {"baseline":252,"mind":195,"body":237,"soul":260,"full":267}
+Word counts: {"baseline":252,"mind":195,"body":237,"soul":260,"full":255}
 
 ## baseline input
 
@@ -3844,27 +3868,31 @@ Creative freedom and real trust live in every choice I make today; I don’t hav
 ## full sections
 
 ### Introduction
-Notice one natural breath and feel your body settle into the chair, with your feet connecting firmly to the floor. Let your jaw soften and your shoulders drop gently. With rested energy after a good night’s sleep, let the moodboard wall, open deck outline, and stylus in hand become quiet anchors for your attention. Pause here and take your time. Tap continue when you feel ready.
+Notice one natural breath. Feel the chair supporting your body and both feet steady on the floor. Let your shoulders or jaw loosen just a bit. Without changing anything, notice one thing you see, one sound you hear, and the feel of your stylus or desk under your hand. After a solid night’s sleep, steady creative energy is available. Let the deck outline, playlist, and stylus become simple anchors as you settle in. Take your time here and tap continue when ready for the next part.
 
 ### Task visualization
-You are on track toward building an independent creative practice, and today you will achieve real progress by sending a strong pitch deck before the client call. Today's top priorities are: Build pitch deck narrative from 9:00 to 10:20 for 80 minutes, Export client-ready mockups from 11:00 to 11:35 for 35 minutes, and Send invoice reminder from 14:40 to 14:50 for 10 minutes. Imagine how you would complete these tasks one by one, letting a sense of inventiveness, steadiness, and lightness guide your work. How does it feel in your body to begin, to focus, and see fresh ideas take shape? What changes in your attention as you move through each piece, making trust visible in the process? As you finish, what do your thoughts and senses notice? Picture all of this as steady, clear, and possible. You will be able to complete your top priorities today. Take a moment to let this image settle, then tap continue.
+You are on track toward building an independent creative practice, and today you will achieve real progress by sending a strong pitch deck before the client call. Today's top priorities are: Build pitch deck narrative from 9:00 to 10:20 AM for 80 minutes, Export client-ready mockups from 11:00 to 11:35 AM for 35 minutes, and Send invoice reminder at 2:40 PM for 10 minutes. Imagine completing these one by one, guided by inventiveness, professionalism, and lightness. <pause 5 sec> As you picture completing them, what feels alive and steady in your body and attention? <pause 5 sec> What tells you the pitch is clear enough to share? <pause 5 sec>
+
+You will be able to complete these priorities today with steady creative focus. Take time with the image, and tap continue when ready.
 
 ### Ending
-Return to what matters: making your work both unmistakably yours and reliably delivered. I am becoming someone who can move freely and build trust, one day at a time. Say it slowly: My creative independence grows where I place my best attention now.
+Return to what matters now—creative work that feels unmistakably yours and steady delivery. I am becoming someone who shows up with originality and reliability in every anchor I set. Say it slowly: I bring my clearest focus to creative work, one anchor at a time.
 
-## full script (267 words)
+## full script (255 words)
 
-Notice one natural breath and feel your body settle into the chair, with your feet connecting firmly to the floor. Let your jaw soften and your shoulders drop gently. With rested energy after a good night’s sleep, let the moodboard wall, open deck outline, and stylus in hand become quiet anchors for your attention. Pause here and take your time. Tap continue when you feel ready.
+Notice one natural breath. Feel the chair supporting your body and both feet steady on the floor. Let your shoulders or jaw loosen just a bit. Without changing anything, notice one thing you see, one sound you hear, and the feel of your stylus or desk under your hand. After a solid night’s sleep, steady creative energy is available. Let the deck outline, playlist, and stylus become simple anchors as you settle in. Take your time here and tap continue when ready for the next part.
 
-You are on track toward building an independent creative practice, and today you will achieve real progress by sending a strong pitch deck before the client call. Today's top priorities are: Build pitch deck narrative from 9:00 to 10:20 for 80 minutes, Export client-ready mockups from 11:00 to 11:35 for 35 minutes, and Send invoice reminder from 14:40 to 14:50 for 10 minutes. Imagine how you would complete these tasks one by one, letting a sense of inventiveness, steadiness, and lightness guide your work. How does it feel in your body to begin, to focus, and see fresh ideas take shape? What changes in your attention as you move through each piece, making trust visible in the process? As you finish, what do your thoughts and senses notice? Picture all of this as steady, clear, and possible. You will be able to complete your top priorities today. Take a moment to let this image settle, then tap continue.
+You are on track toward building an independent creative practice, and today you will achieve real progress by sending a strong pitch deck before the client call. Today's top priorities are: Build pitch deck narrative from 9:00 to 10:20 AM for 80 minutes, Export client-ready mockups from 11:00 to 11:35 AM for 35 minutes, and Send invoice reminder at 2:40 PM for 10 minutes. Imagine completing these one by one, guided by inventiveness, professionalism, and lightness. <pause 5 sec> As you picture completing them, what feels alive and steady in your body and attention? <pause 5 sec> What tells you the pitch is clear enough to share? <pause 5 sec>
 
-Return to what matters: making your work both unmistakably yours and reliably delivered. I am becoming someone who can move freely and build trust, one day at a time. Say it slowly: My creative independence grows where I place my best attention now.
+You will be able to complete these priorities today with steady creative focus. Take time with the image, and tap continue when ready.
+
+Return to what matters now—creative work that feels unmistakably yours and steady delivery. I am becoming someone who shows up with originality and reliability in every anchor I set. Say it slowly: I bring my clearest focus to creative work, one anchor at a time.
 
 # alex_task
 
 Models by arm: {"baseline":"gpt-5.5-2026-04-23","mind":"gpt-5.5-2026-04-23","body":"gpt-5.5-2026-04-23","soul":"gpt-5.5-2026-04-23","full":"gpt-5.5-2026-04-23"}
 Generation sources by arm: {"baseline":"openai.simple_baseline_prompt","mind":"backend.generate_ablation_rehearsal:mind_success_visualization_backend","body":"backend.generate_ablation_rehearsal:body_grounding_backend","soul":"backend.generate_ablation_rehearsal:soul_value_anchoring_backend","full":"backend.generate_ablation_rehearsal:full_three_phase_backend"}
-Word counts: {"baseline":164,"mind":169,"body":172,"soul":150,"full":171}
+Word counts: {"baseline":164,"mind":169,"body":172,"soul":150,"full":184}
 
 ## baseline input
 
@@ -4347,16 +4375,20 @@ I carry this as my anchor: my work feels like mine, my delivery makes trust visi
 My breath is already here, steady enough to notice, and my feet meet the floor while the chair holds my posture. My jaw softens, my shoulders register the low-to-moderate pitch tension, and the rested energy from strong sleep feels available without needing to rush. I sense the deck outline open, the thumbnails nearby, and coffee in the background.
 
 ### Task visualization
-I am building an independent creative practice where original work stays sustainable, and this pitch is one way I make trust visible. For Build pitch deck narrative, I first choose one core story arc, letting the strongest concept feel inventive, alive, and unmistakably mine. Then I sequence the strongest slides into a clear flow, solid enough for the client to follow and fresh enough to carry the idea. Next I write transition notes for the call, hearing the deck become settled, professional, and ready to send before 4:00 PM.
+This pitch is one way I build an independent creative practice where original work stays sustainable and reliable. I am rehearsing Build pitch deck narrative: choosing one core story arc, sequencing the strongest slides into a clear flow, and writing transition notes for the client call. Imagine completing these steps one by one, guided by inventiveness, professionalism, and lightness. <pause 5 sec> As I picture the pitch becoming ready to send, what feels steady in my body and attention? <pause 5 sec> What tells me the idea is clear enough for the client to follow? <pause 5 sec>
+
+I am able to make the idea clear, original, and ready for trust.
 
 ### Ending
 I begin with the core story arc. Rested energy, one clear choice; original work, reliable delivery; this is how I keep the studio free.
 
-## full script (171 words)
+## full script (184 words)
 
 My breath is already here, steady enough to notice, and my feet meet the floor while the chair holds my posture. My jaw softens, my shoulders register the low-to-moderate pitch tension, and the rested energy from strong sleep feels available without needing to rush. I sense the deck outline open, the thumbnails nearby, and coffee in the background.
 
-I am building an independent creative practice where original work stays sustainable, and this pitch is one way I make trust visible. For Build pitch deck narrative, I first choose one core story arc, letting the strongest concept feel inventive, alive, and unmistakably mine. Then I sequence the strongest slides into a clear flow, solid enough for the client to follow and fresh enough to carry the idea. Next I write transition notes for the call, hearing the deck become settled, professional, and ready to send before 4:00 PM.
+This pitch is one way I build an independent creative practice where original work stays sustainable and reliable. I am rehearsing Build pitch deck narrative: choosing one core story arc, sequencing the strongest slides into a clear flow, and writing transition notes for the client call. Imagine completing these steps one by one, guided by inventiveness, professionalism, and lightness. <pause 5 sec> As I picture the pitch becoming ready to send, what feels steady in my body and attention? <pause 5 sec> What tells me the idea is clear enough for the client to follow? <pause 5 sec>
+
+I am able to make the idea clear, original, and ready for trust.
 
 I begin with the core story arc. Rested energy, one clear choice; original work, reliable delivery; this is how I keep the studio free.
 
@@ -4364,7 +4396,7 @@ I begin with the core story arc. Rested energy, one clear choice; original work,
 
 Models by arm: {"baseline":"gpt-4.1-2025-04-14","mind":"gpt-4.1-2025-04-14","body":"gpt-4.1-2025-04-14","soul":"gpt-4.1-2025-04-14","full":"gpt-4.1-2025-04-14"}
 Generation sources by arm: {"baseline":"openai.simple_baseline_prompt","mind":"backend.generate_ablation_rehearsal:mind_success_visualization_backend","body":"backend.generate_ablation_rehearsal:body_grounding_backend","soul":"backend.generate_ablation_rehearsal:soul_value_anchoring_backend","full":"backend.generate_ablation_rehearsal:full_three_phase_backend"}
-Word counts: {"baseline":238,"mind":203,"body":220,"soul":233,"full":276}
+Word counts: {"baseline":238,"mind":203,"body":220,"soul":233,"full":246}
 
 ## baseline input
 
@@ -4939,27 +4971,31 @@ Let me keep faith with justice, care, and diligence, so my work stays both rigor
 ## full sections
 
 ### Introduction
-Notice one natural breath. Feel the chair supporting you, your feet steady on the floor, and your hands warming around the mug. Let your jaw soften as you settle into the new day. Your body carries the tiredness of a short night, but the morning window is still usable. Let the quiet apartment, the outline on your desk, and the muted alerts become simple anchors. Take a breath or two, then tap continue when you are ready.
+Notice one natural breath moving in and out. Feel the chair supporting your body, feet grounded on the floor, and the warmth of your hands. Let your jaw release just a little. Energy is lower this morning from short sleep, so gentle pacing matters. Take in the muted quiet, the weight of printed notes, and the comfort of your warm mug. Let these contact points become simple anchors before the work begins. Take your time here and tap continue when you’re ready.
 
 ### Task visualization
-You are on track toward practicing humane advocacy, and today you will achieve real progress by submitting a clear first draft of the argument section by noon. Today's top priorities are: Draft argument section from 8:30 to 9:55 AM for 85 minutes, Confirm pickup logistics at 10:15 AM for 15 minutes, and Send case update to co-counsel at 11:05 AM for 25 minutes. Imagine yourself completing these tasks one by one, letting care, justice, and diligence set your pace. As you move through the work, how does accomplishment feel in your body? What shifts in your mind and attention as you finish each task? What thoughts arise, and what do your senses notice as each anchor lands? Picture a steady, committed, and kind presence guiding you through each step. Trust that you will be able to carry these through today, even with modest energy. Pause with this image for a moment, then tap continue.
+You are on track toward practicing humane advocacy, and today you will achieve real progress by submitting a clear first draft of the argument section. Today's top priorities are: Draft argument section from 8:30 to 9:55 AM for 85 minutes, Confirm pickup logistics at 10:15 AM for 15 minutes, and Send case update to co-counsel at 11:05 AM for 25 minutes. Imagine completing these one by one, guided by purpose, care, and thoroughness. <pause 5 sec> As you picture completing them, what feels steady in your body and attention? <pause 5 sec> What tells you the argument is clear enough to protect what matters? <pause 5 sec>
+
+You will be able to complete these priorities today without force. Take time with the image, and tap continue when ready.
 
 ### Ending
-You can move toward justice and care even with a slow start. I am becoming someone who holds steady to what matters, no matter how compressed the day feels. Say it slowly: My care and diligence deserve one clear, honest pass through what matters most.
+What matters most is carrying justice and care forward, even at a gentle pace. I am becoming someone who faces real limits while protecting what matters most. Say it slowly: My care and diligence deserve my steady attention, even when time and energy are tight.
 
-## full script (276 words)
+## full script (246 words)
 
-Notice one natural breath. Feel the chair supporting you, your feet steady on the floor, and your hands warming around the mug. Let your jaw soften as you settle into the new day. Your body carries the tiredness of a short night, but the morning window is still usable. Let the quiet apartment, the outline on your desk, and the muted alerts become simple anchors. Take a breath or two, then tap continue when you are ready.
+Notice one natural breath moving in and out. Feel the chair supporting your body, feet grounded on the floor, and the warmth of your hands. Let your jaw release just a little. Energy is lower this morning from short sleep, so gentle pacing matters. Take in the muted quiet, the weight of printed notes, and the comfort of your warm mug. Let these contact points become simple anchors before the work begins. Take your time here and tap continue when you’re ready.
 
-You are on track toward practicing humane advocacy, and today you will achieve real progress by submitting a clear first draft of the argument section by noon. Today's top priorities are: Draft argument section from 8:30 to 9:55 AM for 85 minutes, Confirm pickup logistics at 10:15 AM for 15 minutes, and Send case update to co-counsel at 11:05 AM for 25 minutes. Imagine yourself completing these tasks one by one, letting care, justice, and diligence set your pace. As you move through the work, how does accomplishment feel in your body? What shifts in your mind and attention as you finish each task? What thoughts arise, and what do your senses notice as each anchor lands? Picture a steady, committed, and kind presence guiding you through each step. Trust that you will be able to carry these through today, even with modest energy. Pause with this image for a moment, then tap continue.
+You are on track toward practicing humane advocacy, and today you will achieve real progress by submitting a clear first draft of the argument section. Today's top priorities are: Draft argument section from 8:30 to 9:55 AM for 85 minutes, Confirm pickup logistics at 10:15 AM for 15 minutes, and Send case update to co-counsel at 11:05 AM for 25 minutes. Imagine completing these one by one, guided by purpose, care, and thoroughness. <pause 5 sec> As you picture completing them, what feels steady in your body and attention? <pause 5 sec> What tells you the argument is clear enough to protect what matters? <pause 5 sec>
 
-You can move toward justice and care even with a slow start. I am becoming someone who holds steady to what matters, no matter how compressed the day feels. Say it slowly: My care and diligence deserve one clear, honest pass through what matters most.
+You will be able to complete these priorities today without force. Take time with the image, and tap continue when ready.
+
+What matters most is carrying justice and care forward, even at a gentle pace. I am becoming someone who faces real limits while protecting what matters most. Say it slowly: My care and diligence deserve my steady attention, even when time and energy are tight.
 
 # serena_task
 
 Models by arm: {"baseline":"gpt-5.5-2026-04-23","mind":"gpt-5.5-2026-04-23","body":"gpt-5.5-2026-04-23","soul":"gpt-5.5-2026-04-23","full":"gpt-5.5-2026-04-23"}
 Generation sources by arm: {"baseline":"openai.simple_baseline_prompt","mind":"backend.generate_ablation_rehearsal:mind_success_visualization_backend","body":"backend.generate_ablation_rehearsal:body_grounding_backend","soul":"backend.generate_ablation_rehearsal:soul_value_anchoring_backend","full":"backend.generate_ablation_rehearsal:full_three_phase_backend"}
-Word counts: {"baseline":172,"mind":159,"body":165,"soul":165,"full":167}
+Word counts: {"baseline":172,"mind":159,"body":165,"soul":165,"full":164}
 
 ## baseline input
 
@@ -5444,15 +5480,19 @@ I practice the shape of a life where rigorous advocacy and humanity belong toget
 My breath is already here, moving without force, and my feet are planted under the desk. I feel the chair hold my posture, my jaw soften, and my shoulders name the compressed morning and 5.9 hours of interrupted sleep without turning that into pressure. The quiet apartment and warm tea help the scene become simple enough to enter.
 
 ### Task visualization
-The feeling I rehearse is clear, purposeful, and human: rigorous advocacy without losing my humanity. This work serves humane advocacy by making an unfair system more answerable and the client’s position more protected. I begin Draft argument section with one outline pass, then I see the strongest claim paragraph take shape, steady and sharp enough to lead the argument. Next, I tie precedent back to client facts, feeling the care in plain language and the diligence in a complete first draft by noon. I can make one grounded pass that counts.
+The feeling I rehearse is clear, purposeful, and human: rigorous advocacy without losing my humanity. I am rehearsing Draft argument section by making one outline pass, drafting the strongest claim paragraph, and tying precedent back to client facts. Imagine completing these steps one by one, guided by care, justice, and diligence. <pause 5 sec> As I picture the argument becoming clear enough, what feels steady in my body and attention? <pause 5 sec> What tells me this draft protects what matters today? <pause 5 sec>
+
+I am able to make one grounded pass that protects what matters.
 
 ### Ending
 I start with the outline pass. Clear enough to begin; humane enough to continue; careful work protects people.
 
-## full script (167 words)
+## full script (164 words)
 
 My breath is already here, moving without force, and my feet are planted under the desk. I feel the chair hold my posture, my jaw soften, and my shoulders name the compressed morning and 5.9 hours of interrupted sleep without turning that into pressure. The quiet apartment and warm tea help the scene become simple enough to enter.
 
-The feeling I rehearse is clear, purposeful, and human: rigorous advocacy without losing my humanity. This work serves humane advocacy by making an unfair system more answerable and the client’s position more protected. I begin Draft argument section with one outline pass, then I see the strongest claim paragraph take shape, steady and sharp enough to lead the argument. Next, I tie precedent back to client facts, feeling the care in plain language and the diligence in a complete first draft by noon. I can make one grounded pass that counts.
+The feeling I rehearse is clear, purposeful, and human: rigorous advocacy without losing my humanity. I am rehearsing Draft argument section by making one outline pass, drafting the strongest claim paragraph, and tying precedent back to client facts. Imagine completing these steps one by one, guided by care, justice, and diligence. <pause 5 sec> As I picture the argument becoming clear enough, what feels steady in my body and attention? <pause 5 sec> What tells me this draft protects what matters today? <pause 5 sec>
+
+I am able to make one grounded pass that protects what matters.
 
 I start with the outline pass. Clear enough to begin; humane enough to continue; careful work protects people.

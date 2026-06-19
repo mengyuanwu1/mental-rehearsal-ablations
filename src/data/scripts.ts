@@ -35,6 +35,14 @@ const audioByScenarioArm = (
     audioByScenarioArm?: Record<string, Partial<Record<ConditionId, string | AudioSegmentMap>>>;
   }
 ).audioByScenarioArm ?? {};
+const pauseMarkerPattern = /<pause\s+\d+(?:\.\d+)?\s*(?:s|sec|secs|second|seconds)>/gi;
+const stripPauseMarkers = (text: string) =>
+  text
+    .replace(pauseMarkerPattern, "")
+    .replace(/[ \t]{2,}/g, " ")
+    .replace(/[ \t]+\n/g, "\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
 
 const taskPhrase = (task: PriorityTask) => {
   const timeRange =
@@ -122,7 +130,7 @@ const taskSequenceLine = (scenario: Scenario, tasks: PriorityTask[]) => {
 
 export function scriptForCondition(scenario: Scenario, condition: ConditionId): string {
   const llmOverride = llmScriptOverrides[scenario.id]?.[condition];
-  if (llmOverride) return llmOverride;
+  if (llmOverride) return stripPauseMarkers(llmOverride);
 
   const tasks = rehearsalTasks(scenario);
   const [first, second, third] = tasks;
@@ -211,9 +219,9 @@ export function textSegmentsForCondition(scenario: Scenario, condition: Conditio
   const sections = llmSections[scenario.id]?.[condition];
   if (sections) {
     return {
-      introduction: sections.introduction ?? "",
-      middle: sections.task_completion ?? "",
-      ending: sections.ending ?? "",
+      introduction: stripPauseMarkers(sections.introduction ?? ""),
+      middle: stripPauseMarkers(sections.task_completion ?? ""),
+      ending: stripPauseMarkers(sections.ending ?? ""),
     };
   }
 

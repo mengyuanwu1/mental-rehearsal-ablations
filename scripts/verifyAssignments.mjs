@@ -1,20 +1,20 @@
 const slotCount = 10;
-const trialsPerSlot = 3;
+const trialsPerSlot = 2;
 const conditions = ["baseline", "mind", "body", "soul", "full"];
 const scenarioCount = 5;
 const pairScheduleByAssignment = [
-  [3, 6, 4],
-  [9, 8, 0],
-  [3, 8, 5],
-  [6, 9, 1],
-  [3, 7, 9],
-  [8, 2, 6],
-  [3, 4, 6],
-  [9, 0, 8],
-  [3, 7, 8],
-  [9, 6, 1],
+  [0, 3],
+  [0, 6],
+  [1, 3],
+  [2, 6],
+  [0, 8],
+  [9, 1],
+  [3, 2],
+  [6, 1],
+  [8, 2],
+  [9, 0],
 ];
-const expectedPairCounts = [2, 2, 1, 5, 2, 1, 5, 2, 5, 5];
+const expectedPairCounts = [4, 3, 3, 3, 0, 0, 3, 0, 2, 2];
 
 const pairs = [];
 for (let i = 0; i < conditions.length; i += 1) {
@@ -63,18 +63,37 @@ const expectedScenarioCount = (slotCount * trialsPerSlot) / scenarioCount;
 const pairBalanced = pairCounts.every((count, index) => count === expectedPairCounts[index]);
 const scenarioBalanced = scenarioCounts.every((count) => count === expectedScenarioCount);
 const noDuplicates = duplicateSlots.length === 0;
-const baselinePresentEverySlot = baselineCountsBySlot.every((count) => count > 0);
-const fullShownTwiceEverySlot = fullCountsBySlot.every((count) => count === 2);
+const baselineSlots = baselineCountsBySlot.filter((count) => count > 0).length;
+const expectedBaselineSlots = 10;
+const fullPresentEverySlot = fullCountsBySlot.every((count) => count === 1);
+const fullTrial0Count = pairScheduleByAssignment.filter(([firstPair]) =>
+  pairs[firstPair].includes("full"),
+).length;
+const fullTrial1Count = pairScheduleByAssignment.filter(([, secondPair]) =>
+  pairs[secondPair].includes("full"),
+).length;
+const fullTrialPositionBalanced = fullTrial0Count === fullTrial1Count;
 
-console.log({ pairCounts, scenarioCounts, repeatedPairScenarioCells, duplicateSlots, baselineCountsBySlot, fullCountsBySlot });
+console.log({
+  pairCounts,
+  scenarioCounts,
+  repeatedPairScenarioCells,
+  duplicateSlots,
+  baselineCountsBySlot,
+  fullCountsBySlot,
+  baselineSlots,
+  fullTrial0Count,
+  fullTrial1Count,
+});
 
 if (
   !pairBalanced ||
   !scenarioBalanced ||
   repeatedPairScenarioCells.length > 0 ||
   !noDuplicates ||
-  !baselinePresentEverySlot ||
-  !fullShownTwiceEverySlot
+  baselineSlots !== expectedBaselineSlots ||
+  !fullPresentEverySlot ||
+  !fullTrialPositionBalanced
 ) {
   process.exitCode = 1;
 }

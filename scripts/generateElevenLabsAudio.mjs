@@ -1,4 +1,6 @@
-import { mkdir, readFile, stat, writeFile } from "node:fs/promises";
+import { spawnSync } from "node:child_process";
+import { mkdir, mkdtemp, readFile, rm, stat, writeFile } from "node:fs/promises";
+import { tmpdir } from "node:os";
 import path from "node:path";
 
 const conditions = ["baseline", "mind", "body", "soul", "full"];
@@ -16,6 +18,7 @@ const artifactPath = path.resolve("src/data/llmStudyScripts.json");
 const manifestPath = path.resolve("src/data/audioManifest.json");
 const outputManifestPath = path.resolve("outputs/audio_manifest.json");
 const publicAudioDir = path.resolve("public/audio");
+const pauseMarkerPattern = /<pause\s+(\d+(?:\.\d+)?)\s*(?:s|sec|secs|second|seconds)>/gi;
 
 function parseEnvLine(line) {
   const trimmed = line.trim();
@@ -46,7 +49,7 @@ async function loadLocalEnv() {
 }
 
 function wordCount(text) {
-  return text.trim().split(/\s+/).filter(Boolean).length;
+  return text.replace(pauseMarkerPattern, " ").trim().split(/\s+/).filter(Boolean).length;
 }
 
 function envFilterSet(value) {
@@ -137,6 +140,125 @@ async function synthesize({ apiKey, modelId, outputFormat, speed, text, voiceId 
   return Buffer.from(await response.arrayBuffer());
 }
 
+function outputAudioSettings(outputFormat) {
+  const match = String(outputFormat).match(/^mp3_(\d+)_(\d+)$/);
+  return {
+    sampleRate: match ? match[1] : "44100",
+    bitrateKbps: match ? match[2] : "128",
+  };
+}
+
+function splitPauseMarkedText(text) {
+  const parts = [];
+  const regex = new RegExp(pauseMarkerPattern);
+  let cursor = 0;
+  let match;
+
+  while ((match = regex.exec(text)) !== null) {
+    const before = text.slice(cursor, match.index).replace(/\s+/g, " ").trim();
+    if (before) {
+      parts.push({ type: "text", text: before });
+    }
+    const seconds = Number(match[1]);
+    if (Number.isFinite(seconds) && seconds > 0) {
+      parts.push({ type: "pause", seconds });
+    }
+    cursor = match.index + match[0].length;
+  }
+
+  const after = text.slice(cursor).replace(/\s+/g, " ").trim();
+  if (after) {
+    parts.push({ type: "text", text: after });
+  }
+
+  return parts.length > 0 ? parts : [{ type: "text", text }];
+}
+
+function ffmpeg(args, errorMessage) {
+  const result = spawnSync("ffmpeg", args, { encoding: "utf8" });
+  if (result.status !== 0) {
+    throw new Error(
+      `${errorMessage}: ${(result.stderr || result.stdout || "").trim()}`,
+    );
+  }
+}
+
+function concatFileLine(filePath) {
+  return `file '${filePath.replaceAll("'", "'\\''")}'`;
+}
+
+async function synthesizeWithPauses(options) {
+  const parts = splitPauseMarkedText(options.text);
+  if (!parts.some((part) => part.type === "pause")) {
+    return synthesize(options);
+  }
+
+  const { sampleRate, bitrateKbps } = outputAudioSettings(options.outputFormat);
+  const tempDir = await mkdtemp(path.join(tmpdir(), "mra-audio-"));
+
+  try {
+    const segmentPaths = [];
+    for (let index = 0; index < parts.length; index += 1) {
+      const part = parts[index];
+      const segmentPath = path.join(tempDir, `segment-${String(index).padStart(3, "0")}.mp3`);
+
+      if (part.type === "text") {
+        const audio = await synthesize({ ...options, text: part.text });
+        await writeFile(segmentPath, audio);
+      } else {
+        ffmpeg(
+          [
+            "-hide_banner",
+            "-loglevel",
+            "error",
+            "-f",
+            "lavfi",
+            "-i",
+            `anullsrc=r=${sampleRate}:cl=mono`,
+            "-t",
+            String(part.seconds),
+            "-codec:a",
+            "libmp3lame",
+            "-b:a",
+            `${bitrateKbps}k`,
+            segmentPath,
+          ],
+          "Failed to create pause audio",
+        );
+      }
+
+      segmentPaths.push(segmentPath);
+    }
+
+    const listPath = path.join(tempDir, "concat.txt");
+    const outputPath = path.join(tempDir, "combined.mp3");
+    await writeFile(listPath, `${segmentPaths.map(concatFileLine).join("\n")}\n`);
+    ffmpeg(
+      [
+        "-hide_banner",
+        "-loglevel",
+        "error",
+        "-f",
+        "concat",
+        "-safe",
+        "0",
+        "-i",
+        listPath,
+        "-codec:a",
+        "libmp3lame",
+        "-b:a",
+        `${bitrateKbps}k`,
+        outputPath,
+      ],
+      "Failed to concatenate paused audio",
+    );
+
+    return readFile(outputPath);
+  } finally {
+    await rm(tempDir, { recursive: true, force: true });
+  }
+}
+
 async function main() {
   const env = await loadLocalEnv();
   const apiKey = env.ELEVENLABS_API_KEY || env.XI_API_KEY || env.ELEVEN_API_KEY;
@@ -206,7 +328,7 @@ async function main() {
         }
 
         console.log(`${scenarioId}/${condition}/${segmentId}: generating ${wordCount(text)} words`);
-        const audio = await synthesize({
+        const audio = await synthesizeWithPauses({
           apiKey,
           modelId,
           outputFormat,

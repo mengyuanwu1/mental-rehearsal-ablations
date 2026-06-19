@@ -14,19 +14,19 @@ export const conditionPairs: Array<[ConditionId, ConditionId]> = (() => {
 })();
 
 export const assignmentSlotCount = 10;
-const TRIALS_PER_SLOT = 3;
+const TRIALS_PER_SLOT = 2;
 
 const pairScheduleByAssignment: number[][] = [
-  [3, 6, 4],
-  [9, 8, 0],
-  [3, 8, 5],
-  [6, 9, 1],
-  [3, 7, 9],
-  [8, 2, 6],
-  [3, 4, 6],
-  [9, 0, 8],
-  [3, 7, 8],
-  [9, 6, 1],
+  [0, 3],
+  [0, 6],
+  [1, 3],
+  [2, 6],
+  [0, 8],
+  [9, 1],
+  [3, 2],
+  [6, 1],
+  [8, 2],
+  [9, 0],
 ];
 
 export function hashString(input: string): number {

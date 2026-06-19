@@ -8,21 +8,21 @@ Small static web UI for Prolific / Qualtrics pairwise comparison tasks.
 - 10 condition pairs
 - 5 scenarios: 5 seed profiles, daily scope only
 - 10 assignment slots for the pilot
-- 3 trials per participant
+- 2 trials per participant
 - Each trial shows one scenario and two scripts from different conditions
 - Script order randomized per assignment slot / trial
-- Each participant sees 1-2 comparisons that include the `baseline` condition
+- 8 of 10 assignment slots include a direct `baseline` comparison
 - After entering a Prolific ID, participants see a brief introduction to mental rehearsal and the study task
 - Each comparison requires a 45-second review period before the participant can continue
 - Participants must choose one script and rate both scripts before continuing
 - Comparison 2 includes a short inference-based attention check that rotates across
   scenario focus, values, and energy-state questions
-- After the 3 comparisons, participants complete a final personalization questionnaire
+- After the 2 comparisons, participants complete a final personalization questionnaire
 
 Across assignment ids `0` through `9`:
 
-- each condition pair appears 3 times
-- each scenario appears 6 times
+- each condition pair appears 2 times
+- each scenario appears 4 times
 - no repeated pair x scenario cell appears in the pilot assignment table
 - no participant sees the same scenario twice
 

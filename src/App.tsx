@@ -47,6 +47,8 @@ const attentionCheckTrialIndexes = [1];
 const attentionCheckTrialIndexSet = new Set(attentionCheckTrialIndexes);
 const attentionCheckKinds = ["task", "values", "energy"] as const;
 const lastAdminAssignmentStorageKey = "mra-last-admin-assignment-id";
+const audioSeekToleranceSeconds = 1.5;
+const audioCompletionToleranceSeconds = 1.5;
 
 type AttentionCheckKind = (typeof attentionCheckKinds)[number];
 
@@ -215,6 +217,17 @@ const audioMetricsFromResponse = (response?: TrialResponse): AudioMetricsBySide 
 });
 
 const roundedAudioSeconds = (value: number) => Math.round(Math.max(0, value) * 10) / 10;
+
+const continuousPlayedSeconds = (audio: HTMLAudioElement) => {
+  let continuousEnd = 0;
+  for (let index = 0; index < audio.played.length; index += 1) {
+    const rangeStart = audio.played.start(index);
+    const rangeEnd = audio.played.end(index);
+    if (rangeStart > continuousEnd + audioSeekToleranceSeconds) continue;
+    continuousEnd = Math.max(continuousEnd, rangeEnd);
+  }
+  return roundedAudioSeconds(continuousEnd);
+};
 
 const orderedAudioSegments = (segments: AudioSegmentMap) =>
   audioSegmentOrder.filter((segmentId) => Boolean(segments[segmentId]));
@@ -941,7 +954,7 @@ export default function App() {
               <h2>What is this study about?</h2>
               <p>
                 This study compares different styles of mental rehearsal guidance. You will listen
-                to three pairs of rehearsal scripts and choose which script would better help
+                to two pairs of rehearsal scripts and choose which script would better help
                 someone prepare for their day.
               </p>
             </section>
@@ -1126,7 +1139,7 @@ function StudyTask({
     || (isSubmitting
       ? "Saving..."
       : adminMode
-        ? "Admin mode: Continue can advance without saving incomplete responses."
+        ? "Admin mode: Continue saves partial responses before advancing."
         : readingComplete
           ? audioListeningComplete
             ? "Response saves after each trial."
@@ -1243,21 +1256,30 @@ function StudyTask({
   }
 
   function recordAudioPosition(side: AudioSide, segmentId: AudioSegmentId, event: SyntheticEvent<HTMLAudioElement>) {
-    const currentTime = roundedAudioSeconds(event.currentTarget.currentTime);
+    const audio = event.currentTarget;
+    const currentTime = roundedAudioSeconds(audio.currentTime);
+    const continuousTime = continuousPlayedSeconds(audio);
+
+    if (!adminMode && currentTime > continuousTime + audioSeekToleranceSeconds) {
+      audio.currentTime = continuousTime;
+      return;
+    }
+
     updateAudioMetrics(side, (current) => {
       const segment = current.segmentProgress[segmentId] ?? {
         playCount: 0,
         maxPositionSeconds: 0,
         ended: false,
       };
+      const maxPositionSeconds = Math.max(current.maxPositionSeconds, currentTime, continuousTime);
       return {
         ...current,
-        maxPositionSeconds: Math.max(current.maxPositionSeconds, currentTime),
+        maxPositionSeconds,
         segmentProgress: {
           ...current.segmentProgress,
           [segmentId]: {
             ...segment,
-            maxPositionSeconds: Math.max(segment.maxPositionSeconds, currentTime),
+            maxPositionSeconds: Math.max(segment.maxPositionSeconds, currentTime, continuousTime),
           },
         },
       };
@@ -1265,28 +1287,61 @@ function StudyTask({
   }
 
   function recordAudioEnded(side: AudioSide, segmentId: AudioSegmentId, event: SyntheticEvent<HTMLAudioElement>) {
-    const currentTime = roundedAudioSeconds(event.currentTarget.currentTime);
+    const audio = event.currentTarget;
+    const currentTime = roundedAudioSeconds(audio.currentTime);
+    const continuousTime = continuousPlayedSeconds(audio);
+    const duration = roundedAudioSeconds(audio.duration);
+    const durationForMetrics = Number.isFinite(duration) ? duration : currentTime;
+    const listenedThrough =
+      adminMode ||
+      (Number.isFinite(duration) && continuousTime >= Math.max(0, duration - audioCompletionToleranceSeconds));
+
+    if (!listenedThrough) {
+      audio.currentTime = continuousTime;
+      return;
+    }
+
     updateAudioMetrics(side, (current) => {
       const segment = current.segmentProgress[segmentId] ?? {
         playCount: 0,
         maxPositionSeconds: 0,
         ended: false,
       };
+      const maxPositionSeconds = Math.max(
+        current.maxPositionSeconds,
+        currentTime,
+        continuousTime,
+        durationForMetrics,
+      );
       return {
         ...current,
         ended: true,
-        maxPositionSeconds: Math.max(current.maxPositionSeconds, currentTime),
+        maxPositionSeconds,
         segmentProgress: {
           ...current.segmentProgress,
           [segmentId]: {
             ...segment,
             ended: true,
-            maxPositionSeconds: Math.max(segment.maxPositionSeconds, currentTime),
+            maxPositionSeconds: Math.max(segment.maxPositionSeconds, currentTime, continuousTime, durationForMetrics),
           },
         },
       };
     });
 
+  }
+
+  function preventAudioSeekAhead(
+    side: AudioSide,
+    segmentId: AudioSegmentId,
+    event: SyntheticEvent<HTMLAudioElement>,
+  ) {
+    if (adminMode) return;
+    const audio = event.currentTarget;
+    const currentTime = roundedAudioSeconds(audio.currentTime);
+    const segment = audioMetrics[side].segmentProgress[segmentId];
+    const continuousTime = Math.max(continuousPlayedSeconds(audio), segment?.maxPositionSeconds ?? 0);
+    if (currentTime <= continuousTime + audioSeekToleranceSeconds) return;
+    audio.currentTime = continuousTime;
   }
 
   function advanceAudioSegment(side: AudioSide, segmentIds: AudioSegmentId[]) {
@@ -1344,16 +1399,15 @@ function StudyTask({
           key={`${trial.scenarioId}:${side}:${segmentId}:${audioPath}`}
           onEnded={(event) => recordAudioEnded(side, segmentId, event)}
           onPlay={() => recordAudioPlay(side, segmentId)}
+          onSeeking={(event) => preventAudioSeekAhead(side, segmentId, event)}
           onTimeUpdate={(event) => recordAudioPosition(side, segmentId, event)}
           preload="none"
           src={audioPath}
         />
         <div className="script-segment-copy">{segmentText}</div>
-        <p>
-          {isFinalSegment
-            ? "Listen to the final part all the way through. The complete script text will appear afterward."
-            : "Listen to this part all the way through. When you feel ready, tap Continue."}
-        </p>
+        {isFinalSegment ? (
+          <p>Listen to the final part all the way through. The complete script text will appear afterward.</p>
+        ) : null}
         {!isFinalSegment ? (
           <button
             className="secondary-button audio-next-button"
@@ -1431,16 +1485,12 @@ function StudyTask({
 
   async function submit() {
     if (submittingRef.current || !canContinue) return;
-    if (adminMode && (!choice || !ratingsComplete || (attentionCheck && !attentionCheckAnswer))) {
-      setPostingError("");
-      resetTrialStateAndAdvance();
-      return;
-    }
-    if (!ratingsComplete || !choice) return;
+    if (!adminMode && (!ratingsComplete || !choice)) return;
 
     submittingRef.current = true;
     setIsSubmitting(true);
     const now = new Date().toISOString();
+    const ratingForResponse = (value: number | null) => (adminMode ? value : requiredRating(value));
     const response: TrialResponse = {
       responseId: `${participantId}:${assignment.assignmentId}:${trial.trialIndex}`,
       participantId,
@@ -1462,16 +1512,16 @@ function StudyTask({
       leftAudioSegmentProgress: JSON.stringify(audioMetrics.left.segmentProgress),
       rightAudioSegmentProgress: JSON.stringify(audioMetrics.right.segmentProgress),
       choice,
-      leftBodyStateRating: requiredRating(scriptRatings.left.bodyState),
-      rightBodyStateRating: requiredRating(scriptRatings.right.bodyState),
-      leftTaskGoalRating: requiredRating(scriptRatings.left.taskGoal),
-      rightTaskGoalRating: requiredRating(scriptRatings.right.taskGoal),
-      leftValueConnectionRating: requiredRating(scriptRatings.left.valueConnection),
-      rightValueConnectionRating: requiredRating(scriptRatings.right.valueConnection),
-      leftEaseRating: requiredRating(scriptRatings.left.ease),
-      rightEaseRating: requiredRating(scriptRatings.right.ease),
-      leftRating: requiredRating(leftRating),
-      rightRating: requiredRating(rightRating),
+      leftBodyStateRating: ratingForResponse(scriptRatings.left.bodyState),
+      rightBodyStateRating: ratingForResponse(scriptRatings.right.bodyState),
+      leftTaskGoalRating: ratingForResponse(scriptRatings.left.taskGoal),
+      rightTaskGoalRating: ratingForResponse(scriptRatings.right.taskGoal),
+      leftValueConnectionRating: ratingForResponse(scriptRatings.left.valueConnection),
+      rightValueConnectionRating: ratingForResponse(scriptRatings.right.valueConnection),
+      leftEaseRating: ratingForResponse(scriptRatings.left.ease),
+      rightEaseRating: ratingForResponse(scriptRatings.right.ease),
+      leftRating: ratingForResponse(leftRating),
+      rightRating: ratingForResponse(rightRating),
       improvement: "",
       ...(attentionCheck
         ? {
@@ -1480,7 +1530,9 @@ function StudyTask({
             attentionCheckPrompt: attentionCheck.prompt,
             attentionCheckAnswer,
             attentionCheckCorrectAnswer: attentionCheck.correctAnswer,
-            attentionCheckPassed: attentionCheckAnswer === attentionCheck.correctAnswer,
+            attentionCheckPassed: attentionCheckAnswer
+              ? attentionCheckAnswer === attentionCheck.correctAnswer
+              : null,
           }
         : {}),
       startedAt,
@@ -1512,8 +1564,11 @@ function StudyTask({
     setTrialIndex((current) => Math.max(current - 1, 0));
   }
 
-  function skipToFinalStep() {
+  async function skipToFinalStep() {
     setPostingError("");
+    if (adminMode && trialIndex < assignment.trials.length) {
+      await submit();
+    }
     setTrialIndex(assignment.trials.length);
   }
 
@@ -1905,6 +1960,7 @@ function QuestionnaireForm({
       scriptLengthOther: "",
       toneStyleOther: answers.toneStyleOther.trim(),
       personalizationFocus: personalizationFocusQuestion
+        && (!adminMode || questionnaireComplete || answers.personalizationFocus)
         ? answerFromSelectedValues(rankingValuesForQuestion(personalizationFocusQuestion, answers.personalizationFocus))
         : answers.personalizationFocus,
       personalizationFocusOther: "",
@@ -1919,12 +1975,6 @@ function QuestionnaireForm({
       elapsedMs: Date.now() - new Date(startedAt).getTime(),
       userAgent: navigator.userAgent,
     };
-
-    if (adminMode && !questionnaireComplete) {
-      setPostingError("");
-      onSubmitted(response);
-      return;
-    }
 
     submittingRef.current = true;
     setIsSubmitting(true);
