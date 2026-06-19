@@ -13,20 +13,43 @@ export const conditionPairs: Array<[ConditionId, ConditionId]> = (() => {
   return pairs;
 })();
 
-export const assignmentSlotCount = 10;
+export const assignmentSlotCount = 15;
 const TRIALS_PER_SLOT = 2;
 
 const pairScheduleByAssignment: number[][] = [
-  [0, 3],
-  [0, 6],
-  [1, 3],
-  [2, 6],
+  [0, 9],
+  [2, 7],
+  [3, 8],
+  [1, 6],
+  [0, 4],
+  [2, 5],
+  [1, 9],
+  [1, 7],
+  [3, 5],
+  [3, 6],
+  [4, 2],
   [0, 8],
-  [9, 1],
-  [3, 2],
-  [6, 1],
-  [8, 2],
-  [9, 0],
+  [9, 5],
+  [7, 4],
+  [6, 8],
+];
+
+const swapScheduleByAssignment: boolean[][] = [
+  [false, false],
+  [false, false],
+  [true, false],
+  [false, false],
+  [true, false],
+  [true, true],
+  [true, true],
+  [false, false],
+  [true, false],
+  [true, false],
+  [true, false],
+  [false, true],
+  [false, true],
+  [true, false],
+  [true, false],
 ];
 
 export function hashString(input: string): number {
@@ -39,7 +62,7 @@ export function hashString(input: string): number {
 }
 
 function shouldSwapOrder(assignmentId: number, trialIndex: number): boolean {
-  return hashString(`${assignmentId}:${trialIndex}:script-order`) % 2 === 0;
+  return swapScheduleByAssignment[assignmentId]?.[trialIndex] ?? false;
 }
 
 export function buildAssignment(assignmentId: number): Assignment {

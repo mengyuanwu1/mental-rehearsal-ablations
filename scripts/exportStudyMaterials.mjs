@@ -6,7 +6,7 @@ const assignmentPath = path.join(outputDir, "assignment_slots.csv");
 const previewPath = path.join(outputDir, "maya_daily_scripts.md");
 const generatedScriptsPath = path.resolve("src/data/llmStudyScripts.json");
 
-const slotCount = 10;
+const slotCount = 15;
 const trialsPerSlot = 2;
 const conditions = ["baseline", "mind", "body", "soul", "full"];
 const scenarios = [
@@ -25,29 +25,43 @@ for (let i = 0; i < conditions.length; i += 1) {
 }
 
 const pairScheduleByAssignment = [
-  [0, 3],
-  [0, 6],
-  [1, 3],
-  [2, 6],
+  [0, 9],
+  [2, 7],
+  [3, 8],
+  [1, 6],
+  [0, 4],
+  [2, 5],
+  [1, 9],
+  [1, 7],
+  [3, 5],
+  [3, 6],
+  [4, 2],
   [0, 8],
-  [9, 1],
-  [3, 2],
-  [6, 1],
-  [8, 2],
-  [9, 0],
+  [9, 5],
+  [7, 4],
+  [6, 8],
 ];
 
-function hashString(input) {
-  let hash = 2166136261;
-  for (let i = 0; i < input.length; i += 1) {
-    hash ^= input.charCodeAt(i);
-    hash = Math.imul(hash, 16777619);
-  }
-  return hash >>> 0;
-}
+const swapScheduleByAssignment = [
+  [false, false],
+  [false, false],
+  [true, false],
+  [false, false],
+  [true, false],
+  [true, true],
+  [true, true],
+  [false, false],
+  [true, false],
+  [true, false],
+  [true, false],
+  [false, true],
+  [false, true],
+  [true, false],
+  [true, false],
+];
 
 function shouldSwapOrder(assignmentId, trialIndex) {
-  return hashString(`${assignmentId}:${trialIndex}:script-order`) % 2 === 0;
+  return swapScheduleByAssignment[assignmentId]?.[trialIndex] ?? false;
 }
 
 function csvEscape(value) {

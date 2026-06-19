@@ -7,11 +7,11 @@ Small static web UI for Prolific / Qualtrics pairwise comparison tasks.
 - 5 conditions: `baseline`, `mind`, `body`, `soul`, `full`
 - 10 condition pairs
 - 5 scenarios: 5 seed profiles, daily scope only
-- 10 assignment slots for the pilot
+- 15 assignment slots for the pilot
 - 2 trials per participant
 - Each trial shows one scenario and two scripts from different conditions
-- Script order randomized per assignment slot / trial
-- 8 of 10 assignment slots include a direct `baseline` comparison
+- Script order balanced across assignment slots so each condition appears equally often as Script A and Script B
+- 12 of 15 assignment slots include a direct `baseline` comparison
 - After entering a Prolific ID, participants see a brief introduction to mental rehearsal and the study task
 - Each comparison requires a 45-second review period before the participant can continue
 - Participants must choose one script and rate both scripts before continuing
@@ -19,10 +19,10 @@ Small static web UI for Prolific / Qualtrics pairwise comparison tasks.
   scenario focus, values, and energy-state questions
 - After the 2 comparisons, participants complete a final personalization questionnaire
 
-Across assignment ids `0` through `9`:
+Across assignment ids `0` through `14`:
 
-- each condition pair appears 2 times
-- each scenario appears 4 times
+- each condition pair appears 3 times
+- each scenario appears 6 times
 - no repeated pair x scenario cell appears in the pilot assignment table
 - no participant sees the same scenario twice
 
@@ -49,7 +49,7 @@ Preferred URL shape:
 https://YOUR_DEPLOYED_APP/?PROLIFIC_PID=${e://Field/PROLIFIC_PID}&assignment_id=${e://Field/assignment_id}&return_url=https%3A%2F%2FYOUR_QUALTRICS_RETURN_URL
 ```
 
-Best practice: assign `assignment_id` in Qualtrics from `0` to `9` as embedded data.
+Best practice: assign `assignment_id` in Qualtrics from `0` to `14` as embedded data.
 If `assignment_id` is absent, the app hashes `PROLIFIC_PID` into a slot. That is useful
 for pilots, but exact balancing depends on Qualtrics assigning slots.
 The app asks participants to enter their Prolific ID before the comparison UI appears.
