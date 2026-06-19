@@ -1351,6 +1351,41 @@ function StudyTask({
     }));
   }
 
+  function markAudioSegmentComplete(side: AudioSide, segmentId: AudioSegmentId) {
+    updateAudioMetrics(side, (current) => {
+      const segment = current.segmentProgress[segmentId] ?? {
+        playCount: 0,
+        maxPositionSeconds: 0,
+        ended: false,
+      };
+      return {
+        ...current,
+        ended: true,
+        segmentProgress: {
+          ...current.segmentProgress,
+          [segmentId]: {
+            ...segment,
+            ended: true,
+          },
+        },
+      };
+    });
+  }
+
+  function continueAudioSegment(
+    side: AudioSide,
+    segmentId: AudioSegmentId,
+    segmentIds: AudioSegmentId[],
+    isFinalSegment: boolean,
+  ) {
+    if (adminMode) {
+      markAudioSegmentComplete(side, segmentId);
+    }
+    if (!isFinalSegment) {
+      advanceAudioSegment(side, segmentIds);
+    }
+  }
+
   function renderScriptBody({
     label,
     script,
@@ -1382,7 +1417,7 @@ function StudyTask({
     const segmentEnded = Boolean(sideMetrics.segmentProgress[segmentId]?.ended);
     const isFinalSegment = stepIndex >= segmentIds.length - 1;
     const canAdvanceSegment = adminMode || segmentEnded;
-    const nextButtonText = isFinalSegment ? "Complete script appears after this part" : "Continue";
+    const nextButtonText = isFinalSegment ? "Show full script" : "Continue";
 
     return (
       <div className="script-audio-flow">
@@ -1405,14 +1440,14 @@ function StudyTask({
           src={audioPath}
         />
         <div className="script-segment-copy">{segmentText}</div>
-        {isFinalSegment ? (
+        {isFinalSegment && !adminMode ? (
           <p>Listen to the final part all the way through. The complete script text will appear afterward.</p>
         ) : null}
-        {!isFinalSegment ? (
+        {!isFinalSegment || adminMode ? (
           <button
             className="secondary-button audio-next-button"
             disabled={!canAdvanceSegment}
-            onClick={() => advanceAudioSegment(side, segmentIds)}
+            onClick={() => continueAudioSegment(side, segmentId, segmentIds, isFinalSegment)}
             type="button"
           >
             {nextButtonText}
@@ -1679,7 +1714,7 @@ function StudyTask({
             <article className={`script-panel ${choice === "left" ? "selected" : ""}`}>
               <div className="script-heading">
                 <h2>Script A</h2>
-                {debugMode ? (
+                {debugMode || adminMode ? (
                   <span title={`${leftScriptMeta.source} / ${leftScriptMeta.model}`}>
                     {trial.leftCondition}
                   </span>
@@ -1709,7 +1744,7 @@ function StudyTask({
             >
               <div className="script-heading">
                 <h2>Script B</h2>
-                {debugMode ? (
+                {debugMode || adminMode ? (
                   <span title={`${rightScriptMeta.source} / ${rightScriptMeta.model}`}>
                     {trial.rightCondition}
                   </span>
