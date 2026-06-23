@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="338" viewBox="0 0 1120 338">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="34.0" y="40.0" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700" text-anchor="start" fill="#1f2933">Tone Style</text>
+<text x="34.0" y="66.0" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#1f2933">Multi-select tone preference; counts may exceed N. Attention-filtered N=87.</text>
+<text x="269.0" y="121.0" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" text-anchor="end" fill="#1f2933">Other</text>
+<rect x="285" y="102" width="12.2" height="24" rx="5" fill="#2f6f9f"/>
+<text x="309.2" y="121.0" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="400" text-anchor="start" fill="#1f2933">1 (1%)</text>
+<text x="269.0" y="163.0" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" text-anchor="end" fill="#1f2933">Reflective</text>
+<rect x="285" y="144" width="256.9" height="24" rx="5" fill="#2f6f9f"/>
+<text x="553.9" y="163.0" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="400" text-anchor="start" fill="#1f2933">21 (24%)</text>
+<text x="269.0" y="205.0" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" text-anchor="end" fill="#1f2933">Practical/direct</text>
+<rect x="285" y="186" width="354.7" height="24" rx="5" fill="#2f6f9f"/>
+<text x="651.7" y="205.0" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="400" text-anchor="start" fill="#1f2933">29 (33%)</text>
+<text x="269.0" y="247.0" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" text-anchor="end" fill="#1f2933">Encouraging</text>
+<rect x="285" y="228" width="452.6" height="24" rx="5" fill="#2f6f9f"/>
+<text x="749.6" y="247.0" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="400" text-anchor="start" fill="#1f2933">37 (43%)</text>
+<text x="269.0" y="289.0" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" text-anchor="end" fill="#1f2933">Calm/supportive</text>
+<rect x="285" y="270" width="685.0" height="24" rx="5" fill="#2f6f9f"/>
+<text x="982.0" y="289.0" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="400" text-anchor="start" fill="#1f2933">56 (64%)</text>
+</svg>

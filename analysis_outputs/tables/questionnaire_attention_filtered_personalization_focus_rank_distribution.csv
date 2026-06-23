@@ -1,0 +1,37 @@
+option,label,rank,count,respondent_n,pct_of_respondents
+mind_grounding,Mind grounding,1,26,87,0.2988505747126437
+mind_grounding,Mind grounding,2,19,87,0.21839080459770116
+mind_grounding,Mind grounding,3,15,87,0.1724137931034483
+mind_grounding,Mind grounding,4,16,87,0.1839080459770115
+mind_grounding,Mind grounding,5,7,87,0.08045977011494253
+mind_grounding,Mind grounding,6,4,87,0.04597701149425287
+day_success_visualization,Day success visualization,1,31,87,0.3563218390804598
+day_success_visualization,Day success visualization,2,21,87,0.2413793103448276
+day_success_visualization,Day success visualization,3,21,87,0.2413793103448276
+day_success_visualization,Day success visualization,4,6,87,0.06896551724137931
+day_success_visualization,Day success visualization,5,4,87,0.04597701149425287
+day_success_visualization,Day success visualization,6,4,87,0.04597701149425287
+task_success_visualization,Task success visualization,1,13,87,0.14942528735632185
+task_success_visualization,Task success visualization,2,25,87,0.28735632183908044
+task_success_visualization,Task success visualization,3,23,87,0.26436781609195403
+task_success_visualization,Task success visualization,4,17,87,0.19540229885057472
+task_success_visualization,Task success visualization,5,6,87,0.06896551724137931
+task_success_visualization,Task success visualization,6,3,87,0.034482758620689655
+body_grounding,Body grounding,1,6,87,0.06896551724137931
+body_grounding,Body grounding,2,7,87,0.08045977011494253
+body_grounding,Body grounding,3,9,87,0.10344827586206896
+body_grounding,Body grounding,4,22,87,0.25287356321839083
+body_grounding,Body grounding,5,25,87,0.28735632183908044
+body_grounding,Body grounding,6,18,87,0.20689655172413793
+value_grounding,Value grounding,1,7,87,0.08045977011494253
+value_grounding,Value grounding,2,8,87,0.09195402298850575
+value_grounding,Value grounding,3,7,87,0.08045977011494253
+value_grounding,Value grounding,4,16,87,0.1839080459770115
+value_grounding,Value grounding,5,27,87,0.3103448275862069
+value_grounding,Value grounding,6,22,87,0.25287356321839083
+potential_obstacle_visualization,Obstacle visualization,1,4,87,0.04597701149425287
+potential_obstacle_visualization,Obstacle visualization,2,7,87,0.08045977011494253
+potential_obstacle_visualization,Obstacle visualization,3,12,87,0.13793103448275862
+potential_obstacle_visualization,Obstacle visualization,4,10,87,0.11494252873563218
+potential_obstacle_visualization,Obstacle visualization,5,18,87,0.20689655172413793
+potential_obstacle_visualization,Obstacle visualization,6,36,87,0.41379310344827586

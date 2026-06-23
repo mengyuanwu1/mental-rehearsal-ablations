@@ -1,0 +1,523 @@
+response_index,option,label,rank
+0,day_success_visualization,Day success visualization,1
+0,mind_grounding,Mind grounding,2
+0,task_success_visualization,Task success visualization,3
+0,body_grounding,Body grounding,4
+0,value_grounding,Value grounding,5
+0,potential_obstacle_visualization,Obstacle visualization,6
+1,day_success_visualization,Day success visualization,1
+1,task_success_visualization,Task success visualization,2
+1,potential_obstacle_visualization,Obstacle visualization,3
+1,mind_grounding,Mind grounding,4
+1,body_grounding,Body grounding,5
+1,value_grounding,Value grounding,6
+2,mind_grounding,Mind grounding,1
+2,body_grounding,Body grounding,2
+2,task_success_visualization,Task success visualization,3
+2,value_grounding,Value grounding,4
+2,day_success_visualization,Day success visualization,5
+2,potential_obstacle_visualization,Obstacle visualization,6
+3,day_success_visualization,Day success visualization,1
+3,task_success_visualization,Task success visualization,2
+3,value_grounding,Value grounding,3
+3,mind_grounding,Mind grounding,4
+3,potential_obstacle_visualization,Obstacle visualization,5
+3,body_grounding,Body grounding,6
+4,task_success_visualization,Task success visualization,1
+4,mind_grounding,Mind grounding,2
+4,day_success_visualization,Day success visualization,3
+4,body_grounding,Body grounding,4
+4,value_grounding,Value grounding,5
+4,potential_obstacle_visualization,Obstacle visualization,6
+5,day_success_visualization,Day success visualization,1
+5,task_success_visualization,Task success visualization,2
+5,value_grounding,Value grounding,3
+5,potential_obstacle_visualization,Obstacle visualization,4
+5,mind_grounding,Mind grounding,5
+5,body_grounding,Body grounding,6
+6,mind_grounding,Mind grounding,1
+6,day_success_visualization,Day success visualization,2
+6,task_success_visualization,Task success visualization,3
+6,potential_obstacle_visualization,Obstacle visualization,4
+6,body_grounding,Body grounding,5
+6,value_grounding,Value grounding,6
+7,potential_obstacle_visualization,Obstacle visualization,1
+7,task_success_visualization,Task success visualization,2
+7,day_success_visualization,Day success visualization,3
+7,mind_grounding,Mind grounding,4
+7,value_grounding,Value grounding,5
+7,body_grounding,Body grounding,6
+8,value_grounding,Value grounding,1
+8,day_success_visualization,Day success visualization,2
+8,task_success_visualization,Task success visualization,3
+8,potential_obstacle_visualization,Obstacle visualization,4
+8,mind_grounding,Mind grounding,5
+8,body_grounding,Body grounding,6
+9,task_success_visualization,Task success visualization,1
+9,potential_obstacle_visualization,Obstacle visualization,2
+9,body_grounding,Body grounding,3
+9,value_grounding,Value grounding,4
+9,mind_grounding,Mind grounding,5
+9,day_success_visualization,Day success visualization,6
+10,task_success_visualization,Task success visualization,1
+10,potential_obstacle_visualization,Obstacle visualization,2
+10,mind_grounding,Mind grounding,3
+10,day_success_visualization,Day success visualization,4
+10,value_grounding,Value grounding,5
+10,body_grounding,Body grounding,6
+11,task_success_visualization,Task success visualization,1
+11,body_grounding,Body grounding,2
+11,day_success_visualization,Day success visualization,3
+11,value_grounding,Value grounding,4
+11,potential_obstacle_visualization,Obstacle visualization,5
+11,mind_grounding,Mind grounding,6
+12,body_grounding,Body grounding,1
+12,mind_grounding,Mind grounding,2
+12,day_success_visualization,Day success visualization,3
+12,task_success_visualization,Task success visualization,4
+12,value_grounding,Value grounding,5
+12,potential_obstacle_visualization,Obstacle visualization,6
+13,mind_grounding,Mind grounding,1
+13,day_success_visualization,Day success visualization,2
+13,task_success_visualization,Task success visualization,3
+13,value_grounding,Value grounding,4
+13,body_grounding,Body grounding,5
+13,potential_obstacle_visualization,Obstacle visualization,6
+14,mind_grounding,Mind grounding,1
+14,task_success_visualization,Task success visualization,2
+14,body_grounding,Body grounding,3
+14,value_grounding,Value grounding,4
+14,potential_obstacle_visualization,Obstacle visualization,5
+14,day_success_visualization,Day success visualization,6
+15,task_success_visualization,Task success visualization,1
+15,value_grounding,Value grounding,2
+15,day_success_visualization,Day success visualization,3
+15,mind_grounding,Mind grounding,4
+15,body_grounding,Body grounding,5
+15,potential_obstacle_visualization,Obstacle visualization,6
+16,body_grounding,Body grounding,1
+16,mind_grounding,Mind grounding,2
+16,day_success_visualization,Day success visualization,3
+16,task_success_visualization,Task success visualization,4
+16,value_grounding,Value grounding,5
+16,potential_obstacle_visualization,Obstacle visualization,6
+17,day_success_visualization,Day success visualization,1
+17,task_success_visualization,Task success visualization,2
+17,mind_grounding,Mind grounding,3
+17,value_grounding,Value grounding,4
+17,body_grounding,Body grounding,5
+17,potential_obstacle_visualization,Obstacle visualization,6
+18,mind_grounding,Mind grounding,1
+18,day_success_visualization,Day success visualization,2
+18,task_success_visualization,Task success visualization,3
+18,body_grounding,Body grounding,4
+18,potential_obstacle_visualization,Obstacle visualization,5
+18,value_grounding,Value grounding,6
+19,day_success_visualization,Day success visualization,1
+19,task_success_visualization,Task success visualization,2
+19,potential_obstacle_visualization,Obstacle visualization,3
+19,body_grounding,Body grounding,4
+19,mind_grounding,Mind grounding,5
+19,value_grounding,Value grounding,6
+20,potential_obstacle_visualization,Obstacle visualization,1
+20,mind_grounding,Mind grounding,2
+20,task_success_visualization,Task success visualization,3
+20,value_grounding,Value grounding,4
+20,body_grounding,Body grounding,5
+20,day_success_visualization,Day success visualization,6
+21,task_success_visualization,Task success visualization,1
+21,mind_grounding,Mind grounding,2
+21,day_success_visualization,Day success visualization,3
+21,value_grounding,Value grounding,4
+21,potential_obstacle_visualization,Obstacle visualization,5
+21,body_grounding,Body grounding,6
+22,task_success_visualization,Task success visualization,1
+22,day_success_visualization,Day success visualization,2
+22,mind_grounding,Mind grounding,3
+22,value_grounding,Value grounding,4
+22,potential_obstacle_visualization,Obstacle visualization,5
+22,body_grounding,Body grounding,6
+23,value_grounding,Value grounding,1
+23,mind_grounding,Mind grounding,2
+23,day_success_visualization,Day success visualization,3
+23,task_success_visualization,Task success visualization,4
+23,body_grounding,Body grounding,5
+23,potential_obstacle_visualization,Obstacle visualization,6
+24,task_success_visualization,Task success visualization,1
+24,mind_grounding,Mind grounding,2
+24,day_success_visualization,Day success visualization,3
+24,body_grounding,Body grounding,4
+24,value_grounding,Value grounding,5
+24,potential_obstacle_visualization,Obstacle visualization,6
+25,day_success_visualization,Day success visualization,1
+25,body_grounding,Body grounding,2
+25,task_success_visualization,Task success visualization,3
+25,potential_obstacle_visualization,Obstacle visualization,4
+25,value_grounding,Value grounding,5
+25,mind_grounding,Mind grounding,6
+26,mind_grounding,Mind grounding,1
+26,task_success_visualization,Task success visualization,2
+26,day_success_visualization,Day success visualization,3
+26,value_grounding,Value grounding,4
+26,body_grounding,Body grounding,5
+26,potential_obstacle_visualization,Obstacle visualization,6
+27,day_success_visualization,Day success visualization,1
+27,mind_grounding,Mind grounding,2
+27,body_grounding,Body grounding,3
+27,task_success_visualization,Task success visualization,4
+27,potential_obstacle_visualization,Obstacle visualization,5
+27,value_grounding,Value grounding,6
+28,day_success_visualization,Day success visualization,1
+28,body_grounding,Body grounding,2
+28,potential_obstacle_visualization,Obstacle visualization,3
+28,mind_grounding,Mind grounding,4
+28,task_success_visualization,Task success visualization,5
+28,value_grounding,Value grounding,6
+29,body_grounding,Body grounding,1
+29,day_success_visualization,Day success visualization,2
+29,mind_grounding,Mind grounding,3
+29,task_success_visualization,Task success visualization,4
+29,value_grounding,Value grounding,5
+29,potential_obstacle_visualization,Obstacle visualization,6
+30,day_success_visualization,Day success visualization,1
+30,task_success_visualization,Task success visualization,2
+30,mind_grounding,Mind grounding,3
+30,value_grounding,Value grounding,4
+30,body_grounding,Body grounding,5
+30,potential_obstacle_visualization,Obstacle visualization,6
+31,mind_grounding,Mind grounding,1
+31,task_success_visualization,Task success visualization,2
+31,day_success_visualization,Day success visualization,3
+31,body_grounding,Body grounding,4
+31,value_grounding,Value grounding,5
+31,potential_obstacle_visualization,Obstacle visualization,6
+32,mind_grounding,Mind grounding,1
+32,value_grounding,Value grounding,2
+32,task_success_visualization,Task success visualization,3
+32,body_grounding,Body grounding,4
+32,day_success_visualization,Day success visualization,5
+32,potential_obstacle_visualization,Obstacle visualization,6
+33,mind_grounding,Mind grounding,1
+33,day_success_visualization,Day success visualization,2
+33,task_success_visualization,Task success visualization,3
+33,body_grounding,Body grounding,4
+33,value_grounding,Value grounding,5
+33,potential_obstacle_visualization,Obstacle visualization,6
+34,mind_grounding,Mind grounding,1
+34,task_success_visualization,Task success visualization,2
+34,day_success_visualization,Day success visualization,3
+34,value_grounding,Value grounding,4
+34,potential_obstacle_visualization,Obstacle visualization,5
+34,body_grounding,Body grounding,6
+35,day_success_visualization,Day success visualization,1
+35,task_success_visualization,Task success visualization,2
+35,potential_obstacle_visualization,Obstacle visualization,3
+35,value_grounding,Value grounding,4
+35,body_grounding,Body grounding,5
+35,mind_grounding,Mind grounding,6
+36,day_success_visualization,Day success visualization,1
+36,mind_grounding,Mind grounding,2
+36,body_grounding,Body grounding,3
+36,task_success_visualization,Task success visualization,4
+36,potential_obstacle_visualization,Obstacle visualization,5
+36,value_grounding,Value grounding,6
+37,day_success_visualization,Day success visualization,1
+37,mind_grounding,Mind grounding,2
+37,task_success_visualization,Task success visualization,3
+37,value_grounding,Value grounding,4
+37,body_grounding,Body grounding,5
+37,potential_obstacle_visualization,Obstacle visualization,6
+38,day_success_visualization,Day success visualization,1
+38,task_success_visualization,Task success visualization,2
+38,value_grounding,Value grounding,3
+38,mind_grounding,Mind grounding,4
+38,potential_obstacle_visualization,Obstacle visualization,5
+38,body_grounding,Body grounding,6
+39,day_success_visualization,Day success visualization,1
+39,value_grounding,Value grounding,2
+39,task_success_visualization,Task success visualization,3
+39,mind_grounding,Mind grounding,4
+39,potential_obstacle_visualization,Obstacle visualization,5
+39,body_grounding,Body grounding,6
+40,day_success_visualization,Day success visualization,1
+40,potential_obstacle_visualization,Obstacle visualization,2
+40,mind_grounding,Mind grounding,3
+40,value_grounding,Value grounding,4
+40,body_grounding,Body grounding,5
+40,task_success_visualization,Task success visualization,6
+41,task_success_visualization,Task success visualization,1
+41,value_grounding,Value grounding,2
+41,day_success_visualization,Day success visualization,3
+41,mind_grounding,Mind grounding,4
+41,body_grounding,Body grounding,5
+41,potential_obstacle_visualization,Obstacle visualization,6
+42,task_success_visualization,Task success visualization,1
+42,mind_grounding,Mind grounding,2
+42,body_grounding,Body grounding,3
+42,day_success_visualization,Day success visualization,4
+42,potential_obstacle_visualization,Obstacle visualization,5
+42,value_grounding,Value grounding,6
+43,value_grounding,Value grounding,1
+43,potential_obstacle_visualization,Obstacle visualization,2
+43,task_success_visualization,Task success visualization,3
+43,day_success_visualization,Day success visualization,4
+43,mind_grounding,Mind grounding,5
+43,body_grounding,Body grounding,6
+44,mind_grounding,Mind grounding,1
+44,day_success_visualization,Day success visualization,2
+44,potential_obstacle_visualization,Obstacle visualization,3
+44,task_success_visualization,Task success visualization,4
+44,body_grounding,Body grounding,5
+44,value_grounding,Value grounding,6
+45,day_success_visualization,Day success visualization,1
+45,mind_grounding,Mind grounding,2
+45,value_grounding,Value grounding,3
+45,task_success_visualization,Task success visualization,4
+45,body_grounding,Body grounding,5
+45,potential_obstacle_visualization,Obstacle visualization,6
+46,day_success_visualization,Day success visualization,1
+46,task_success_visualization,Task success visualization,2
+46,mind_grounding,Mind grounding,3
+46,potential_obstacle_visualization,Obstacle visualization,4
+46,body_grounding,Body grounding,5
+46,value_grounding,Value grounding,6
+47,body_grounding,Body grounding,1
+47,mind_grounding,Mind grounding,2
+47,day_success_visualization,Day success visualization,3
+47,task_success_visualization,Task success visualization,4
+47,potential_obstacle_visualization,Obstacle visualization,5
+47,value_grounding,Value grounding,6
+48,mind_grounding,Mind grounding,1
+48,day_success_visualization,Day success visualization,2
+48,task_success_visualization,Task success visualization,3
+48,body_grounding,Body grounding,4
+48,potential_obstacle_visualization,Obstacle visualization,5
+48,value_grounding,Value grounding,6
+49,potential_obstacle_visualization,Obstacle visualization,1
+49,day_success_visualization,Day success visualization,2
+49,mind_grounding,Mind grounding,3
+49,body_grounding,Body grounding,4
+49,task_success_visualization,Task success visualization,5
+49,value_grounding,Value grounding,6
+50,day_success_visualization,Day success visualization,1
+50,task_success_visualization,Task success visualization,2
+50,potential_obstacle_visualization,Obstacle visualization,3
+50,mind_grounding,Mind grounding,4
+50,body_grounding,Body grounding,5
+50,value_grounding,Value grounding,6
+51,mind_grounding,Mind grounding,1
+51,day_success_visualization,Day success visualization,2
+51,body_grounding,Body grounding,3
+51,task_success_visualization,Task success visualization,4
+51,value_grounding,Value grounding,5
+51,potential_obstacle_visualization,Obstacle visualization,6
+52,day_success_visualization,Day success visualization,1
+52,task_success_visualization,Task success visualization,2
+52,value_grounding,Value grounding,3
+52,mind_grounding,Mind grounding,4
+52,body_grounding,Body grounding,5
+52,potential_obstacle_visualization,Obstacle visualization,6
+53,value_grounding,Value grounding,1
+53,day_success_visualization,Day success visualization,2
+53,task_success_visualization,Task success visualization,3
+53,potential_obstacle_visualization,Obstacle visualization,4
+53,body_grounding,Body grounding,5
+53,mind_grounding,Mind grounding,6
+54,task_success_visualization,Task success visualization,1
+54,potential_obstacle_visualization,Obstacle visualization,2
+54,day_success_visualization,Day success visualization,3
+54,body_grounding,Body grounding,4
+54,mind_grounding,Mind grounding,5
+54,value_grounding,Value grounding,6
+55,day_success_visualization,Day success visualization,1
+55,mind_grounding,Mind grounding,2
+55,potential_obstacle_visualization,Obstacle visualization,3
+55,task_success_visualization,Task success visualization,4
+55,value_grounding,Value grounding,5
+55,body_grounding,Body grounding,6
+56,mind_grounding,Mind grounding,1
+56,task_success_visualization,Task success visualization,2
+56,day_success_visualization,Day success visualization,3
+56,potential_obstacle_visualization,Obstacle visualization,4
+56,value_grounding,Value grounding,5
+56,body_grounding,Body grounding,6
+57,day_success_visualization,Day success visualization,1
+57,task_success_visualization,Task success visualization,2
+57,value_grounding,Value grounding,3
+57,potential_obstacle_visualization,Obstacle visualization,4
+57,mind_grounding,Mind grounding,5
+57,body_grounding,Body grounding,6
+58,day_success_visualization,Day success visualization,1
+58,mind_grounding,Mind grounding,2
+58,task_success_visualization,Task success visualization,3
+58,body_grounding,Body grounding,4
+58,value_grounding,Value grounding,5
+58,potential_obstacle_visualization,Obstacle visualization,6
+59,mind_grounding,Mind grounding,1
+59,day_success_visualization,Day success visualization,2
+59,task_success_visualization,Task success visualization,3
+59,body_grounding,Body grounding,4
+59,potential_obstacle_visualization,Obstacle visualization,5
+59,value_grounding,Value grounding,6
+60,mind_grounding,Mind grounding,1
+60,day_success_visualization,Day success visualization,2
+60,task_success_visualization,Task success visualization,3
+60,body_grounding,Body grounding,4
+60,value_grounding,Value grounding,5
+60,potential_obstacle_visualization,Obstacle visualization,6
+61,mind_grounding,Mind grounding,1
+61,value_grounding,Value grounding,2
+61,day_success_visualization,Day success visualization,3
+61,task_success_visualization,Task success visualization,4
+61,body_grounding,Body grounding,5
+61,potential_obstacle_visualization,Obstacle visualization,6
+62,mind_grounding,Mind grounding,1
+62,body_grounding,Body grounding,2
+62,day_success_visualization,Day success visualization,3
+62,value_grounding,Value grounding,4
+62,task_success_visualization,Task success visualization,5
+62,potential_obstacle_visualization,Obstacle visualization,6
+63,day_success_visualization,Day success visualization,1
+63,task_success_visualization,Task success visualization,2
+63,mind_grounding,Mind grounding,3
+63,body_grounding,Body grounding,4
+63,value_grounding,Value grounding,5
+63,potential_obstacle_visualization,Obstacle visualization,6
+64,potential_obstacle_visualization,Obstacle visualization,1
+64,day_success_visualization,Day success visualization,2
+64,task_success_visualization,Task success visualization,3
+64,mind_grounding,Mind grounding,4
+64,body_grounding,Body grounding,5
+64,value_grounding,Value grounding,6
+65,body_grounding,Body grounding,1
+65,value_grounding,Value grounding,2
+65,mind_grounding,Mind grounding,3
+65,task_success_visualization,Task success visualization,4
+65,day_success_visualization,Day success visualization,5
+65,potential_obstacle_visualization,Obstacle visualization,6
+66,day_success_visualization,Day success visualization,1
+66,task_success_visualization,Task success visualization,2
+66,potential_obstacle_visualization,Obstacle visualization,3
+66,mind_grounding,Mind grounding,4
+66,value_grounding,Value grounding,5
+66,body_grounding,Body grounding,6
+67,mind_grounding,Mind grounding,1
+67,body_grounding,Body grounding,2
+67,day_success_visualization,Day success visualization,3
+67,task_success_visualization,Task success visualization,4
+67,value_grounding,Value grounding,5
+67,potential_obstacle_visualization,Obstacle visualization,6
+68,mind_grounding,Mind grounding,1
+68,day_success_visualization,Day success visualization,2
+68,task_success_visualization,Task success visualization,3
+68,potential_obstacle_visualization,Obstacle visualization,4
+68,value_grounding,Value grounding,5
+68,body_grounding,Body grounding,6
+69,day_success_visualization,Day success visualization,1
+69,task_success_visualization,Task success visualization,2
+69,body_grounding,Body grounding,3
+69,mind_grounding,Mind grounding,4
+69,value_grounding,Value grounding,5
+69,potential_obstacle_visualization,Obstacle visualization,6
+70,mind_grounding,Mind grounding,1
+70,task_success_visualization,Task success visualization,2
+70,value_grounding,Value grounding,3
+70,day_success_visualization,Day success visualization,4
+70,body_grounding,Body grounding,5
+70,potential_obstacle_visualization,Obstacle visualization,6
+71,value_grounding,Value grounding,1
+71,day_success_visualization,Day success visualization,2
+71,mind_grounding,Mind grounding,3
+71,task_success_visualization,Task success visualization,4
+71,body_grounding,Body grounding,5
+71,potential_obstacle_visualization,Obstacle visualization,6
+72,mind_grounding,Mind grounding,1
+72,value_grounding,Value grounding,2
+72,potential_obstacle_visualization,Obstacle visualization,3
+72,task_success_visualization,Task success visualization,4
+72,day_success_visualization,Day success visualization,5
+72,body_grounding,Body grounding,6
+73,mind_grounding,Mind grounding,1
+73,day_success_visualization,Day success visualization,2
+73,task_success_visualization,Task success visualization,3
+73,body_grounding,Body grounding,4
+73,potential_obstacle_visualization,Obstacle visualization,5
+73,value_grounding,Value grounding,6
+74,value_grounding,Value grounding,1
+74,potential_obstacle_visualization,Obstacle visualization,2
+74,mind_grounding,Mind grounding,3
+74,body_grounding,Body grounding,4
+74,task_success_visualization,Task success visualization,5
+74,day_success_visualization,Day success visualization,6
+75,task_success_visualization,Task success visualization,1
+75,day_success_visualization,Day success visualization,2
+75,potential_obstacle_visualization,Obstacle visualization,3
+75,mind_grounding,Mind grounding,4
+75,body_grounding,Body grounding,5
+75,value_grounding,Value grounding,6
+76,mind_grounding,Mind grounding,1
+76,body_grounding,Body grounding,2
+76,day_success_visualization,Day success visualization,3
+76,task_success_visualization,Task success visualization,4
+76,value_grounding,Value grounding,5
+76,potential_obstacle_visualization,Obstacle visualization,6
+77,value_grounding,Value grounding,1
+77,mind_grounding,Mind grounding,2
+77,body_grounding,Body grounding,3
+77,day_success_visualization,Day success visualization,4
+77,potential_obstacle_visualization,Obstacle visualization,5
+77,task_success_visualization,Task success visualization,6
+78,day_success_visualization,Day success visualization,1
+78,task_success_visualization,Task success visualization,2
+78,potential_obstacle_visualization,Obstacle visualization,3
+78,mind_grounding,Mind grounding,4
+78,body_grounding,Body grounding,5
+78,value_grounding,Value grounding,6
+79,mind_grounding,Mind grounding,1
+79,day_success_visualization,Day success visualization,2
+79,task_success_visualization,Task success visualization,3
+79,body_grounding,Body grounding,4
+79,value_grounding,Value grounding,5
+79,potential_obstacle_visualization,Obstacle visualization,6
+80,mind_grounding,Mind grounding,1
+80,value_grounding,Value grounding,2
+80,day_success_visualization,Day success visualization,3
+80,potential_obstacle_visualization,Obstacle visualization,4
+80,task_success_visualization,Task success visualization,5
+80,body_grounding,Body grounding,6
+81,day_success_visualization,Day success visualization,1
+81,task_success_visualization,Task success visualization,2
+81,mind_grounding,Mind grounding,3
+81,body_grounding,Body grounding,4
+81,value_grounding,Value grounding,5
+81,potential_obstacle_visualization,Obstacle visualization,6
+82,day_success_visualization,Day success visualization,1
+82,mind_grounding,Mind grounding,2
+82,potential_obstacle_visualization,Obstacle visualization,3
+82,body_grounding,Body grounding,4
+82,value_grounding,Value grounding,5
+82,task_success_visualization,Task success visualization,6
+83,day_success_visualization,Day success visualization,1
+83,mind_grounding,Mind grounding,2
+83,task_success_visualization,Task success visualization,3
+83,body_grounding,Body grounding,4
+83,potential_obstacle_visualization,Obstacle visualization,5
+83,value_grounding,Value grounding,6
+84,body_grounding,Body grounding,1
+84,task_success_visualization,Task success visualization,2
+84,mind_grounding,Mind grounding,3
+84,day_success_visualization,Day success visualization,4
+84,value_grounding,Value grounding,5
+84,potential_obstacle_visualization,Obstacle visualization,6
+85,day_success_visualization,Day success visualization,1
+85,potential_obstacle_visualization,Obstacle visualization,2
+85,mind_grounding,Mind grounding,3
+85,body_grounding,Body grounding,4
+85,task_success_visualization,Task success visualization,5
+85,value_grounding,Value grounding,6
+86,task_success_visualization,Task success visualization,1
+86,day_success_visualization,Day success visualization,2
+86,body_grounding,Body grounding,3
+86,mind_grounding,Mind grounding,4
+86,value_grounding,Value grounding,5
+86,potential_obstacle_visualization,Obstacle visualization,6

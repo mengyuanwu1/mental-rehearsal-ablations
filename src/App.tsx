@@ -5,6 +5,7 @@ import {
   useState,
   type CSSProperties,
   type ChangeEvent,
+  type DragEvent,
   type FormEvent,
   type SyntheticEvent,
 } from "react";
@@ -21,12 +22,22 @@ import { assignmentIdFromParams, assignmentSlotCount, buildAssignment, hashStrin
 import {
   postQuestionnaire,
   postResponse,
+  postStateCheck,
   readStoredQuestionnaire,
   readStoredResponses,
+  readStoredStateCheck,
   storeQuestionnaire,
   storeResponse,
+  storeStateCheck,
 } from "./lib/responses";
-import type { QuestionnaireAnswers, QuestionnaireResponse, Scenario, TrialResponse } from "./types";
+import type {
+  QuestionnaireAnswers,
+  QuestionnaireResponse,
+  Scenario,
+  StateCheckAnswers,
+  StateCheckResponse,
+  TrialResponse,
+} from "./types";
 
 const params = new URLSearchParams(window.location.search);
 const initialProlificId =
@@ -43,6 +54,7 @@ const minimumComparisonSeconds = 45;
 const minimumScenarioReviewSeconds = 10;
 const adminModePassword = "mrmrmr";
 const questionnaireVersion = "personalization-v3";
+const stateCheckVersion = "state-check-v1";
 const attentionCheckTrialIndexes = [1];
 const attentionCheckTrialIndexSet = new Set(attentionCheckTrialIndexes);
 const attentionCheckKinds = ["task", "values", "energy"] as const;
@@ -137,6 +149,36 @@ const scriptMeasures: Array<{
     label: "Overall rating",
     lowAnchor: "Not helpful",
     highAnchor: "Very helpful",
+  },
+];
+
+type StateCheckQuestionId = keyof StateCheckAnswers;
+
+const stateCheckScale = [1, 2, 3, 4, 5, 6, 7];
+
+const stateCheckQuestions: Array<{
+  id: StateCheckQuestionId;
+  prompt: string;
+  lowAnchor: string;
+  highAnchor: string;
+}> = [
+  {
+    id: "currentMood",
+    prompt: "How would you describe your mood right now?",
+    lowAnchor: "Very negative",
+    highAnchor: "Very positive",
+  },
+  {
+    id: "currentEnergy",
+    prompt: "How much energy do you have right now?",
+    lowAnchor: "Depleted",
+    highAnchor: "Energized",
+  },
+  {
+    id: "planningStyle",
+    prompt: "In general, which feels more like you?",
+    lowAnchor: "I prefer to go with the flow",
+    highAnchor: "I prefer to make a plan",
   },
 ];
 
@@ -245,191 +287,54 @@ const seededOptions = (options: AttentionCheckOption[], seed: string) =>
     return firstHash - secondHash || first.label.localeCompare(second.label);
   });
 
-const attentionCheckBank: Record<string, Record<AttentionCheckKind, AttentionCheckDefinition>> = {
-  maya_daily: {
-    task: {
-      prompt: "Quick check: which plan best fits what this person needs to protect today?",
-      correctAnswer: "Use the morning for one meaningful research-writing win, then handle smaller academic tasks.",
-      distractors: [
-        "Save writing for later and spend the morning mostly clearing coordination work.",
-        "Treat the day mainly as a recovery day with no concrete work target.",
-        "Focus first on preparing a legal argument before client logistics.",
-      ],
-    },
-    values: {
-      prompt: "Quick check: which motivation best fits this person?",
-      correctAnswer: "Trusting her own questions while making visible progress on independent research.",
-      distractors: [
-        "Making fast team decisions for a product launch review.",
-        "Offering calm advocacy for a client in a legal system.",
-        "Keeping clinical care knowledge organized for an exam and class.",
-      ],
-    },
-    energy: {
-      prompt: "Quick check: what pacing best fits this person's energy?",
-      correctAnswer: "Start gently and aim for good-enough progress because energy is low.",
-      distractors: [
-        "Use a high-intensity sprint because sleep and recovery are strong.",
-        "Skip grounding and add extra tasks to fill the open time.",
-        "Treat the morning as mostly social coordination.",
-      ],
-    },
-  },
-  jonah_daily: {
-    task: {
-      prompt: "Quick check: which plan best fits what this person needs to protect today?",
-      correctAnswer: "Prepare the launch review by turning risks into clear owners and decisions before the meeting.",
-      distractors: [
-        "Spend the main block drafting a workshop-paper related work section.",
-        "Prioritize medication flashcards before afternoon class.",
-        "Use the morning mostly for legal drafting and client logistics.",
-      ],
-    },
-    values: {
-      prompt: "Quick check: which motivation best fits this person?",
-      correctAnswer: "Lead responsibly by making the team's next decisions clearer and less reactive.",
-      distractors: [
-        "Trust personal research questions before borrowing outside answers.",
-        "Build independent creative confidence through a client pitch.",
-        "Turn care and justice into a clearer legal argument.",
-      ],
-    },
-    energy: {
-      prompt: "Quick check: what pacing best fits this person's energy?",
-      correctAnswer: "Use steady but limited energy for calm preparation rather than urgency.",
-      distractors: [
-        "Move slowly because the person barely slept and cannot do focused work.",
-        "Avoid structure because the day is almost entirely open-ended.",
-        "Treat the day as a rest day with no meeting pressure.",
-      ],
-    },
-  },
-  priya_daily: {
-    task: {
-      prompt: "Quick check: which plan best fits what this person needs to protect today?",
-      correctAnswer: "Study the most important medication material first, then complete smaller class-readiness tasks.",
-      distractors: [
-        "Finalize a launch risk brief before a product meeting.",
-        "Shape a client pitch narrative before exporting mockups.",
-        "Start with a legal argument draft and then update co-counsel.",
-      ],
-    },
-    values: {
-      prompt: "Quick check: which motivation best fits this person?",
-      correctAnswer: "Build calm clinical judgment by learning carefully without being harsh on herself.",
-      distractors: [
-        "Make visible progress on independent research questions.",
-        "Lead a product team toward clear launch decisions.",
-        "Keep an independent creative studio feeling self-directed.",
-      ],
-    },
-    energy: {
-      prompt: "Quick check: what pacing best fits this person's energy?",
-      correctAnswer: "Work with low but usable energy by using structure and one item at a time.",
-      distractors: [
-        "Push at maximum intensity because the person is fully rested.",
-        "Ignore the schedule because nothing important is time-bound.",
-        "Spend the day mostly on client-facing creative decisions.",
-      ],
-    },
-  },
-  alex_daily: {
-    task: {
-      prompt: "Quick check: which plan best fits what this person needs to protect today?",
-      correctAnswer: "Shape the client pitch narrative first, then finish exports and a small admin reminder.",
-      distractors: [
-        "Use the morning for exam flashcards and a clinical reflection note.",
-        "Prepare a launch risk brief before a team review.",
-        "Draft a research-paper related work section before academic admin.",
-      ],
-    },
-    values: {
-      prompt: "Quick check: which motivation best fits this person?",
-      correctAnswer: "Make self-directed creative choices that still become client-ready work.",
-      distractors: [
-        "Build calm clinical judgment for patient care.",
-        "Make unfair systems more answerable through legal advocacy.",
-        "Become an independent researcher through academic writing.",
-      ],
-    },
-    energy: {
-      prompt: "Quick check: what pacing best fits this person's energy?",
-      correctAnswer: "Use rested, steady energy while keeping delivery pressure from taking over.",
-      distractors: [
-        "Scale the day down heavily because recovery is very low.",
-        "Start with medical studying because an exam is the main pressure.",
-        "Avoid creative work because the environment is too chaotic to begin.",
-      ],
-    },
-  },
-  serena_daily: {
-    task: {
-      prompt: "Quick check: which plan best fits what this person needs to protect today?",
-      correctAnswer: "Protect the argument-drafting block first, then handle logistics and co-counsel communication.",
-      distractors: [
-        "Build a client pitch deck before a late-afternoon creative call.",
-        "Review cardiac medication material before class.",
-        "Turn launch risks into owners and decisions before a product meeting.",
-      ],
-    },
-    values: {
-      prompt: "Quick check: which motivation best fits this person?",
-      correctAnswer: "Turn care and justice into a clearer, more usable legal argument.",
-      distractors: [
-        "Trust personal research questions while drafting a workshop paper.",
-        "Lead a product team with less reactive decision-making.",
-        "Make creative choices that keep a studio self-directed.",
-      ],
-    },
-    energy: {
-      prompt: "Quick check: what pacing best fits this person's energy?",
-      correctAnswer: "Keep a contained, steady pace because sleep was interrupted and stress is moderate.",
-      distractors: [
-        "Use a fast sprint because the person is fully rested and unstressed.",
-        "Avoid focused drafting because the day has no protected work block.",
-        "Treat the main challenge as exam anxiety before class.",
-      ],
-    },
-  },
-};
-
-const fallbackAttentionCheck = (
-  scenario: Scenario,
-  kind: AttentionCheckKind,
-): AttentionCheckDefinition => {
+const attentionCheckPromptForKind = (kind: AttentionCheckKind) => {
   switch (kind) {
     case "task":
-      return {
-        prompt: "Quick check: which plan best fits what this person needs to protect today?",
-        correctAnswer: `Protect the main work first, especially ${scenario.topTasks[0]?.title ?? "the first priority"}.`,
-        distractors: [
-          "Ignore the priority order and start with the easiest minor task.",
-          "Treat the day as recovery-only with no concrete work target.",
-          "Focus on a completely different person's schedule.",
-        ],
-      };
+      return "Attention check: select the exact scenario title shown at the top of this page.";
     case "values":
-      return {
-        prompt: "Quick check: which motivation best fits this person?",
-        correctAnswer: `Move the day forward in a way that supports ${scenario.lifePriority.toLowerCase()}`,
-        distractors: [
-          "Win approval by copying someone else's priorities exactly.",
-          "Avoid the larger purpose and focus only on busywork.",
-          "Switch to a goal from a different profession.",
-        ],
-      };
+      return "Attention check: select the exact text shown under Life priority.";
     case "energy":
-      return {
-        prompt: "Quick check: what pacing best fits this person's energy?",
-        correctAnswer: "Match the pace to the stated energy instead of forcing or ignoring it.",
-        distractors: [
-          "Assume unlimited energy and add extra work.",
-          "Ignore the body state entirely.",
-          "Cancel all tasks even when some progress is possible.",
-        ],
-      };
+      return "Attention check: select the exact text shown under Energy background.";
   }
 };
+
+const attentionCheckAnswerForKind = (scenario: Scenario, kind: AttentionCheckKind) => {
+  switch (kind) {
+    case "task":
+      return scenario.contextTitle;
+    case "values":
+      return scenario.lifePriority;
+    case "energy":
+      return scenario.bodyState;
+  }
+};
+
+function exactAttentionCheckDefinition(
+  assignmentId: number,
+  trialIndex: number,
+  scenario: Scenario,
+  kind: AttentionCheckKind,
+): AttentionCheckDefinition {
+  const correctAnswer = attentionCheckAnswerForKind(scenario, kind);
+  const distractorOptions = scenarios
+    .filter((candidate) => candidate.id !== scenario.id)
+    .map((candidate, index) => ({
+      id: `${candidate.id}:${kind}:exact-distractor-${index}`,
+      label: attentionCheckAnswerForKind(candidate, kind),
+    }))
+    .filter((option) => option.label !== correctAnswer);
+
+  return {
+    prompt: attentionCheckPromptForKind(kind),
+    correctAnswer,
+    distractors: seededOptions(
+      distractorOptions,
+      `${assignmentId}:${trialIndex}:${kind}:exact-attention-distractors`,
+    )
+      .slice(0, 3)
+      .map((option) => option.label),
+  };
+}
 
 function attentionCheckForTrial(
   assignmentId: number,
@@ -440,7 +345,7 @@ function attentionCheckForTrial(
 
   const checkIndex = attentionCheckTrialIndexes.indexOf(trialIndex);
   const kind = attentionCheckKinds[(assignmentId + checkIndex) % attentionCheckKinds.length];
-  const definition = attentionCheckBank[scenario.id]?.[kind] ?? fallbackAttentionCheck(scenario, kind);
+  const definition = exactAttentionCheckDefinition(assignmentId, trialIndex, scenario, kind);
   const correctAnswer = definition.correctAnswer;
   const correctOption = { id: `${scenario.id}:${kind}`, label: correctAnswer };
   const seenLabels = new Set([correctAnswer]);
@@ -699,13 +604,29 @@ const selectedValuesFromAnswer = (answer: string) =>
 
 const answerFromSelectedValues = (values: string[]) => values.join(",");
 
-const rankingValuesForQuestion = (question: QuestionnaireQuestion, answer: string) => {
-  const optionValues = (question.options ?? []).map((option) => option.value);
-  const rankedValues = selectedValuesFromAnswer(answer).filter((value) => optionValues.includes(value));
-  const missingValues = optionValues.filter((value) => !rankedValues.includes(value));
+const emptyRankingSlotValue = "__empty__";
 
-  return [...rankedValues, ...missingValues];
+const rankingSlotsForQuestion = (question: QuestionnaireQuestion, answer: string) => {
+  const optionValues = (question.options ?? []).map((option) => option.value);
+  const seenValues = new Set<string>();
+  const slots = Array(optionValues.length).fill("") as string[];
+
+  selectedValuesFromAnswer(answer)
+    .slice(0, optionValues.length)
+    .forEach((value, index) => {
+      if (value === emptyRankingSlotValue || !optionValues.includes(value) || seenValues.has(value)) return;
+      seenValues.add(value);
+      slots[index] = value;
+    });
+
+  return slots;
 };
+
+const rankingValuesForQuestion = (question: QuestionnaireQuestion, answer: string) =>
+  rankingSlotsForQuestion(question, answer).filter(Boolean);
+
+const answerFromRankingSlots = (slots: string[]) =>
+  slots.some(Boolean) ? slots.map((value) => value || emptyRankingSlotValue).join(",") : "";
 
 const clampScriptLengthMinutes = (minutes: number) =>
   Number.isFinite(minutes) ? Math.min(scriptLengthMax, Math.max(scriptLengthMin, minutes)) : scriptLengthMin;
@@ -794,6 +715,18 @@ const emptyQuestionnaireAnswers: QuestionnaireAnswers = {
   idealMorningGuidance: "",
 };
 
+const emptyStateCheckAnswers: StateCheckAnswers = {
+  currentMood: "",
+  currentEnergy: "",
+  planningStyle: "",
+};
+
+const stateCheckAnswersFromResponse = (response: StateCheckResponse | null): StateCheckAnswers => ({
+  currentMood: response?.currentMood ?? "",
+  currentEnergy: response?.currentEnergy ?? "",
+  planningStyle: response?.planningStyle ?? "",
+});
+
 const questionnaireAnswersFromResponse = (response: QuestionnaireResponse | null): QuestionnaireAnswers => ({
   perspectivePreference: response?.perspectivePreference ?? "",
   perspectivePreferenceOther: response?.perspectivePreferenceOther ?? "",
@@ -828,12 +761,32 @@ export default function App() {
   const [showAdminPassword, setShowAdminPassword] = useState(false);
   const [adminParticipantId, setAdminParticipantId] = useState("");
   const [adminAssignmentId, setAdminAssignmentId] = useState<number | null>(null);
+  const [stateCheck, setStateCheck] = useState<StateCheckResponse | null>(null);
+  const [stateCheckDraft, setStateCheckDraft] = useState<StateCheckAnswers>(emptyStateCheckAnswers);
+
+  const activeParticipantId = adminMode && adminParticipantId ? adminParticipantId : participantId;
+  const activeAssignmentId = useMemo(() => {
+    if (!activeParticipantId) return null;
+    return adminMode && adminAssignmentId !== null
+      ? adminAssignmentId
+      : assignmentIdFromParams(params, activeParticipantId);
+  }, [activeParticipantId, adminAssignmentId, adminMode]);
 
   function beginStudy(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const trimmed = participantInput.trim();
     if (!trimmed && !adminMode) return;
-    setParticipantId(trimmed || adminParticipantId || "admin");
+
+    const nextParticipantId = adminMode ? adminParticipantId || trimmed || "admin" : trimmed;
+    const nextAssignmentId =
+      adminMode && adminAssignmentId !== null
+        ? adminAssignmentId
+        : assignmentIdFromParams(params, nextParticipantId);
+    const storedStateCheck = readStoredStateCheck(nextParticipantId, nextAssignmentId);
+
+    setParticipantId(nextParticipantId);
+    setStateCheck(storedStateCheck);
+    setStateCheckDraft(stateCheckAnswersFromResponse(storedStateCheck));
     setIntroAccepted(false);
   }
 
@@ -933,6 +886,25 @@ export default function App() {
     );
   }
 
+  if (!stateCheck && activeAssignmentId !== null) {
+    return (
+      <StateCheckForm
+        adminMode={adminMode}
+        assignmentId={activeAssignmentId}
+        initialAnswers={stateCheckDraft}
+        onBack={() => {
+          setParticipantId("");
+          setStateCheck(null);
+          setStateCheckDraft(emptyStateCheckAnswers);
+          setIntroAccepted(false);
+        }}
+        onDraftChange={setStateCheckDraft}
+        onSubmitted={setStateCheck}
+        participantId={activeParticipantId}
+      />
+    );
+  }
+
   if (!introAccepted) {
     return (
       <main className="app-shell">
@@ -993,6 +965,8 @@ export default function App() {
               className="secondary-button"
               onClick={() => {
                 setParticipantId("");
+                setStateCheck(null);
+                setStateCheckDraft(emptyStateCheckAnswers);
                 setIntroAccepted(false);
               }}
               type="button"
@@ -1012,9 +986,6 @@ export default function App() {
     );
   }
 
-  const activeParticipantId = adminMode && adminParticipantId ? adminParticipantId : participantId;
-  const activeAssignmentId = adminMode ? adminAssignmentId : null;
-
   return (
     <StudyTask
       adminMode={adminMode}
@@ -1022,6 +993,133 @@ export default function App() {
       key={`${activeParticipantId}:${activeAssignmentId ?? "auto"}`}
       participantId={activeParticipantId}
     />
+  );
+}
+
+function StateCheckForm({
+  adminMode,
+  assignmentId,
+  initialAnswers,
+  onBack,
+  onDraftChange,
+  onSubmitted,
+  participantId,
+}: {
+  adminMode: boolean;
+  assignmentId: number;
+  initialAnswers: StateCheckAnswers;
+  onBack: () => void;
+  onDraftChange: (answers: StateCheckAnswers) => void;
+  onSubmitted: (response: StateCheckResponse) => void;
+  participantId: string;
+}) {
+  const [answers, setAnswers] = useState<StateCheckAnswers>(initialAnswers);
+  const [startedAt] = useState(() => new Date().toISOString());
+  const [postingError, setPostingError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const submittingRef = useRef(false);
+
+  const stateCheckComplete = stateCheckQuestions.every((question) => Boolean(answers[question.id]));
+  const canSubmit = (adminMode || stateCheckComplete) && !isSubmitting;
+
+  useEffect(() => {
+    onDraftChange(answers);
+  }, [answers, onDraftChange]);
+
+  function setAnswer(questionId: StateCheckQuestionId, value: number) {
+    setAnswers((current) => ({ ...current, [questionId]: String(value) }));
+  }
+
+  async function submitStateCheck(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (!canSubmit || submittingRef.current) return;
+
+    const now = new Date().toISOString();
+    const response: StateCheckResponse = {
+      ...answers,
+      responseId: `${participantId}:${assignmentId}:state-check`,
+      participantId,
+      assignmentId,
+      stateCheckVersion,
+      startedAt,
+      submittedAt: now,
+      elapsedMs: Date.now() - new Date(startedAt).getTime(),
+      userAgent: navigator.userAgent,
+    };
+
+    submittingRef.current = true;
+    setIsSubmitting(true);
+    storeStateCheck(response);
+
+    try {
+      await postStateCheck(response);
+      setPostingError("");
+    } catch {
+      setPostingError("Saved locally. Network post failed.");
+    } finally {
+      submittingRef.current = false;
+      setIsSubmitting(false);
+      onSubmitted(response);
+    }
+  }
+
+  return (
+    <main className="app-shell questionnaire-shell">
+      <header className="study-header">
+        <div>
+          <p className="overline">Before you begin</p>
+          <h1>Tell us how you are starting today.</h1>
+        </div>
+        <div className="progress-block" aria-label="State check">
+          <span>State check</span>
+          <div className="progress-track">
+            <div className="progress-fill" style={{ width: "20%" }} />
+          </div>
+        </div>
+      </header>
+
+      <form className="questionnaire-panel state-check-panel" onSubmit={submitStateCheck}>
+        {stateCheckQuestions.map((question, questionIndex) => (
+          <fieldset className="questionnaire-question state-check-question" key={question.id}>
+            <legend>
+              <span>{questionIndex + 1}</span>
+              {question.prompt}
+            </legend>
+            <div className="state-scale" role="group" aria-label={question.prompt}>
+              <div className="state-scale-anchors">
+                <span>{question.lowAnchor}</span>
+                <span>{question.highAnchor}</span>
+              </div>
+              <div className="rating-buttons state-scale-buttons">
+                {stateCheckScale.map((rating) => (
+                  <button
+                    aria-pressed={answers[question.id] === String(rating)}
+                    className={answers[question.id] === String(rating) ? "rating-button selected" : "rating-button"}
+                    key={`${question.id}-${rating}`}
+                    onClick={() => setAnswer(question.id, rating)}
+                    type="button"
+                  >
+                    {rating}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </fieldset>
+        ))}
+
+        <div className="footer-actions">
+          <p>{postingError || (isSubmitting ? "Saving..." : "State check saves when submitted.")}</p>
+          <div className="nav-actions">
+            <button className="secondary-button" disabled={isSubmitting} onClick={onBack} type="button">
+              Back
+            </button>
+            <button className="primary-button" disabled={!canSubmit} type="submit">
+              {isSubmitting ? "Saving..." : "Continue"}
+            </button>
+          </div>
+        </div>
+      </form>
+    </main>
   );
 }
 
@@ -1861,6 +1959,7 @@ function QuestionnaireForm({
   const [startedAt] = useState(() => new Date().toISOString());
   const [postingError, setPostingError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [draggedRankingValue, setDraggedRankingValue] = useState<string | null>(null);
   const submittingRef = useRef(false);
 
   function isQuestionAnswered(question: QuestionnaireQuestion) {
@@ -1870,7 +1969,7 @@ function QuestionnaireForm({
     if (mode === "range") return Boolean(selected);
 
     if (mode === "ranking") {
-      return rankingValuesForQuestion(question, selected).length === (question.options ?? []).length;
+      return rankingSlotsForQuestion(question, selected).every(Boolean);
     }
 
     if (mode === "multiple") {
@@ -1940,22 +2039,60 @@ function QuestionnaireForm({
     });
   }
 
-  function moveRankingAnswer(question: QuestionnaireQuestion, value: string, direction: -1 | 1) {
+  function placeRankingAnswer(question: QuestionnaireQuestion, value: string, targetIndex: number) {
     setAnswers((current) => {
-      const rankingValues = rankingValuesForQuestion(question, current[question.id]);
-      const currentIndex = rankingValues.indexOf(value);
-      const nextIndex = currentIndex + direction;
+      const optionValues = (question.options ?? []).map((option) => option.value);
+      if (!optionValues.includes(value) || targetIndex < 0 || targetIndex >= optionValues.length) return current;
 
-      if (currentIndex < 0 || nextIndex < 0 || nextIndex >= rankingValues.length) return current;
+      const nextSlots = rankingSlotsForQuestion(question, current[question.id]);
+      const sourceIndex = nextSlots.indexOf(value);
+      const replacedValue = nextSlots[targetIndex];
 
-      const nextValues = [...rankingValues];
-      [nextValues[currentIndex], nextValues[nextIndex]] = [nextValues[nextIndex], nextValues[currentIndex]];
+      if (sourceIndex === targetIndex) return current;
+
+      if (sourceIndex >= 0) {
+        nextSlots[sourceIndex] = replacedValue && replacedValue !== value ? replacedValue : "";
+      }
+      nextSlots[targetIndex] = value;
 
       return {
         ...current,
-        [question.id]: answerFromSelectedValues(nextValues),
+        [question.id]: answerFromRankingSlots(nextSlots),
       };
     });
+  }
+
+  function addRankingAnswer(question: QuestionnaireQuestion, value: string) {
+    const slots = rankingSlotsForQuestion(question, answers[question.id]);
+    const targetIndex = slots.findIndex((slotValue) => !slotValue);
+    if (targetIndex < 0) return;
+    placeRankingAnswer(question, value, targetIndex);
+  }
+
+  function clearRankingSlot(question: QuestionnaireQuestion, targetIndex: number) {
+    setAnswers((current) => {
+      const nextSlots = rankingSlotsForQuestion(question, current[question.id]);
+      if (targetIndex < 0 || targetIndex >= nextSlots.length) return current;
+      nextSlots[targetIndex] = "";
+
+      return {
+        ...current,
+        [question.id]: answerFromRankingSlots(nextSlots),
+      };
+    });
+  }
+
+  function startRankingDrag(event: DragEvent<HTMLElement>, value: string) {
+    event.dataTransfer.effectAllowed = "move";
+    event.dataTransfer.setData("text/plain", value);
+    setDraggedRankingValue(value);
+  }
+
+  function dropRankingAnswer(event: DragEvent<HTMLElement>, question: QuestionnaireQuestion, targetIndex: number) {
+    event.preventDefault();
+    const value = event.dataTransfer.getData("text/plain") || draggedRankingValue;
+    if (value) placeRankingAnswer(question, value, targetIndex);
+    setDraggedRankingValue(null);
   }
 
   function setOtherAnswer(question: QuestionnaireQuestion, value: string) {
@@ -2048,7 +2185,11 @@ function QuestionnaireForm({
           const selectedValues = selectedValuesFromAnswer(answers[question.id]);
 
           if (mode === "ranking") {
-            const rankingValues = rankingValuesForQuestion(question, answers[question.id]);
+            const rankingSlots = rankingSlotsForQuestion(question, answers[question.id]);
+            const rankedValues = rankingSlots.filter(Boolean);
+            const unrankedOptions = (question.options ?? []).filter(
+              (option) => !rankedValues.includes(option.value),
+            );
             const optionsByValue = new Map((question.options ?? []).map((option) => [option.value, option]));
 
             return (
@@ -2057,38 +2198,78 @@ function QuestionnaireForm({
                   <span>{questionIndex + 1}</span>
                   {question.prompt}
                 </legend>
-                <ol className="ranking-list">
-                  {rankingValues.map((value, rankIndex) => {
+                <div className="ranking-builder">
+                  <ol className="ranking-list">
+                  {rankingSlots.map((value, rankIndex) => {
                     const option = optionsByValue.get(value);
-                    if (!option) return null;
 
                     return (
-                      <li className="ranking-choice" key={option.value}>
+                      <li
+                        className={option ? "ranking-slot filled" : "ranking-slot"}
+                        key={`${question.id}-slot-${rankIndex}`}
+                        onDragOver={(event) => {
+                          event.preventDefault();
+                          event.dataTransfer.dropEffect = "move";
+                        }}
+                        onDrop={(event) => dropRankingAnswer(event, question, rankIndex)}
+                      >
                         <div className="ranking-rank">{rankIndex + 1}</div>
-                        <div>
-                          <span>{option.label}</span>
-                          <small>{option.description}</small>
-                        </div>
-                        <div className="ranking-controls">
-                          <button
-                            disabled={rankIndex === 0}
-                            onClick={() => moveRankingAnswer(question, option.value, -1)}
-                            type="button"
+                        {option ? (
+                          <div
+                            className={
+                              draggedRankingValue === option.value
+                                ? "ranking-choice ranking-slot-choice dragging"
+                                : "ranking-choice ranking-slot-choice"
+                            }
+                            draggable
+                            onDragEnd={() => setDraggedRankingValue(null)}
+                            onDragStart={(event) => startRankingDrag(event, option.value)}
                           >
-                            Up
-                          </button>
-                          <button
-                            disabled={rankIndex === rankingValues.length - 1}
-                            onClick={() => moveRankingAnswer(question, option.value, 1)}
-                            type="button"
-                          >
-                            Down
-                          </button>
-                        </div>
+                            <div>
+                              <span>{option.label}</span>
+                              <small>{option.description}</small>
+                            </div>
+                            <button
+                              className="ranking-clear-button"
+                              onClick={() => clearRankingSlot(question, rankIndex)}
+                              type="button"
+                            >
+                              Remove
+                            </button>
+                          </div>
+                        ) : (
+                          <div className="ranking-placeholder">Position {rankIndex + 1}</div>
+                        )}
                       </li>
                     );
                   })}
-                </ol>
+                  </ol>
+
+                  {unrankedOptions.length > 0 ? (
+                    <div className="ranking-pool" aria-label="Available personalization choices">
+                      {unrankedOptions.map((option) => (
+                        <button
+                          className={
+                            draggedRankingValue === option.value
+                              ? "ranking-choice ranking-pool-choice dragging"
+                              : "ranking-choice ranking-pool-choice"
+                          }
+                          draggable
+                          key={option.value}
+                          onClick={() => addRankingAnswer(question, option.value)}
+                          onDragEnd={() => setDraggedRankingValue(null)}
+                          onDragStart={(event) => startRankingDrag(event, option.value)}
+                          type="button"
+                        >
+                          <div>
+                            <span>{option.label}</span>
+                            <small>{option.description}</small>
+                          </div>
+                        </button>
+                      ))}
+                    </div>
+                  ) : null}
+                </div>
               </fieldset>
             );
           }

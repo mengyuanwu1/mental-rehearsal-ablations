@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-06-19T18:28:55.038Z",
+  "generatedAt": "2026-06-23T20:43:49.691Z",
   "provider": "elevenlabs",
   "modelId": "eleven_multilingual_v2",
-  "voiceId": "jwjWpCFQUCpnHneBySsF",
+  "voiceId": "ZqvIIuD5aI9JFejebHiH",
   "outputFormat": "mp3_44100_128",
   "speed": 0.8,
   "audioByScenarioArm": {
@@ -283,828 +283,666 @@
       "condition": "baseline",
       "segmentId": "introduction",
       "path": "audio/maya_daily/baseline/introduction.mp3",
-      "bytes": 505774,
-      "words": 67,
-      "status": "reused"
+      "bytes": 379968,
+      "words": 38,
+      "status": "generated"
     },
     {
       "scenarioId": "maya_daily",
       "condition": "baseline",
       "segmentId": "middle",
       "path": "audio/maya_daily/baseline/middle.mp3",
-      "bytes": 864383,
-      "words": 112,
-      "status": "reused"
+      "bytes": 952991,
+      "words": 116,
+      "status": "generated"
     },
     {
       "scenarioId": "maya_daily",
       "condition": "baseline",
       "segmentId": "ending",
       "path": "audio/maya_daily/baseline/ending.mp3",
-      "bytes": 487802,
-      "words": 64,
-      "status": "reused"
+      "bytes": 379968,
+      "words": 41,
+      "status": "generated"
     },
     {
       "scenarioId": "maya_daily",
       "condition": "mind",
       "segmentId": "introduction",
       "path": "audio/maya_daily/mind/introduction.mp3",
-      "bytes": 362832,
+      "bytes": 345696,
       "words": 35,
-      "status": "reused"
+      "status": "generated"
     },
     {
       "scenarioId": "maya_daily",
       "condition": "mind",
       "segmentId": "middle",
       "path": "audio/maya_daily/mind/middle.mp3",
-      "bytes": 1181196,
-      "words": 147,
-      "status": "reused"
+      "bytes": 879430,
+      "words": 105,
+      "status": "generated"
     },
     {
       "scenarioId": "maya_daily",
       "condition": "mind",
       "segmentId": "ending",
       "path": "audio/maya_daily/mind/ending.mp3",
-      "bytes": 313931,
-      "words": 38,
-      "status": "reused"
+      "bytes": 367430,
+      "words": 35,
+      "status": "generated"
     },
     {
       "scenarioId": "maya_daily",
       "condition": "body",
       "segmentId": "introduction",
       "path": "audio/maya_daily/body/introduction.mp3",
-      "bytes": 665435,
-      "words": 96,
-      "status": "reused"
+      "bytes": 605248,
+      "words": 78,
+      "status": "generated"
     },
     {
       "scenarioId": "maya_daily",
       "condition": "body",
       "segmentId": "middle",
       "path": "audio/maya_daily/body/middle.mp3",
-      "bytes": 669196,
-      "words": 90,
-      "status": "reused"
+      "bytes": 663763,
+      "words": 92,
+      "status": "generated"
     },
     {
       "scenarioId": "maya_daily",
       "condition": "body",
       "segmentId": "ending",
       "path": "audio/maya_daily/body/ending.mp3",
-      "bytes": 264194,
-      "words": 28,
-      "status": "reused"
+      "bytes": 356145,
+      "words": 35,
+      "status": "generated"
     },
     {
       "scenarioId": "maya_daily",
       "condition": "soul",
       "segmentId": "introduction",
       "path": "audio/maya_daily/soul/introduction.mp3",
-      "bytes": 789986,
-      "words": 93,
-      "status": "reused"
+      "bytes": 580589,
+      "words": 65,
+      "status": "generated"
     },
     {
       "scenarioId": "maya_daily",
       "condition": "soul",
       "segmentId": "middle",
       "path": "audio/maya_daily/soul/middle.mp3",
-      "bytes": 791658,
-      "words": 98,
-      "status": "reused"
+      "bytes": 608174,
+      "words": 72,
+      "status": "generated"
     },
     {
       "scenarioId": "maya_daily",
       "condition": "soul",
       "segmentId": "ending",
       "path": "audio/maya_daily/soul/ending.mp3",
-      "bytes": 213621,
-      "words": 29,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "maya_daily",
-      "condition": "full",
-      "segmentId": "introduction",
-      "path": "audio/maya_daily/full/introduction.mp3",
-      "bytes": 611100,
-      "words": 59,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "maya_daily",
-      "condition": "full",
-      "segmentId": "middle",
-      "path": "audio/maya_daily/full/middle.mp3",
-      "bytes": 1212960,
-      "words": 124,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "maya_daily",
-      "condition": "full",
-      "segmentId": "ending",
-      "path": "audio/maya_daily/full/ending.mp3",
-      "bytes": 402120,
-      "words": 42,
-      "status": "reused"
+      "bytes": 642865,
+      "words": 70,
+      "status": "generated"
     },
     {
       "scenarioId": "maya_task",
       "condition": "baseline",
       "segmentId": "introduction",
       "path": "audio/maya_task/baseline/introduction.mp3",
-      "bytes": 334829,
-      "words": 48,
-      "status": "reused"
+      "bytes": 379968,
+      "words": 39,
+      "status": "generated"
     },
     {
       "scenarioId": "maya_task",
       "condition": "baseline",
       "segmentId": "middle",
       "path": "audio/maya_task/baseline/middle.mp3",
-      "bytes": 511626,
-      "words": 108,
-      "status": "reused"
+      "bytes": 899492,
+      "words": 116,
+      "status": "generated"
     },
     {
       "scenarioId": "maya_task",
       "condition": "baseline",
       "segmentId": "ending",
       "path": "audio/maya_task/baseline/ending.mp3",
-      "bytes": 144657,
-      "words": 7,
-      "status": "reused"
+      "bytes": 379968,
+      "words": 44,
+      "status": "generated"
     },
     {
       "scenarioId": "maya_task",
       "condition": "mind",
       "segmentId": "introduction",
       "path": "audio/maya_task/mind/introduction.mp3",
-      "bytes": 247057,
+      "bytes": 351965,
       "words": 33,
-      "status": "reused"
+      "status": "generated"
     },
     {
       "scenarioId": "maya_task",
       "condition": "mind",
       "segmentId": "middle",
       "path": "audio/maya_task/mind/middle.mp3",
-      "bytes": 555929,
-      "words": 103,
-      "status": "reused"
+      "bytes": 670450,
+      "words": 88,
+      "status": "generated"
     },
     {
       "scenarioId": "maya_task",
       "condition": "mind",
       "segmentId": "ending",
       "path": "audio/maya_task/mind/ending.mp3",
-      "bytes": 234937,
-      "words": 30,
-      "status": "reused"
+      "bytes": 290943,
+      "words": 32,
+      "status": "generated"
     },
     {
       "scenarioId": "maya_task",
       "condition": "body",
       "segmentId": "introduction",
       "path": "audio/maya_task/body/introduction.mp3",
-      "bytes": 388328,
-      "words": 51,
-      "status": "reused"
+      "bytes": 461888,
+      "words": 64,
+      "status": "generated"
     },
     {
       "scenarioId": "maya_task",
       "condition": "body",
       "segmentId": "middle",
       "path": "audio/maya_task/body/middle.mp3",
-      "bytes": 498251,
-      "words": 91,
-      "status": "reused"
+      "bytes": 450604,
+      "words": 68,
+      "status": "generated"
     },
     {
       "scenarioId": "maya_task",
       "condition": "body",
       "segmentId": "ending",
       "path": "audio/maya_task/body/ending.mp3",
-      "bytes": 196484,
-      "words": 16,
-      "status": "reused"
+      "bytes": 347368,
+      "words": 33,
+      "status": "generated"
     },
     {
       "scenarioId": "maya_task",
       "condition": "soul",
       "segmentId": "introduction",
       "path": "audio/maya_task/soul/introduction.mp3",
-      "bytes": 517477,
-      "words": 33,
-      "status": "reused"
+      "bytes": 666688,
+      "words": 83,
+      "status": "generated"
     },
     {
       "scenarioId": "maya_task",
       "condition": "soul",
       "segmentId": "middle",
       "path": "audio/maya_task/soul/middle.mp3",
-      "bytes": 534613,
-      "words": 101,
-      "status": "reused"
+      "bytes": 658747,
+      "words": 85,
+      "status": "generated"
     },
     {
       "scenarioId": "maya_task",
       "condition": "soul",
       "segmentId": "ending",
       "path": "audio/maya_task/soul/ending.mp3",
-      "bytes": 140896,
-      "words": 28,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "maya_task",
-      "condition": "full",
-      "segmentId": "introduction",
-      "path": "audio/maya_task/full/introduction.mp3",
-      "bytes": 305572,
-      "words": 62,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "maya_task",
-      "condition": "full",
-      "segmentId": "middle",
-      "path": "audio/maya_task/full/middle.mp3",
-      "bytes": 1075452,
-      "words": 104,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "maya_task",
-      "condition": "full",
-      "segmentId": "ending",
-      "path": "audio/maya_task/full/ending.mp3",
-      "bytes": 259596,
-      "words": 30,
-      "status": "reused"
+      "bytes": 681735,
+      "words": 84,
+      "status": "generated"
     },
     {
       "scenarioId": "jonah_daily",
       "condition": "baseline",
       "segmentId": "introduction",
       "path": "audio/jonah_daily/baseline/introduction.mp3",
-      "bytes": 453529,
-      "words": 63,
-      "status": "reused"
+      "bytes": 379968,
+      "words": 35,
+      "status": "generated"
     },
     {
       "scenarioId": "jonah_daily",
       "condition": "baseline",
       "segmentId": "middle",
       "path": "audio/jonah_daily/baseline/middle.mp3",
-      "bytes": 921644,
-      "words": 111,
-      "status": "reused"
+      "bytes": 973053,
+      "words": 114,
+      "status": "generated"
     },
     {
       "scenarioId": "jonah_daily",
       "condition": "baseline",
       "segmentId": "ending",
       "path": "audio/jonah_daily/baseline/ending.mp3",
-      "bytes": 471502,
-      "words": 60,
-      "status": "reused"
+      "bytes": 307244,
+      "words": 28,
+      "status": "generated"
     },
     {
       "scenarioId": "jonah_daily",
       "condition": "mind",
       "segmentId": "introduction",
       "path": "audio/jonah_daily/mind/introduction.mp3",
-      "bytes": 332321,
-      "words": 37,
-      "status": "reused"
+      "bytes": 379968,
+      "words": 35,
+      "status": "generated"
     },
     {
       "scenarioId": "jonah_daily",
       "condition": "mind",
       "segmentId": "middle",
       "path": "audio/jonah_daily/mind/middle.mp3",
-      "bytes": 1147759,
-      "words": 139,
-      "status": "reused"
+      "bytes": 911195,
+      "words": 112,
+      "status": "generated"
     },
     {
       "scenarioId": "jonah_daily",
       "condition": "mind",
       "segmentId": "ending",
       "path": "audio/jonah_daily/mind/ending.mp3",
-      "bytes": 252073,
-      "words": 33,
-      "status": "reused"
+      "bytes": 365758,
+      "words": 36,
+      "status": "generated"
     },
     {
       "scenarioId": "jonah_daily",
       "condition": "body",
       "segmentId": "introduction",
       "path": "audio/jonah_daily/body/introduction.mp3",
-      "bytes": 647462,
-      "words": 85,
-      "status": "reused"
+      "bytes": 619459,
+      "words": 76,
+      "status": "generated"
     },
     {
       "scenarioId": "jonah_daily",
       "condition": "body",
       "segmentId": "middle",
       "path": "audio/jonah_daily/body/middle.mp3",
-      "bytes": 716008,
-      "words": 96,
-      "status": "reused"
+      "bytes": 600651,
+      "words": 76,
+      "status": "generated"
     },
     {
       "scenarioId": "jonah_daily",
       "condition": "body",
       "segmentId": "ending",
       "path": "audio/jonah_daily/body/ending.mp3",
-      "bytes": 379968,
-      "words": 48,
-      "status": "reused"
+      "bytes": 326470,
+      "words": 31,
+      "status": "generated"
     },
     {
       "scenarioId": "jonah_daily",
       "condition": "soul",
       "segmentId": "introduction",
       "path": "audio/jonah_daily/soul/introduction.mp3",
-      "bytes": 956752,
-      "words": 117,
-      "status": "reused"
+      "bytes": 600651,
+      "words": 78,
+      "status": "generated"
     },
     {
       "scenarioId": "jonah_daily",
       "condition": "soul",
       "segmentId": "middle",
       "path": "audio/jonah_daily/soul/middle.mp3",
-      "bytes": 678809,
-      "words": 90,
-      "status": "reused"
+      "bytes": 579753,
+      "words": 65,
+      "status": "generated"
     },
     {
       "scenarioId": "jonah_daily",
       "condition": "soul",
       "segmentId": "ending",
       "path": "audio/jonah_daily/soul/ending.mp3",
-      "bytes": 236608,
-      "words": 29,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "jonah_daily",
-      "condition": "full",
-      "segmentId": "introduction",
-      "path": "audio/jonah_daily/full/introduction.mp3",
-      "bytes": 665435,
-      "words": 79,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "jonah_daily",
-      "condition": "full",
-      "segmentId": "middle",
-      "path": "audio/jonah_daily/full/middle.mp3",
-      "bytes": 1252248,
-      "words": 128,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "jonah_daily",
-      "condition": "full",
-      "segmentId": "ending",
-      "path": "audio/jonah_daily/full/ending.mp3",
-      "bytes": 379968,
-      "words": 41,
-      "status": "reused"
+      "bytes": 672122,
+      "words": 83,
+      "status": "generated"
     },
     {
       "scenarioId": "jonah_task",
       "condition": "baseline",
       "segmentId": "introduction",
       "path": "audio/jonah_task/baseline/introduction.mp3",
-      "bytes": 208187,
-      "words": 38,
-      "status": "reused"
+      "bytes": 379968,
+      "words": 37,
+      "status": "generated"
     },
     {
       "scenarioId": "jonah_task",
       "condition": "baseline",
       "segmentId": "middle",
       "path": "audio/jonah_task/baseline/middle.mp3",
-      "bytes": 654986,
-      "words": 106,
-      "status": "reused"
+      "bytes": 959678,
+      "words": 130,
+      "status": "generated"
     },
     {
       "scenarioId": "jonah_task",
       "condition": "baseline",
       "segmentId": "ending",
       "path": "audio/jonah_task/baseline/ending.mp3",
-      "bytes": 199410,
-      "words": 21,
-      "status": "reused"
+      "bytes": 379968,
+      "words": 33,
+      "status": "generated"
     },
     {
       "scenarioId": "jonah_task",
       "condition": "mind",
       "segmentId": "introduction",
       "path": "audio/jonah_task/mind/introduction.mp3",
-      "bytes": 280494,
-      "words": 34,
-      "status": "reused"
+      "bytes": 371191,
+      "words": 31,
+      "status": "generated"
     },
     {
       "scenarioId": "jonah_task",
       "condition": "mind",
       "segmentId": "middle",
       "path": "audio/jonah_task/mind/middle.mp3",
-      "bytes": 547988,
-      "words": 76,
-      "status": "reused"
+      "bytes": 672122,
+      "words": 84,
+      "status": "generated"
     },
     {
       "scenarioId": "jonah_task",
       "condition": "mind",
       "segmentId": "ending",
       "path": "audio/jonah_task/mind/ending.mp3",
-      "bytes": 219472,
-      "words": 33,
-      "status": "reused"
+      "bytes": 379968,
+      "words": 32,
+      "status": "generated"
     },
     {
       "scenarioId": "jonah_task",
       "condition": "body",
       "segmentId": "introduction",
       "path": "audio/jonah_task/body/introduction.mp3",
-      "bytes": 410479,
-      "words": 71,
-      "status": "reused"
+      "bytes": 618623,
+      "words": 76,
+      "status": "generated"
     },
     {
       "scenarioId": "jonah_task",
       "condition": "body",
       "segmentId": "middle",
       "path": "audio/jonah_task/body/middle.mp3",
-      "bytes": 566378,
-      "words": 85,
-      "status": "reused"
+      "bytes": 596889,
+      "words": 78,
+      "status": "generated"
     },
     {
       "scenarioId": "jonah_task",
       "condition": "body",
       "segmentId": "ending",
       "path": "audio/jonah_task/body/ending.mp3",
-      "bytes": 115400,
-      "words": 28,
-      "status": "reused"
+      "bytes": 298466,
+      "words": 27,
+      "status": "generated"
     },
     {
       "scenarioId": "jonah_task",
       "condition": "soul",
       "segmentId": "introduction",
       "path": "audio/jonah_task/soul/introduction.mp3",
-      "bytes": 461888,
-      "words": 58,
-      "status": "reused"
+      "bytes": 661673,
+      "words": 83,
+      "status": "generated"
     },
     {
       "scenarioId": "jonah_task",
       "condition": "soul",
       "segmentId": "middle",
       "path": "audio/jonah_task/soul/middle.mp3",
-      "bytes": 501177,
-      "words": 83,
-      "status": "reused"
+      "bytes": 611936,
+      "words": 70,
+      "status": "generated"
     },
     {
       "scenarioId": "jonah_task",
       "condition": "soul",
       "segmentId": "ending",
       "path": "audio/jonah_task/soul/ending.mp3",
-      "bytes": 158450,
-      "words": 22,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "jonah_task",
-      "condition": "full",
-      "segmentId": "introduction",
-      "path": "audio/jonah_task/full/introduction.mp3",
-      "bytes": 298884,
-      "words": 56,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "jonah_task",
-      "condition": "full",
-      "segmentId": "middle",
-      "path": "audio/jonah_task/full/middle.mp3",
-      "bytes": 1086736,
-      "words": 102,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "jonah_task",
-      "condition": "full",
-      "segmentId": "ending",
-      "path": "audio/jonah_task/full/ending.mp3",
-      "bytes": 187707,
-      "words": 18,
-      "status": "reused"
+      "bytes": 582679,
+      "words": 72,
+      "status": "generated"
     },
     {
       "scenarioId": "priya_daily",
       "condition": "baseline",
       "segmentId": "introduction",
       "path": "audio/priya_daily/baseline/introduction.mp3",
-      "bytes": 606502,
-      "words": 77,
-      "status": "reused"
+      "bytes": 379968,
+      "words": 41,
+      "status": "generated"
     },
     {
       "scenarioId": "priya_daily",
       "condition": "baseline",
       "segmentId": "middle",
       "path": "audio/priya_daily/baseline/middle.mp3",
-      "bytes": 1097604,
-      "words": 151,
-      "status": "reused"
+      "bytes": 997294,
+      "words": 114,
+      "status": "generated"
     },
     {
       "scenarioId": "priya_daily",
       "condition": "baseline",
       "segmentId": "ending",
       "path": "audio/priya_daily/baseline/ending.mp3",
-      "bytes": 412151,
-      "words": 57,
-      "status": "reused"
+      "bytes": 262522,
+      "words": 26,
+      "status": "generated"
     },
     {
       "scenarioId": "priya_daily",
       "condition": "mind",
       "segmentId": "introduction",
       "path": "audio/priya_daily/mind/introduction.mp3",
-      "bytes": 379968,
-      "words": 43,
-      "status": "reused"
+      "bytes": 366594,
+      "words": 32,
+      "status": "generated"
     },
     {
       "scenarioId": "priya_daily",
       "condition": "mind",
       "segmentId": "middle",
       "path": "audio/priya_daily/mind/middle.mp3",
-      "bytes": 1166986,
-      "words": 127,
-      "status": "reused"
+      "bytes": 935854,
+      "words": 105,
+      "status": "generated"
     },
     {
       "scenarioId": "priya_daily",
       "condition": "mind",
       "segmentId": "ending",
       "path": "audio/priya_daily/mind/ending.mp3",
-      "bytes": 317693,
-      "words": 34,
-      "status": "reused"
+      "bytes": 328142,
+      "words": 31,
+      "status": "generated"
     },
     {
       "scenarioId": "priya_daily",
       "condition": "body",
       "segmentId": "introduction",
       "path": "audio/priya_daily/body/introduction.mp3",
-      "bytes": 732308,
-      "words": 103,
-      "status": "reused"
+      "bytes": 481115,
+      "words": 64,
+      "status": "generated"
     },
     {
       "scenarioId": "priya_daily",
       "condition": "body",
       "segmentId": "middle",
       "path": "audio/priya_daily/body/middle.mp3",
-      "bytes": 663763,
-      "words": 90,
-      "status": "reused"
+      "bytes": 535867,
+      "words": 72,
+      "status": "generated"
     },
     {
       "scenarioId": "priya_daily",
       "condition": "body",
       "segmentId": "ending",
       "path": "audio/priya_daily/body/ending.mp3",
-      "bytes": 356981,
-      "words": 40,
-      "status": "reused"
+      "bytes": 333993,
+      "words": 29,
+      "status": "generated"
     },
     {
       "scenarioId": "priya_daily",
       "condition": "soul",
       "segmentId": "introduction",
       "path": "audio/priya_daily/soul/introduction.mp3",
-      "bytes": 802107,
-      "words": 99,
-      "status": "reused"
+      "bytes": 468994,
+      "words": 60,
+      "status": "generated"
     },
     {
       "scenarioId": "priya_daily",
       "condition": "soul",
       "segmentId": "middle",
       "path": "audio/priya_daily/soul/middle.mp3",
-      "bytes": 760311,
-      "words": 92,
-      "status": "reused"
+      "bytes": 525000,
+      "words": 66,
+      "status": "generated"
     },
     {
       "scenarioId": "priya_daily",
       "condition": "soul",
       "segmentId": "ending",
       "path": "audio/priya_daily/soul/ending.mp3",
-      "bytes": 341516,
-      "words": 41,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "priya_daily",
-      "condition": "full",
-      "segmentId": "introduction",
-      "path": "audio/priya_daily/full/introduction.mp3",
-      "bytes": 648298,
-      "words": 86,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "priya_daily",
-      "condition": "full",
-      "segmentId": "middle",
-      "path": "audio/priya_daily/full/middle.mp3",
-      "bytes": 1265623,
-      "words": 133,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "priya_daily",
-      "condition": "full",
-      "segmentId": "ending",
-      "path": "audio/priya_daily/full/ending.mp3",
-      "bytes": 379968,
-      "words": 46,
-      "status": "reused"
+      "bytes": 548824,
+      "words": 64,
+      "status": "generated"
     },
     {
       "scenarioId": "priya_task",
       "condition": "baseline",
       "segmentId": "introduction",
       "path": "audio/priya_task/baseline/introduction.mp3",
-      "bytes": 153435,
+      "bytes": 379968,
       "words": 34,
-      "status": "reused"
+      "status": "generated"
     },
     {
       "scenarioId": "priya_task",
       "condition": "baseline",
       "segmentId": "middle",
       "path": "audio/priya_task/baseline/middle.mp3",
-      "bytes": 685497,
-      "words": 124,
-      "status": "reused"
+      "bytes": 958842,
+      "words": 120,
+      "status": "generated"
     },
     {
       "scenarioId": "priya_task",
       "condition": "baseline",
       "segmentId": "ending",
       "path": "audio/priya_task/baseline/ending.mp3",
-      "bytes": 104533,
-      "words": 7,
-      "status": "reused"
+      "bytes": 379968,
+      "words": 46,
+      "status": "generated"
     },
     {
       "scenarioId": "priya_task",
       "condition": "mind",
       "segmentId": "introduction",
       "path": "audio/priya_task/mind/introduction.mp3",
-      "bytes": 308497,
-      "words": 33,
-      "status": "reused"
+      "bytes": 327306,
+      "words": 34,
+      "status": "generated"
     },
     {
       "scenarioId": "priya_task",
       "condition": "mind",
       "segmentId": "middle",
       "path": "audio/priya_task/mind/middle.mp3",
-      "bytes": 522075,
-      "words": 89,
-      "status": "reused"
+      "bytes": 697199,
+      "words": 86,
+      "status": "generated"
     },
     {
       "scenarioId": "priya_task",
       "condition": "mind",
       "segmentId": "ending",
       "path": "audio/priya_task/mind/ending.mp3",
-      "bytes": 313931,
-      "words": 31,
-      "status": "reused"
+      "bytes": 318528,
+      "words": 30,
+      "status": "generated"
     },
     {
       "scenarioId": "priya_task",
       "condition": "body",
       "segmentId": "introduction",
       "path": "audio/priya_task/body/introduction.mp3",
-      "bytes": 395433,
-      "words": 43,
-      "status": "reused"
+      "bytes": 658747,
+      "words": 88,
+      "status": "generated"
     },
     {
       "scenarioId": "priya_task",
       "condition": "body",
       "segmentId": "middle",
       "path": "audio/priya_task/body/middle.mp3",
-      "bytes": 534613,
-      "words": 105,
-      "status": "reused"
+      "bytes": 606502,
+      "words": 77,
+      "status": "generated"
     },
     {
       "scenarioId": "priya_task",
       "condition": "body",
       "segmentId": "ending",
       "path": "audio/priya_task/body/ending.mp3",
-      "bytes": 230757,
-      "words": 24,
-      "status": "reused"
+      "bytes": 379968,
+      "words": 32,
+      "status": "generated"
     },
     {
       "scenarioId": "priya_task",
       "condition": "soul",
       "segmentId": "introduction",
       "path": "audio/priya_task/soul/introduction.mp3",
-      "bytes": 524164,
-      "words": 66,
-      "status": "reused"
+      "bytes": 486130,
+      "words": 68,
+      "status": "generated"
     },
     {
       "scenarioId": "priya_task",
       "condition": "soul",
       "segmentId": "middle",
       "path": "audio/priya_task/soul/middle.mp3",
-      "bytes": 542555,
-      "words": 66,
-      "status": "reused"
+      "bytes": 594799,
+      "words": 67,
+      "status": "generated"
     },
     {
       "scenarioId": "priya_task",
       "condition": "soul",
       "segmentId": "ending",
       "path": "audio/priya_task/soul/ending.mp3",
-      "bytes": 148837,
-      "words": 19,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "priya_task",
-      "condition": "full",
-      "segmentId": "introduction",
-      "path": "audio/priya_task/full/introduction.mp3",
-      "bytes": 198156,
-      "words": 63,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "priya_task",
-      "condition": "full",
-      "segmentId": "middle",
-      "path": "audio/priya_task/full/middle.mp3",
-      "bytes": 1104291,
-      "words": 96,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "priya_task",
-      "condition": "full",
-      "segmentId": "ending",
-      "path": "audio/priya_task/full/ending.mp3",
-      "bytes": 215711,
-      "words": 15,
-      "status": "reused"
+      "bytes": 551750,
+      "words": 66,
+      "status": "generated"
     },
     {
       "scenarioId": "alex_daily",
       "condition": "baseline",
       "segmentId": "introduction",
       "path": "audio/alex_daily/baseline/introduction.mp3",
-      "bytes": 607338,
-      "words": 82,
-      "status": "reused"
+      "bytes": 379968,
+      "words": 39,
+      "status": "generated"
     },
     {
       "scenarioId": "alex_daily",
       "condition": "baseline",
       "segmentId": "middle",
       "path": "audio/alex_daily/baseline/middle.mp3",
-      "bytes": 943795,
-      "words": 122,
-      "status": "reused"
+      "bytes": 976814,
+      "words": 118,
+      "status": "generated"
     },
     {
       "scenarioId": "alex_daily",
@@ -1112,107 +950,593 @@
       "segmentId": "ending",
       "path": "audio/alex_daily/baseline/ending.mp3",
       "bytes": 379968,
-      "words": 48,
-      "status": "reused"
+      "words": 43,
+      "status": "generated"
     },
     {
       "scenarioId": "alex_daily",
       "condition": "mind",
       "segmentId": "introduction",
       "path": "audio/alex_daily/mind/introduction.mp3",
-      "bytes": 363668,
-      "words": 38,
-      "status": "reused"
+      "bytes": 333157,
+      "words": 29,
+      "status": "generated"
     },
     {
       "scenarioId": "alex_daily",
       "condition": "mind",
       "segmentId": "middle",
       "path": "audio/alex_daily/mind/middle.mp3",
-      "bytes": 1010669,
-      "words": 127,
-      "status": "reused"
+      "bytes": 846829,
+      "words": 102,
+      "status": "generated"
     },
     {
       "scenarioId": "alex_daily",
       "condition": "mind",
       "segmentId": "ending",
       "path": "audio/alex_daily/mind/ending.mp3",
-      "bytes": 295123,
-      "words": 30,
-      "status": "reused"
+      "bytes": 306408,
+      "words": 31,
+      "status": "generated"
     },
     {
       "scenarioId": "alex_daily",
       "condition": "body",
       "segmentId": "introduction",
       "path": "audio/alex_daily/body/introduction.mp3",
-      "bytes": 662509,
-      "words": 88,
-      "status": "reused"
+      "bytes": 637013,
+      "words": 80,
+      "status": "generated"
     },
     {
       "scenarioId": "alex_daily",
       "condition": "body",
       "segmentId": "middle",
       "path": "audio/alex_daily/body/middle.mp3",
-      "bytes": 703887,
-      "words": 90,
-      "status": "reused"
+      "bytes": 671286,
+      "words": 81,
+      "status": "generated"
     },
     {
       "scenarioId": "alex_daily",
       "condition": "body",
       "segmentId": "ending",
       "path": "audio/alex_daily/body/ending.mp3",
-      "bytes": 448514,
-      "words": 59,
-      "status": "reused"
+      "bytes": 379968,
+      "words": 39,
+      "status": "generated"
     },
     {
       "scenarioId": "alex_daily",
       "condition": "soul",
       "segmentId": "introduction",
       "path": "audio/alex_daily/soul/introduction.mp3",
-      "bytes": 978904,
-      "words": 128,
-      "status": "reused"
+      "bytes": 573066,
+      "words": 70,
+      "status": "generated"
     },
     {
       "scenarioId": "alex_daily",
       "condition": "soul",
       "segmentId": "middle",
       "path": "audio/alex_daily/soul/middle.mp3",
-      "bytes": 734398,
-      "words": 98,
-      "status": "reused"
+      "bytes": 533777,
+      "words": 66,
+      "status": "generated"
     },
     {
       "scenarioId": "alex_daily",
       "condition": "soul",
       "segmentId": "ending",
       "path": "audio/alex_daily/soul/ending.mp3",
-      "bytes": 254999,
+      "bytes": 660837,
+      "words": 62,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "alex_task",
+      "condition": "baseline",
+      "segmentId": "introduction",
+      "path": "audio/alex_task/baseline/introduction.mp3",
+      "bytes": 379968,
+      "words": 44,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "alex_task",
+      "condition": "baseline",
+      "segmentId": "middle",
+      "path": "audio/alex_task/baseline/middle.mp3",
+      "bytes": 970545,
+      "words": 120,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "alex_task",
+      "condition": "baseline",
+      "segmentId": "ending",
+      "path": "audio/alex_task/baseline/ending.mp3",
+      "bytes": 354055,
+      "words": 33,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "alex_task",
+      "condition": "mind",
+      "segmentId": "introduction",
+      "path": "audio/alex_task/mind/introduction.mp3",
+      "bytes": 316857,
+      "words": 35,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "alex_task",
+      "condition": "mind",
+      "segmentId": "middle",
+      "path": "audio/alex_task/mind/middle.mp3",
+      "bytes": 704723,
+      "words": 86,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "alex_task",
+      "condition": "mind",
+      "segmentId": "ending",
+      "path": "audio/alex_task/mind/ending.mp3",
+      "bytes": 277568,
+      "words": 30,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "alex_task",
+      "condition": "body",
+      "segmentId": "introduction",
+      "path": "audio/alex_task/body/introduction.mp3",
+      "bytes": 619459,
+      "words": 78,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "alex_task",
+      "condition": "body",
+      "segmentId": "middle",
+      "path": "audio/alex_task/body/middle.mp3",
+      "bytes": 570976,
+      "words": 78,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "alex_task",
+      "condition": "body",
+      "segmentId": "ending",
+      "path": "audio/alex_task/body/ending.mp3",
+      "bytes": 235773,
+      "words": 22,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "alex_task",
+      "condition": "soul",
+      "segmentId": "introduction",
+      "path": "audio/alex_task/soul/introduction.mp3",
+      "bytes": 580589,
+      "words": 71,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "alex_task",
+      "condition": "soul",
+      "segmentId": "middle",
+      "path": "audio/alex_task/soul/middle.mp3",
+      "bytes": 553004,
+      "words": 70,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "alex_task",
+      "condition": "soul",
+      "segmentId": "ending",
+      "path": "audio/alex_task/soul/ending.mp3",
+      "bytes": 593964,
+      "words": 69,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "serena_daily",
+      "condition": "baseline",
+      "segmentId": "introduction",
+      "path": "audio/serena_daily/baseline/introduction.mp3",
+      "bytes": 379968,
+      "words": 35,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "serena_daily",
+      "condition": "baseline",
+      "segmentId": "middle",
+      "path": "audio/serena_daily/baseline/middle.mp3",
+      "bytes": 926241,
+      "words": 115,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "serena_daily",
+      "condition": "baseline",
+      "segmentId": "ending",
+      "path": "audio/serena_daily/baseline/ending.mp3",
+      "bytes": 288017,
+      "words": 27,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "serena_daily",
+      "condition": "mind",
+      "segmentId": "introduction",
+      "path": "audio/serena_daily/mind/introduction.mp3",
+      "bytes": 300556,
+      "words": 31,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "serena_daily",
+      "condition": "mind",
+      "segmentId": "middle",
+      "path": "audio/serena_daily/mind/middle.mp3",
+      "bytes": 871906,
+      "words": 101,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "serena_daily",
+      "condition": "mind",
+      "segmentId": "ending",
+      "path": "audio/serena_daily/mind/ending.mp3",
+      "bytes": 299720,
+      "words": 30,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "serena_daily",
+      "condition": "body",
+      "segmentId": "introduction",
+      "path": "audio/serena_daily/body/introduction.mp3",
+      "bytes": 530852,
+      "words": 65,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "serena_daily",
+      "condition": "body",
+      "segmentId": "middle",
+      "path": "audio/serena_daily/body/middle.mp3",
+      "bytes": 499087,
+      "words": 63,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "serena_daily",
+      "condition": "body",
+      "segmentId": "ending",
+      "path": "audio/serena_daily/body/ending.mp3",
+      "bytes": 379968,
       "words": 34,
-      "status": "reused"
+      "status": "generated"
+    },
+    {
+      "scenarioId": "serena_daily",
+      "condition": "soul",
+      "segmentId": "introduction",
+      "path": "audio/serena_daily/soul/introduction.mp3",
+      "bytes": 497415,
+      "words": 61,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "serena_daily",
+      "condition": "soul",
+      "segmentId": "middle",
+      "path": "audio/serena_daily/soul/middle.mp3",
+      "bytes": 546316,
+      "words": 68,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "serena_daily",
+      "condition": "soul",
+      "segmentId": "ending",
+      "path": "audio/serena_daily/soul/ending.mp3",
+      "bytes": 568050,
+      "words": 68,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "serena_task",
+      "condition": "baseline",
+      "segmentId": "introduction",
+      "path": "audio/serena_task/baseline/introduction.mp3",
+      "bytes": 379968,
+      "words": 39,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "serena_task",
+      "condition": "baseline",
+      "segmentId": "middle",
+      "path": "audio/serena_task/baseline/middle.mp3",
+      "bytes": 922479,
+      "words": 111,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "serena_task",
+      "condition": "baseline",
+      "segmentId": "ending",
+      "path": "audio/serena_task/baseline/ending.mp3",
+      "bytes": 379968,
+      "words": 40,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "serena_task",
+      "condition": "mind",
+      "segmentId": "introduction",
+      "path": "audio/serena_task/mind/introduction.mp3",
+      "bytes": 282584,
+      "words": 30,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "serena_task",
+      "condition": "mind",
+      "segmentId": "middle",
+      "path": "audio/serena_task/mind/middle.mp3",
+      "bytes": 659583,
+      "words": 81,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "serena_task",
+      "condition": "mind",
+      "segmentId": "ending",
+      "path": "audio/serena_task/mind/ending.mp3",
+      "bytes": 278822,
+      "words": 33,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "serena_task",
+      "condition": "body",
+      "segmentId": "introduction",
+      "path": "audio/serena_task/body/introduction.mp3",
+      "bytes": 547152,
+      "words": 69,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "serena_task",
+      "condition": "body",
+      "segmentId": "middle",
+      "path": "audio/serena_task/body/middle.mp3",
+      "bytes": 475681,
+      "words": 62,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "serena_task",
+      "condition": "body",
+      "segmentId": "ending",
+      "path": "audio/serena_task/body/ending.mp3",
+      "bytes": 297631,
+      "words": 26,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "serena_task",
+      "condition": "soul",
+      "segmentId": "introduction",
+      "path": "audio/serena_task/soul/introduction.mp3",
+      "bytes": 505774,
+      "words": 62,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "serena_task",
+      "condition": "soul",
+      "segmentId": "middle",
+      "path": "audio/serena_task/soul/middle.mp3",
+      "bytes": 537539,
+      "words": 69,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "serena_task",
+      "condition": "soul",
+      "segmentId": "ending",
+      "path": "audio/serena_task/soul/ending.mp3",
+      "bytes": 525836,
+      "words": 62,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "maya_daily",
+      "condition": "full",
+      "segmentId": "introduction",
+      "path": "audio/maya_daily/full/introduction.mp3",
+      "bytes": 500341,
+      "words": 63,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "maya_daily",
+      "condition": "full",
+      "segmentId": "middle",
+      "path": "audio/maya_daily/full/middle.mp3",
+      "bytes": 1366769,
+      "words": 137,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "maya_daily",
+      "condition": "full",
+      "segmentId": "ending",
+      "path": "audio/maya_daily/full/ending.mp3",
+      "bytes": 379968,
+      "words": 50,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "maya_task",
+      "condition": "full",
+      "segmentId": "introduction",
+      "path": "audio/maya_task/full/introduction.mp3",
+      "bytes": 418839,
+      "words": 59,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "maya_task",
+      "condition": "full",
+      "segmentId": "middle",
+      "path": "audio/maya_task/full/middle.mp3",
+      "bytes": 1313270,
+      "words": 121,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "maya_task",
+      "condition": "full",
+      "segmentId": "ending",
+      "path": "audio/maya_task/full/ending.mp3",
+      "bytes": 379968,
+      "words": 45,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "jonah_daily",
+      "condition": "full",
+      "segmentId": "introduction",
+      "path": "audio/jonah_daily/full/introduction.mp3",
+      "bytes": 442244,
+      "words": 57,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "jonah_daily",
+      "condition": "full",
+      "segmentId": "middle",
+      "path": "audio/jonah_daily/full/middle.mp3",
+      "bytes": 1571151,
+      "words": 154,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "jonah_daily",
+      "condition": "full",
+      "segmentId": "ending",
+      "path": "audio/jonah_daily/full/ending.mp3",
+      "bytes": 360742,
+      "words": 34,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "jonah_task",
+      "condition": "full",
+      "segmentId": "introduction",
+      "path": "audio/jonah_task/full/introduction.mp3",
+      "bytes": 531688,
+      "words": 66,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "jonah_task",
+      "condition": "full",
+      "segmentId": "middle",
+      "path": "audio/jonah_task/full/middle.mp3",
+      "bytes": 1291118,
+      "words": 121,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "jonah_task",
+      "condition": "full",
+      "segmentId": "ending",
+      "path": "audio/jonah_task/full/ending.mp3",
+      "bytes": 379968,
+      "words": 43,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "priya_daily",
+      "condition": "full",
+      "segmentId": "introduction",
+      "path": "audio/priya_daily/full/introduction.mp3",
+      "bytes": 379968,
+      "words": 52,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "priya_daily",
+      "condition": "full",
+      "segmentId": "middle",
+      "path": "audio/priya_daily/full/middle.mp3",
+      "bytes": 1645966,
+      "words": 163,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "priya_daily",
+      "condition": "full",
+      "segmentId": "ending",
+      "path": "audio/priya_daily/full/ending.mp3",
+      "bytes": 379968,
+      "words": 42,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "priya_task",
+      "condition": "full",
+      "segmentId": "introduction",
+      "path": "audio/priya_task/full/introduction.mp3",
+      "bytes": 476517,
+      "words": 58,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "priya_task",
+      "condition": "full",
+      "segmentId": "middle",
+      "path": "audio/priya_task/full/middle.mp3",
+      "bytes": 1210034,
+      "words": 109,
+      "status": "generated"
+    },
+    {
+      "scenarioId": "priya_task",
+      "condition": "full",
+      "segmentId": "ending",
+      "path": "audio/priya_task/full/ending.mp3",
+      "bytes": 379968,
+      "words": 41,
+      "status": "generated"
     },
     {
       "scenarioId": "alex_daily",
       "condition": "full",
       "segmentId": "introduction",
       "path": "audio/alex_daily/full/introduction.mp3",
-      "bytes": 528762,
-      "words": 86,
-      "status": "reused"
+      "bytes": 485712,
+      "words": 56,
+      "status": "generated"
     },
     {
       "scenarioId": "alex_daily",
       "condition": "full",
       "segmentId": "middle",
       "path": "audio/alex_daily/full/middle.mp3",
-      "bytes": 1233022,
-      "words": 124,
-      "status": "reused"
+      "bytes": 1565300,
+      "words": 146,
+      "status": "generated"
     },
     {
       "scenarioId": "alex_daily",
@@ -1220,269 +1544,53 @@
       "segmentId": "ending",
       "path": "audio/alex_daily/full/ending.mp3",
       "bytes": 379968,
-      "words": 45,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "alex_task",
-      "condition": "baseline",
-      "segmentId": "introduction",
-      "path": "audio/alex_task/baseline/introduction.mp3",
-      "bytes": 166809,
-      "words": 34,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "alex_task",
-      "condition": "baseline",
-      "segmentId": "middle",
-      "path": "audio/alex_task/baseline/middle.mp3",
-      "bytes": 600651,
-      "words": 117,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "alex_task",
-      "condition": "baseline",
-      "segmentId": "ending",
-      "path": "audio/alex_task/baseline/ending.mp3",
-      "bytes": 258342,
-      "words": 13,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "alex_task",
-      "condition": "mind",
-      "segmentId": "introduction",
-      "path": "audio/alex_task/mind/introduction.mp3",
-      "bytes": 281330,
-      "words": 36,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "alex_task",
-      "condition": "mind",
-      "segmentId": "middle",
-      "path": "audio/alex_task/mind/middle.mp3",
-      "bytes": 524164,
-      "words": 102,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "alex_task",
-      "condition": "mind",
-      "segmentId": "ending",
-      "path": "audio/alex_task/mind/ending.mp3",
-      "bytes": 229921,
-      "words": 31,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "alex_task",
-      "condition": "body",
-      "segmentId": "introduction",
-      "path": "audio/alex_task/body/introduction.mp3",
-      "bytes": 311841,
-      "words": 45,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "alex_task",
-      "condition": "body",
-      "segmentId": "middle",
-      "path": "audio/alex_task/body/middle.mp3",
-      "bytes": 557601,
-      "words": 97,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "alex_task",
-      "condition": "body",
-      "segmentId": "ending",
-      "path": "audio/alex_task/body/ending.mp3",
-      "bytes": 183946,
-      "words": 30,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "alex_task",
-      "condition": "soul",
-      "segmentId": "introduction",
-      "path": "audio/alex_task/soul/introduction.mp3",
-      "bytes": 473591,
-      "words": 43,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "alex_task",
-      "condition": "soul",
-      "segmentId": "middle",
-      "path": "audio/alex_task/soul/middle.mp3",
-      "bytes": 639521,
-      "words": 79,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "alex_task",
-      "condition": "soul",
-      "segmentId": "ending",
-      "path": "audio/alex_task/soul/ending.mp3",
-      "bytes": 97010,
-      "words": 28,
-      "status": "reused"
+      "words": 46,
+      "status": "generated"
     },
     {
       "scenarioId": "alex_task",
       "condition": "full",
       "segmentId": "introduction",
       "path": "audio/alex_task/full/introduction.mp3",
-      "bytes": 376207,
-      "words": 58,
-      "status": "reused"
+      "bytes": 454365,
+      "words": 63,
+      "status": "generated"
     },
     {
       "scenarioId": "alex_task",
       "condition": "full",
       "segmentId": "middle",
       "path": "audio/alex_task/full/middle.mp3",
-      "bytes": 1094260,
-      "words": 102,
-      "status": "reused"
+      "bytes": 1184539,
+      "words": 115,
+      "status": "generated"
     },
     {
       "scenarioId": "alex_task",
       "condition": "full",
       "segmentId": "ending",
       "path": "audio/alex_task/full/ending.mp3",
-      "bytes": 234937,
-      "words": 24,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "serena_daily",
-      "condition": "baseline",
-      "segmentId": "introduction",
-      "path": "audio/serena_daily/baseline/introduction.mp3",
-      "bytes": 622803,
-      "words": 78,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "serena_daily",
-      "condition": "baseline",
-      "segmentId": "middle",
-      "path": "audio/serena_daily/baseline/middle.mp3",
-      "bytes": 932928,
-      "words": 122,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "serena_daily",
-      "condition": "baseline",
-      "segmentId": "ending",
-      "path": "audio/serena_daily/baseline/ending.mp3",
-      "bytes": 319782,
-      "words": 38,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "serena_daily",
-      "condition": "mind",
-      "segmentId": "introduction",
-      "path": "audio/serena_daily/mind/introduction.mp3",
-      "bytes": 377879,
-      "words": 37,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "serena_daily",
-      "condition": "mind",
-      "segmentId": "middle",
-      "path": "audio/serena_daily/mind/middle.mp3",
-      "bytes": 1121428,
-      "words": 133,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "serena_daily",
-      "condition": "mind",
-      "segmentId": "ending",
-      "path": "audio/serena_daily/mind/ending.mp3",
-      "bytes": 284256,
-      "words": 33,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "serena_daily",
-      "condition": "body",
-      "segmentId": "introduction",
-      "path": "audio/serena_daily/body/introduction.mp3",
-      "bytes": 695110,
-      "words": 94,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "serena_daily",
-      "condition": "body",
-      "segmentId": "middle",
-      "path": "audio/serena_daily/body/middle.mp3",
-      "bytes": 662509,
-      "words": 86,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "serena_daily",
-      "condition": "body",
-      "segmentId": "ending",
-      "path": "audio/serena_daily/body/ending.mp3",
-      "bytes": 348204,
+      "bytes": 379968,
       "words": 40,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "serena_daily",
-      "condition": "soul",
-      "segmentId": "introduction",
-      "path": "audio/serena_daily/soul/introduction.mp3",
-      "bytes": 902417,
-      "words": 106,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "serena_daily",
-      "condition": "soul",
-      "segmentId": "middle",
-      "path": "audio/serena_daily/soul/middle.mp3",
-      "bytes": 743175,
-      "words": 97,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "serena_daily",
-      "condition": "soul",
-      "segmentId": "ending",
-      "path": "audio/serena_daily/soul/ending.mp3",
-      "bytes": 264194,
-      "words": 30,
-      "status": "reused"
+      "status": "generated"
     },
     {
       "scenarioId": "serena_daily",
       "condition": "full",
       "segmentId": "introduction",
       "path": "audio/serena_daily/full/introduction.mp3",
-      "bytes": 624475,
-      "words": 82,
-      "status": "reused"
+      "bytes": 526254,
+      "words": 61,
+      "status": "generated"
     },
     {
       "scenarioId": "serena_daily",
       "condition": "full",
       "segmentId": "middle",
       "path": "audio/serena_daily/full/middle.mp3",
-      "bytes": 1180359,
-      "words": 119,
-      "status": "reused"
+      "bytes": 1432807,
+      "words": 139,
+      "status": "generated"
     },
     {
       "scenarioId": "serena_daily",
@@ -1490,143 +1598,35 @@
       "segmentId": "ending",
       "path": "audio/serena_daily/full/ending.mp3",
       "bytes": 379968,
-      "words": 45,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "serena_task",
-      "condition": "baseline",
-      "segmentId": "introduction",
-      "path": "audio/serena_task/baseline/introduction.mp3",
-      "bytes": 229085,
-      "words": 36,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "serena_task",
-      "condition": "baseline",
-      "segmentId": "middle",
-      "path": "audio/serena_task/baseline/middle.mp3",
-      "bytes": 657911,
-      "words": 113,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "serena_task",
-      "condition": "baseline",
-      "segmentId": "ending",
-      "path": "audio/serena_task/baseline/ending.mp3",
-      "bytes": 133373,
-      "words": 23,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "serena_task",
-      "condition": "mind",
-      "segmentId": "introduction",
-      "path": "audio/serena_task/mind/introduction.mp3",
-      "bytes": 269209,
-      "words": 34,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "serena_task",
-      "condition": "mind",
-      "segmentId": "middle",
-      "path": "audio/serena_task/mind/middle.mp3",
-      "bytes": 570140,
-      "words": 91,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "serena_task",
-      "condition": "mind",
-      "segmentId": "ending",
-      "path": "audio/serena_task/mind/ending.mp3",
-      "bytes": 262522,
-      "words": 34,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "serena_task",
-      "condition": "body",
-      "segmentId": "introduction",
-      "path": "audio/serena_task/body/introduction.mp3",
-      "bytes": 311841,
-      "words": 61,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "serena_task",
-      "condition": "body",
-      "segmentId": "middle",
-      "path": "audio/serena_task/body/middle.mp3",
-      "bytes": 532524,
-      "words": 71,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "serena_task",
-      "condition": "body",
-      "segmentId": "ending",
-      "path": "audio/serena_task/body/ending.mp3",
-      "bytes": 164719,
-      "words": 33,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "serena_task",
-      "condition": "soul",
-      "segmentId": "introduction",
-      "path": "audio/serena_task/soul/introduction.mp3",
-      "bytes": 477353,
-      "words": 45,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "serena_task",
-      "condition": "soul",
-      "segmentId": "middle",
-      "path": "audio/serena_task/soul/middle.mp3",
-      "bytes": 602741,
-      "words": 82,
-      "status": "reused"
-    },
-    {
-      "scenarioId": "serena_task",
-      "condition": "soul",
-      "segmentId": "ending",
-      "path": "audio/serena_task/soul/ending.mp3",
-      "bytes": 84471,
-      "words": 38,
-      "status": "reused"
+      "words": 44,
+      "status": "generated"
     },
     {
       "scenarioId": "serena_task",
       "condition": "full",
       "segmentId": "introduction",
       "path": "audio/serena_task/full/introduction.mp3",
-      "bytes": 302646,
-      "words": 58,
-      "status": "reused"
+      "bytes": 408808,
+      "words": 57,
+      "status": "generated"
     },
     {
       "scenarioId": "serena_task",
       "condition": "full",
       "segmentId": "middle",
       "path": "audio/serena_task/full/middle.mp3",
-      "bytes": 957169,
-      "words": 88,
-      "status": "reused"
+      "bytes": 1217976,
+      "words": 110,
+      "status": "generated"
     },
     {
       "scenarioId": "serena_task",
       "condition": "full",
       "segmentId": "ending",
       "path": "audio/serena_task/full/ending.mp3",
-      "bytes": 267119,
-      "words": 18,
-      "status": "reused"
+      "bytes": 379968,
+      "words": 48,
+      "status": "generated"
     }
   ]
 }

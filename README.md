@@ -12,11 +12,11 @@ Small static web UI for Prolific / Qualtrics pairwise comparison tasks.
 - Each trial shows one scenario and two scripts from different conditions
 - Script order balanced across assignment slots so each condition appears equally often as Script A and Script B
 - 12 of 15 assignment slots include a direct `baseline` comparison
-- After entering a Prolific ID, participants see a brief introduction to mental rehearsal and the study task
+- After entering a Prolific ID, participants answer a 3-item state check, then see the brief introduction
 - Each comparison requires a 45-second review period before the participant can continue
 - Participants must choose one script and rate both scripts before continuing
-- Comparison 2 includes a short inference-based attention check that rotates across
-  scenario focus, values, and energy-state questions
+- Comparison 2 includes a short exact-recall attention check that rotates across
+  scenario title, life priority, and energy background text
 - After the 2 comparisons, participants complete a final personalization questionnaire
 
 Across assignment ids `0` through `14`:
@@ -35,7 +35,7 @@ The final screen asks multiple-choice questions about:
 - preferred background audio: none, ambient, nature sounds, piano/lo-fi, or energizing
 - preferred script length: under 1 minute, 1-2 minutes, 3-5 minutes, or depends
 - useful tone: calm/supportive, practical/direct, encouraging, or reflective
-- most important personalization focus: schedule/tasks, energy/mood, values/goals, or obstacles
+- most important personalization focus: drag-fill rank order across grounding and visualization options
 - delivery format: readable text, spoken audio, text and audio, or interactive steps
 - ideal morning mental rehearsal guidance, as a free-text response
 
@@ -80,13 +80,15 @@ VITE_RESPONSE_SECRET=replace-with-the-same-shared-secret
 VITE_STUDY_ID=mental-rehearsal-ablation-v1
 ```
 
-The frontend sends one row per trial to the `responses` sheet, then one final row to the
-`questionnaire_responses` sheet. It uses `text/plain` + `no-cors` so Google Apps Script
+The frontend sends one pre-study row to the `state_check_responses` sheet, one row per
+trial to the `responses` sheet, then one final row to the `questionnaire_responses` sheet.
+It uses `text/plain` + `no-cors` so Google Apps Script
 accepts browser posts without a CORS preflight. This means the browser cannot confirm the
 sheet write response, so `localStorage` remains the participant-side backup.
-Trial rows use `responseId = participantId:assignmentId:trialIndex`, and the questionnaire
-uses `responseId = participantId:assignmentId:questionnaire`. The Apps Script collector
-updates an existing row with the same `responseId`, so Back edits replace the prior save.
+Pre-study rows use `responseId = participantId:assignmentId:state-check`, trial rows use
+`responseId = participantId:assignmentId:trialIndex`, and the questionnaire uses
+`responseId = participantId:assignmentId:questionnaire`. The Apps Script collector updates
+an existing row with the same `responseId`, so Back edits replace the prior save.
 
 Trial sheet columns:
 
@@ -131,7 +133,7 @@ rank badges for the top 3 priorities, and task scenarios show the focus task plu
 
 ## Audio
 
-Generated audio is served as static MP3 files from `public/audio/<scenario>/<condition>.mp3`.
+Generated audio is served as static MP3 files from `public/audio/<scenario>/<condition>/<segment>.mp3`.
 The UI reads `src/data/audioManifest.json`; audio players appear only for scripts present
 in that manifest.
 

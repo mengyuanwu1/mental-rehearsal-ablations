@@ -44,6 +44,17 @@ const stripPauseMarkers = (text: string) =>
     .replace(/\n{3,}/g, "\n\n")
     .trim();
 
+const normalizeClockTimes = (text: string) =>
+  text.replace(/\b(0?[1-9]|1[0-2]):([0-5]\d)\s*(AM|PM)\b/g, (_, hour, minutes, meridiem) => {
+    const normalizedHour = String(Number(hour));
+    const normalizedMeridiem = String(meridiem).toUpperCase();
+    return minutes === "00"
+      ? `${normalizedHour} ${normalizedMeridiem}`
+      : `${normalizedHour}:${minutes} ${normalizedMeridiem}`;
+  });
+
+const cleanScriptText = (text: string) => normalizeClockTimes(stripPauseMarkers(text));
+
 const taskPhrase = (task: PriorityTask) => {
   const timeRange =
     task.scheduledStart && task.scheduledEnd ? `${task.scheduledStart}-${task.scheduledEnd}, ` : "";
@@ -130,7 +141,7 @@ const taskSequenceLine = (scenario: Scenario, tasks: PriorityTask[]) => {
 
 export function scriptForCondition(scenario: Scenario, condition: ConditionId): string {
   const llmOverride = llmScriptOverrides[scenario.id]?.[condition];
-  if (llmOverride) return stripPauseMarkers(llmOverride);
+  if (llmOverride) return cleanScriptText(llmOverride);
 
   const tasks = rehearsalTasks(scenario);
   const [first, second, third] = tasks;
@@ -219,9 +230,9 @@ export function textSegmentsForCondition(scenario: Scenario, condition: Conditio
   const sections = llmSections[scenario.id]?.[condition];
   if (sections) {
     return {
-      introduction: stripPauseMarkers(sections.introduction ?? ""),
-      middle: stripPauseMarkers(sections.task_completion ?? ""),
-      ending: stripPauseMarkers(sections.ending ?? ""),
+      introduction: cleanScriptText(sections.introduction ?? ""),
+      middle: cleanScriptText(sections.task_completion ?? ""),
+      ending: cleanScriptText(sections.ending ?? ""),
     };
   }
 

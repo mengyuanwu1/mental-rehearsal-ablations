@@ -1,13 +1,16 @@
 var SHEET_ID = "1eon1CqFnKt7IR2_SsDSI2GlojeLQIkdW_KPl7Dxox20";
 var TRIAL_SHEET_NAME = "responses";
+var STATE_CHECK_SHEET_NAME = "state_check_responses";
 var QUESTIONNAIRE_SHEET_NAME = "questionnaire_responses";
 var RESPONSE_SECRET = "0745883be03f97f21881350af135185b7cafd1f49320e3306e3727fc7c0bccc9";
 
 var TRIAL_HEADERS = ["receivedAt", "studyId", "responseId", "participantId", "assignmentId", "trialIndex", "scenarioId", "leftCondition", "rightCondition", "leftAudioAvailable", "rightAudioAvailable", "leftAudioPath", "rightAudioPath", "leftAudioPlayCount", "rightAudioPlayCount", "leftAudioMaxPositionSeconds", "rightAudioMaxPositionSeconds", "leftAudioEnded", "rightAudioEnded", "leftAudioSegmentProgress", "rightAudioSegmentProgress", "choice", "leftRating", "rightRating", "improvement", "attentionCheckId", "attentionCheckKind", "attentionCheckPrompt", "attentionCheckAnswer", "attentionCheckCorrectAnswer", "attentionCheckPassed", "startedAt", "submittedAt", "elapsedMs", "userAgent", "leftBodyStateRating", "rightBodyStateRating", "leftTaskGoalRating", "rightTaskGoalRating", "leftValueConnectionRating", "rightValueConnectionRating", "leftEaseRating", "rightEaseRating"];
+var STATE_CHECK_HEADERS = ["receivedAt", "studyId", "responseId", "participantId", "assignmentId", "stateCheckVersion", "currentMood", "currentEnergy", "planningStyle", "startedAt", "submittedAt", "elapsedMs", "userAgent"];
 var QUESTIONNAIRE_HEADERS = ["receivedAt", "studyId", "responseId", "participantId", "assignmentId", "questionnaireVersion", "perspectivePreference", "perspectivePreferenceOther", "guidanceLevel", "guidanceLevelOther", "backgroundAudio", "backgroundAudioOther", "scriptLength", "scriptLengthOther", "toneStyle", "toneStyleOther", "personalizationFocus", "personalizationFocusOther", "deliveryFormat", "deliveryFormatOther", "startedAt", "submittedAt", "elapsedMs", "userAgent", "idealMorningGuidance"];
 
 function setup() {
   ensureHeaders_(getOrCreateSheet_(TRIAL_SHEET_NAME), TRIAL_HEADERS);
+  ensureHeaders_(getOrCreateSheet_(STATE_CHECK_SHEET_NAME), STATE_CHECK_HEADERS);
   ensureHeaders_(getOrCreateSheet_(QUESTIONNAIRE_SHEET_NAME), QUESTIONNAIRE_HEADERS);
 }
 
@@ -18,6 +21,7 @@ function doPost(e) {
     var payload = JSON.parse((e.postData && e.postData.contents) || "{}");
     if (RESPONSE_SECRET && payload.secret !== RESPONSE_SECRET) return json_({ ok: false, error: "unauthorized" });
     if (payload.questionnaire) appendQuestionnaire_(payload);
+    else if (payload.stateCheck) appendStateCheck_(payload);
     else appendTrialResponse_(payload);
     return json_({ ok: true });
   } catch (error) {
@@ -34,6 +38,15 @@ function appendTrialResponse_(payload) {
   var responseId = r.responseId || [r.participantId || "anonymous", valueOrBlank_(r.assignmentId), valueOrBlank_(r.trialIndex)].join(":");
   var row = [new Date().toISOString(), payload.studyId || "", responseId, r.participantId || "", valueOrBlank_(r.assignmentId), valueOrBlank_(r.trialIndex), r.scenarioId || "", r.leftCondition || "", r.rightCondition || "", valueOrBlank_(r.leftAudioAvailable), valueOrBlank_(r.rightAudioAvailable), r.leftAudioPath || "", r.rightAudioPath || "", valueOrBlank_(r.leftAudioPlayCount), valueOrBlank_(r.rightAudioPlayCount), valueOrBlank_(r.leftAudioMaxPositionSeconds), valueOrBlank_(r.rightAudioMaxPositionSeconds), valueOrBlank_(r.leftAudioEnded), valueOrBlank_(r.rightAudioEnded), r.leftAudioSegmentProgress || "", r.rightAudioSegmentProgress || "", r.choice || "", valueOrBlank_(r.leftRating), valueOrBlank_(r.rightRating), r.improvement || r.improvements || r.reason || "", r.attentionCheckId || "", r.attentionCheckKind || "", r.attentionCheckPrompt || "", r.attentionCheckAnswer || "", r.attentionCheckCorrectAnswer || "", valueOrBlank_(r.attentionCheckPassed), r.startedAt || "", r.submittedAt || "", valueOrBlank_(r.elapsedMs), r.userAgent || "", valueOrBlank_(r.leftBodyStateRating), valueOrBlank_(r.rightBodyStateRating), valueOrBlank_(r.leftTaskGoalRating), valueOrBlank_(r.rightTaskGoalRating), valueOrBlank_(r.leftValueConnectionRating), valueOrBlank_(r.rightValueConnectionRating), valueOrBlank_(r.leftEaseRating), valueOrBlank_(r.rightEaseRating)];
   upsertRow_(sheet, TRIAL_HEADERS, responseId, row);
+}
+
+function appendStateCheck_(payload) {
+  var s = payload.stateCheck || {};
+  var sheet = getOrCreateSheet_(STATE_CHECK_SHEET_NAME);
+  ensureHeaders_(sheet, STATE_CHECK_HEADERS);
+  var responseId = s.responseId || [s.participantId || "anonymous", valueOrBlank_(s.assignmentId), "state-check"].join(":");
+  var row = [new Date().toISOString(), payload.studyId || "", responseId, s.participantId || "", valueOrBlank_(s.assignmentId), s.stateCheckVersion || "", s.currentMood || "", s.currentEnergy || "", s.planningStyle || "", s.startedAt || "", s.submittedAt || "", valueOrBlank_(s.elapsedMs), s.userAgent || ""];
+  upsertRow_(sheet, STATE_CHECK_HEADERS, responseId, row);
 }
 
 function appendQuestionnaire_(payload) {

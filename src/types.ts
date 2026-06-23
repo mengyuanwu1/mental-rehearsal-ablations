@@ -141,3 +141,20 @@ export type QuestionnaireResponse = QuestionnaireAnswers & {
   elapsedMs: number;
   userAgent: string;
 };
+
+export type StateCheckAnswers = {
+  currentMood: string;
+  currentEnergy: string;
+  planningStyle: string;
+};
+
+export type StateCheckResponse = StateCheckAnswers & {
+  responseId: string;
+  participantId: string;
+  assignmentId: number;
+  stateCheckVersion: string;
+  startedAt: string;
+  submittedAt: string;
+  elapsedMs: number;
+  userAgent: string;
+};

@@ -1,0 +1,7 @@
+option,label,avg_rank,first_place_count,respondent_n,first_place_pct
+day_success_visualization,Day success visualization,2.3448275862068964,31,87,0.3563218390804598
+mind_grounding,Mind grounding,2.6666666666666665,26,87,0.2988505747126437
+task_success_visualization,Task success visualization,2.8505747126436782,13,87,0.14942528735632185
+body_grounding,Body grounding,4.2298850574712645,6,87,0.06896551724137931
+value_grounding,Value grounding,4.310344827586207,7,87,0.08045977011494253
+potential_obstacle_visualization,Obstacle visualization,4.597701149425287,4,87,0.04597701149425287

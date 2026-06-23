@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="1410" viewBox="0 0 1700 1410">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="54.0" y="44.0" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700" text-anchor="start" fill="#1f2933">Attention-Filtered Questionnaire Preferences</text>
+<text x="54.0" y="74.0" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="400" text-anchor="start" fill="#1f2933">Explicit attention-check failures removed: 1. Respondents retained: 87.</text>
+<rect x="54" y="106" width="790" height="360" rx="8" fill="#f7fafc" stroke="#dfe5e8"/>
+<text x="78.0" y="146.0" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700" text-anchor="start" fill="#1f2933">Perspective Preference</text>
+<text x="272.0" y="196.0" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" text-anchor="end" fill="#1f2933">Third person</text>
+<rect x="284" y="181" width="68.5" height="18" rx="4" fill="#2f6f9f"/>
+<text x="360.5" y="196.0" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" text-anchor="start" fill="#1f2933">7 (8%)</text>
+<text x="272.0" y="230.0" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" text-anchor="end" fill="#1f2933">No preference</text>
+<rect x="284" y="215" width="78.3" height="18" rx="4" fill="#2f6f9f"/>
+<text x="370.3" y="230.0" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" text-anchor="start" fill="#1f2933">8 (9%)</text>
+<text x="272.0" y="264.0" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" text-anchor="end" fill="#1f2933">Guide voice</text>
+<rect x="284" y="249" width="410.9" height="18" rx="4" fill="#2f6f9f"/>
+<text x="702.9" y="264.0" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" text-anchor="start" fill="#1f2933">42 (48%)</text>
+<text x="272.0" y="298.0" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" text-anchor="end" fill="#1f2933">First person</text>
+<rect x="284" y="283" width="450.0" height="18" rx="4" fill="#2f6f9f"/>
+<text x="742.0" y="298.0" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" text-anchor="start" fill="#1f2933">46 (53%)</text>
+<rect x="884" y="106" width="790" height="360" rx="8" fill="#f7fafc" stroke="#dfe5e8"/>
+<text x="908.0" y="146.0" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700" text-anchor="start" fill="#1f2933">Guidance Level</text>
+<text x="1102.0" y="196.0" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" text-anchor="end" fill="#1f2933">Light cues</text>
+<rect x="1114" y="181" width="177.6" height="18" rx="4" fill="#2f6f9f"/>
+<text x="1299.6" y="196.0" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" text-anchor="start" fill="#1f2933">15 (17%)</text>
+<text x="1102.0" y="230.0" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" text-anchor="end" fill="#1f2933">Adaptive</text>
+<rect x="1114" y="215" width="260.5" height="18" rx="4" fill="#2f6f9f"/>
+<text x="1382.5" y="230.0" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" text-anchor="start" fill="#1f2933">22 (25%)</text>
+<text x="1102.0" y="264.0" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" text-anchor="end" fill="#1f2933">Moderate</text>
+<rect x="1114" y="249" width="414.5" height="18" rx="4" fill="#2f6f9f"/>
+<text x="1536.5" y="264.0" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" text-anchor="start" fill="#1f2933">35 (40%)</text>
+<text x="1102.0" y="298.0" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" text-anchor="end" fill="#1f2933">Step by step</text>
+<rect x="1114" y="283" width="450.0" height="18" rx="4" fill="#2f6f9f"/>
+<text x="1572.0" y="298.0" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" text-anchor="start" fill="#1f2933">38 (44%)</text>
+<rect x="54" y="520" width="790" height="360" rx="8" fill="#f7fafc" stroke="#dfe5e8"/>
+<text x="78.0" y="560.0" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700" text-anchor="start" fill="#1f2933">Background Audio</text>
+<text x="272.0" y="610.0" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" text-anchor="end" fill="#1f2933">Other</text>
+<rect x="284" y="595" width="21.4" height="18" rx="4" fill="#2f6f9f"/>
+<text x="313.4" y="610.0" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" text-anchor="start" fill="#1f2933">2 (2%)</text>
+<text x="272.0" y="644.0" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" text-anchor="end" fill="#1f2933">Energizing</text>
+<rect x="284" y="629" width="64.3" height="18" rx="4" fill="#2f6f9f"/>
+<text x="356.3" y="644.0" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" text-anchor="start" fill="#1f2933">6 (7%)</text>
+<text x="272.0" y="678.0" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" text-anchor="end" fill="#1f2933">Piano/lo-fi</text>
+<rect x="284" y="663" width="214.3" height="18" rx="4" fill="#2f6f9f"/>
+<text x="506.3" y="678.0" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" text-anchor="start" fill="#1f2933">20 (23%)</text>
+<text x="272.0" y="712.0" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" text-anchor="end" fill="#1f2933">None</text>
+<rect x="284" y="697" width="246.4" height="18" rx="4" fill="#2f6f9f"/>
+<text x="538.4" y="712.0" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" text-anchor="start" fill="#1f2933">23 (26%)</text>
+<text x="272.0" y="746.0" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" text-anchor="end" fill="#1f2933">Ambient</text>
+<rect x="284" y="731" width="342.9" height="18" rx="4" fill="#2f6f9f"/>
+<text x="634.9" y="746.0" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" text-anchor="start" fill="#1f2933">32 (37%)</text>
+<text x="272.0" y="780.0" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" text-anchor="end" fill="#1f2933">Nature</text>
+<rect x="284" y="765" width="450.0" height="18" rx="4" fill="#2f6f9f"/>
+<text x="742.0" y="780.0" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" text-anchor="start" fill="#1f2933">42 (48%)</text>
+<rect x="884" y="520" width="790" height="360" rx="8" fill="#f7fafc" stroke="#dfe5e8"/>
+<text x="908.0" y="560.0" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700" text-anchor="start" fill="#1f2933">Preferred Script Length</text>
+<text x="1102.0" y="610.0" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" text-anchor="end" fill="#1f2933">3-5 min</text>
+<rect x="1114" y="595.0" width="64.3" height="18" rx="4" fill="#2f6f9f"/>
+<text x="1186.3" y="610.0" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" text-anchor="start" fill="#1f2933">4 (5%)</text>
+<text x="1102.0" y="636.8" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" text-anchor="end" fill="#1f2933">0-8 min</text>
+<rect x="1114" y="621.8" width="64.3" height="18" rx="4" fill="#2f6f9f"/>
+<text x="1186.3" y="636.8" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" text-anchor="start" fill="#1f2933">4 (5%)</text>
+<text x="1102.0" y="663.6" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" text-anchor="end" fill="#1f2933">0-11 min</text>
+<rect x="1114" y="648.6" width="64.3" height="18" rx="4" fill="#2f6f9f"/>
+<text x="1186.3" y="663.6" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" text-anchor="start" fill="#1f2933">4 (5%)</text>
+<text x="1102.0" y="690.4" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" text-anchor="end" fill="#1f2933">1-5 min</text>
+<rect x="1114" y="675.4" width="80.4" height="18" rx="4" fill="#2f6f9f"/>
+<text x="1202.4" y="690.4" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" text-anchor="start" fill="#1f2933">5 (6%)</text>
+<text x="1102.0" y="717.2" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" text-anchor="end" fill="#1f2933">0-3 min</text>
+<rect x="1114" y="702.2" width="80.4" height="18" rx="4" fill="#2f6f9f"/>
+<text x="1202.4" y="717.2" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" text-anchor="start" fill="#1f2933">5 (6%)</text>
+<text x="1102.0" y="744.0" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" text-anchor="end" fill="#1f2933">0-6 min</text>
+<rect x="1114" y="729.0" width="80.4" height="18" rx="4" fill="#2f6f9f"/>
+<text x="1202.4" y="744.0" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" text-anchor="start" fill="#1f2933">5 (6%)</text>
+<text x="1102.0" y="770.8" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" text-anchor="end" fill="#1f2933">0-7 min</text>
+<rect x="1114" y="755.8" width="96.4" height="18" rx="4" fill="#2f6f9f"/>
+<text x="1218.4" y="770.8" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" text-anchor="start" fill="#1f2933">6 (7%)</text>
+<text x="1102.0" y="797.6" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" text-anchor="end" fill="#1f2933">0-10 min</text>
+<rect x="1114" y="782.6" width="112.5" height="18" rx="4" fill="#2f6f9f"/>
+<text x="1234.5" y="797.6" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" text-anchor="start" fill="#1f2933">7 (8%)</text>
+<text x="1102.0" y="824.4" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" text-anchor="end" fill="#1f2933">0-5 min</text>
+<rect x="1114" y="809.4" width="305.4" height="18" rx="4" fill="#2f6f9f"/>
+<text x="1427.4" y="824.4" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" text-anchor="start" fill="#1f2933">19 (22%)</text>
+<text x="1102.0" y="851.2" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" text-anchor="end" fill="#1f2933">Other bands (20)</text>
+<rect x="1114" y="836.2" width="450.0" height="18" rx="4" fill="#2f6f9f"/>
+<text x="1572.0" y="851.2" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" text-anchor="start" fill="#1f2933">28 (32%)</text>
+<rect x="54" y="934" width="790" height="360" rx="8" fill="#f7fafc" stroke="#dfe5e8"/>
+<text x="78.0" y="974.0" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700" text-anchor="start" fill="#1f2933">Tone Style</text>
+<text x="272.0" y="1024.0" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" text-anchor="end" fill="#1f2933">Other</text>
+<rect x="284" y="1009" width="8.0" height="18" rx="4" fill="#2f6f9f"/>
+<text x="300.0" y="1024.0" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" text-anchor="start" fill="#1f2933">1 (1%)</text>
+<text x="272.0" y="1058.0" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" text-anchor="end" fill="#1f2933">Reflective</text>
+<rect x="284" y="1043" width="168.8" height="18" rx="4" fill="#2f6f9f"/>
+<text x="460.8" y="1058.0" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" text-anchor="start" fill="#1f2933">21 (24%)</text>
+<text x="272.0" y="1092.0" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" text-anchor="end" fill="#1f2933">Practical/direct</text>
+<rect x="284" y="1077" width="233.0" height="18" rx="4" fill="#2f6f9f"/>
+<text x="525.0" y="1092.0" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" text-anchor="start" fill="#1f2933">29 (33%)</text>
+<text x="272.0" y="1126.0" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" text-anchor="end" fill="#1f2933">Encouraging</text>
+<rect x="284" y="1111" width="297.3" height="18" rx="4" fill="#2f6f9f"/>
+<text x="589.3" y="1126.0" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" text-anchor="start" fill="#1f2933">37 (43%)</text>
+<text x="272.0" y="1160.0" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" text-anchor="end" fill="#1f2933">Calm/supportive</text>
+<rect x="284" y="1145" width="450.0" height="18" rx="4" fill="#2f6f9f"/>
+<text x="742.0" y="1160.0" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" text-anchor="start" fill="#1f2933">56 (64%)</text>
+<rect x="884" y="934" width="790" height="360" rx="8" fill="#f7fafc" stroke="#dfe5e8"/>
+<text x="908.0" y="974.0" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700" text-anchor="start" fill="#1f2933">Delivery Format</text>
+<text x="1102.0" y="1024.0" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" text-anchor="end" fill="#1f2933">Interactive steps</text>
+<rect x="1114" y="1009" width="156.1" height="18" rx="4" fill="#2f6f9f"/>
+<text x="1278.1" y="1024.0" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" text-anchor="start" fill="#1f2933">17 (20%)</text>
+<text x="1102.0" y="1058.0" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" text-anchor="end" fill="#1f2933">Readable text</text>
+<rect x="1114" y="1043" width="293.9" height="18" rx="4" fill="#2f6f9f"/>
+<text x="1415.9" y="1058.0" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" text-anchor="start" fill="#1f2933">32 (37%)</text>
+<text x="1102.0" y="1092.0" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" text-anchor="end" fill="#1f2933">Spoken audio</text>
+<rect x="1114" y="1077" width="330.6" height="18" rx="4" fill="#2f6f9f"/>
+<text x="1452.6" y="1092.0" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" text-anchor="start" fill="#1f2933">36 (41%)</text>
+<text x="1102.0" y="1126.0" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" text-anchor="end" fill="#1f2933">Text + audio</text>
+<rect x="1114" y="1111" width="450.0" height="18" rx="4" fill="#2f6f9f"/>
+<text x="1572.0" y="1126.0" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400" text-anchor="start" fill="#1f2933">49 (56%)</text>
+</svg>

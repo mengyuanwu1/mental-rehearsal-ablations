@@ -1,10 +1,13 @@
-import type { QuestionnaireResponse, TrialResponse } from "../types";
+import type { QuestionnaireResponse, StateCheckResponse, TrialResponse } from "../types";
 
 const responseKey = (participantId: string, assignmentId: number) =>
   `mra-responses:${participantId || "anonymous"}:${assignmentId}`;
 
 const questionnaireKey = (participantId: string, assignmentId: number) =>
   `mra-questionnaire:${participantId || "anonymous"}:${assignmentId}`;
+
+const stateCheckKey = (participantId: string, assignmentId: number) =>
+  `mra-state-check:${participantId || "anonymous"}:${assignmentId}`;
 
 export function readStoredResponses(participantId: string, assignmentId: number): TrialResponse[] {
   const raw = window.localStorage.getItem(responseKey(participantId, assignmentId));
@@ -49,6 +52,27 @@ export function storeQuestionnaire(response: QuestionnaireResponse): Questionnai
   return response;
 }
 
+export function readStoredStateCheck(
+  participantId: string,
+  assignmentId: number,
+): StateCheckResponse | null {
+  const raw = window.localStorage.getItem(stateCheckKey(participantId, assignmentId));
+  if (!raw) return null;
+  try {
+    return JSON.parse(raw) as StateCheckResponse;
+  } catch {
+    return null;
+  }
+}
+
+export function storeStateCheck(response: StateCheckResponse): StateCheckResponse {
+  window.localStorage.setItem(
+    stateCheckKey(response.participantId, response.assignmentId),
+    JSON.stringify(response),
+  );
+  return response;
+}
+
 async function postPayload(payload: Record<string, unknown>): Promise<void> {
   const endpoint = import.meta.env.VITE_RESPONSE_ENDPOINT as string | undefined;
   if (!endpoint) return;
@@ -74,6 +98,10 @@ export async function postResponse(response: TrialResponse): Promise<void> {
 
 export async function postQuestionnaire(questionnaire: QuestionnaireResponse): Promise<void> {
   await postPayload({ questionnaire });
+}
+
+export async function postStateCheck(stateCheck: StateCheckResponse): Promise<void> {
+  await postPayload({ stateCheck });
 }
 
 const escapeCsvValue = (value: unknown) => {
@@ -166,5 +194,28 @@ export function questionnaireToCsv(response: QuestionnaireResponse | null): stri
   return [
     headers.join(","),
     headers.map((key) => escapeCsvValue(response[key as keyof QuestionnaireResponse])).join(","),
+  ].join("\n");
+}
+
+export function stateCheckToCsv(response: StateCheckResponse | null): string {
+  const headers = [
+    "responseId",
+    "participantId",
+    "assignmentId",
+    "stateCheckVersion",
+    "currentMood",
+    "currentEnergy",
+    "planningStyle",
+    "startedAt",
+    "submittedAt",
+    "elapsedMs",
+    "userAgent",
+  ];
+
+  if (!response) return headers.join(",");
+
+  return [
+    headers.join(","),
+    headers.map((key) => escapeCsvValue(response[key as keyof StateCheckResponse])).join(","),
   ].join("\n");
 }

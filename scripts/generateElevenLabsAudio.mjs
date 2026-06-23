@@ -20,6 +20,16 @@ const outputManifestPath = path.resolve("outputs/audio_manifest.json");
 const publicAudioDir = path.resolve("public/audio");
 const pauseMarkerPattern = /<pause\s+(\d+(?:\.\d+)?)\s*(?:s|sec|secs|second|seconds)>/gi;
 
+function normalizeClockTimes(text) {
+  return text.replace(/\b(0?[1-9]|1[0-2]):([0-5]\d)\s*(AM|PM)\b/g, (_, hour, minutes, meridiem) => {
+    const normalizedHour = String(Number(hour));
+    const normalizedMeridiem = String(meridiem).toUpperCase();
+    return minutes === "00"
+      ? `${normalizedHour} ${normalizedMeridiem}`
+      : `${normalizedHour} ${minutes} ${normalizedMeridiem}`;
+  });
+}
+
 function parseEnvLine(line) {
   const trimmed = line.trim();
   if (!trimmed || trimmed.startsWith("#")) return null;
@@ -46,6 +56,15 @@ async function loadLocalEnv() {
     }
   }
   return { ...values, ...process.env };
+}
+
+async function readJsonIfExists(filePath) {
+  try {
+    return JSON.parse(await readFile(filePath, "utf8"));
+  } catch (error) {
+    if (error.code === "ENOENT") return null;
+    throw error;
+  }
 }
 
 function wordCount(text) {
@@ -280,15 +299,24 @@ async function main() {
   const conditionFilter = envFilterSet(env.ARM_FILTER || env.CONDITION_FILTER);
   const segmentFilter = envFilterSet(env.SEGMENT_FILTER);
   const artifact = JSON.parse(await readFile(artifactPath, "utf8"));
-  const audioByScenarioArm = {};
-  const files = [];
+  const existingManifest = await readJsonIfExists(manifestPath);
+  const audioByScenarioArm = existingManifest?.audioByScenarioArm
+    ? JSON.parse(JSON.stringify(existingManifest.audioByScenarioArm))
+    : {};
+  const files = Array.isArray(existingManifest?.files)
+    ? existingManifest.files.filter((file) =>
+        (scenarioFilter.size > 0 && !scenarioFilter.has(file.scenarioId)) ||
+        (conditionFilter.size > 0 && !conditionFilter.has(file.condition)) ||
+        (segmentFilter.size > 0 && !segmentFilter.has(file.segmentId)),
+      )
+    : [];
 
   await mkdir(publicAudioDir, { recursive: true });
   await mkdir(path.dirname(outputManifestPath), { recursive: true });
 
   for (const scenarioId of Object.keys(artifact.scripts ?? {})) {
     if (scenarioFilter.size > 0 && !scenarioFilter.has(scenarioId)) continue;
-    audioByScenarioArm[scenarioId] = {};
+    audioByScenarioArm[scenarioId] ??= {};
     const scenarioDir = path.join(publicAudioDir, scenarioId);
     await mkdir(scenarioDir, { recursive: true });
 
@@ -303,7 +331,7 @@ async function main() {
       const segmentTexts = scriptSegmentsFor(artifact, scenarioId, condition);
 
       for (const [segmentId] of segments) {
-        const text = segmentTexts[segmentId]?.trim();
+        const text = normalizeClockTimes(segmentTexts[segmentId]?.trim() ?? "");
         if (!text) continue;
 
         const relativePath = `audio/${scenarioId}/${condition}/${segmentId}.mp3`;
