@@ -53,7 +53,8 @@ const normalizeClockTimes = (text: string) =>
       : `${normalizedHour}:${minutes} ${normalizedMeridiem}`;
   });
 
-const cleanScriptText = (text: string) => normalizeClockTimes(stripPauseMarkers(text));
+const cleanScriptText = (text: string, preservePauseMarkers = false) =>
+  normalizeClockTimes(preservePauseMarkers ? text.trim() : stripPauseMarkers(text));
 
 const taskPhrase = (task: PriorityTask) => {
   const timeRange =
@@ -141,7 +142,7 @@ const taskSequenceLine = (scenario: Scenario, tasks: PriorityTask[]) => {
 
 export function scriptForCondition(scenario: Scenario, condition: ConditionId): string {
   const llmOverride = llmScriptOverrides[scenario.id]?.[condition];
-  if (llmOverride) return cleanScriptText(llmOverride);
+  if (llmOverride) return cleanScriptText(llmOverride, condition === "full");
 
   const tasks = rehearsalTasks(scenario);
   const [first, second, third] = tasks;
@@ -174,9 +175,9 @@ export function scriptForCondition(scenario: Scenario, condition: ConditionId): 
 
     case "body":
       return [
-        `Imagine the first slow breath of the rehearsal, and the body state available today: ${scenario.bodyState.toLowerCase()}. The pace begins from the energy actually here. There is no need for the body to look different in the image. The start can be honest.`,
-        `Let the scene become the anchor: ${cueLine(scenario)}. Attention moves through those cues slowly. Picture posture settling, materials nearby, and the first stretch beginning at a pace the body can hold. What might a sustainable start look like in the hands, eyes, shoulders, and breath?`,
-        "As the day moves in the image, those cues return before each next block. What might the body feel like when attention comes back without force? What might feel steadier after one honest restart? The environment helps carry attention back when energy wavers.",
+        `Imagine the first slow breath of the rehearsal, and the body state available today: ${scenario.bodyState.toLowerCase()}. The pace begins from the energy actually here. There is no need for the body to look different in the image. This is only an arrival practice.`,
+        `Let simple sensory cues become anchors: ${cueLine(scenario)}. Attention moves through those cues slowly. Picture posture settling, hands resting, eyes softening, shoulders lowering, and breath moving at a pace the body can hold.`,
+        "Stay with contact, breath, weight, sound, and small releases of tension. What might the body feel like when attention comes back without force? The environment helps carry awareness back when energy wavers.",
       ].join("\n\n");
 
     case "soul":
@@ -229,10 +230,11 @@ export function audioSegmentsForCondition(scenario: Scenario, condition: Conditi
 export function textSegmentsForCondition(scenario: Scenario, condition: ConditionId): AudioSegmentMap {
   const sections = llmSections[scenario.id]?.[condition];
   if (sections) {
+    const preservePauseMarkers = condition === "full";
     return {
-      introduction: cleanScriptText(sections.introduction ?? ""),
-      middle: cleanScriptText(sections.task_completion ?? ""),
-      ending: cleanScriptText(sections.ending ?? ""),
+      introduction: cleanScriptText(sections.introduction ?? "", preservePauseMarkers),
+      middle: cleanScriptText(sections.task_completion ?? "", preservePauseMarkers),
+      ending: cleanScriptText(sections.ending ?? "", preservePauseMarkers),
     };
   }
 

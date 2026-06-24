@@ -3,42 +3,42 @@
 Scenario: `maya_daily`
 Goal: similar reading load across baseline, mind, body, soul, full.
 
-## baseline (243 words)
+## baseline (195 words)
 
-The visible schedule starts with "08:15-08:35 Review paper plan," which has a duration of 20 minutes. This is the first item listed in the full-calendar schedule. After that, the next visible item is "09:00-10:30 Draft related work section." This item is shown to last for 90 minutes and comes after the initial review paper plan. Both the start time and end time are displayed for each item.
+The visible schedule begins with 08:15 to 08:35, Review paper plan, listed as 20 minutes. This is the first calendar item shown for the day. The duration is 20 minutes, and the item name is Review paper plan.
 
-Continuing on the visible list, at 10:45 to 11:15, there is "Lab standup." The duration here is 30 minutes and this is another calendar item that follows the draft work section. The next item is "12:10-12:40 Lunch break," which is listed to last for 30 minutes. This item is also shown in the schedule and comes after the lab standup.
+The next visible item is 09:00 to 10:30, Draft related work section, listed as 90 minutes. This is another calendar item in the schedule. After that, 10:45 to 11:15 is Lab standup, listed as 30 minutes.
 
-After lunch, at 13:00 to 13:20, "Answer TA emails" is another listed item, also with a 20-minute duration. The calendar then shows at 14:00 to 14:45 "Teaching support tasks," with a duration of 45 minutes. Both events are part of the visible task preparation context and have start and end times indicated.
+The schedule also shows 12:10 to 12:40, Lunch break, for 30 minutes. This item is listed between the late morning item and the early afternoon items. The time shown is 12:10 to 12:40, and the duration shown is 30 minutes.
 
-Later in the day, at 15:00 to 15:30, "Prepare two reading group questions" appears on the visible list, for 30 minutes. The last item on the schedule is "16:15-16:35 Send advisor progress note," which is listed with a 20-minute duration. This is the final calendar item shown and also includes the start and end times. That is the visible schedule information for the day.
-## mind (220 words)
+In the afternoon, 13:00 to 13:20 is Answer TA emails, listed as 20 minutes. Another visible item is 14:00 to 14:45, Teaching support tasks, listed as 45 minutes. These are separate calendar items with their own start and end times.
 
-This day supports progress toward becoming an independent researcher by focusing on academic writing and teaching obligations. The work context includes making headway on the workshop paper, handling essential emails, and preparing for upcoming discussions.
+Later, the visible schedule lists 15:00 to 15:30, Prepare two reading group questions, for 30 minutes. The final visible item is 16:15 to 16:35, Send advisor progress note, listed as 20 minutes. That is the visible schedule information for the day.
+## mind (147 words)
 
-The top three priorities for today are: 1) Draft related work section from 9:00 to 10:30 (90 minutes), 2) Answer TA emails at 13:00 for 20 minutes, and 3) Prepare two reading group questions at 15:00 for 30 minutes. The morning centers on the related work section. As you draft, you stay anchored in the flow of your ideas, moving paragraph by paragraph and steadily clarifying connections to the existing literature. The draft grows into a more substantial and organized piece, building coherence until it feels like a complete section, ready for feedback. In the afternoon, you shift smoothly to concise, clear responses to each TA email, then gather and articulate your two reading group questions with purpose and specificity. What is the moment you notice the related work section feels complete enough to set aside? If focus wavers, what helps you reengage with the writing task?
+Today's work stays close to the workshop paper. The related work section gets the clearest attention, while TA emails and reading group questions stay contained parts of the day without turning into a full schedule rehearsal.
 
-With a clear start and finish for each task, you can close out the workday having moved all three priorities forward. Each completed activity supports your growth as a researcher and teacher, showing that steady progress is possible.
-## body (214 words)
+The useful finish is a related work section with papers grouped, a plain gap statement, and enough connection back to the paper's contribution to revise later. The 90-minute writing block does not need a perfect literature map; it needs a coherent draft that can survive feedback. Teaching email and reading group prep can remain short, defined tasks after that main writing pass. If the order of prior work feels uncertain, choose the strongest current order and leave one revision note.
 
-Allow your attention to drop into your body with a smooth, natural breath in and out. Notice the weight of your body settling into the chair, and the steady presence of your feet resting on the floor. Feel your hands where they touch the armrest or your lap, letting a hint of tension ease from your jaw or shoulders. Let these points of contact hold your awareness for a moment. The warmth of a cup in your hand is an anchor, as is the gentle hum in the background and the subtle scent of coffee nearby.
+The next doable action is opening the section and writing the first paragraph in the current best order today, without reopening every decision. Once that exists, the paper has moved forward.
+## body (145 words)
 
-With sleep a bit short and energy on the low side, let the body find a quietly supportive mode. Sense how the floor supports you, and how the chair gives your back a base. If there’s a leftover sense of pressure in your chest or shoulders, notice it and let it ease with the next gentle breath. The quiet hum of the apartment and brightness from the window offer soft structure, while the taste of coffee or water freshens the mouth between breaths. Let these cues affirm your steady presence.
+Notice the breath arriving on its own, with the chair under you and both feet meeting the floor. After short, restless sleep, the body may feel undercharged, so let contact, a quiet room sound, and the taste of coffee become enough to locate you.
 
-Stay with your contact points—feet on the floor, hands at rest, breath smoothing out. Let yourself move forward with a steadying reminder, "I am grounded in my body."
-## soul (220 words)
+Let the phone turned face down stay only as a soft boundary in the background. Morning light can register softly, not as a signal to move faster, but as one more sensation the body can receive. Some light movement is already in the legs, while stress may sit as tightness in the chest, face, stomach, or hands. You can sense the tiredness without turning it into a problem, and let one small area release.
 
-Let what matters most come into focus: a day where independent thinking feels natural, and you are mentally clear and self-trusting. Imagine living open-mindedness as a gentle ability to stay curious, even when the path ahead looks different than expected. There’s a satisfaction in feeling competent and accomplished—not for anyone else's approval, but because you finished what truly mattered to you. In your ideal vision, life shapes itself around space to think your own questions and make room for deep, focused work, with the sense of movement that comes from learning something new.
+The body does not need to be brighter before it can be here right now. Stay with one breath, one point of weight, and one small sound.
+## soul (207 words)
 
-Let yourself picture moving through an ordinary day with a quiet self-trust guiding you. What does it feel like to recognize your own independent choices, to give yourself the room to decide without rushing for outside validation? Notice the freedom in being curious without an answer in hand, and feel the grounding in completing what you value most. Without seeking proof, let curiosity and clarity show up in small, daily moments—choosing your patch of progress, finding curiosity where it surprises, sensing the finish lines that actually matter to you. Ask gently: What beliefs are you giving space today?
+Independent Thinking begins as trusting my own questions before borrowing other people’s. I let there be room to think, enough room to feel mentally clear, self-trusting, and unboxed. A life where I think and write on my own questions is practiced in this inward permission, not in proving anything. I can return to my own judgment gently, without needing borrowed certainty to make it real.
 
-I trust my own questions and let my progress be enough for me. Say it again: I trust my own questions and let my progress be enough for me.
-## full (225 words)
+Success means finishing what matters, and I let that meaning stay clean and personal. I carry the feeling of being accomplished, focused, and competent as something steady, not something I have to perform for anyone else. Visible progress can be simple: enough that I can stand behind it, enough that it reflects what matters. I can respect completion as a form of self-trust, not a demand to become more than I am.
 
-Notice one natural breath as you settle into your chair. Let your feet meet the floor and your hands rest, then release your jaw gently. Even with short sleep and tiredness, allow this low energy to simply be here. Let the morning light, the quiet hum, and your coffee be grounding anchors now. When you feel present, tap continue.
+Open-Mindedness is staying curious about answers I did not expect. I let curiosity feel supported, spacious, and honest, with learning something as a sign that I am still available to the world. Not forcing certainty, not closing too soon; just remaining close to the questions that make life wider. Say it slowly: I trust my own questions, finish what matters, and stay curious about what I do not yet know.
+## full (218 words)
 
-You are on track toward becoming an independent researcher, and today you will achieve real progress toward submitting one strong workshop paper this month. Today's top priorities are: Draft related work section from 9:00 AM to 10:30 AM for 90 minutes, Answer TA emails at 1:00 PM for 20 minutes, and Prepare two reading group questions at 3:00 PM for 30 minutes. Imagine completing these one by one, guided by mental clarity, self-trust, and curiosity. <pause 5 sec> As you picture completing them, what feels steady in your body and attention? <pause 5 sec> What tells you the work is becoming complete enough today? <pause 5 sec>
+Take a slow breath in, and let the exhale give your ribs a little room. <pause 2 sec> Feel the chair holding you, feet on the floor, hands settling, and jaw softening. <pause 5 sec> With short, restless sleep and low energy, set morning light and coffee as anchors for focus. Tap next once you feel grounded.
 
-You will be able to complete these priorities today at a pace your energy can hold. Take time with the image, and tap continue when ready.
+You are on track toward becoming an independent researcher and submitting a strong workshop paper this month. Today's three priorities are Draft related work section at 9 AM, Answer TA emails at 1 PM, and Prepare two reading group questions at 3 PM. Imagine moving through those priorities one at a time. <pause 10 sec> How do you feel in your body as the writing block, emails, and reading questions move forward, and what do you sense in touch, sight, and sound? <pause 10 sec> How does it feel mentally as it connects to self-trust, competence, and curiosity? <pause 10 sec> You can complete the important pieces without forcing intensity. Take time with the image, and tap next when ready.
 
-Return to what matters: clarity, curiosity, and trusting your own questions. I am becoming someone who keeps faith with independent thinking, even on low energy days. Say it slowly: I can move gently and let my own questions lead me forward today.
+Return to the core values underneath the work: independent thinking, finishing what matters, and staying open. I am becoming someone who can be tired and still think for myself. Say it slowly: My own questions deserve a clear voice, and one honest paragraph gives them one. Tap next when you are ready to carry it forward.

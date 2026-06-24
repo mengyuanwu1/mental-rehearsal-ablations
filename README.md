@@ -5,13 +5,15 @@ Small static web UI for Prolific / Qualtrics pairwise comparison tasks.
 ## Design
 
 - 5 conditions: `baseline`, `mind`, `body`, `soul`, `full`
-- 10 condition pairs
+- V4 targeted 2-comparison block
 - 5 scenarios: 5 seed profiles, daily scope only
-- 15 assignment slots for the pilot
+- 20 assignment slots for launch
 - 2 trials per participant
 - Each trial shows one scenario and two scripts from different conditions
-- Script order balanced across assignment slots so each condition appears equally often as Script A and Script B
-- 12 of 15 assignment slots include a direct `baseline` comparison
+- Each participant sees four unique conditions, so no condition is rated twice by the same participant
+- Each participant sees `full` exactly once, directly against `baseline`, `mind`, `body`, or `soul`
+- The second comparison uses two fresh non-full conditions, with a mix of baseline-vs-middle and middle-vs-middle comparisons
+- Script order balanced across assignment slots so `full` appears 10 times as Script A and 10 times as Script B
 - After entering a Prolific ID, participants answer a 3-item state check, then see the brief introduction
 - Each comparison requires a 45-second review period before the participant can continue
 - Participants must choose one script and rate both scripts before continuing
@@ -19,12 +21,22 @@ Small static web UI for Prolific / Qualtrics pairwise comparison tasks.
   scenario title, life priority, and energy background text
 - After the 2 comparisons, participants complete a final personalization questionnaire
 
-Across assignment ids `0` through `14`:
+Across assignment ids `0` through `19`:
 
-- each condition pair appears 3 times
-- each scenario appears 6 times
-- no repeated pair x scenario cell appears in the pilot assignment table
+- direct `full` comparisons include win-rate-friendly `full` vs `baseline` 7 times
+- direct middle comparisons are `full` vs `mind` 5 times, `full` vs `body` 5 times, and `full` vs `soul` 3 times
+- filler comparisons include `baseline/mind` 4, `baseline/body` 4, `baseline/soul` 3, `mind/body` 4, `mind/soul` 3, and `body/soul` 2
+- each direct `full` comparison pair appears across scenarios, with near-balanced scenario spread
+- each scenario appears 8 times
+- `full` appears 10 times as Script A and 10 times as Script B
+- v4 condition exposure totals are `full` 20, `baseline` 18, `mind` 16, `body` 15, and `soul` 11
+- combined with the current no-fast-10 attention-filtered 3-dim counts, projected totals are approximately `full` 36, `baseline` 36, `mind` 35, `body` 36, and `soul` 35
 - no participant sees the same scenario twice
+
+If launch stops at 15 participants, use assignment ids `0` through `14`; each
+participant still sees four unique conditions and `full` exactly once. In the
+first 15 slots, direct `full` comparisons are `baseline` 5, `mind` 4, `body` 4,
+and `soul` 2, which keeps projected cumulative condition counts near 31-32 each.
 
 ## Final personalization questionnaire
 
@@ -49,11 +61,15 @@ Preferred URL shape:
 https://YOUR_DEPLOYED_APP/?PROLIFIC_PID=${e://Field/PROLIFIC_PID}&assignment_id=${e://Field/assignment_id}&return_url=https%3A%2F%2FYOUR_QUALTRICS_RETURN_URL
 ```
 
-Best practice: assign `assignment_id` in Qualtrics from `0` to `14` as embedded data.
+Best practice: assign `assignment_id` in Qualtrics from `0` to `19` as embedded data.
 If `assignment_id` is absent, the app hashes `PROLIFIC_PID` into a slot. That is useful
 for pilots, but exact balancing depends on Qualtrics assigning slots.
 The app asks participants to enter their Prolific ID before the comparison UI appears.
 If `PROLIFIC_PID` is present in the URL, the field is prefilled for confirmation.
+Admin mode defaults to assignment `0`, or `admin_assignment_id` / `assignment_id`
+when provided, and saves only locally. Admin state checks, trial responses, and
+questionnaires are not posted to the Google Apps Script collector, so admin QA
+does not count toward assignment balance.
 
 ## Responses
 

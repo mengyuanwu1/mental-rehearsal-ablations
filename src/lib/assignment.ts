@@ -13,43 +13,55 @@ export const conditionPairs: Array<[ConditionId, ConditionId]> = (() => {
   return pairs;
 })();
 
-export const assignmentSlotCount = 15;
+export const assignmentSlotCount = 20;
 const TRIALS_PER_SLOT = 2;
 
+// V4 balances current 3-dim counts while giving full several baseline matchups.
+// Each participant sees full once plus a no-repeat comparison among the other arms.
 const pairScheduleByAssignment: number[][] = [
-  [0, 9],
-  [2, 7],
-  [3, 8],
-  [1, 6],
-  [0, 4],
-  [2, 5],
-  [1, 9],
-  [1, 7],
+  [2, 8],
+  [4, 3],
+  [6, 1],
+  [2, 8],
   [3, 5],
-  [3, 6],
-  [4, 2],
+  [0, 9],
+  [3, 5],
+  [3, 4],
+  [1, 6],
+  [6, 7],
+  [8, 2],
+  [9, 0],
+  [1, 6],
+  [4, 3],
   [0, 8],
-  [9, 5],
-  [7, 4],
-  [6, 8],
+  [7, 6],
+  [1, 9],
+  [4, 3],
+  [3, 5],
+  [8, 0],
 ];
 
 const swapScheduleByAssignment: boolean[][] = [
+  [true, false],
+  [true, true],
   [false, false],
+  [true, true],
+  [false, true],
+  [false, false],
+  [false, true],
+  [false, true],
   [false, false],
   [true, false],
+  [false, false],
+  [true, true],
+  [false, false],
+  [true, true],
+  [true, true],
+  [false, true],
+  [true, true],
   [false, false],
   [true, false],
   [true, true],
-  [true, true],
-  [false, false],
-  [true, false],
-  [true, false],
-  [true, false],
-  [false, true],
-  [false, true],
-  [true, false],
-  [true, false],
 ];
 
 export function hashString(input: string): number {

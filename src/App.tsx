@@ -18,7 +18,7 @@ import {
   type AudioSegmentId,
   type AudioSegmentMap,
 } from "./data/scripts";
-import { assignmentIdFromParams, assignmentSlotCount, buildAssignment, hashString } from "./lib/assignment";
+import { assignmentIdFromParams, buildAssignment, hashString } from "./lib/assignment";
 import {
   postQuestionnaire,
   postResponse,
@@ -58,7 +58,6 @@ const stateCheckVersion = "state-check-v1";
 const attentionCheckTrialIndexes = [1];
 const attentionCheckTrialIndexSet = new Set(attentionCheckTrialIndexes);
 const attentionCheckKinds = ["task", "values", "energy"] as const;
-const lastAdminAssignmentStorageKey = "mra-last-admin-assignment-id";
 const audioSeekToleranceSeconds = 1.5;
 const audioCompletionToleranceSeconds = 1.5;
 
@@ -682,14 +681,15 @@ const formatScriptLengthRangeAnswer = (answer: string) => {
 
 const createAdminSession = (participantLabel: string) => {
   const sessionKey = `${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
-  const proposedAssignmentId = hashString(`${participantLabel}:admin:${sessionKey}`) % assignmentSlotCount;
-  const previousAssignmentId = Number(window.localStorage.getItem(lastAdminAssignmentStorageKey));
+  const explicitAssignment =
+    params.get("admin_assignment_id") ??
+    params.get("assignment_id") ??
+    params.get("assignment") ??
+    params.get("a");
   const assignmentId =
-    assignmentSlotCount > 1 && Number.isFinite(previousAssignmentId) && proposedAssignmentId === previousAssignmentId
-      ? (proposedAssignmentId + 1) % assignmentSlotCount
-      : proposedAssignmentId;
-
-  window.localStorage.setItem(lastAdminAssignmentStorageKey, String(assignmentId));
+    explicitAssignment && Number.isFinite(Number(explicitAssignment))
+      ? Number(explicitAssignment)
+      : 0;
 
   return {
     participantId: `${participantLabel || "admin"}__admin_${sessionKey}`,
@@ -952,6 +952,10 @@ export default function App() {
                 answer a few questions about your own preferences for a rehearsal guide.
               </p>
               <p>
+                You will still rate both scripts before continuing. Please focus on the script
+                content, structure, and usefulness, not the voice or audio quality.
+              </p>
+              <p>
                 Each comparison has a 45-second review timer and requires both audio sequences to be
                 completed before you can continue. Please take time to listen to both scripts before
                 making your final choice.
@@ -1052,7 +1056,9 @@ function StateCheckForm({
     storeStateCheck(response);
 
     try {
-      await postStateCheck(response);
+      if (!adminMode) {
+        await postStateCheck(response);
+      }
       setPostingError("");
     } catch {
       setPostingError("Saved locally. Network post failed.");
@@ -1678,12 +1684,14 @@ function StudyTask({
     setResponses(nextResponses);
 
     try {
-      try {
+      if (adminMode) {
+        setPostingError("");
+      } else {
         await postResponse(response);
         setPostingError("");
-      } catch {
-        setPostingError("Saved locally. Network post failed.");
       }
+    } catch {
+      setPostingError("Saved locally. Network post failed.");
     } finally {
       submittingRef.current = false;
       setIsSubmitting(false);
@@ -1806,6 +1814,7 @@ function StudyTask({
           <section className="script-grid" aria-label="Script comparison">
             <p className="script-choice-instruction">
               Choose either Script A or Script B. You will still rate both scripts before continuing.
+              Please focus on the script content, structure, and usefulness, not the voice or audio quality.
             </p>
             <p className="audio-requirement">{audioInstruction}</p>
 
@@ -1876,7 +1885,10 @@ function StudyTask({
           <section className="response-panel" aria-label="Response">
         <div className="question-block">
           <h2>Which script would better help this person prepare for the day?</h2>
-          <p>Choose either Script A or Script B, then rate both scripts on each measure before continuing.</p>
+          <p>
+            Choose either Script A or Script B, then rate both scripts on each measure before continuing.
+            Please judge the script itself, not the recording voice or audio quality.
+          </p>
         </div>
 
         {renderScriptRatings("left", "Script A")}
@@ -2153,7 +2165,9 @@ function QuestionnaireForm({
     storeQuestionnaire(response);
 
     try {
-      await postQuestionnaire(response);
+      if (!adminMode) {
+        await postQuestionnaire(response);
+      }
       setPostingError("");
     } catch {
       setPostingError("Saved locally. Network post failed.");
