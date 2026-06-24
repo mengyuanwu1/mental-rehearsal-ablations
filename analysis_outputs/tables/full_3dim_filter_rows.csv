@@ -1,0 +1,14 @@
+filter,rows,participants,note
+attention_row_pass,55,23,Drop explicit attention-check failures; keep rows without a shown attention check.
+no_fast_5pct_attention_pass,52,23,Drop explicit attention failures and the fastest 5% of remaining rows by elapsed time (threshold 196s).
+no_fast_10pct_attention_pass,49,23,Drop explicit attention failures and the fastest 10% of remaining rows by elapsed time (threshold 223s).
+no_fast_15pct_attention_pass,46,23,Drop explicit attention failures and the fastest 15% of remaining rows by elapsed time (threshold 257s).
+no_fast_20pct_attention_pass,44,22,Drop explicit attention failures and the fastest 20% of remaining rows by elapsed time (threshold 266s).
+no_fast_25pct_attention_pass,41,21,Drop explicit attention failures and the fastest 25% of remaining rows by elapsed time (threshold 281s).
+no_fast_30pct_attention_pass,38,20,Drop explicit attention failures and the fastest 30% of remaining rows by elapsed time (threshold 300s).
+no_fast_180s_attention_pass,54,23,Drop explicit attention failures and rows below 180s elapsed time.
+no_fast_240s_attention_pass,48,23,Drop explicit attention failures and rows below 240s elapsed time.
+no_fast_300s_attention_pass,38,20,Drop explicit attention failures and rows below 300s elapsed time.
+audio_ended_no_fast_10pct_attention_pass,49,23,"Require both audio options ended, drop explicit attention failures, and drop fastest 10% (threshold 223s)."
+audio_ended_no_fast_20pct_attention_pass,44,22,"Require both audio options ended, drop explicit attention failures, and drop fastest 20% (threshold 266s)."
+audio_ended_no_fast_25pct_attention_pass,41,21,"Require both audio options ended, drop explicit attention failures, and drop fastest 25% (threshold 281s)."
