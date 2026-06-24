@@ -6,64 +6,64 @@ Exploratory sensitivity check for the clarified target: **Full 3-dim score great
 
 | filter                                   | rows | participants | note                                                                                                       |
 | ---------------------------------------- | ---- | ------------ | ---------------------------------------------------------------------------------------------------------- |
-| attention_row_pass                       | 55   | 23           | Drop explicit attention-check failures; keep rows without a shown attention check.                         |
-| no_fast_5pct_attention_pass              | 52   | 23           | Drop explicit attention failures and the fastest 5% of remaining rows by elapsed time (threshold 196s).    |
-| no_fast_10pct_attention_pass             | 49   | 23           | Drop explicit attention failures and the fastest 10% of remaining rows by elapsed time (threshold 223s).   |
-| no_fast_15pct_attention_pass             | 46   | 23           | Drop explicit attention failures and the fastest 15% of remaining rows by elapsed time (threshold 257s).   |
-| no_fast_20pct_attention_pass             | 44   | 22           | Drop explicit attention failures and the fastest 20% of remaining rows by elapsed time (threshold 266s).   |
-| no_fast_25pct_attention_pass             | 41   | 21           | Drop explicit attention failures and the fastest 25% of remaining rows by elapsed time (threshold 281s).   |
-| no_fast_30pct_attention_pass             | 38   | 20           | Drop explicit attention failures and the fastest 30% of remaining rows by elapsed time (threshold 300s).   |
-| no_fast_180s_attention_pass              | 54   | 23           | Drop explicit attention failures and rows below 180s elapsed time.                                         |
-| no_fast_240s_attention_pass              | 48   | 23           | Drop explicit attention failures and rows below 240s elapsed time.                                         |
-| no_fast_300s_attention_pass              | 38   | 20           | Drop explicit attention failures and rows below 300s elapsed time.                                         |
-| audio_ended_no_fast_10pct_attention_pass | 49   | 23           | Require both audio options ended, drop explicit attention failures, and drop fastest 10% (threshold 223s). |
-| audio_ended_no_fast_20pct_attention_pass | 44   | 22           | Require both audio options ended, drop explicit attention failures, and drop fastest 20% (threshold 266s). |
-| audio_ended_no_fast_25pct_attention_pass | 41   | 21           | Require both audio options ended, drop explicit attention failures, and drop fastest 25% (threshold 281s). |
+| attention_row_pass                       | 142  | 67           | Drop explicit attention-check failures; keep rows without a shown attention check.                         |
+| no_fast_5pct_attention_pass              | 134  | 67           | Drop explicit attention failures and the fastest 5% of remaining rows by elapsed time (threshold 231s).    |
+| no_fast_10pct_attention_pass             | 127  | 67           | Drop explicit attention failures and the fastest 10% of remaining rows by elapsed time (threshold 258s).   |
+| no_fast_15pct_attention_pass             | 120  | 65           | Drop explicit attention failures and the fastest 15% of remaining rows by elapsed time (threshold 287s).   |
+| no_fast_20pct_attention_pass             | 113  | 63           | Drop explicit attention failures and the fastest 20% of remaining rows by elapsed time (threshold 309s).   |
+| no_fast_25pct_attention_pass             | 106  | 61           | Drop explicit attention failures and the fastest 25% of remaining rows by elapsed time (threshold 319s).   |
+| no_fast_30pct_attention_pass             | 99   | 57           | Drop explicit attention failures and the fastest 30% of remaining rows by elapsed time (threshold 326s).   |
+| no_fast_180s_attention_pass              | 140  | 67           | Drop explicit attention failures and rows below 180s elapsed time.                                         |
+| no_fast_240s_attention_pass              | 133  | 67           | Drop explicit attention failures and rows below 240s elapsed time.                                         |
+| no_fast_300s_attention_pass              | 117  | 64           | Drop explicit attention failures and rows below 300s elapsed time.                                         |
+| audio_ended_no_fast_10pct_attention_pass | 127  | 67           | Require both audio options ended, drop explicit attention failures, and drop fastest 10% (threshold 258s). |
+| audio_ended_no_fast_20pct_attention_pass | 113  | 63           | Require both audio options ended, drop explicit attention failures, and drop fastest 20% (threshold 309s). |
+| audio_ended_no_fast_25pct_attention_pass | 106  | 61           | Require both audio options ended, drop explicit attention failures, and drop fastest 25% (threshold 319s). |
 
 ## Can Full Beat Every Other Arm?
 
-No filter below produced significance against **all four** comparators across all methods. The closest row-level screen is fastest-25%-removed, but it still misses mind and soul at p<0.05 and fails cluster checks.
+10 filter(s) produced significance against **all four** comparators across row-level Welch, clustered bootstrap CI, and participant-cluster permutation checks. The strongest screen by max row p / max permutation p is `attention_row_pass`.
 
-| filter                                   | rows | participants | min_diff | max_row_p | min_boot_low         | max_perm_p | all_row_sig | all_boot_sig | all_perm_sig |
-| ---------------------------------------- | ---- | ------------ | -------- | --------- | -------------------- | ---------- | ----------- | ------------ | ------------ |
-| no_fast_25pct_attention_pass             | 41   | 21           | 0.86     | 0.059     | -0.42477240896358476 | 0.177      | False       | False        | False        |
-| audio_ended_no_fast_25pct_attention_pass | 41   | 21           | 0.86     | 0.059     | -0.4583537581699343  | 0.192      | False       | False        | False        |
-| no_fast_30pct_attention_pass             | 38   | 20           | 0.86     | 0.066     | -0.4872222222222205  | 0.271      | False       | False        | False        |
-| no_fast_300s_attention_pass              | 38   | 20           | 0.86     | 0.066     | -0.4526893939393926  | 0.278      | False       | False        | False        |
-| no_fast_20pct_attention_pass             | 44   | 22           | 0.64     | 0.116     | -0.4484145021645023  | 0.187      | False       | False        | False        |
-| audio_ended_no_fast_20pct_attention_pass | 44   | 22           | 0.64     | 0.116     | -0.3518095238095238  | 0.197      | False       | False        | False        |
-| no_fast_240s_attention_pass              | 48   | 23           | 0.50     | 0.173     | -0.5435801513587883  | 0.182      | False       | False        | False        |
-| no_fast_15pct_attention_pass             | 46   | 23           | 0.50     | 0.173     | -0.580583333333332   | 0.184      | False       | False        | False        |
-| no_fast_180s_attention_pass              | 54   | 23           | 0.45     | 0.180     | -0.5316754385964908  | 0.105      | False       | False        | False        |
-| no_fast_5pct_attention_pass              | 52   | 23           | 0.45     | 0.180     | -0.5226740424430637  | 0.112      | False       | False        | False        |
-| audio_ended_no_fast_10pct_attention_pass | 49   | 23           | 0.46     | 0.190     | -0.6410511363636368  | 0.176      | False       | False        | False        |
-| no_fast_10pct_attention_pass             | 49   | 23           | 0.46     | 0.190     | -0.6458912037037033  | 0.187      | False       | False        | False        |
-| attention_row_pass                       | 55   | 23           | 0.40     | 0.202     | -0.5669715828360328  | 0.176      | False       | False        | False        |
+| filter                                   | rows | participants | min_diff | max_row_p | min_boot_low        | max_perm_p | all_row_sig | all_boot_sig | all_perm_sig |
+| ---------------------------------------- | ---- | ------------ | -------- | --------- | ------------------- | ---------- | ----------- | ------------ | ------------ |
+| attention_row_pass                       | 142  | 67           | 0.99     | <0.001    | 0.4120959595959596  | 0.007      | True        | True         | True         |
+| no_fast_180s_attention_pass              | 140  | 67           | 0.99     | <0.001    | 0.42205119361177285 | 0.008      | True        | True         | True         |
+| no_fast_240s_attention_pass              | 133  | 67           | 1.00     | <0.001    | 0.4098567536931412  | 0.006      | True        | True         | True         |
+| no_fast_5pct_attention_pass              | 134  | 67           | 0.98     | <0.001    | 0.3763877623351317  | 0.007      | True        | True         | True         |
+| no_fast_10pct_attention_pass             | 127  | 67           | 0.99     | <0.001    | 0.3792429217570456  | 0.011      | True        | True         | True         |
+| audio_ended_no_fast_10pct_attention_pass | 127  | 67           | 0.99     | <0.001    | 0.39840608465608585 | 0.014      | True        | True         | True         |
+| no_fast_15pct_attention_pass             | 120  | 65           | 1.01     | <0.001    | 0.3675960939931533  | 0.018      | True        | True         | True         |
+| no_fast_300s_attention_pass              | 117  | 64           | 1.01     | 0.001     | 0.34873151725140006 | 0.024      | True        | True         | True         |
+| audio_ended_no_fast_20pct_attention_pass | 113  | 63           | 0.95     | 0.002     | 0.34609410952600234 | 0.021      | True        | True         | True         |
+| no_fast_20pct_attention_pass             | 113  | 63           | 0.95     | 0.002     | 0.3649528480533246  | 0.021      | True        | True         | True         |
+| audio_ended_no_fast_25pct_attention_pass | 106  | 61           | 0.95     | 0.003     | 0.3128188259109327  | 0.120      | True        | True         | False        |
+| no_fast_25pct_attention_pass             | 106  | 61           | 0.95     | 0.003     | 0.307234814756618   | 0.129      | True        | True         | False        |
+| no_fast_30pct_attention_pass             | 99   | 57           | 0.87     | 0.004     | 0.18602060207908483 | 0.169      | True        | True         | False        |
 
-## Closest Filter Details
+## Leading Filter Details
 
-| filter                                   | comparator | n_full | n_comparator | full_mean | comparator_mean | diff | row_welch_p | boot_ci_low | boot_ci_high | cluster_perm_p | row_sig | boot_sig | perm_sig |
-| ---------------------------------------- | ---------- | ------ | ------------ | --------- | --------------- | ---- | ----------- | ----------- | ------------ | -------------- | ------- | -------- | -------- |
-| audio_ended_no_fast_25pct_attention_pass | baseline   | 14     | 15           | 7.26      | 5.24            | 2.02 | <0.001      | 0.73        | 3.10         | 0.012          | True    | True     | True     |
-| audio_ended_no_fast_25pct_attention_pass | body       | 14     | 18           | 7.26      | 6.30            | 0.97 | 0.037       | -0.08       | 2.05         | 0.192          | True    | False    | False    |
-| audio_ended_no_fast_25pct_attention_pass | mind       | 14     | 15           | 7.26      | 6.38            | 0.88 | 0.059       | -0.46       | 2.14         | 0.082          | False   | False    | False    |
-| audio_ended_no_fast_25pct_attention_pass | soul       | 14     | 20           | 7.26      | 6.40            | 0.86 | 0.055       | -0.19       | 1.96         | 0.075          | False   | False    | False    |
-| no_fast_20pct_attention_pass             | baseline   | 15     | 16           | 7.09      | 5.38            | 1.71 | 0.002       | 0.48        | 2.81         | 0.013          | True    | True     | True     |
-| no_fast_20pct_attention_pass             | body       | 15     | 19           | 7.09      | 6.35            | 0.74 | 0.085       | -0.30       | 1.88         | 0.187          | False   | False    | False    |
-| no_fast_20pct_attention_pass             | mind       | 15     | 17           | 7.09      | 6.10            | 0.99 | 0.042       | -0.20       | 2.21         | 0.064          | True    | False    | False    |
-| no_fast_20pct_attention_pass             | soul       | 15     | 21           | 7.09      | 6.44            | 0.64 | 0.116       | -0.45       | 1.76         | 0.084          | False   | False    | False    |
-| no_fast_25pct_attention_pass             | baseline   | 14     | 15           | 7.26      | 5.24            | 2.02 | <0.001      | 0.73        | 3.14         | 0.012          | True    | True     | True     |
-| no_fast_25pct_attention_pass             | body       | 14     | 18           | 7.26      | 6.30            | 0.97 | 0.037       | -0.06       | 2.14         | 0.177          | True    | False    | False    |
-| no_fast_25pct_attention_pass             | mind       | 14     | 15           | 7.26      | 6.38            | 0.88 | 0.059       | -0.42       | 2.16         | 0.074          | False   | False    | False    |
-| no_fast_25pct_attention_pass             | soul       | 14     | 20           | 7.26      | 6.40            | 0.86 | 0.055       | -0.17       | 1.94         | 0.072          | False   | False    | False    |
-| no_fast_300s_attention_pass              | baseline   | 13     | 15           | 7.26      | 5.24            | 2.01 | <0.001      | 0.68        | 3.14         | 0.011          | True    | True     | True     |
-| no_fast_300s_attention_pass              | body       | 13     | 15           | 7.26      | 6.31            | 0.95 | 0.058       | -0.24       | 2.13         | 0.278          | False   | False    | False    |
-| no_fast_300s_attention_pass              | mind       | 13     | 13           | 7.26      | 6.31            | 0.95 | 0.066       | -0.45       | 2.28         | 0.112          | False   | False    | False    |
-| no_fast_300s_attention_pass              | soul       | 13     | 20           | 7.26      | 6.40            | 0.86 | 0.064       | -0.23       | 1.99         | 0.083          | False   | False    | False    |
-| no_fast_30pct_attention_pass             | baseline   | 13     | 15           | 7.26      | 5.24            | 2.01 | <0.001      | 0.73        | 3.12         | 0.012          | True    | True     | True     |
-| no_fast_30pct_attention_pass             | body       | 13     | 15           | 7.26      | 6.31            | 0.95 | 0.058       | -0.24       | 2.15         | 0.271          | False   | False    | False    |
-| no_fast_30pct_attention_pass             | mind       | 13     | 13           | 7.26      | 6.31            | 0.95 | 0.066       | -0.49       | 2.31         | 0.116          | False   | False    | False    |
-| no_fast_30pct_attention_pass             | soul       | 13     | 20           | 7.26      | 6.40            | 0.86 | 0.064       | -0.22       | 1.99         | 0.082          | False   | False    | False    |
+| filter                       | comparator | n_full | n_comparator | full_mean | comparator_mean | diff | row_welch_p | boot_ci_low | boot_ci_high | cluster_perm_p | row_sig | boot_sig | perm_sig |
+| ---------------------------- | ---------- | ------ | ------------ | --------- | --------------- | ---- | ----------- | ----------- | ------------ | -------------- | ------- | -------- | -------- |
+| attention_row_pass           | baseline   | 64     | 62           | 7.44      | 5.44            | 2.00 | <0.001      | 1.33        | 2.63         | <0.001         | True    | True     | True     |
+| attention_row_pass           | body       | 64     | 54           | 7.44      | 6.44            | 0.99 | <0.001      | 0.41        | 1.60         | <0.001         | True    | True     | True     |
+| attention_row_pass           | mind       | 64     | 58           | 7.44      | 6.41            | 1.03 | <0.001      | 0.50        | 1.55         | <0.001         | True    | True     | True     |
+| attention_row_pass           | soul       | 64     | 46           | 7.44      | 6.34            | 1.10 | <0.001      | 0.54        | 1.71         | 0.007          | True    | True     | True     |
+| no_fast_10pct_attention_pass | baseline   | 59     | 55           | 7.51      | 5.41            | 2.11 | <0.001      | 1.44        | 2.79         | <0.001         | True    | True     | True     |
+| no_fast_10pct_attention_pass | body       | 59     | 48           | 7.51      | 6.53            | 0.99 | <0.001      | 0.38        | 1.62         | 0.002          | True    | True     | True     |
+| no_fast_10pct_attention_pass | mind       | 59     | 51           | 7.51      | 6.35            | 1.16 | <0.001      | 0.59        | 1.74         | <0.001         | True    | True     | True     |
+| no_fast_10pct_attention_pass | soul       | 59     | 41           | 7.51      | 6.46            | 1.06 | <0.001      | 0.43        | 1.70         | 0.011          | True    | True     | True     |
+| no_fast_180s_attention_pass  | baseline   | 63     | 61           | 7.46      | 5.42            | 2.04 | <0.001      | 1.37        | 2.69         | <0.001         | True    | True     | True     |
+| no_fast_180s_attention_pass  | body       | 63     | 53           | 7.46      | 6.47            | 0.99 | <0.001      | 0.42        | 1.58         | <0.001         | True    | True     | True     |
+| no_fast_180s_attention_pass  | mind       | 63     | 57           | 7.46      | 6.39            | 1.07 | <0.001      | 0.56        | 1.60         | <0.001         | True    | True     | True     |
+| no_fast_180s_attention_pass  | soul       | 63     | 46           | 7.46      | 6.34            | 1.12 | <0.001      | 0.53        | 1.71         | 0.008          | True    | True     | True     |
+| no_fast_240s_attention_pass  | baseline   | 60     | 58           | 7.47      | 5.38            | 2.09 | <0.001      | 1.44        | 2.75         | <0.001         | True    | True     | True     |
+| no_fast_240s_attention_pass  | body       | 60     | 51           | 7.47      | 6.47            | 1.00 | <0.001      | 0.41        | 1.63         | 0.001          | True    | True     | True     |
+| no_fast_240s_attention_pass  | mind       | 60     | 54           | 7.47      | 6.40            | 1.07 | <0.001      | 0.52        | 1.64         | 0.001          | True    | True     | True     |
+| no_fast_240s_attention_pass  | soul       | 60     | 43           | 7.47      | 6.40            | 1.06 | <0.001      | 0.47        | 1.70         | 0.006          | True    | True     | True     |
+| no_fast_5pct_attention_pass  | baseline   | 60     | 58           | 7.47      | 5.38            | 2.09 | <0.001      | 1.44        | 2.74         | <0.001         | True    | True     | True     |
+| no_fast_5pct_attention_pass  | body       | 60     | 52           | 7.47      | 6.49            | 0.98 | <0.001      | 0.38        | 1.57         | 0.002          | True    | True     | True     |
+| no_fast_5pct_attention_pass  | mind       | 60     | 54           | 7.47      | 6.40            | 1.07 | <0.001      | 0.52        | 1.64         | <0.001         | True    | True     | True     |
+| no_fast_5pct_attention_pass  | soul       | 60     | 44           | 7.47      | 6.36            | 1.11 | <0.001      | 0.55        | 1.70         | 0.007          | True    | True     | True     |
 
 ## Pooled Non-Full Check
 
@@ -71,19 +71,19 @@ This is **not** the same as beating each arm separately, but it answers whether 
 
 | filter                                   | n_full | n_comparator | full_mean | comparator_mean | diff | row_welch_p | boot_ci_low | boot_ci_high | cluster_perm_p |
 | ---------------------------------------- | ------ | ------------ | --------- | --------------- | ---- | ----------- | ----------- | ------------ | -------------- |
-| audio_ended_no_fast_25pct_attention_pass | 14     | 68           | 7.26      | 6.11            | 1.15 | 0.005       | 0.16        | 2.04         | 0.024          |
-| no_fast_25pct_attention_pass             | 14     | 68           | 7.26      | 6.11            | 1.15 | 0.005       | 0.17        | 2.06         | 0.032          |
-| no_fast_300s_attention_pass              | 13     | 63           | 7.26      | 6.08            | 1.17 | 0.007       | 0.21        | 2.12         | 0.035          |
-| no_fast_30pct_attention_pass             | 13     | 63           | 7.26      | 6.08            | 1.17 | 0.007       | 0.15        | 2.14         | 0.039          |
-| no_fast_5pct_attention_pass              | 18     | 86           | 6.93      | 6.03            | 0.90 | 0.014       | 0.10        | 1.76         | 0.010          |
-| audio_ended_no_fast_20pct_attention_pass | 15     | 73           | 7.09      | 6.11            | 0.98 | 0.015       | 0.07        | 1.89         | 0.026          |
-| no_fast_20pct_attention_pass             | 15     | 73           | 7.09      | 6.11            | 0.98 | 0.015       | 0.10        | 1.91         | 0.029          |
-| no_fast_180s_attention_pass              | 18     | 90           | 6.93      | 6.05            | 0.87 | 0.016       | 0.06        | 1.74         | 0.027          |
-| attention_row_pass                       | 19     | 91           | 6.88      | 6.06            | 0.82 | 0.018       | 0.02        | 1.67         | 0.026          |
-| audio_ended_no_fast_10pct_attention_pass | 16     | 82           | 6.94      | 6.04            | 0.90 | 0.023       | 0.01        | 1.88         | 0.018          |
-| no_fast_10pct_attention_pass             | 16     | 82           | 6.94      | 6.04            | 0.90 | 0.023       | 0.01        | 1.90         | 0.018          |
-| no_fast_240s_attention_pass              | 16     | 80           | 6.94      | 6.04            | 0.90 | 0.024       | 0.01        | 1.90         | 0.014          |
-| no_fast_15pct_attention_pass             | 16     | 76           | 6.94      | 6.07            | 0.87 | 0.028       | -0.05       | 1.84         | 0.022          |
+| no_fast_180s_attention_pass              | 63     | 217          | 7.46      | 6.13            | 1.33 | <0.001      | 0.88        | 1.83         | <0.001         |
+| attention_row_pass                       | 64     | 220          | 7.44      | 6.13            | 1.31 | <0.001      | 0.86        | 1.78         | <0.001         |
+| no_fast_10pct_attention_pass             | 59     | 195          | 7.51      | 6.15            | 1.36 | <0.001      | 0.89        | 1.86         | <0.001         |
+| audio_ended_no_fast_10pct_attention_pass | 59     | 195          | 7.51      | 6.15            | 1.36 | <0.001      | 0.87        | 1.86         | <0.001         |
+| no_fast_15pct_attention_pass             | 56     | 184          | 7.54      | 6.16            | 1.38 | <0.001      | 0.87        | 1.89         | <0.001         |
+| no_fast_20pct_attention_pass             | 53     | 173          | 7.57      | 6.18            | 1.39 | <0.001      | 0.90        | 1.90         | <0.001         |
+| audio_ended_no_fast_20pct_attention_pass | 53     | 173          | 7.57      | 6.18            | 1.39 | <0.001      | 0.89        | 1.91         | <0.001         |
+| no_fast_300s_attention_pass              | 55     | 179          | 7.55      | 6.15            | 1.40 | <0.001      | 0.90        | 1.92         | <0.001         |
+| no_fast_5pct_attention_pass              | 60     | 208          | 7.47      | 6.13            | 1.34 | <0.001      | 0.85        | 1.82         | <0.001         |
+| no_fast_240s_attention_pass              | 60     | 206          | 7.47      | 6.13            | 1.34 | <0.001      | 0.85        | 1.83         | <0.001         |
+| no_fast_25pct_attention_pass             | 51     | 161          | 7.60      | 6.23            | 1.37 | <0.001      | 0.85        | 1.92         | <0.001         |
+| audio_ended_no_fast_25pct_attention_pass | 51     | 161          | 7.60      | 6.23            | 1.37 | <0.001      | 0.86        | 1.87         | <0.001         |
+| no_fast_30pct_attention_pass             | 48     | 150          | 7.56      | 6.24            | 1.32 | <0.001      | 0.78        | 1.89         | <0.001         |
 
 ## Output Tables
 

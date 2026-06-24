@@ -15,7 +15,7 @@ OUT_DIR = ROOT / "analysis_outputs"
 TABLE_DIR = OUT_DIR / "tables"
 
 CONDITIONS = ["baseline", "body", "mind", "soul", "full"]
-FOLLOWUP_SHEETS = ["responses", "responses_v1", "responses_v2"]
+FOLLOWUP_SHEETS = ["responses", "responses_v3", "responses_v2", "responses_v1"]
 
 MEASURE_SPECS = {
     "rating": ("Rating", "Direct rating"),
@@ -44,7 +44,7 @@ FILTERS = [
     FilterSpec("all_followup", "All rows from response sheets with dimension ratings."),
     FilterSpec("attention_row_pass", "Drop rows with explicit failed attention checks; keep rows without a shown check."),
     FilterSpec("attention_participant_pass", "Drop any participant who ever failed an explicit attention check."),
-    FilterSpec("v1_v2_attention_pass", "Use v1/v2 follow-up protocol only; drop explicit attention failures."),
+    FilterSpec("v1_v2_v3_attention_pass", "Use v1/v2/v3 follow-up protocol only; drop explicit attention failures."),
     FilterSpec("v2_attention_pass", "Use v2 follow-up protocol only; drop explicit attention failures."),
     FilterSpec("audio_ended_attention_pass", "Require both audio options to have ended; drop explicit attention failures."),
     FilterSpec("no_fast_180s_attention_pass", "Require at least 180 seconds elapsed; drop explicit attention failures."),
@@ -116,8 +116,8 @@ def apply_filter(df: pd.DataFrame, spec: FilterSpec) -> pd.DataFrame:
     if spec.name == "attention_participant_pass":
         failed_participants = set(df.loc[df["attentionCheckPassed"].eq(0), "participantId"].dropna())
         out = df[~df["participantId"].isin(failed_participants)].copy()
-    if spec.name.startswith("v1_v2"):
-        out = out[out["sourceSheet"].isin(["responses_v1", "responses_v2"])].copy()
+    if spec.name.startswith("v1_v2_v3"):
+        out = out[out["sourceSheet"].isin(["responses_v1", "responses_v2", "responses_v3"])].copy()
     if spec.name.startswith("v2"):
         out = out[out["sourceSheet"].eq("responses_v2")].copy()
     if "audio_ended" in spec.name:

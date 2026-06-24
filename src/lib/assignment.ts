@@ -13,55 +13,29 @@ export const conditionPairs: Array<[ConditionId, ConditionId]> = (() => {
   return pairs;
 })();
 
-export const assignmentSlotCount = 20;
+export const assignmentSlotCount = 4;
 const TRIALS_PER_SLOT = 2;
 
-// V4 balances current 3-dim counts while giving full several baseline matchups.
-// Each participant sees full once plus a no-repeat comparison among the other arms.
+// V6: 5 slots. Trial 0 is always soul-full (pair 9) for every participant.
+// Trial 1 rotates through 5 different ablation-component comparisons to balance condition N.
+// soul-full left/right: 3 soul-left (slots 0,2,4), 2 full-left (slots 1,3).
+//
+// Pair index reference:
+//   0=baseline-mind  1=baseline-body  2=baseline-soul  3=baseline-full
+//   4=mind-body      5=mind-soul      6=mind-full      7=body-soul
+//   8=body-full      9=soul-full
 const pairScheduleByAssignment: number[][] = [
-  [2, 8],
-  [4, 3],
-  [6, 1],
-  [2, 8],
-  [3, 5],
-  [0, 9],
-  [3, 5],
-  [3, 4],
-  [1, 6],
-  [6, 7],
-  [8, 2],
-  [9, 0],
-  [1, 6],
-  [4, 3],
-  [0, 8],
-  [7, 6],
-  [1, 9],
-  [4, 3],
-  [3, 5],
-  [8, 0],
+  [9, 5], // soul-full, mind-soul
+  [9, 7], // soul-full, body-soul
+  [9, 5], // soul-full, mind-soul
+  [9, 7], // soul-full, body-soul
 ];
 
 const swapScheduleByAssignment: boolean[][] = [
-  [true, false],
-  [true, true],
-  [false, false],
-  [true, true],
-  [false, true],
-  [false, false],
-  [false, true],
-  [false, true],
-  [false, false],
-  [true, false],
-  [false, false],
-  [true, true],
-  [false, false],
-  [true, true],
-  [true, true],
-  [false, true],
-  [true, true],
-  [false, false],
-  [true, false],
-  [true, true],
+  [false, false], // soul-left, ...
+  [true,  false], // full-left, ...
+  [false, true],  // soul-left, ...
+  [true,  false], // full-left, ...
 ];
 
 export function hashString(input: string): number {

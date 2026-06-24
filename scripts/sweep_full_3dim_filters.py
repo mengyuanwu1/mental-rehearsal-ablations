@@ -226,6 +226,18 @@ def write_report(filter_rows: pd.DataFrame, comparisons: pd.DataFrame, pooled: p
         ["all_three_methods", "all_row_sig", "max_row_p", "max_perm_p"],
         ascending=[False, False, True, True],
     )
+    success_filters = summary.loc[summary["all_three_methods"], "filter"].tolist()
+    if success_filters:
+        success_text = (
+            f"{len(success_filters)} filter(s) produced significance against **all four** comparators "
+            "across row-level Welch, clustered bootstrap CI, and participant-cluster permutation checks. "
+            f"The strongest screen by max row p / max permutation p is `{success_filters[0]}`."
+        )
+    else:
+        success_text = (
+            "No filter below produced significance against **all four** comparators across all methods. "
+            "Use the table to see which comparator or cluster check is the limiting case."
+        )
 
     best = comparisons.sort_values(["filter", "cluster_perm_p"]).copy()
     best_filter_names = summary["filter"].head(5).tolist()
@@ -252,11 +264,11 @@ Exploratory sensitivity check for the clarified target: **Full 3-dim score great
 
 ## Can Full Beat Every Other Arm?
 
-No filter below produced significance against **all four** comparators across all methods. The closest row-level screen is fastest-25%-removed, but it still misses mind and soul at p<0.05 and fails cluster checks.
+{success_text}
 
 {markdown_table(summary, ["filter", "rows", "participants", "min_diff", "max_row_p", "min_boot_low", "max_perm_p", "all_row_sig", "all_boot_sig", "all_perm_sig"], max_rows=30)}
 
-## Closest Filter Details
+## Leading Filter Details
 
 {markdown_table(detail, ["filter", "comparator", "n_full", "n_comparator", "full_mean", "comparator_mean", "diff", "row_welch_p", "boot_ci_low", "boot_ci_high", "cluster_perm_p", "row_sig", "boot_sig", "perm_sig"], max_rows=60)}
 
