@@ -13,28 +13,45 @@ export const conditionPairs: Array<[ConditionId, ConditionId]> = (() => {
   return pairs;
 })();
 
-export const assignmentSlotCount = 4;
+export const assignmentSlotCount = 10;
 const TRIALS_PER_SLOT = 2;
 
-// V6: 5 slots. Trial 0 is always soul-full (pair 9) for every participant.
-// Trial 1 rotates through 5 different ablation-component comparisons to balance condition N.
-// soul-full left/right: 3 soul-left (slots 0,2,4), 2 full-left (slots 1,3).
+// V7: 10 slots. Trial 0 is always soul-full (pair 9) for every participant.
+// Slots 0-3 (existing): trial 1 rotates mind-soul / body-soul.
+// Slots 4-9 (new, 6 extra soul-full direct comps): trial 1 focuses on body comparisons.
+// soul-full left/right: 5 soul-left (even slots), 5 full-left (odd slots).
 //
 // Pair index reference:
 //   0=baseline-mind  1=baseline-body  2=baseline-soul  3=baseline-full
 //   4=mind-body      5=mind-soul      6=mind-full      7=body-soul
 //   8=body-full      9=soul-full
+// V7: 10 slots total.
+// Slots 0-3: existing batch — kept unchanged so prior participants are unaffected.
+// Slots 4-9: new batch of 6 — all get soul-full (trial 0), exactly 3 get body-soul (trial 1).
+// soul-full left/right: 5 soul-left (even), 5 full-left (odd).
 const pairScheduleByAssignment: number[][] = [
-  [9, 5], // soul-full, mind-soul
-  [9, 7], // soul-full, body-soul
-  [9, 5], // soul-full, mind-soul
-  [9, 7], // soul-full, body-soul
+  [9, 5], // soul-full, mind-soul       ← existing
+  [9, 7], // soul-full, body-soul       ← existing
+  [9, 5], // soul-full, mind-soul       ← existing
+  [9, 7], // soul-full, body-soul       ← existing
+  [9, 7], // soul-full, body-soul       ← new
+  [9, 7], // soul-full, body-soul       ← new
+  [9, 7], // soul-full, body-soul       ← new
+  [9, 8], // soul-full, body-full       ← new
+  [9, 4], // soul-full, mind-body       ← new
+  [9, 1], // soul-full, baseline-body   ← new
 ];
 
 const swapScheduleByAssignment: boolean[][] = [
   [false, false], // soul-left, ...
   [true,  false], // full-left, ...
   [false, true],  // soul-left, ...
+  [true,  false], // full-left, ...
+  [false, false], // soul-left, ...
+  [true,  false], // full-left, ...
+  [false, true],  // soul-left, ...
+  [true,  true],  // full-left, ...
+  [false, false], // soul-left, ...
   [true,  false], // full-left, ...
 ];
 
