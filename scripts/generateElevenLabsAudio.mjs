@@ -193,6 +193,35 @@ function splitPauseMarkedText(text) {
   return parts.length > 0 ? parts : [{ type: "text", text }];
 }
 
+function splitTextIntoSentences(text) {
+  const normalized = text.replace(/\s+/g, " ").trim();
+  if (!normalized) return [];
+
+  if (typeof Intl !== "undefined" && typeof Intl.Segmenter === "function") {
+    const segmenter = new Intl.Segmenter("en", { granularity: "sentence" });
+    const sentences = Array.from(segmenter.segment(normalized), ({ segment }) => segment.trim())
+      .filter(Boolean);
+    if (sentences.length > 0) return sentences;
+  }
+
+  return normalized.match(/[^.!?]+(?:[.!?]+["')\]]*)?/g)?.map((item) => item.trim()).filter(Boolean)
+    ?? [normalized];
+}
+
+function splitTextForSynthesis(text) {
+  return splitPauseMarkedText(text).flatMap((part) => {
+    if (part.type !== "text") return [part];
+    return splitTextIntoSentences(part.text).map((sentence) => ({
+      type: "text",
+      text: sentence,
+    }));
+  });
+}
+
+function synthesisTextChunkCount(text) {
+  return splitTextForSynthesis(text).filter((part) => part.type === "text").length;
+}
+
 function ffmpeg(args, errorMessage) {
   const result = spawnSync("ffmpeg", args, { encoding: "utf8" });
   if (result.status !== 0) {
@@ -206,10 +235,10 @@ function concatFileLine(filePath) {
   return `file '${filePath.replaceAll("'", "'\\''")}'`;
 }
 
-async function synthesizeWithPauses(options) {
-  const parts = splitPauseMarkedText(options.text);
-  if (!parts.some((part) => part.type === "pause")) {
-    return synthesize(options);
+async function synthesizeWithChunking(options) {
+  const parts = splitTextForSynthesis(options.text);
+  if (parts.length === 1 && parts[0]?.type === "text") {
+    return synthesize({ ...options, text: parts[0].text });
   }
 
   const { sampleRate, bitrateKbps } = outputAudioSettings(options.outputFormat);
@@ -355,8 +384,11 @@ async function main() {
           continue;
         }
 
-        console.log(`${scenarioId}/${condition}/${segmentId}: generating ${wordCount(text)} words`);
-        const audio = await synthesizeWithPauses({
+        const chunkCount = synthesisTextChunkCount(text);
+        console.log(
+          `${scenarioId}/${condition}/${segmentId}: generating ${wordCount(text)} words in ${chunkCount} TTS chunks`,
+        );
+        const audio = await synthesizeWithChunking({
           apiKey,
           modelId,
           outputFormat,
