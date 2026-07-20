@@ -98,6 +98,7 @@ type AudioSegmentMetrics = {
 };
 
 type AudioMetricsBySide = Record<AudioSide, AudioMetrics>;
+type AudioDurationLookup = Record<string, number | null>;
 
 type ScriptMeasureId = "bodyState" | "taskGoal" | "valueConnection" | "ease" | "overall";
 
@@ -258,6 +259,72 @@ const audioMetricsFromResponse = (response?: TrialResponse): AudioMetricsBySide 
 });
 
 const roundedAudioSeconds = (value: number) => Math.round(Math.max(0, value) * 10) / 10;
+
+const formatAudioTime = (seconds: number | null | undefined) => {
+  if (seconds == null || !Number.isFinite(seconds) || seconds < 0) return "--:--";
+  const wholeSeconds = Math.round(seconds);
+  const minutes = Math.floor(wholeSeconds / 60);
+  const remainingSeconds = wholeSeconds % 60;
+  return `${minutes}:${String(remainingSeconds).padStart(2, "0")}`;
+};
+
+const audioPathsForSegments = (segmentIds: AudioSegmentId[], segments: AudioSegmentMap) =>
+  segmentIds.map((segmentId) => segments[segmentId]).filter((path): path is string => Boolean(path));
+
+const audioDurationForPath = (path: string | undefined, durations: AudioDurationLookup) => {
+  if (!path) return null;
+  const duration = durations[path];
+  return typeof duration === "number" && Number.isFinite(duration) && duration > 0 ? duration : null;
+};
+
+const totalAudioDurationForSegments = (
+  segmentIds: AudioSegmentId[],
+  segments: AudioSegmentMap,
+  durations: AudioDurationLookup,
+) => {
+  let total = 0;
+
+  for (const segmentId of segmentIds) {
+    const duration = audioDurationForPath(segments[segmentId], durations);
+    if (duration === null) return null;
+    total += duration;
+  }
+
+  return roundedAudioSeconds(total);
+};
+
+const cumulativeAudioPositionForSegments = ({
+  activeSegmentId,
+  metrics,
+  segmentIds,
+  segments,
+  durations,
+}: {
+  activeSegmentId: AudioSegmentId;
+  metrics: AudioMetrics;
+  segmentIds: AudioSegmentId[];
+  segments: AudioSegmentMap;
+  durations: AudioDurationLookup;
+}) => {
+  let total = 0;
+
+  for (const segmentId of segmentIds) {
+    const segmentDuration = audioDurationForPath(segments[segmentId], durations);
+    const segmentProgress = metrics.segmentProgress[segmentId]?.maxPositionSeconds ?? 0;
+    const boundedProgress = segmentDuration === null ? segmentProgress : Math.min(segmentProgress, segmentDuration);
+
+    if (segmentId === activeSegmentId) {
+      total += boundedProgress;
+      break;
+    }
+
+    total += metrics.segmentProgress[segmentId]?.ended
+      ? (segmentDuration ?? segmentProgress)
+      : boundedProgress;
+  }
+
+  return roundedAudioSeconds(total);
+};
 
 const continuousPlayedSeconds = (audio: HTMLAudioElement) => {
   let continuousEnd = 0;
@@ -1158,6 +1225,7 @@ function StudyTask({
   const [attentionCheckAnswer, setAttentionCheckAnswer] = useState("");
   const [audioMetrics, setAudioMetrics] = useState<AudioMetricsBySide>(emptyAudioMetrics);
   const [audioStepBySide, setAudioStepBySide] = useState<Record<AudioSide, number>>({ left: 0, right: 0 });
+  const [audioDurations, setAudioDurations] = useState<AudioDurationLookup>({});
   const [startedAt, setStartedAt] = useState(() => new Date().toISOString());
   const [postingError, setPostingError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -1169,6 +1237,7 @@ function StudyTask({
     secondsRemaining: adminMode ? 0 : minimumScenarioReviewSeconds,
   }));
   const submittingRef = useRef(false);
+  const audioDurationRequestsRef = useRef<Set<string>>(new Set());
 
   const comparisonComplete = trialIndex >= assignment.trials.length;
   const complete = questionnaire !== null;
@@ -1188,6 +1257,13 @@ function StudyTask({
   );
   const leftAudioSegmentIds = useMemo(() => orderedAudioSegments(leftAudioSegments), [leftAudioSegments]);
   const rightAudioSegmentIds = useMemo(() => orderedAudioSegments(rightAudioSegments), [rightAudioSegments]);
+  const audioDurationPaths = useMemo(
+    () => Array.from(new Set([
+      ...audioPathsForSegments(leftAudioSegmentIds, leftAudioSegments),
+      ...audioPathsForSegments(rightAudioSegmentIds, rightAudioSegments),
+    ])),
+    [leftAudioSegmentIds, leftAudioSegments, rightAudioSegmentIds, rightAudioSegments],
+  );
   const leftTextSegments = useMemo(
     () => textSegmentsForCondition(scenario, trial.leftCondition),
     [scenario.id, trial.leftCondition],
@@ -1278,6 +1354,51 @@ function StudyTask({
     }
     setPostingError("");
   }, [assignment.trials.length, currentTrialResponse, leftAudioSegmentIds, rightAudioSegmentIds, trialIndex]);
+
+  useEffect(() => {
+    const cleanupCallbacks: Array<() => void> = [];
+
+    audioDurationPaths.forEach((path) => {
+      if (audioDurationRequestsRef.current.has(path)) return;
+
+      audioDurationRequestsRef.current.add(path);
+      const audio = new Audio(path);
+      audio.preload = "metadata";
+      let isSettled = false;
+
+      const commitDuration = (duration: number | null) => {
+        isSettled = true;
+        setAudioDurations((current) => {
+          if (current[path] !== undefined) return current;
+          return { ...current, [path]: duration };
+        });
+      };
+
+      const handleLoadedMetadata = () => {
+        const duration = Number.isFinite(audio.duration) ? roundedAudioSeconds(audio.duration) : null;
+        commitDuration(duration);
+      };
+      const handleError = () => commitDuration(null);
+
+      audio.addEventListener("loadedmetadata", handleLoadedMetadata);
+      audio.addEventListener("durationchange", handleLoadedMetadata);
+      audio.addEventListener("error", handleError);
+      audio.load();
+
+      cleanupCallbacks.push(() => {
+        audio.removeEventListener("loadedmetadata", handleLoadedMetadata);
+        audio.removeEventListener("durationchange", handleLoadedMetadata);
+        audio.removeEventListener("error", handleError);
+        if (!isSettled) {
+          audioDurationRequestsRef.current.delete(path);
+        }
+      });
+    });
+
+    return () => {
+      cleanupCallbacks.forEach((cleanup) => cleanup());
+    };
+  }, [audioDurationPaths]);
 
   useEffect(() => {
     if (adminMode || trialIndex >= assignment.trials.length || currentTrialResponse) {
@@ -1522,6 +1643,19 @@ function StudyTask({
     const isFinalSegment = stepIndex >= segmentIds.length - 1;
     const canAdvanceSegment = adminMode || segmentEnded;
     const nextButtonText = isFinalSegment ? "Show full script" : "Continue";
+    const currentSegmentDuration = audioDurationForPath(audioPath, audioDurations);
+    const totalAudioDuration = totalAudioDurationForSegments(segmentIds, segments, audioDurations);
+    const cumulativeAudioPosition = cumulativeAudioPositionForSegments({
+      activeSegmentId: segmentId,
+      metrics: sideMetrics,
+      segmentIds,
+      segments,
+      durations: audioDurations,
+    });
+    const fullRehearsalProgress =
+      totalAudioDuration === null || totalAudioDuration <= 0
+        ? 0
+        : Math.min(100, Math.max(0, (cumulativeAudioPosition / totalAudioDuration) * 100));
 
     return (
       <div className="script-audio-flow">
@@ -1543,6 +1677,19 @@ function StudyTask({
           preload="none"
           src={audioPath}
         />
+        <div className="audio-duration-summary" aria-label={`${label} rehearsal audio duration`}>
+          <div>
+            <span>Whole rehearsal</span>
+            <strong>{formatAudioTime(cumulativeAudioPosition)} / {formatAudioTime(totalAudioDuration)}</strong>
+          </div>
+          <div>
+            <span>Current part</span>
+            <strong>{formatAudioTime(currentSegmentDuration)}</strong>
+          </div>
+          <div className="audio-duration-progress" aria-hidden="true">
+            <span style={{ width: `${fullRehearsalProgress}%` }} />
+          </div>
+        </div>
         <div className="script-segment-copy">{segmentText}</div>
         {isFinalSegment && !adminMode ? (
           <p>Listen to the final part all the way through. The complete script text will appear afterward.</p>

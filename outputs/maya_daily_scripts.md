@@ -21,9 +21,9 @@ Today's work stays close to the workshop paper. The related work section gets th
 The useful finish is a related work section with papers grouped, a plain gap statement, and enough connection back to the paper's contribution to revise later. The 90-minute writing block does not need a perfect literature map; it needs a coherent draft that can survive feedback. Teaching email and reading group prep can remain short, defined tasks after that main writing pass. If the order of prior work feels uncertain, choose the strongest current order and leave one revision note.
 
 The next doable action is opening the section and writing the first paragraph in the current best order today, without reopening every decision. Once that exists, the paper has moved forward.
-## body (145 words)
+## body (151 words)
 
-Notice the breath arriving on its own, with the chair under you and both feet meeting the floor. After short, restless sleep, the body may feel undercharged, so let contact, a quiet room sound, and the taste of coffee become enough to locate you.
+Thank you for being here, Maya. Notice the breath arriving on its own, with the chair under you and both feet meeting the floor. After short, restless sleep, the body may feel undercharged, so let contact, a quiet room sound, and the taste of coffee become enough to locate you.
 
 Let the phone turned face down stay only as a soft boundary in the background. Morning light can register softly, not as a signal to move faster, but as one more sensation the body can receive. Some light movement is already in the legs, while stress may sit as tightness in the chest, face, stomach, or hands. You can sense the tiredness without turning it into a problem, and let one small area release.
 
@@ -35,9 +35,9 @@ Independent Thinking begins as trusting my own questions before borrowing other 
 Success means finishing what matters, and I let that meaning stay clean and personal. I carry the feeling of being accomplished, focused, and competent as something steady, not something I have to perform for anyone else. Visible progress can be simple: enough that I can stand behind it, enough that it reflects what matters. I can respect completion as a form of self-trust, not a demand to become more than I am.
 
 Open-Mindedness is staying curious about answers I did not expect. I let curiosity feel supported, spacious, and honest, with learning something as a sign that I am still available to the world. Not forcing certainty, not closing too soon; just remaining close to the questions that make life wider. Say it slowly: I trust my own questions, finish what matters, and stay curious about what I do not yet know.
-## full (218 words)
+## full (239 words)
 
-Take a slow breath in, and let the exhale give your ribs a little room. <pause 2 sec> Feel the chair holding you, feet on the floor, hands settling, and jaw softening. <pause 5 sec> With short, restless sleep and low energy, set morning light and coffee as anchors for focus. Tap next once you feel grounded.
+Thank you for being here, Maya. Take a slow breath in, and let the exhale give your ribs a little room. <pause 2 sec> Feel the chair holding you, feet on the floor, hands settling, and jaw softening. <pause 5 sec> With short, restless sleep and low energy, set morning light and coffee as anchors for focus. Tap next once you feel grounded.
 
 You are on track toward becoming an independent researcher and submitting a strong workshop paper this month. Today's three priorities are Draft related work section at 9 AM, Answer TA emails at 1 PM, and Prepare two reading group questions at 3 PM. Imagine moving through those priorities one at a time. <pause 10 sec> How do you feel in your body as the writing block, emails, and reading questions move forward, and what do you sense in touch, sight, and sound? <pause 10 sec> How does it feel mentally as it connects to self-trust, competence, and curiosity? <pause 10 sec> You can complete the important pieces without forcing intensity. Take time with the image, and tap next when ready.
 

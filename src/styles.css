@@ -603,6 +603,58 @@ small {
   margin: 0 0 14px;
 }
 
+.audio-duration-summary {
+  display: grid;
+  gap: 8px;
+  margin: -4px 0 14px;
+  border: 1px solid #dce9e8;
+  border-radius: 8px;
+  background: #f8fbfa;
+  padding: 10px 12px;
+}
+
+.audio-duration-summary > div:not(.audio-duration-progress) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-width: 0;
+}
+
+.audio-duration-summary span {
+  min-width: 0;
+  color: #64717f;
+  font-size: 11px;
+  font-weight: 760;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.audio-duration-summary strong {
+  flex: 0 0 auto;
+  color: #17212b;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.audio-duration-progress {
+  height: 6px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #dbe7e8;
+}
+
+.audio-duration-progress span {
+  display: block;
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: #1f8a82;
+  transition: width 160ms ease;
+}
+
 .script-segment-copy {
   white-space: pre-line;
   border: 1px solid #edf1f3;
