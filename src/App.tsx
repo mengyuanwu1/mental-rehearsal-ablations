@@ -9,6 +9,7 @@ import {
   type FormEvent,
   type SyntheticEvent,
 } from "react";
+import ConsentForm from "./ConsentForm";
 import { getScenario, scenarios } from "./data/scenarios";
 import {
   audioSegmentsForCondition,
@@ -23,6 +24,7 @@ import {
   postQuestionnaire,
   postResponse,
   postStateCheck,
+  readStoredConsent,
   readStoredQuestionnaire,
   readStoredResponses,
   readStoredStateCheck,
@@ -31,6 +33,7 @@ import {
   storeStateCheck,
 } from "./lib/responses";
 import type {
+  ConsentResponse,
   QuestionnaireAnswers,
   QuestionnaireResponse,
   Scenario,
@@ -828,6 +831,7 @@ export default function App() {
   const [showAdminPassword, setShowAdminPassword] = useState(false);
   const [adminParticipantId, setAdminParticipantId] = useState("");
   const [adminAssignmentId, setAdminAssignmentId] = useState<number | null>(null);
+  const [consent, setConsent] = useState<ConsentResponse | null>(null);
   const [stateCheck, setStateCheck] = useState<StateCheckResponse | null>(null);
   const [stateCheckDraft, setStateCheckDraft] = useState<StateCheckAnswers>(emptyStateCheckAnswers);
 
@@ -849,9 +853,11 @@ export default function App() {
       adminMode && adminAssignmentId !== null
         ? adminAssignmentId
         : assignmentIdFromParams(params, nextParticipantId);
+    const storedConsent = readStoredConsent(nextParticipantId, nextAssignmentId);
     const storedStateCheck = readStoredStateCheck(nextParticipantId, nextAssignmentId);
 
     setParticipantId(nextParticipantId);
+    setConsent(storedConsent);
     setStateCheck(storedStateCheck);
     setStateCheckDraft(stateCheckAnswersFromResponse(storedStateCheck));
     setIntroAccepted(false);
@@ -953,6 +959,24 @@ export default function App() {
     );
   }
 
+  if (!consent && activeAssignmentId !== null) {
+    return (
+      <ConsentForm
+        adminMode={adminMode}
+        assignmentId={activeAssignmentId}
+        onBack={() => {
+          setParticipantId("");
+          setConsent(null);
+          setStateCheck(null);
+          setStateCheckDraft(emptyStateCheckAnswers);
+          setIntroAccepted(false);
+        }}
+        onSubmitted={setConsent}
+        participantId={activeParticipantId}
+      />
+    );
+  }
+
   if (!stateCheck && activeAssignmentId !== null) {
     return (
       <StateCheckForm
@@ -960,7 +984,7 @@ export default function App() {
         assignmentId={activeAssignmentId}
         initialAnswers={stateCheckDraft}
         onBack={() => {
-          setParticipantId("");
+          setConsent(null);
           setStateCheck(null);
           setStateCheckDraft(emptyStateCheckAnswers);
           setIntroAccepted(false);

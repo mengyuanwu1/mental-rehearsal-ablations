@@ -1,4 +1,4 @@
-import type { QuestionnaireResponse, StateCheckResponse, TrialResponse } from "../types";
+import type { ConsentResponse, QuestionnaireResponse, StateCheckResponse, TrialResponse } from "../types";
 
 const responseKey = (participantId: string, assignmentId: number) =>
   `mra-responses:${participantId || "anonymous"}:${assignmentId}`;
@@ -8,6 +8,9 @@ const questionnaireKey = (participantId: string, assignmentId: number) =>
 
 const stateCheckKey = (participantId: string, assignmentId: number) =>
   `mra-state-check:${participantId || "anonymous"}:${assignmentId}`;
+
+const consentKey = (participantId: string, assignmentId: number) =>
+  `mra-consent:${participantId || "anonymous"}:${assignmentId}`;
 
 export function readStoredResponses(participantId: string, assignmentId: number): TrialResponse[] {
   const raw = window.localStorage.getItem(responseKey(participantId, assignmentId));
@@ -73,6 +76,28 @@ export function storeStateCheck(response: StateCheckResponse): StateCheckRespons
   return response;
 }
 
+export function readStoredConsent(
+  participantId: string,
+  assignmentId: number,
+): ConsentResponse | null {
+  const raw = window.localStorage.getItem(consentKey(participantId, assignmentId));
+  if (!raw) return null;
+  try {
+    const response = JSON.parse(raw) as ConsentResponse;
+    return response.consentGiven === true ? response : null;
+  } catch {
+    return null;
+  }
+}
+
+export function storeConsent(response: ConsentResponse): ConsentResponse {
+  window.localStorage.setItem(
+    consentKey(response.participantId, response.assignmentId),
+    JSON.stringify(response),
+  );
+  return response;
+}
+
 async function postPayload(payload: Record<string, unknown>): Promise<void> {
   const endpoint = import.meta.env.VITE_RESPONSE_ENDPOINT as string | undefined;
   if (!endpoint) return;
@@ -102,6 +127,28 @@ export async function postQuestionnaire(questionnaire: QuestionnaireResponse): P
 
 export async function postStateCheck(stateCheck: StateCheckResponse): Promise<void> {
   await postPayload({ stateCheck });
+}
+
+export async function postConsent(consent: ConsentResponse): Promise<void> {
+  // Older collector deployments do not have a dedicated consent branch. Including
+  // a state-check-shaped fallback keeps those deployments from treating consent
+  // as an anonymous trial; updated collectors prioritize the consent payload.
+  await postPayload({
+    consent,
+    stateCheck: {
+      responseId: consent.responseId,
+      participantId: consent.participantId,
+      assignmentId: consent.assignmentId,
+      stateCheckVersion: `consent:${consent.consentVersion}`,
+      currentMood: "consent-given",
+      currentEnergy: "",
+      planningStyle: "",
+      startedAt: consent.startedAt,
+      submittedAt: consent.submittedAt,
+      elapsedMs: consent.elapsedMs,
+      userAgent: consent.userAgent,
+    },
+  });
 }
 
 const escapeCsvValue = (value: unknown) => {

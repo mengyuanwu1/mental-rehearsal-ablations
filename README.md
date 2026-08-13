@@ -14,7 +14,8 @@ Small static web UI for Prolific / Qualtrics pairwise comparison tasks.
 - Each participant sees `full` exactly once, directly against `baseline`, `mind`, `body`, or `soul`
 - The second comparison uses two fresh non-full conditions, with a mix of baseline-vs-middle and middle-vs-middle comparisons
 - Script order balanced across assignment slots so `full` appears 10 times as Script A and 10 times as Script B
-- After entering a Prolific ID, participants answer a 3-item state check, then see the brief introduction
+- After entering a Prolific ID, participants review and electronically accept the consent form
+- After consent, participants answer a 3-item state check, then see the brief introduction
 - Each comparison requires a 45-second review period before the participant can continue
 - Participants must choose one script and rate both scripts before continuing
 - Comparison 2 includes a short exact-recall attention check that rotates across
@@ -96,12 +97,14 @@ VITE_RESPONSE_SECRET=replace-with-the-same-shared-secret
 VITE_STUDY_ID=mental-rehearsal-ablation-v1
 ```
 
-The frontend sends one pre-study row to the `state_check_responses` sheet, one row per
-trial to the `responses` sheet, then one final row to the `questionnaire_responses` sheet.
+The frontend sends one electronic-consent row to the `consent_responses` sheet, one
+pre-study row to the `state_check_responses` sheet, one row per trial to the `responses`
+sheet, then one final row to the `questionnaire_responses` sheet.
 It uses `text/plain` + `no-cors` so Google Apps Script
 accepts browser posts without a CORS preflight. This means the browser cannot confirm the
 sheet write response, so `localStorage` remains the participant-side backup.
-Pre-study rows use `responseId = participantId:assignmentId:state-check`, trial rows use
+Consent rows use `responseId = participantId:assignmentId:consent`, pre-study rows use
+`responseId = participantId:assignmentId:state-check`, trial rows use
 `responseId = participantId:assignmentId:trialIndex`, and the questionnaire uses
 `responseId = participantId:assignmentId:questionnaire`. The Apps Script collector updates
 an existing row with the same `responseId`, so Back edits replace the prior save.
@@ -124,6 +127,13 @@ leftBodyStateRating, rightBodyStateRating,
 leftTaskGoalRating, rightTaskGoalRating,
 leftValueConnectionRating, rightValueConnectionRating,
 leftEaseRating, rightEaseRating
+```
+
+Consent sheet columns:
+
+```text
+receivedAt, studyId, responseId, participantId, assignmentId, consentVersion,
+consentGiven, startedAt, submittedAt, elapsedMs, userAgent
 ```
 
 Questionnaire sheet columns:

@@ -158,3 +158,15 @@ export type StateCheckResponse = StateCheckAnswers & {
   elapsedMs: number;
   userAgent: string;
 };
+
+export type ConsentResponse = {
+  responseId: string;
+  participantId: string;
+  assignmentId: number;
+  consentVersion: string;
+  consentGiven: true;
+  startedAt: string;
+  submittedAt: string;
+  elapsedMs: number;
+  userAgent: string;
+};
