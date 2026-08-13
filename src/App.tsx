@@ -911,7 +911,7 @@ export default function App() {
     return (
       <main className="app-shell">
         <section className="start-panel">
-          <p className="overline">Mental rehearsal comparison</p>
+          <p className="overline">Guided exercise study</p>
           <h1>Enter your Prolific ID to begin.</h1>
           <p>
             Please use the exact Prolific ID shown on Prolific. Your responses will be linked to
